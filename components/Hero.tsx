@@ -146,28 +146,56 @@ export default function Hero() {
             <div className="visual-container">
               <div className="tech-stack">
                 <div className="tech-item">
-                  <div className="tech-logo">⚛️</div>
+                  <div className="tech-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 9.861a2.139 2.139 0 1 0 0 4.278 2.139 2.139 0 1 0 0-4.278z" fill="currentColor"/>
+                      <path d="M20.192 9.273l-2.04-2.051a1 1 0 0 0-1.414 0L12 11.96l-4.738-4.738a1 1 0 0 0-1.414 0l-2.04 2.051A1 1 0 0 0 3.5 10.586v2.828a1 1 0 0 0 .308.707l2.04 2.051a1 1 0 0 0 1.414 0L12 11.434l4.738 4.738a1 1 0 0 0 1.414 0l2.04-2.051a1 1 0 0 0 .308-.707v-2.828a1 1 0 0 0-.308-.707z" stroke="currentColor" strokeWidth="1"/>
+                    </svg>
+                  </div>
                   <span>React</span>
                 </div>
                 <div className="tech-item">
-                  <div className="tech-logo">📱</div>
+                  <div className="tech-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 5.16-1 9-5.45 9-11V7l-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
                   <span>Next.js</span>
                 </div>
                 <div className="tech-item">
-                  <div className="tech-logo">🔷</div>
+                  <div className="tech-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
                   <span>TypeScript</span>
                 </div>
                 <div className="tech-item">
-                  <div className="tech-logo">🎨</div>
-                  <span>Figma</span>
+                  <div className="tech-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M9 9h6v6H9z" stroke="currentColor" strokeWidth="2"/>
+                    </svg>
+                  </div>
+                  <span>Design</span>
                 </div>
                 <div className="tech-item">
-                  <div className="tech-logo">🤖</div>
-                  <span>OpenAI</span>
+                  <div className="tech-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" strokeWidth="2"/>
+                      <polyline points="3.27,6.96 12,12.01 20.73,6.96" stroke="currentColor" strokeWidth="2"/>
+                      <line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" strokeWidth="2"/>
+                    </svg>
+                  </div>
+                  <span>AI/ML</span>
                 </div>
                 <div className="tech-item">
-                  <div className="tech-logo">☁️</div>
-                  <span>AWS</span>
+                  <div className="tech-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <span>Cloud</span>
                 </div>
               </div>
               
