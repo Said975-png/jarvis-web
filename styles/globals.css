@@ -200,7 +200,9 @@ body {
 }
 
 .badge-icon {
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  color: var(--color-primary);
 }
 
 .hero-title {
