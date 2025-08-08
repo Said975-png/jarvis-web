@@ -42,7 +42,7 @@ body {
 /* Hero Section */
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
   overflow: hidden;
 }
