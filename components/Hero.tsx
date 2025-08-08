@@ -38,7 +38,11 @@ export default function Hero() {
         {/* Navigation */}
         <nav className="hero-nav">
           <div className="logo">
-            <span className="logo-icon">⚡</span>
+            <div className="logo-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
             <span className="logo-text">JARVIS</span>
           </div>
           <div className="nav-links">
@@ -52,38 +56,57 @@ export default function Hero() {
         <div className="hero-main">
           <div className="hero-content">
             <div className="hero-badge">
-              <span className="badge-icon">🚀</span>
+              <div className="badge-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                  <path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
               Передовые AI-технологии
             </div>
-            
+
             <h1 className="hero-title">
               Создаем <span className="title-highlight">инновационные</span><br />
               веб-решения будущего
             </h1>
-            
+
             <p className="hero-description">
-              Мы объединяем креативность дизайна с мощью искусственного интеллекта, 
-              чтобы создавать веб-сайты и приложения, которые не просто впечатляют, 
+              Мы объединяем креативность дизайна с мощью искусственного интеллекта,
+              чтобы создавать веб-сайты и приложения, которые не просто впечатляют,
               а революционизируют пользовательский опыт.
             </p>
 
             <div className="hero-features">
               <div className="feature">
-                <div className="feature-icon">🎨</div>
+                <div className="feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
                 <div>
                   <h4>Современный дизайн</h4>
                   <p>Уникальные UI/UX решения</p>
                 </div>
               </div>
               <div className="feature">
-                <div className="feature-icon">⚡</div>
+                <div className="feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <polygon points="13,2 3,14 12,14 11,22 21,10 12,10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
                 <div>
                   <h4>Высокая производительность</h4>
                   <p>Оптимизация и скорость</p>
                 </div>
               </div>
               <div className="feature">
-                <div className="feature-icon">🤖</div>
+                <div className="feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                    <circle cx="9" cy="9" r="2" stroke="currentColor" strokeWidth="2"/>
+                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
                 <div>
                   <h4>AI-интеграция</h4>
                   <p>Умные алгоритмы</p>
