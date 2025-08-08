@@ -2,12 +2,15 @@
   "name": "code",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "dev": "echo 'Development server not configured yet'",
-    "start": "node index.js"
+    "dev": "npx http-server . -p 3000 -c-1",
+    "start": "npm run dev"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
 }
