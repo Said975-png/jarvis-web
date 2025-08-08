@@ -175,9 +175,9 @@ body {
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
-  padding: 2rem 0;
+  padding: 1rem 0 2rem;
 }
 
 /* Hero Content */
