@@ -1,676 +1,267 @@
-/* ================================
-   MODERN PRICING SECTION WITH NEW CARD SHAPES
-   ================================ */
+/* Modern Pricing Section Styles */
 
+/* Utility classes for gradients and effects */
+.from-slate-900 { --tw-gradient-from: #0f172a; }
+.to-slate-800 { --tw-gradient-to: #1e293b; }
+.from-blue-600 { --tw-gradient-from: #2563eb; }
+.to-purple-600 { --tw-gradient-to: #9333ea; }
+.from-purple-900 { --tw-gradient-from: #581c87; }
+.to-slate-900 { --tw-gradient-to: #0f172a; }
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-to));
+}
+
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to));
+}
+
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.text-transparent {
+  color: transparent;
+}
+
+/* Color utilities */
+.text-blue-400 { color: #60a5fa; }
+.text-blue-600 { color: #2563eb; }
+.text-blue-700 { color: #1d4ed8; }
+.text-yellow-400 { color: #facc15; }
+.text-purple-400 { color: #c084fc; }
+.text-purple-900 { color: #581c87; }
+.text-slate-600 { color: #475569; }
+.text-slate-900 { color: #0f172a; }
+
+.bg-blue-100 { background-color: #dbeafe; }
+.bg-slate-900 { background-color: #0f172a; }
+.bg-slate-800 { background-color: #1e293b; }
+
+/* Background utilities */
+.from-slate-50 { --tw-gradient-from: #f8fafc; }
+.via-blue-50 { --tw-gradient-via: #eff6ff; }
+.to-indigo-100 { --tw-gradient-to: #e0e7ff; }
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to));
+}
+
+/* Animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Shadow utilities */
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Backdrop utilities */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+/* Border utilities */
+.border-white\/20 {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Background opacity utilities */
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-white\/20 {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Text opacity utilities */
+.text-white\/80 {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.text-white\/70 {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.text-white\/90 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Mix blend mode */
+.mix-blend-multiply {
+  mix-blend-mode: multiply;
+}
+
+/* Filter utilities */
+.filter {
+  filter: var(--tw-filter);
+}
+
+.blur-xl {
+  --tw-blur: blur(24px);
+  filter: var(--tw-blur);
+}
+
+/* Responsive utilities */
+@media (min-width: 768px) {
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .lg\:gap-6 {
+    gap: 1.5rem;
+  }
+  
+  .lg\:-mt-6 {
+    margin-top: -1.5rem;
+  }
+  
+  .lg\:mb-6 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Custom styles for the component */
 .pricing-section {
   position: relative;
   min-height: 100vh;
-  background: transparent;
+  padding: 6rem 1rem;
   overflow: hidden;
-  padding: 120px 0;
-  margin: 0;
 }
 
 .pricing-container {
   position: relative;
-  z-index: 2;
-  max-width: 1400px;
+  max-width: 80rem;
   margin: 0 auto;
-  padding: 0 3rem;
 }
-
-/* ================================
-   SECTION HEADER
-   ================================ */
 
 .pricing-header {
   text-align: center;
   margin-bottom: 5rem;
-  animation: slideInUp 0.8s ease-out;
 }
 
 .pricing-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
-  padding: 12px 24px;
-  border-radius: 32px;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 24px;
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  backdrop-filter: blur(12px);
-}
-
-.badge-icon {
-  color: #10b981;
+  gap: 0.5rem;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
 }
 
 .pricing-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  line-height: 1.1;
-  color: #1f2937;
-  margin-bottom: 24px;
-  letter-spacing: -0.025em;
-}
-
-.title-highlight {
-  background: linear-gradient(135deg, #10b981, #059669);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, #0f172a, #1d4ed8, #0f172a);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 }
 
 .pricing-description {
-  font-size: 1.125rem;
-  color: #6b7280;
-  line-height: 1.7;
-  max-width: 640px;
+  font-size: 1.25rem;
+  color: #475569;
+  max-width: 48rem;
   margin: 0 auto;
+  line-height: 1.75;
 }
-
-/* ================================
-   PRICING GRID
-   ================================ */
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  animation: slideInUp 0.8s ease-out 0.2s both;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
-/* ================================
-   HEXAGONAL CARDS - BASIC
-   ================================ */
-
-.pricing-card.basic-card {
+.pricing-card {
   position: relative;
-  background: transparent;
-  padding: 0;
-  height: 500px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.pricing-card.basic-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 280px;
-  height: 480px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.95));
-  clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-  border: 2px solid rgba(229, 231, 235, 0.5);
-  backdrop-filter: blur(20px);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  transition: all 0.4s ease;
-}
-
-.pricing-card.basic-card:hover::before {
-  transform: translateX(-50%) scale(1.05);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  border-color: rgba(16, 185, 129, 0.4);
-}
-
-/* ================================
-   DIAMOND CARDS - PRO (FEATURED)
-   ================================ */
-
-.pricing-card.pro-card {
-  position: relative;
-  background: transparent;
-  padding: 0;
-  height: 520px;
-  transform: scale(1.08);
-  z-index: 3;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.pricing-card.pro-card::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
-  height: 500px;
-  background: linear-gradient(145deg, 
-    rgba(16, 185, 129, 0.1), 
-    rgba(255, 255, 255, 0.95),
-    rgba(6, 182, 212, 0.1));
-  clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%);
-  border: 3px solid rgba(16, 185, 129, 0.3);
-  backdrop-filter: blur(24px);
-  box-shadow: 
-    0 25px 50px rgba(16, 185, 129, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  transition: all 0.4s ease;
-}
-
-.pricing-card.pro-card:hover::before {
-  transform: translateX(-50%) scale(1.05) rotate(5deg);
-  box-shadow: 
-    0 35px 70px rgba(16, 185, 129, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
-  border-color: rgba(16, 185, 129, 0.5);
-}
-
-/* ================================
-   CURVED CARDS - MAX
-   ================================ */
-
-.pricing-card.max-card {
-  position: relative;
-  background: transparent;
-  padding: 0;
-  height: 500px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.pricing-card.max-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 280px;
-  height: 480px;
-  background: linear-gradient(145deg, 
-    rgba(139, 92, 246, 0.05), 
-    rgba(255, 255, 255, 0.9),
-    rgba(124, 58, 237, 0.05));
-  clip-path: ellipse(140px 240px at 50% 50%);
-  border: 2px solid rgba(139, 92, 246, 0.2);
-  backdrop-filter: blur(20px);
-  box-shadow: 
-    0 8px 32px rgba(139, 92, 246, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  transition: all 0.4s ease;
-}
-
-.pricing-card.max-card:hover::before {
-  transform: translateX(-50%) scale(1.05);
-  box-shadow: 
-    0 20px 40px rgba(139, 92, 246, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  border-color: rgba(139, 92, 246, 0.4);
-}
-
-/* ================================
-   CARD GLOW EFFECTS
-   ================================ */
-
-.card-glow {
-  position: absolute;
-  inset: -4px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-  filter: blur(12px);
-}
-
-.basic-card .card-glow {
-  background: linear-gradient(135deg, 
-    rgba(229, 231, 235, 0.3),
-    rgba(156, 163, 175, 0.3));
-  clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-}
-
-.pro-card .card-glow {
-  background: linear-gradient(135deg, 
-    rgba(16, 185, 129, 0.4),
-    rgba(6, 182, 212, 0.4));
-  clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%);
-}
-
-.max-card .card-glow {
-  background: linear-gradient(135deg, 
-    rgba(139, 92, 246, 0.4),
-    rgba(124, 58, 237, 0.4));
-  clip-path: ellipse(144px 244px at 50% 50%);
-}
-
-.pricing-card:hover .card-glow {
-  opacity: 1;
-  animation: glowPulse 2s infinite;
-}
-
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.02); }
-}
-
-/* ================================
-   POPULAR BADGE
-   ================================ */
-
-.popular-badge {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
-  z-index: 10;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.popular-badge .badge-glow {
-  position: absolute;
-  inset: -4px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 70%);
-  border-radius: 24px;
-  z-index: -1;
-  animation: badgeGlow 3s infinite;
-}
-
-@keyframes badgeGlow {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-}
-
-/* ================================
-   CARD CONTENT
-   ================================ */
-
-.card-content {
-  position: relative;
-  z-index: 2;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem 1.5rem;
-}
-
-/* ================================
-   PLAN HEADER
-   ================================ */
-
-.plan-header {
-  margin-bottom: 1.5rem;
-}
-
-.plan-icon {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 1rem;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.basic-icon {
-  background: linear-gradient(135deg, #64748b, #475569);
-  color: white;
-}
-
-.pro-icon {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
-}
-
-.max-icon {
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  color: white;
-  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
-}
-
-.pricing-card:hover .plan-icon {
-  transform: scale(1.1) rotate(10deg);
-}
-
-.plan-name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 0.25rem;
-  letter-spacing: -0.025em;
-}
-
-.plan-subtitle {
-  font-size: 0.75rem;
-  color: #6b7280;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* ================================
-   PRICING DISPLAY
-   ================================ */
-
-.plan-pricing {
-  margin-bottom: 1.5rem;
-  padding: 1rem 0;
-}
-
-.price-display {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 2px;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-}
-
-.currency {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #6b7280;
-  align-self: flex-start;
-  margin-top: 4px;
-}
-
-.price-amount {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #1f2937;
-  line-height: 1;
-  letter-spacing: -0.025em;
-}
-
-.price-period {
-  font-size: 0.75rem;
-  color: #9ca3af;
-  font-weight: 500;
-  align-self: flex-end;
-  margin-bottom: 2px;
-}
-
-.price-description {
-  font-size: 0.75rem;
-  color: #6b7280;
-  margin: 0;
-  line-height: 1.4;
-  max-width: 200px;
-  margin: 0 auto;
-}
-
-/* ================================
-   FEATURES LIST
-   ================================ */
-
-.plan-features {
-  flex: 1;
-  margin-bottom: 1.5rem;
-  max-width: 220px;
-}
-
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 0;
-  font-size: 0.75rem;
-  color: #374151;
-  line-height: 1.4;
-  transition: all 0.2s ease;
-}
-
-.feature-item:hover {
-  color: #10b981;
-  transform: translateX(2px);
-}
-
-.feature-icon {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #10b981, #059669);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.2s ease;
-}
-
-.feature-icon svg {
-  color: white;
-  width: 8px;
-  height: 8px;
-}
-
-.feature-item:hover .feature-icon {
-  transform: scale(1.1);
-}
-
-/* ================================
-   PLAN BUTTONS
-   ================================ */
-
-.plan-button {
-  position: relative;
-  width: 180px;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: none;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
   overflow: hidden;
-  z-index: 1;
-  margin-top: auto;
+  transition: all 0.5s ease;
+  cursor: pointer;
 }
 
-.button-glow {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.6s ease;
-  z-index: -1;
+.pricing-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.3);
 }
 
-.plan-button:hover .button-glow {
-  left: 100%;
-}
-
-.basic-button {
-  background: linear-gradient(135deg, #64748b, #475569);
-  color: white;
-  box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3);
-}
-
-.basic-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(100, 116, 139, 0.4);
-}
-
-.pro-button {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-}
-
-.pro-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
-}
-
-.max-button {
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  color: white;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
-}
-
-.max-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
-}
-
-/* ================================
-   ANIMATIONS
-   ================================ */
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ================================
-   RESPONSIVE DESIGN
-   ================================ */
-
-@media (max-width: 1024px) {
+/* Responsive adjustments */
+@media (min-width: 1024px) {
   .pricing-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    max-width: 320px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
-
-  .pricing-card.pro-card {
-    transform: none;
-  }
-
-  .pricing-card {
-    height: 450px;
-  }
-
-  .basic-card::before,
-  .max-card::before {
-    width: 250px;
-    height: 430px;
-  }
-
-  .pro-card::before {
-    width: 270px;
-    height: 450px;
+  
+  .pricing-title {
+    font-size: 3.75rem;
   }
 }
 
 @media (max-width: 768px) {
-  .pricing-section {
-    padding: 80px 0;
-  }
-  
-  .pricing-container {
-    padding: 0 1.5rem;
-  }
-  
   .pricing-title {
     font-size: 2.5rem;
-  }
-  
-  .pricing-grid {
-    gap: 2rem;
-  }
-
-  .pricing-card {
-    height: 400px;
-  }
-
-  .basic-card::before,
-  .max-card::before {
-    width: 220px;
-    height: 380px;
-  }
-
-  .pro-card::before {
-    width: 240px;
-    height: 400px;
-  }
-
-  .card-content {
-    padding: 1.5rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .pricing-title {
-    font-size: 2rem;
   }
   
   .pricing-description {
     font-size: 1rem;
   }
-
-  .pricing-card {
-    height: 350px;
-  }
-
-  .basic-card::before,
-  .max-card::before {
-    width: 200px;
-    height: 330px;
-  }
-
-  .pro-card::before {
-    width: 220px;
-    height: 350px;
-  }
-
-  .plan-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .plan-button {
-    width: 160px;
-    padding: 10px 16px;
-  }
-}
-
-/* ================================
-   ACCESSIBILITY
-   ================================ */
-
-@media (prefers-reduced-motion: reduce) {
-  .pricing-card,
-  .plan-icon,
-  .feature-item {
-    transition: none;
-  }
   
-  .card-glow,
-  .popular-badge .badge-glow {
-    animation: none;
-  }
-}
-
-/* High contrast mode */
-@media (prefers-contrast: high) {
-  .pricing-card::before {
-    border: 3px solid #000;
-  }
-  
-  .plan-button {
-    border: 2px solid #000;
+  .pricing-section {
+    padding: 4rem 1rem;
   }
 }
