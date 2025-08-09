@@ -606,6 +606,24 @@ body {
   animation-duration: 8.5s;
 }
 
+/* Additional cross variations with different colors */
+.cross-2, .cross-5, .cross-8 {
+  color: rgba(139, 92, 246, 0.4);
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.cross-3, .cross-6 {
+  color: rgba(6, 182, 212, 0.4);
+  text-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+/* Section-specific cross positioning */
+.pricing-section .floating-cross,
+.features-section .floating-cross,
+.process-section .floating-cross {
+  opacity: 0.6;
+}
+
 @keyframes floatCross {
   0%, 100% {
     transform: translateY(0px) translateX(0px) rotate(0deg);
