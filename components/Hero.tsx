@@ -372,7 +372,7 @@ export default function Hero() {
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                         <path d="M16 17L21 12L16 7M21 12H9M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
-                      Выйти из аккаунта
+                      Выйти из аккаун��а
                     </button>
                   </div>
                 </div>
@@ -824,6 +824,10 @@ export default function Hero() {
         @media (max-width: 768px) {
           .mobile-menu-toggle-chatgpt {
             display: block;
+          }
+
+          .search-container-chatgpt {
+            display: none;
           }
 
           .nav-links-chatgpt {
