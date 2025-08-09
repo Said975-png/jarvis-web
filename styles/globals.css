@@ -927,8 +927,22 @@ body {
 
 /* Process Section */
 .process-section {
-  padding: var(--spacing-3xl) 0;
+  padding: calc(var(--spacing-3xl) * 1.5) 0;
   background: var(--color-gray-50);
+  margin-top: var(--spacing-3xl);
+  position: relative;
+}
+
+.process-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border-radius: 2px;
 }
 
 .process-container {
