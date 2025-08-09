@@ -29,7 +29,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
 
     try {
       if (!isLogin && formData.password !== formData.confirmPassword) {
-        setError('Пароли не совпадают')
+        setError('Пароли не совп��дают')
         return
       }
 
@@ -48,15 +48,23 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
       })
 
       // Клонируем response для безопасного чтения
-      const responseClone = response.clone()
       let data
 
-      try {
-        data = await responseClone.json()
-      } catch (jsonError) {
-        console.error('AuthForms: Failed to parse JSON:', jsonError)
-        setError('Ошибка формата ответа сервера')
-        return
+      // Читаем JSON только один раз в зависимости от статуса
+      if (response.ok) {
+        try {
+          data = await response.json()
+        } catch (jsonError) {
+          setError('Ошибка обработки ответа сервера')
+          return
+        }
+      } else {
+        try {
+          data = await response.json()
+        } catch (jsonError) {
+          setError(`Ошибка ${response.status}: ${response.statusText}`)
+          return
+        }
       }
 
       if (response.ok) {
@@ -141,7 +149,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
 
           {!isLogin && (
             <div className="form-group">
-              <label htmlFor="confirmPassword">Подтвердите пароль</label>
+              <label htmlFor="confirmPassword">Подтвердите пар��ль</label>
               <input
                 type="password"
                 id="confirmPassword"
