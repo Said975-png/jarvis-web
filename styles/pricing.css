@@ -34,13 +34,13 @@
   gap: 8px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
-  color: #ffffff;
+  color: #000000;
   padding: 12px 24px;
   border-radius: 50px;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
@@ -48,22 +48,19 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1.1;
-  color: #ffffff;
+  color: #000000;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
 }
 
 .title-highlight-modern {
-  background: linear-gradient(135deg, #10b981 0%, #06d6a0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #000000;
   position: relative;
 }
 
 .section-description-modern {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: #000000;
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto;
