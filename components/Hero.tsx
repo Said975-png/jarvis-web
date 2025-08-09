@@ -29,6 +29,35 @@ export default function Hero() {
             <span className="logo-text-chatgpt">JARVIS</span>
           </div>
 
+          {/* Search Bar */}
+          <div className="search-container-chatgpt">
+            <div className={`search-wrapper-chatgpt ${searchFocused ? 'focused' : ''}`}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="search-icon-chatgpt">
+                <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2"/>
+                <path d="m21 21-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <input
+                type="text"
+                placeholder="Поиск..."
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                onFocus={() => setSearchFocused(true)}
+                onBlur={() => setSearchFocused(false)}
+                className="search-input-chatgpt"
+              />
+              {searchValue && (
+                <button
+                  onClick={() => setSearchValue('')}
+                  className="search-clear-chatgpt"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </button>
+              )}
+            </div>
+          </div>
+
           <div className="nav-links-wrapper-chatgpt">
             <button
               className="mobile-menu-toggle-chatgpt"
@@ -182,7 +211,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div className="message-bubble-chatgpt">
-                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
+                    От��ично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
                   </div>
                 </div>
                 <div className="typing-indicator-chatgpt">
