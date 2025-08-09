@@ -14,7 +14,7 @@ export default function Pricing() {
           <div className="pricing-card">
             <div className="pricing-card-header">
               <h3 className="plan-name">BASIC</h3>
-              <p className="plan-description">Базовый сайт</p>
+              <p className="plan-description">Сайт за</p>
               <div className="plan-price">
                 <span className="price-amount">2.500.000</span>
                 <span className="price-currency">сум</span>
@@ -50,7 +50,7 @@ export default function Pricing() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  Техподдержка 3 месяца
+                  Без ИИ ассистента
                 </li>
               </ul>
             </div>
@@ -66,7 +66,7 @@ export default function Pricing() {
             <div className="popular-badge">ПОПУЛЯРНЫЙ</div>
             <div className="pricing-card-header">
               <h3 className="plan-name">PRO</h3>
-              <p className="plan-description">Профессиональный сайт</p>
+              <p className="plan-description">Сайт за</p>
               <div className="plan-price">
                 <span className="price-amount">4.000.000</span>
                 <span className="price-currency">сум</span>
@@ -84,31 +84,25 @@ export default function Pricing() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  ИИ помощник для клиентов
+                  ИИ ассистент для клиентов
                 </li>
                 <li className="feature-item">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  Ответы на вопросы как человек
+                  Умные ответы на вопросы
                 </li>
                 <li className="feature-item">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  Предложение товаров
+                  Автоматические рекомендации
                 </li>
                 <li className="feature-item">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  Расширенная аналитика
-                </li>
-                <li className="feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  Техподдержка 6 месяцев
+                  Базовая аналитика
                 </li>
               </ul>
             </div>
@@ -123,7 +117,7 @@ export default function Pricing() {
           <div className="pricing-card">
             <div className="pricing-card-header">
               <h3 className="plan-name">MAX</h3>
-              <p className="plan-description">Максимальный сайт</p>
+              <p className="plan-description">Сайт за</p>
               <div className="plan-price">
                 <span className="price-amount">5.000.000</span>
                 <span className="price-currency">сум</span>
@@ -141,31 +135,31 @@ export default function Pricing() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  Огромный функционал
+                  Безграничные возможности ДЖАРВИС
                 </li>
                 <li className="feature-item">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  Улучшенный ИИ помощник
+                  Продвинутый ИИ ассистент
                 </li>
                 <li className="feature-item">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  Крутой премиум дизайн
+                  Персонализация контента
+                </li>
+                <li className="feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  Полная аналитика и отчеты
                 </li>
                 <li className="feature-item">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                   Индивидуальные решения
-                </li>
-                <li className="feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  Техподдержка 12 месяцев
                 </li>
               </ul>
             </div>
