@@ -60,76 +60,48 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Shopping Cart */}
-          <div className="cart-container-chatgpt">
-            <button
-              className="cart-button-chatgpt"
-              onClick={() => setCartOpen(!cartOpen)}
-              aria-label="Корзина"
-            >
-              <div className="cart-icon-wrapper-chatgpt">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="cart-icon-chatgpt">
-                  <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="9" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
-                  <circle cx="20" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
-                </svg>
-                {cartItems > 0 && (
-                  <span className="cart-badge-chatgpt">{cartItems}</span>
-                )}
-              </div>
-            </button>
-
-            {cartOpen && (
-              <div className="cart-dropdown-chatgpt">
-                <div className="cart-header-chatgpt">
-                  <h3>Корзина</h3>
-                  <span className="cart-count-chatgpt">{cartItems} товара</span>
-                </div>
-                <div className="cart-items-chatgpt">
-                  <div className="cart-item-chatgpt">
-                    <div className="cart-item-image-chatgpt">
-                      <div className="placeholder-image-chatgpt"></div>
-                    </div>
-                    <div className="cart-item-info-chatgpt">
-                      <h4>Веб-разработка</h4>
-                      <p>Создание сайта</p>
-                      <span className="cart-item-price-chatgpt">₽25,000</span>
-                    </div>
-                    <button className="cart-item-remove-chatgpt">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      </svg>
-                    </button>
-                  </div>
-                  <div className="cart-item-chatgpt">
-                    <div className="cart-item-image-chatgpt">
-                      <div className="placeholder-image-chatgpt"></div>
-                    </div>
-                    <div className="cart-item-info-chatgpt">
-                      <h4>ИИ интеграция</h4>
-                      <p>Чат-бот для сайта</p>
-                      <span className="cart-item-price-chatgpt">₽15,000</span>
-                    </div>
-                    <button className="cart-item-remove-chatgpt">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div className="cart-footer-chatgpt">
-                  <div className="cart-total-chatgpt">
-                    <span>Итого: ₽40,000</span>
-                  </div>
-                  <button className="cart-checkout-chatgpt">
-                    Оформить заказ
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-
           <div className="nav-links-wrapper-chatgpt">
+            {/* Shopping Cart */}
+            <div className="cart-container-chatgpt">
+              <button
+                className="cart-button-chatgpt"
+                onClick={() => setCartOpen(!cartOpen)}
+                aria-label="Корзина"
+              >
+                <div className="cart-icon-wrapper-chatgpt">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="cart-icon-chatgpt">
+                    <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <circle cx="9" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
+                    <circle cx="20" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
+                  </svg>
+                  {cartItems > 0 && (
+                    <span className="cart-badge-chatgpt">{cartItems}</span>
+                  )}
+                </div>
+              </button>
+
+              {cartOpen && (
+                <div className="cart-dropdown-chatgpt">
+                  <div className="cart-header-chatgpt">
+                    <h3>Корзина</h3>
+                    <span className="cart-count-chatgpt">Пустая</span>
+                  </div>
+                  <div className="cart-empty-chatgpt">
+                    <div className="cart-empty-icon-chatgpt">
+                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <circle cx="9" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
+                        <circle cx="20" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
+                      </svg>
+                    </div>
+                    <p className="cart-empty-text-chatgpt">Ваша корзина пуста</p>
+                    <button className="cart-empty-button-chatgpt">
+                      Начать покупки
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
             <button
               className="mobile-menu-toggle-chatgpt"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
