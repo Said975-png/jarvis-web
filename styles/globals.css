@@ -311,8 +311,10 @@ body {
 /* Actions */
 .hero-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2rem;
+  max-width: 100%;
 }
 
 .btn-primary {
