@@ -791,18 +791,20 @@ body {
 
 .pricing-card-footer {
   padding: calc(var(--spacing-xl) * 1.5);
-  border-top: 1px solid var(--color-border-light);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .plan-button {
   width: 100%;
-  padding: var(--spacing-lg) var(--spacing-xl);
-  border-radius: var(--border-radius);
+  padding: 1.25rem var(--spacing-xl);
+  border-radius: 16px;
   font-size: var(--font-size-lg);
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .plan-button-basic {
