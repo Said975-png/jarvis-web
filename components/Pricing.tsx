@@ -33,7 +33,7 @@ const pricingPlans = [
       'До 15 страниц сайта',
       'ИИ-ассистент интеграция',
       'Продвинутая аналитика',
-      'Приоритетная поддержка'
+      'П��иоритетная поддержка'
     ],
     cardClass: 'pro-card',
     buttonClass: 'pro-button',
@@ -548,6 +548,19 @@ export default function Pricing() {
           align-items: center;
           gap: 0.75rem;
           margin-bottom: 1rem;
+          padding: 0.75rem 1rem;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 0.75rem;
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          transition: all 0.3s ease;
+        }
+
+        .feature-item-modern:hover {
+          background: rgba(255, 255, 255, 0.15);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          transform: translateX(5px);
         }
 
         .feature-icon-modern {
