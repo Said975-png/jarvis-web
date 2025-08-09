@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Hero from '../components/Hero'
 import Pricing from '../components/Pricing'
 import Features from '../components/Features'
+import Process from '../components/Process'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <Pricing />
         <Features />
+        <Process />
       </main>
     </>
   )
