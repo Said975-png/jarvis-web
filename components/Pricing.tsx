@@ -172,10 +172,10 @@ export default function Pricing() {
               </div>
               <div className="plan-price">
                 <div className="price-wrapper">
-                  <span className="currency">₽</span>
-                  <span className="price-amount">5М</span>
+                  <span className="price-amount">5.000.000</span>
+                  <span className="currency">сумм</span>
                 </div>
-                <span className="price-period">за проект</span>
+                <span className="price-period">за проек��</span>
               </div>
               <div className="plan-features">
                 <div className="feature-item">
