@@ -75,7 +75,7 @@ export default function Hero() {
 
             <h1 className="hero-title">
               Создаем <span className="title-highlight">инновационные</span><br />
-              ве��-решения будущего
+              веб-решения будущего
             </h1>
 
             <p className="hero-description">
