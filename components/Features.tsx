@@ -103,15 +103,67 @@ export default function Features() {
             >
               {features.map((feature, index) => (
                 <div key={index} className="feature-slide">
-                  <div className="feature-card-modern">
-                    <div className="feature-icon-wrapper">
-                      <div className="feature-icon-modern">
+                  <div className={`feature-widget widget-${feature.type}`}>
+                    <div className="widget-header">
+                      <div className="widget-icon">
                         {feature.icon}
                       </div>
+                      <div className="widget-badge">{feature.stats}</div>
                     </div>
-                    <div className="feature-content">
-                      <h3 className="feature-title-modern">{feature.title}</h3>
-                      <p className="feature-description-modern">{feature.description}</p>
+                    <div className="widget-content">
+                      <h3 className="widget-title">{feature.title}</h3>
+                      <p className="widget-description">{feature.description}</p>
+                    </div>
+                    <div className="widget-visual">
+                      {feature.type === 'design' && (
+                        <div className="design-preview">
+                          <div className="preview-window">
+                            <div className="window-header">
+                              <span></span><span></span><span></span>
+                            </div>
+                            <div className="window-content">
+                              <div className="design-grid">
+                                <div className="grid-item"></div>
+                                <div className="grid-item"></div>
+                                <div className="grid-item large"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      {feature.type === 'ai' && (
+                        <div className="ai-chat">
+                          <div className="chat-message user">Помогите выбрать товар</div>
+                          <div className="chat-message ai">
+                            <div className="typing-dots">
+                              <span></span><span></span><span></span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      {feature.type === 'personal' && (
+                        <div className="personal-stats">
+                          <div className="stat-circle">
+                            <div className="circle-progress" style={{background: `conic-gradient(var(--color-primary) 75%, var(--color-gray-200) 0)`}}>
+                              <span>75%</span>
+                            </div>
+                          </div>
+                          <div className="stat-labels">
+                            <div>Персонализация</div>
+                          </div>
+                        </div>
+                      )}
+                      {feature.type === 'analytics' && (
+                        <div className="analytics-chart">
+                          <div className="chart-bars">
+                            <div className="bar" style={{height: '60%'}}></div>
+                            <div className="bar" style={{height: '80%'}}></div>
+                            <div className="bar" style={{height: '45%'}}></div>
+                            <div className="bar" style={{height: '90%'}}></div>
+                            <div className="bar" style={{height: '70%'}}></div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
