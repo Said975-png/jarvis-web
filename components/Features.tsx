@@ -5,7 +5,7 @@ export default function Features() {
 
   const features = [
     {
-      title: "Стильные AI-дизайны",
+      title: "��тильные AI-дизайны",
       description: "Создаем уникальные и современные дизайны сайтов, используя передовые технологии искусственного интеллекта",
       type: "design",
       stats: "50+ шаблонов",
@@ -31,7 +31,7 @@ export default function Features() {
     },
     {
       title: "Персональный подход",
-      description: "Адаптируем общение под каждого клиента, создавая комфортную атмосферу взаимодействия",
+      description: "Адаптируем общение под каждого клиента, создавая ��омфортную атмосферу взаимодействия",
       type: "personal",
       stats: "10x конверсия",
       icon: (
@@ -84,6 +84,13 @@ export default function Features() {
         <div className="floating-orb orb-1" />
         <div className="floating-orb orb-2" />
         <div className="grid-pattern" />
+
+        {/* Decorative Crosses */}
+        <div className="floating-cross cross-1">✕</div>
+        <div className="floating-cross cross-2">✕</div>
+        <div className="floating-cross cross-3">✕</div>
+        <div className="floating-cross cross-4">✕</div>
+        <div className="floating-cross cross-5">✕</div>
       </div>
 
       <div className="features-container">

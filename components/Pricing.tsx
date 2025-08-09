@@ -6,6 +6,14 @@ export default function Pricing() {
         <div className="floating-orb orb-1" />
         <div className="floating-orb orb-2" />
         <div className="grid-pattern" />
+
+        {/* Decorative Crosses */}
+        <div className="floating-cross cross-1">✕</div>
+        <div className="floating-cross cross-2">✕</div>
+        <div className="floating-cross cross-3">✕</div>
+        <div className="floating-cross cross-4">✕</div>
+        <div className="floating-cross cross-5">✕</div>
+        <div className="floating-cross cross-6">✕</div>
       </div>
 
       <div className="pricing-container">

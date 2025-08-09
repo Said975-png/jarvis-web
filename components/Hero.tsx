@@ -19,19 +19,29 @@ export default function Hero() {
     <section className="hero-section">
       {/* Background Decorative Elements */}
       <div className="bg-decoration">
-        <div 
-          className="floating-orb orb-1" 
+        <div
+          className="floating-orb orb-1"
           style={{
             transform: `translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px)`
           }}
         />
-        <div 
+        <div
           className="floating-orb orb-2"
           style={{
             transform: `translate(${mousePosition.x * -0.05}px, ${mousePosition.y * 0.08}px)`
           }}
         />
         <div className="grid-pattern" />
+
+        {/* Decorative Crosses */}
+        <div className="floating-cross cross-1">✕</div>
+        <div className="floating-cross cross-2">✕</div>
+        <div className="floating-cross cross-3">✕</div>
+        <div className="floating-cross cross-4">✕</div>
+        <div className="floating-cross cross-5">✕</div>
+        <div className="floating-cross cross-6">✕</div>
+        <div className="floating-cross cross-7">✕</div>
+        <div className="floating-cross cross-8">✕</div>
       </div>
 
       <div className="hero-container">
