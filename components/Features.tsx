@@ -4,15 +4,25 @@ export default function Features() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
+    let rafId: number
+
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
+      if (rafId) return
+
+      rafId = requestAnimationFrame(() => {
+        setMousePosition({
+          x: (e.clientX / window.innerWidth) * 100,
+          y: (e.clientY / window.innerHeight) * 100,
+        })
+        rafId = 0
       })
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      if (rafId) cancelAnimationFrame(rafId)
+    }
   }, [])
 
   return (
@@ -38,9 +48,9 @@ export default function Features() {
             </h2>
 
             <p className="features-description">
-              Откройте для себя мощь искусственного интеллекта в веб-разработке. 
-              Наши передовые технологии создают уникальный пользовательский опыт 
-              и помога��т вашему бизнесу достигать новых высот.
+              Откройте для себя мощь искусственного интеллекта в веб-разработке.
+              Наши передовые технологии создают уникальный пользовательский опыт
+              и помогают вашему бизнесу достигать новых высот.
             </p>
 
             <div className="features-list">
@@ -122,7 +132,7 @@ export default function Features() {
                       <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="currentColor" strokeWidth="2"/>
                     </svg>
                   </div>
-                  <span>А��томатизация</span>
+                  <span>Автоматизация</span>
                 </div>
                 <div className="capability-item">
                   <div className="capability-logo">

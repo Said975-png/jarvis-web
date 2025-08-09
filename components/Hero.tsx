@@ -1,18 +1,35 @@
 import { useState, useEffect } from 'react'
+import { useAuth } from '../contexts/AuthContext'
+import AuthForms from './AuthForms'
+import Profile from './Profile'
 
 export default function Hero() {
+  const { user, logout } = useAuth()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [showAuthForms, setShowAuthForms] = useState(false)
+  const [showProfile, setShowProfile] = useState(false)
+  const [showUserDropdown, setShowUserDropdown] = useState(false)
 
   useEffect(() => {
+    let rafId: number
+
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
+      if (rafId) return
+
+      rafId = requestAnimationFrame(() => {
+        setMousePosition({
+          x: (e.clientX / window.innerWidth) * 100,
+          y: (e.clientY / window.innerHeight) * 100,
+        })
+        rafId = 0
       })
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      if (rafId) cancelAnimationFrame(rafId)
+    }
   }, [])
 
   return (
@@ -39,8 +56,62 @@ export default function Hero() {
             <span className="logo-text">JARVIS</span>
           </div>
           <div className="nav-links">
-            <a href="#register" className="nav-link">Регистрация</a>
-            <a href="#login" className="nav-link">Вход</a>
+            {user ? (
+              <div className="user-menu">
+                <button
+                  className="user-button"
+                  onClick={() => setShowUserDropdown(!showUserDropdown)}
+                >
+                  <div className="user-avatar">
+                    {user.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                  </div>
+                  <span>{user.name}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+
+                {showUserDropdown && (
+                  <div className="user-dropdown">
+                    <button
+                      className="dropdown-item"
+                      onClick={() => {
+                        setShowProfile(true)
+                        setShowUserDropdown(false)
+                      }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                      Личный кабинет
+                    </button>
+                    <div className="dropdown-divider"></div>
+                    <button
+                      className="dropdown-item"
+                      onClick={() => {
+                        logout()
+                        setShowUserDropdown(false)
+                      }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M16 17L21 12L16 7M21 12H9M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      Выйти
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <>
+                <button
+                  className="nav-link auth-btn"
+                  onClick={() => setShowAuthForms(true)}
+                >
+                  Вход / Регистраци��
+                </button>
+              </>
+            )}
             <a href="#cart" className="nav-link cart-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="currentColor" strokeWidth="2"/>
@@ -72,9 +143,9 @@ export default function Hero() {
             </h1>
 
             <p className="hero-description">
-              Мы объединяем креативность дизайна с мощью искусственного ин��еллекта,
-              чтобы создавать веб-сайты и приложения, которые не просто впечатляют,
-              а революционизируют пользовательский опыт.
+              Мы объед��няем креативность дизайна с мощью искусственного интеллекта,
+              чтобы создавать веб-сайты и приложения, которые не просто впечатл��ют,
+              а ��еволюционизируют пользовательский опыт.
             </p>
 
             <div className="hero-features">
@@ -97,7 +168,7 @@ export default function Hero() {
                 </div>
                 <div>
                   <h4>Высокая производительность</h4>
-                  <p>Оптимизация и скорость</p>
+                  <p>Оптимизация и ��корость</p>
                 </div>
               </div>
               <div className="feature">
@@ -228,6 +299,43 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Auth Forms Modal */}
+      {showAuthForms && (
+        <AuthForms
+          onClose={() => setShowAuthForms(false)}
+          onLogin={(userData) => {
+            // AuthContext will handle the login
+            setShowAuthForms(false)
+          }}
+        />
+      )}
+
+      {/* Profile Modal */}
+      {showProfile && user && (
+        <div className="auth-overlay">
+          <div className="profile-modal">
+            <div className="profile-modal-header">
+              <h2>Личный кабинет</h2>
+              <button
+                className="close-btn"
+                onClick={() => setShowProfile(false)}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <Profile
+              user={user}
+              onLogout={() => {
+                logout()
+                setShowProfile(false)
+              }}
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }

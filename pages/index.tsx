@@ -13,6 +13,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {/* Глобальный фон с клеточками */}
+      <div className="global-background">
+        <div className="global-grid-pattern"></div>
+        <div className="global-orb global-orb-1"></div>
+        <div className="global-orb global-orb-2"></div>
+      </div>
+
       <main>
         <Hero />
         <Pricing />
