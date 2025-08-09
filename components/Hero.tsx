@@ -145,7 +145,7 @@ export default function Hero() {
             <p className="hero-description">
               Мы объед��няем креативность дизайна с мощью искусственного интеллекта,
               чтобы создавать веб-сайты и приложения, которые не просто впечатл��ют,
-              а революционизируют пользовательский опыт.
+              а ��еволюционизируют пользовательский опыт.
             </p>
 
             <div className="hero-features">
@@ -168,7 +168,7 @@ export default function Hero() {
                 </div>
                 <div>
                   <h4>Высокая производительность</h4>
-                  <p>Оптимизация и скорость</p>
+                  <p>Оптимизация и ��корость</p>
                 </div>
               </div>
               <div className="feature">
@@ -299,6 +299,43 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Auth Forms Modal */}
+      {showAuthForms && (
+        <AuthForms
+          onClose={() => setShowAuthForms(false)}
+          onLogin={(userData) => {
+            // AuthContext will handle the login
+            setShowAuthForms(false)
+          }}
+        />
+      )}
+
+      {/* Profile Modal */}
+      {showProfile && user && (
+        <div className="auth-overlay">
+          <div className="profile-modal">
+            <div className="profile-modal-header">
+              <h2>Личный кабинет</h2>
+              <button
+                className="close-btn"
+                onClick={() => setShowProfile(false)}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <Profile
+              user={user}
+              onLogout={() => {
+                logout()
+                setShowProfile(false)
+              }}
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
