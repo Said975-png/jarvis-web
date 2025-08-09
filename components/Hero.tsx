@@ -170,7 +170,7 @@ export default function Hero() {
               <div className="chat-messages-chatgpt">
                 <div className="message-chatgpt user-message-chatgpt">
                   <div className="message-bubble-chatgpt">
-                    Создай современный веб-сайт с ИИ функциями
+                    Созда�� современный веб-сайт с ИИ функциями
                   </div>
                 </div>
                 <div className="message-chatgpt ai-message-chatgpt">
@@ -216,11 +216,6 @@ export default function Hero() {
       {showProfile && user && (
         <div className="profile-overlay">
           <div className="profile-fullscreen">
-            <div className="profile-background">
-              <div className="profile-grid-pattern"></div>
-              <div className="profile-orb profile-orb-1"></div>
-              <div className="profile-orb profile-orb-2"></div>
-            </div>
 
             <div className="profile-container">
               <div className="profile-header">
@@ -239,30 +234,116 @@ export default function Hero() {
               </div>
 
               <div className="profile-content">
-                <div className="profile-welcome-card">
-                  <div className="profile-user-info">
+                <div className="profile-info-section">
+                  <div className="profile-user-card">
                     <div className="profile-avatar">
                       {user.name.split(' ').map(n => n[0]).join('').toUpperCase()}
                     </div>
                     <div className="profile-user-details">
                       <h3>{user.name}</h3>
                       <p>{user.email}</p>
+                      <div className="profile-status">
+                        <div className="status-dot"></div>
+                        Активен
+                      </div>
                     </div>
                   </div>
 
-                  <button className="profile-logout-btn" onClick={() => {
-                    logout()
-                    setShowProfile(false)
-                  }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M16 17L21 12L16 7M21 12H9M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    Выйти
-                  </button>
+                  <div className="profile-stats">
+                    <div className="stat-item">
+                      <div className="stat-number">15</div>
+                      <div className="stat-label">Дней с нами</div>
+                    </div>
+                    <div className="stat-item">
+                      <div className="stat-number">3</div>
+                      <div className="stat-label">Проекта</div>
+                    </div>
+                    <div className="stat-item">
+                      <div className="stat-number">24/7</div>
+                      <div className="stat-label">Поддержка</div>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="profile-main-content">
-                  <p className="profile-placeholder">Контент личного кабинета будет добавлен позже...</p>
+                <div className="profile-main-section">
+                  <div className="profile-section">
+                    <h4 className="section-title">Мои проекты</h4>
+                    <div className="projects-grid">
+                      <div className="project-card">
+                        <div className="project-icon">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2"/>
+                          </svg>
+                        </div>
+                        <div className="project-info">
+                          <h5>Корпоративный сайт</h5>
+                          <p>В разработке</p>
+                        </div>
+                      </div>
+                      <div className="project-card">
+                        <div className="project-icon">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" strokeWidth="2"/>
+                          </svg>
+                        </div>
+                        <div className="project-info">
+                          <h5>Интернет-магазин</h5>
+                          <p>Завершен</p>
+                        </div>
+                      </div>
+                      <div className="project-card add-project">
+                        <div className="add-icon">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                          </svg>
+                        </div>
+                        <span>Создать проект</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="profile-section">
+                    <h4 className="section-title">Настройки аккаунта</h4>
+                    <div className="settings-list">
+                      <div className="setting-item">
+                        <div className="setting-icon">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
+                            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="currentColor" strokeWidth="2"/>
+                          </svg>
+                        </div>
+                        <span>Общие настройки</span>
+                      </div>
+                      <div className="setting-item">
+                        <div className="setting-icon">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2"/>
+                          </svg>
+                        </div>
+                        <span>Безопасность</span>
+                      </div>
+                      <div className="setting-item">
+                        <div className="setting-icon">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" strokeWidth="2"/>
+                          </svg>
+                        </div>
+                        <span>Уведомления</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="profile-actions">
+                    <button className="logout-btn" onClick={() => {
+                      logout()
+                      setShowProfile(false)
+                    }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M16 17L21 12L16 7M21 12H9M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      Выйти из аккаунта
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -699,7 +780,7 @@ export default function Hero() {
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.8);
+          background: rgba(0, 0, 0, 0.5);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -708,27 +789,32 @@ export default function Hero() {
 
         .profile-fullscreen {
           background: #ffffff;
-          border-radius: 12px;
-          width: 90%;
-          max-width: 800px;
-          max-height: 90%;
-          overflow: auto;
+          width: 100%;
+          height: 100%;
           position: relative;
+          overflow: auto;
         }
 
         .profile-container {
-          padding: 32px;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 40px 24px;
+          min-height: 100%;
+          display: flex;
+          flex-direction: column;
         }
 
         .profile-header {
           display: flex;
           justify-content: space-between;
-          align-items: flex-start;
-          margin-bottom: 32px;
+          align-items: center;
+          margin-bottom: 40px;
+          padding-bottom: 24px;
+          border-bottom: 1px solid #e5e5e5;
         }
 
         .profile-main-title {
-          font-size: 28px;
+          font-size: 32px;
           font-weight: 600;
           color: #000000;
           margin-bottom: 8px;
@@ -744,34 +830,38 @@ export default function Hero() {
           border: none;
           color: #666666;
           cursor: pointer;
-          padding: 8px;
-          border-radius: 6px;
-          transition: background-color 0.2s ease;
+          padding: 12px;
+          border-radius: 8px;
+          transition: all 0.2s ease;
         }
 
         .profile-close-btn:hover {
           background: #f5f5f5;
+          color: #000000;
         }
 
-        .profile-welcome-card {
-          background: #f9f9f9;
+        .profile-content {
+          display: grid;
+          grid-template-columns: 350px 1fr;
+          gap: 40px;
+          flex: 1;
+        }
+
+        .profile-info-section {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+
+        .profile-user-card {
+          background: #f8f8f8;
           padding: 24px;
-          border-radius: 8px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 24px;
-        }
-
-        .profile-user-info {
-          display: flex;
-          align-items: center;
-          gap: 16px;
+          border-radius: 12px;
         }
 
         .profile-avatar {
-          width: 48px;
-          height: 48px;
+          width: 64px;
+          height: 64px;
           background: #000000;
           color: #ffffff;
           border-radius: 50%;
@@ -779,41 +869,224 @@ export default function Hero() {
           align-items: center;
           justify-content: center;
           font-weight: 600;
+          font-size: 20px;
+          margin-bottom: 16px;
         }
 
         .profile-user-details h3 {
-          margin: 0 0 4px 0;
+          margin: 0 0 8px 0;
           color: #000000;
           font-weight: 600;
+          font-size: 18px;
         }
 
         .profile-user-details p {
-          margin: 0;
+          margin: 0 0 12px 0;
           color: #666666;
           font-size: 14px;
         }
 
-        .profile-logout-btn {
+        .profile-status {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 12px;
+          color: #10b981;
+          font-weight: 500;
+        }
+
+        .status-dot {
+          width: 8px;
+          height: 8px;
+          background: #10b981;
+          border-radius: 50%;
+        }
+
+        .profile-stats {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          border-radius: 12px;
+          padding: 24px;
+        }
+
+        .stat-item {
+          text-align: center;
+          padding: 16px 0;
+          border-bottom: 1px solid #f5f5f5;
+        }
+
+        .stat-item:last-child {
+          border-bottom: none;
+        }
+
+        .stat-number {
+          font-size: 20px;
+          font-weight: 700;
+          color: #000000;
+          display: block;
+          margin-bottom: 4px;
+        }
+
+        .stat-label {
+          color: #666666;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .profile-main-section {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+        }
+
+        .profile-section {
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          border-radius: 12px;
+          padding: 24px;
+        }
+
+        .section-title {
+          font-size: 18px;
+          font-weight: 600;
+          color: #000000;
+          margin: 0 0 20px 0;
+        }
+
+        .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 16px;
+        }
+
+        .project-card {
+          border: 1px solid #e5e5e5;
+          border-radius: 8px;
+          padding: 20px;
+          transition: all 0.2s ease;
+          cursor: pointer;
+        }
+
+        .project-card:hover {
+          border-color: #000000;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card.add-project {
+          border: 2px dashed #e5e5e5;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          color: #666666;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .project-card.add-project:hover {
+          border-color: #000000;
+          color: #000000;
+        }
+
+        .project-icon, .add-icon {
+          width: 40px;
+          height: 40px;
+          background: #f8f8f8;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #000000;
+          margin-bottom: 12px;
+        }
+
+        .project-info h5 {
+          margin: 0 0 4px 0;
+          font-size: 14px;
+          font-weight: 600;
+          color: #000000;
+        }
+
+        .project-info p {
+          margin: 0;
+          font-size: 12px;
+          color: #666666;
+        }
+
+        .settings-list {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .setting-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 12px 16px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+          font-size: 14px;
+          color: #000000;
+        }
+
+        .setting-item:hover {
+          background: #f5f5f5;
+        }
+
+        .setting-icon {
+          color: #666666;
+        }
+
+        .profile-actions {
+          margin-top: auto;
+          padding-top: 24px;
+        }
+
+        .logout-btn {
           display: flex;
           align-items: center;
           gap: 8px;
           background: none;
           border: 1px solid #e5e5e5;
           color: #666666;
-          padding: 8px 16px;
-          border-radius: 6px;
+          padding: 12px 20px;
+          border-radius: 8px;
           cursor: pointer;
           transition: all 0.2s ease;
+          font-size: 14px;
+          font-weight: 500;
         }
 
-        .profile-logout-btn:hover {
+        .logout-btn:hover {
           background: #f5f5f5;
+          border-color: #000000;
+          color: #000000;
         }
 
-        .profile-placeholder {
-          color: #666666;
-          text-align: center;
-          padding: 40px 20px;
+        @media (max-width: 768px) {
+          .profile-container {
+            padding: 20px 16px;
+          }
+
+          .profile-content {
+            grid-template-columns: 1fr;
+            gap: 24px;
+          }
+
+          .profile-main-title {
+            font-size: 24px;
+          }
+
+          .projects-grid {
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
     </section>
