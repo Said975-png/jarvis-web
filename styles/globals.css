@@ -719,10 +719,7 @@ body {
 
 /* Pro Card Enhanced */
 .pro-card {
-  background: white;
-  border: 2px solid var(--color-primary);
   transform: scale(1.05);
-  box-shadow: var(--shadow-lg);
 }
 
 /* Popular Badge */
