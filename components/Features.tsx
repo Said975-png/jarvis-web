@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 
 export default function Features() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isClient, setIsClient] = useState(false)
 
   const features = [
     {
