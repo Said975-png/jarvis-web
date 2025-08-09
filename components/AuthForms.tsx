@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 
 interface AuthFormsProps {
   onClose: () => void
@@ -59,7 +59,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         try {
           const errorData = await response.json()
           console.log('Error response data:', errorData)
-          setError(errorData.message || errorData.error || `Ош��бка ${response.status}`)
+          setError(errorData.message || errorData.error || `Ошибка ${response.status}`)
         } catch (parseError) {
           console.log('Failed to parse error response:', parseError)
           setError(`Ошибка ${response.status}: ${response.statusText || 'Неизвестная ошибка'}`)
