@@ -254,7 +254,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div className="message-bubble-chatgpt">
-                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепц��и дизайна.
+                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
                   </div>
                 </div>
                 <div className="typing-indicator-chatgpt">
@@ -724,6 +724,40 @@ export default function Hero() {
         }
 
         .cart-checkout-chatgpt:hover {
+          background: #333333;
+        }
+
+        .cart-empty-chatgpt {
+          padding: 40px 20px;
+          text-align: center;
+        }
+
+        .cart-empty-icon-chatgpt {
+          color: #e5e5e5;
+          margin-bottom: 16px;
+          display: flex;
+          justify-content: center;
+        }
+
+        .cart-empty-text-chatgpt {
+          margin: 0 0 20px 0;
+          color: #666666;
+          font-size: 14px;
+        }
+
+        .cart-empty-button-chatgpt {
+          background: #000000;
+          color: #ffffff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .cart-empty-button-chatgpt:hover {
           background: #333333;
         }
 
