@@ -17,22 +17,7 @@ export default function Features() {
 
   return (
     <section className="features-section">
-      {/* Background Decorative Elements */}
-      <div className="bg-decoration">
-        <div 
-          className="floating-orb orb-1" 
-          style={{
-            transform: `translate(${mousePosition.x * 0.08}px, ${mousePosition.y * 0.06}px)`
-          }}
-        />
-        <div 
-          className="floating-orb orb-2"
-          style={{
-            transform: `translate(${mousePosition.x * -0.04}px, ${mousePosition.y * 0.07}px)`
-          }}
-        />
-        <div className="grid-pattern" />
-      </div>
+      {/* Global background handles all decorations */}
 
       <div className="features-container">
         {/* Features Main Content */}
@@ -55,7 +40,7 @@ export default function Features() {
             <p className="features-description">
               Откройте для себя мощь искусственного интеллекта в веб-разработке. 
               Наши передовые технологии создают уникальный пользовательский опыт 
-              и помогают вашему бизнесу достигать новых высот.
+              и помога��т вашему бизнесу достигать новых высот.
             </p>
 
             <div className="features-list">

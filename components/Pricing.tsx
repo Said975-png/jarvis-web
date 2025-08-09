@@ -1,19 +1,14 @@
 export default function Pricing() {
   return (
     <section className="pricing-section">
-      {/* Background Decorative Elements - like hero section */}
-      <div className="bg-decoration">
-        <div className="floating-orb orb-1" />
-        <div className="floating-orb orb-2" />
-        <div className="grid-pattern" />
-      </div>
+      {/* Global background handles all decorations */}
 
       <div className="pricing-container">
         <div className="pricing-header">
           <div className="section-number">02</div>
           <h2 className="pricing-title">Наши цены</h2>
           <p className="pricing-subtitle">
-            Выберите план, который подходит для вашего бизнеса
+            Выберите план, который подходит для ��ашего бизнеса
           </p>
         </div>
 

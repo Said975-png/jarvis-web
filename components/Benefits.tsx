@@ -17,22 +17,7 @@ export default function Benefits() {
 
   return (
     <section className="benefits-section">
-      {/* Background Decorative Elements */}
-      <div className="bg-decoration">
-        <div 
-          className="floating-orb orb-1" 
-          style={{
-            transform: `translate(${mousePosition.x * 0.12}px, ${mousePosition.y * 0.09}px)`
-          }}
-        />
-        <div 
-          className="floating-orb orb-2"
-          style={{
-            transform: `translate(${mousePosition.x * -0.06}px, ${mousePosition.y * 0.11}px)`
-          }}
-        />
-        <div className="grid-pattern" />
-      </div>
+      {/* Global background handles all decorations */}
 
       <div className="benefits-container">
         {/* Benefits Main Content */}
@@ -54,7 +39,7 @@ export default function Benefits() {
 
             <p className="benefits-description">
               Один умный ассистент выполняет работу десятков сотрудников. ДЖАРВИС 
-              ведет естественные диалоги с клиентами, предла��ает товары, консультирует 
+              ведет естественные диалоги с клиентами, предлагает товары, консультирует 
               и находит лучшие предложения 24/7 без перерывов и выходных.
             </p>
 

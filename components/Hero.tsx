@@ -17,28 +17,7 @@ export default function Hero() {
 
   return (
     <section className="hero-section">
-      {/* Background Decorative Elements */}
-      <div className="bg-decoration">
-        <div
-          className="floating-orb orb-1"
-          style={{
-            transform: `translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px)`
-          }}
-        />
-        <div
-          className="floating-orb orb-2"
-          style={{
-            transform: `translate(${mousePosition.x * -0.05}px, ${mousePosition.y * 0.08}px)`
-          }}
-        />
-        <div
-          className="floating-orb orb-3"
-          style={{
-            transform: `translate(${mousePosition.x * 0.03}px, ${mousePosition.y * -0.04}px)`
-          }}
-        />
-        <div className="grid-pattern" />
-      </div>
+      {/* Global background handles all decorations */}
 
       <div className="hero-container">
         {/* Navigation */}
