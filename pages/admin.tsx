@@ -33,7 +33,6 @@ interface Order {
 
 export default function AdminPanel() {
   const { user } = useAuth()
-  const { getAllOrders, updateOrderStatus } = useOrders()
   const [orders, setOrders] = useState<Order[]>([])
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null)
   const [loading, setLoading] = useState(true)
