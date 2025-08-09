@@ -548,7 +548,7 @@ body {
 .cross-1 {
   top: 15%;
   left: 10%;
-  font-size: 1.5rem;
+  font-size: 3.5rem;
   animation-delay: 0s;
   animation-duration: 6s;
 }
@@ -556,7 +556,7 @@ body {
 .cross-2 {
   top: 25%;
   right: 15%;
-  font-size: 2.5rem;
+  font-size: 4.5rem;
   animation-delay: 1s;
   animation-duration: 8s;
 }
@@ -564,7 +564,7 @@ body {
 .cross-3 {
   bottom: 30%;
   left: 20%;
-  font-size: 3rem;
+  font-size: 5rem;
   animation-delay: 2s;
   animation-duration: 10s;
 }
