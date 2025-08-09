@@ -717,7 +717,7 @@ body {
 }
 
 .pricing-card-body {
-  padding: var(--spacing-xl);
+  padding: calc(var(--spacing-xl) * 1.5);
 }
 
 .plan-features {
@@ -727,9 +727,10 @@ body {
 .feature-item {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
   color: var(--color-text);
+  font-size: var(--font-size-lg);
 }
 
 .feature-item svg {
