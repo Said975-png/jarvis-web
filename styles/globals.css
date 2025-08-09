@@ -8,6 +8,19 @@
   box-sizing: border-box;
 }
 
+main {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Ensure all sections flow seamlessly */
+section {
+  margin: 0;
+  border: none;
+  position: relative;
+}
+
 :root {
   --color-primary: #6366f1;
   --color-primary-dark: #4f46e5;
