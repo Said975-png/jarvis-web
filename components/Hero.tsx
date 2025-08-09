@@ -51,7 +51,7 @@ export default function Hero() {
           <div className="logo">
             <div className="logo-icon">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F185ef73899124925a57d08c91328e660%2F5ff7c4c9a68a48e9a66c7ebef1696f03?format=webp&width=800"
+                src="https://cdn.builder.io/api/v1/image/assets%2Fb3f5046887d8470c82b60bfa8668fc6d%2F344c594fabe14ed7b0083952ee013ca1?format=webp&width=800"
                 alt="JARVIS Logo"
                 width="32"
                 height="32"
@@ -174,7 +174,7 @@ export default function Hero() {
 
             <h1 className="hero-title">
               Создаем <span className="title-highlight">инновационные</span><br />
-              веб-решения будущего
+              веб-реше��ия будущего
             </h1>
 
             <p className="hero-description">
