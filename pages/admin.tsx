@@ -17,13 +17,23 @@ export default function AdminPanel() {
 
   const loadOrders = async () => {
     try {
-      const response = await fetch('/api/orders')
-      if (response.ok) {
-        const ordersData = await response.json()
-        setOrders(ordersData)
+      const response = await fetch('/api/orders', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
       }
+
+      const ordersData = await response.json()
+      setOrders(ordersData)
     } catch (error) {
       console.error('Error loading orders:', error)
+      // Показываем уведомление пользователю
+      alert('Ошибка загрузки заказов. Попробуйте обновить страницу.')
     } finally {
       setLoading(false)
     }
