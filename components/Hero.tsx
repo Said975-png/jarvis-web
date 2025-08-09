@@ -79,7 +79,7 @@ export default function Hero() {
             </h1>
 
             <p className="hero-description">
-              Мы объединяем креативность дизайна с мощью искусственного интеллекта,
+              Мы объединяем креативность дизайна с мощью искусственного ин��еллекта,
               чтобы создавать веб-сайты и приложения, которые не просто впечатляют,
               а революционизируют пользовательский опыт.
             </p>
@@ -120,18 +120,6 @@ export default function Hero() {
                   <p>Умные алгоритмы</p>
                 </div>
               </div>
-            </div>
-            
-            <div className="hero-actions">
-              <button className="btn-primary">
-                <span>Начать проект</span>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="m5 10 5-5 5 5M10 5v10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              <button className="btn-secondary">
-                <span>Посмотреть работы</span>
-              </button>
             </div>
 
             <div className="hero-stats">
