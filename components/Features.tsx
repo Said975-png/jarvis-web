@@ -1,207 +1,201 @@
 import { useState, useEffect } from 'react'
 
 export default function Features() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const features = [
-    {
-      title: "Стильные AI-дизайны",
-      description: "Создаем уникальные и современные дизайны сайтов, используя передовые технологии искусственного интеллекта",
-      type: "design",
-      stats: "50+ шаблонов",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
-          <circle cx="12" cy="12" r="3" fill="white"/>
-        </svg>
-      )
-    },
-    {
-      title: "ДЖАРВИС ИИ-Ассистент",
-      description: "Умный ассистент помогает клиентам выбрать товар и отвечает на вопросы как человек",
-      type: "ai",
-      stats: "99.8% точность",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="8" r="3" fill="currentColor"/>
-          <path d="M12 11C13.1 11 14 11.9 14 13V17H10V13C10 11.9 10.9 11 12 11Z" fill="currentColor"/>
-          <path d="M3 21V19C3 16.79 4.79 15 7 15H17C19.21 15 21 16.79 21 19V21" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-      )
-    },
-    {
-      title: "Персональный подход",
-      description: "Адаптируем общение под каждого клиента, создавая комфортную атмосферу взаимодействия",
-      type: "personal",
-      stats: "10x конверсия",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <path d="M20 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H6L10 22L14 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor"/>
-          <circle cx="8" cy="9" r="1.5" fill="white"/>
-          <circle cx="12" cy="9" r="1.5" fill="white"/>
-          <circle cx="16" cy="9" r="1.5" fill="white"/>
-        </svg>
-      )
-    },
-    {
-      title: "Умная аналитика",
-      description: "Отслеживаем поведение пользователей и предоставляем детальную статистику для роста",
-      type: "analytics",
-      stats: "Real-time данные",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <path d="M3 17V7C3 5.9 3.9 5 5 5H19C20.1 5 21 5.9 21 7V17C21 18.1 20.1 19 19 19H5C3.9 19 3 18.1 3 17Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-          <path d="M7 13L10 10L13 13L17 9" stroke="currentColor" strokeWidth="2" fill="none"/>
-          <circle cx="7" cy="13" r="1" fill="currentColor"/>
-          <circle cx="10" cy="10" r="1" fill="currentColor"/>
-          <circle cx="13" cy="13" r="1" fill="currentColor"/>
-          <circle cx="17" cy="9" r="1" fill="currentColor"/>
-        </svg>
-      )
-    }
-  ]
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % features.length)
-    }, 4000)
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      })
+    }
 
-    return () => clearInterval(timer)
-  }, [features.length])
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % features.length)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + features.length) % features.length)
-  }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
 
   return (
     <section className="features-section">
-      {/* Background Decorative Elements */}
-      <div className="bg-decoration">
-        <div className="floating-orb orb-1" />
-        <div className="floating-orb orb-2" />
-        <div className="grid-pattern" />
-      </div>
+      {/* Global background handles all decorations */}
 
       <div className="features-container">
-        <div className="features-header">
-          <div className="section-number">03</div>
-          <h2 className="features-title">Наши преимущества</h2>
-          <p className="features-subtitle">
-            Откройте для себя инновационные возможности наших AI-решений
-          </p>
-        </div>
+        {/* Features Main Content */}
+        <div className="features-main">
+          <div className="features-content">
+            <div className="features-badge">
+              <div className="badge-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L14 8H21L16 12L18 19L12 15L6 19L8 12L3 8H10L12 2Z" fill="currentColor"/>
+                </svg>
+              </div>
+              Наши преимущества
+            </div>
 
-        <div className="features-slider">
-          <div className="slider-container">
-            <div 
-              className="slides-wrapper"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {features.map((feature, index) => (
-                <div key={index} className="feature-slide">
-                  <div className={`feature-widget widget-${feature.type}`}>
-                    <div className="widget-header">
-                      <div className="widget-icon">
-                        {feature.icon}
-                      </div>
-                      <div className="widget-badge">{feature.stats}</div>
-                    </div>
-                    <div className="widget-content">
-                      <h3 className="widget-title">{feature.title}</h3>
-                      <p className="widget-description">{feature.description}</p>
-                    </div>
-                    <div className="widget-visual">
-                      {feature.type === 'design' && (
-                        <div className="design-preview">
-                          <div className="preview-window">
-                            <div className="window-header">
-                              <span></span><span></span><span></span>
-                            </div>
-                            <div className="window-content">
-                              <div className="design-grid">
-                                <div className="grid-item"></div>
-                                <div className="grid-item"></div>
-                                <div className="grid-item large"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                      {feature.type === 'ai' && (
-                        <div className="ai-chat">
-                          <div className="chat-message user">Помогите выбрать товар</div>
-                          <div className="chat-message ai">
-                            <div className="typing-dots">
-                              <span></span><span></span><span></span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                      {feature.type === 'personal' && (
-                        <div className="personal-stats">
-                          <div className="stat-circle">
-                            <div className="circle-progress" style={{background: `conic-gradient(var(--color-primary) 75%, var(--color-gray-200) 0)`}}>
-                              <span>75%</span>
-                            </div>
-                          </div>
-                          <div className="stat-labels">
-                            <div>Персонализация</div>
-                          </div>
-                        </div>
-                      )}
-                      {feature.type === 'analytics' && (
-                        <div className="analytics-chart">
-                          <div className="chart-bars">
-                            <div className="bar" style={{height: '60%'}}></div>
-                            <div className="bar" style={{height: '80%'}}></div>
-                            <div className="bar" style={{height: '45%'}}></div>
-                            <div className="bar" style={{height: '90%'}}></div>
-                            <div className="bar" style={{height: '70%'}}></div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+            <h2 className="features-title">
+              <span className="title-highlight">Инновационные</span><br />
+              AI-решения для бизнеса
+            </h2>
+
+            <p className="features-description">
+              Откройте для себя мощь искусственного интеллекта в веб-разработке. 
+              Наши передовые технологии создают уникальный пользовательский опыт 
+              и помога��т вашему бизнесу достигать новых высот.
+            </p>
+
+            <div className="features-list">
+              <div className="feature-item">
+                <div className="feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                  </svg>
                 </div>
-              ))}
+                <div>
+                  <h4>Стильные AI-дизайны</h4>
+                  <p>50+ готовых шаблонов</p>
+                </div>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="8" r="3" fill="currentColor"/>
+                    <path d="M12 11C13.1 11 14 11.9 14 13V17H10V13C10 11.9 10.9 11 12 11Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>ДЖАРВИС ИИ-Ассистент</h4>
+                  <p>99.8% точность ответов</p>
+                </div>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H6L10 22L14 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Персональный подход</h4>
+                  <p>10x увеличение конверсии</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="features-stats">
+              <div className="stat">
+                <div className="stat-number">95%</div>
+                <div className="stat-label">Удовлетворенность клиентов</div>
+              </div>
+              <div className="stat">
+                <div className="stat-number">3x</div>
+                <div className="stat-label">Рост продаж</div>
+              </div>
+              <div className="stat">
+                <div className="stat-number">24/7</div>
+                <div className="stat-label">AI поддержка</div>
+              </div>
             </div>
           </div>
 
-          <div className="slider-controls">
-            <button 
-              className="slider-arrow slider-prev" 
-              onClick={prevSlide}
-              aria-label="Previous slide"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            
-            <div className="slider-dots">
-              {features.map((_, index) => (
-                <button
-                  key={index}
-                  className={`slider-dot ${index === currentSlide ? 'active' : ''}`}
-                  onClick={() => setCurrentSlide(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
+          <div className="features-visual">
+            <div className="visual-container">
+              <div className="ai-capabilities">
+                <div className="capability-item">
+                  <div className="capability-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2"/>
+                    </svg>
+                  </div>
+                  <span>Машинное обучение</span>
+                </div>
+                <div className="capability-item">
+                  <div className="capability-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="2"/>
+                    </svg>
+                  </div>
+                  <span>Анализ данных</span>
+                </div>
+                <div className="capability-item">
+                  <div className="capability-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="currentColor" strokeWidth="2"/>
+                    </svg>
+                  </div>
+                  <span>А��томатизация</span>
+                </div>
+                <div className="capability-item">
+                  <div className="capability-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2"/>
+                    </svg>
+                  </div>
+                  <span>Оптимизация</span>
+                </div>
+                <div className="capability-item">
+                  <div className="capability-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" stroke="currentColor" strokeWidth="2"/>
+                    </svg>
+                  </div>
+                  <span>Cloud AI</span>
+                </div>
+                <div className="capability-item">
+                  <div className="capability-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                      <circle cx="9" cy="9" r="2" stroke="currentColor" strokeWidth="2"/>
+                      <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" stroke="currentColor" strokeWidth="2"/>
+                    </svg>
+                  </div>
+                  <span>Computer Vision</span>
+                </div>
+              </div>
+              
+              <div className="ai-dashboard">
+                <div className="dashboard-header">
+                  <div className="dashboard-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <span className="dashboard-title">AI Analytics</span>
+                </div>
+                <div className="dashboard-content">
+                  <div className="metric-card">
+                    <div className="metric-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 17V7C3 5.9 3.9 5 5 5H19C20.1 5 21 5.9 21 7V17C21 18.1 20.1 19 19 19H5C3.9 19 3 18.1 3 17Z" stroke="currentColor" strokeWidth="2"/>
+                        <path d="M7 13L10 10L13 13L17 9" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                    </div>
+                    <div className="metric-value">98.5%</div>
+                    <div className="metric-label">Accuracy</div>
+                  </div>
+                  <div className="metric-card">
+                    <div className="metric-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                        <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                    </div>
+                    <div className="metric-value">0.3s</div>
+                    <div className="metric-label">Response</div>
+                  </div>
+                  <div className="metric-card">
+                    <div className="metric-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2"/>
+                        <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+                        <path d="m22 21-3-3m0 0a5 5 0 1 0-7 0l3 3a5 5 0 0 0 7 0z" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                    </div>
+                    <div className="metric-value">15K+</div>
+                    <div className="metric-label">Users</div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <button 
-              className="slider-arrow slider-next" 
-              onClick={nextSlide}
-              aria-label="Next slide"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
           </div>
         </div>
       </div>

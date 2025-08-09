@@ -1,220 +1,174 @@
+import { useState, useEffect } from 'react'
+
 export default function Pricing() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      })
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
   return (
     <section className="pricing-section">
-      {/* Background Decorative Elements - like hero section */}
-      <div className="bg-decoration">
-        <div className="floating-orb orb-1" />
-        <div className="floating-orb orb-2" />
-        <div className="grid-pattern" />
-      </div>
-
       <div className="pricing-container">
-        <div className="pricing-header">
-          <div className="section-number">02</div>
-          <h2 className="pricing-title">Наши цены</h2>
-          <p className="pricing-subtitle">
-            Выберите план, который подходит для вашего бизнеса
-          </p>
-        </div>
+        {/* Pricing Main Content */}
+        <div className="pricing-main">
+          <div className="pricing-content">
+            <div className="pricing-badge">
+              <div className="badge-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L14 8H21L16 12L18 19L12 15L6 19L8 12L3 8H10L12 2Z" fill="currentColor"/>
+                </svg>
+              </div>
+              Прозрачные цены
+            </div>
 
-        <div className="pricing-grid">
-          {/* Basic Plan */}
-          <div className="pricing-card basic-card">
-            <div className="card-glow"></div>
-            <div className="card-content">
-              <div className="plan-icon-wrapper">
-                <div className="plan-icon basic-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <h2 className="pricing-title">
+              Честные <span className="title-highlight">цены</span><br />
+              без скрытых платежей
+            </h2>
+
+            <p className="pricing-description">
+              Выберите план, который подходит именно вашему бизнесу. 
+              Все цены фиксированные, никаких доплат или скрытых комиссий. 
+              Полная прозрачность и максимальная выгода для вашего проекта.
+            </p>
+
+            <div className="pricing-plans">
+              <div className="plan-item">
+                <div className="plan-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <circle cx="12" cy="12" r="3" fill="currentColor"/>
                     <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="currentColor" strokeWidth="2"/>
                   </svg>
                 </div>
-              </div>
-              <div className="plan-header">
-                <h3 className="plan-name">BASIC</h3>
-                <div className="plan-subtitle">Стартовый</div>
-              </div>
-              <div className="plan-price">
-                <div className="price-wrapper">
-                  <span className="price-amount">2.500.000</span>
-                  <span className="currency">сумм</span>
-                </div>
-                <span className="price-period">за проект</span>
-              </div>
-              <div className="plan-features">
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <span>Современный дизайн</span>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <span>Адаптивная верстка</span>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <span>SEO оптимизация</span>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <span>Техподдержка</span>
+                <div>
+                  <h4>BASIC Plan</h4>
+                  <p>2.500.000 сумм - Стартовый пакет</p>
                 </div>
               </div>
-              <button className="plan-button basic-button">
-                <span>Выбрать план</span>
-                <div className="button-glow"></div>
-              </button>
-            </div>
-          </div>
-
-          {/* Pro Plan */}
-          <div className="pricing-card pro-card">
-            <div className="popular-badge">
-              <div className="badge-glow"></div>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2L14 8H21L16 12L18 19L12 15L6 19L8 12L3 8H10L12 2Z" fill="currentColor"/>
-              </svg>
-              <span>ПОПУЛЯРНЫЙ</span>
-            </div>
-            <div className="card-glow pro-glow"></div>
-            <div className="card-content">
-              <div className="plan-icon-wrapper">
-                <div className="plan-icon pro-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <div className="plan-item featured">
+                <div className="plan-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M12 2L14 8H21L16 12L18 19L12 15L6 19L8 12L3 8H10L12 2Z" fill="currentColor"/>
-                    <circle cx="12" cy="12" r="2" fill="white"/>
                   </svg>
                 </div>
-              </div>
-              <div className="plan-header">
-                <h3 className="plan-name">PRO</h3>
-                <div className="plan-subtitle">Профессиональный</div>
-              </div>
-              <div className="plan-price">
-                <div className="price-wrapper">
-                  <span className="price-amount">4.000.000</span>
-                  <span className="currency">сумм</span>
-                </div>
-                <span className="price-period">за проект</span>
-              </div>
-              <div className="plan-features">
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <span>Все функции Basic +</span>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <span>ИИ ассистент</span>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <span>Продвинутая аналитика</span>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <span>Приоритетная поддержка</span>
+                <div>
+                  <h4>PRO Plan</h4>
+                  <p>4.000.000 сумм - Лучший выбор</p>
                 </div>
               </div>
-              <button className="plan-button pro-button">
-                <span>Выбрать план</span>
-                <div className="button-glow"></div>
-              </button>
+              <div className="plan-item">
+                <div className="plan-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L14.59 8.36L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.41 8.36L12 2Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>MAX Plan</h4>
+                  <p>5.000.000 сумм - Максимум возможностей</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pricing-stats">
+              <div className="stat">
+                <div className="stat-number">0%</div>
+                <div className="stat-label">Скрытых доплат</div>
+              </div>
+              <div className="stat">
+                <div className="stat-number">100%</div>
+                <div className="stat-label">Прозрачность</div>
+              </div>
+              <div className="stat">
+                <div className="stat-number">30</div>
+                <div className="stat-label">Дней гарантии</div>
+              </div>
             </div>
           </div>
 
-          {/* Max Plan */}
-          <div className="pricing-card max-card">
-            <div className="card-glow max-glow"></div>
-            <div className="card-content">
-              <div className="plan-icon-wrapper">
-                <div className="plan-icon max-icon">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2L14.59 8.36L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9.41 8.36L12 2Z" fill="currentColor"/>
-                    <circle cx="12" cy="12" r="3" fill="white"/>
-                    <circle cx="12" cy="12" r="1" fill="currentColor"/>
-                  </svg>
+          <div className="pricing-visual">
+            <div className="visual-container">
+              <div className="plans-comparison">
+                <div className="comparison-item basic">
+                  <div className="comparison-header">
+                    <div className="plan-badge basic-badge">BASIC</div>
+                    <div className="plan-price">2.5М</div>
+                  </div>
+                  <div className="comparison-features">
+                    <div className="feature-check">✓ Современный дизайн</div>
+                    <div className="feature-check">✓ Адаптивная верстка</div>
+                    <div className="feature-check">✓ SEO оптимизация</div>
+                    <div className="feature-check">✓ Техподдержка</div>
+                  </div>
+                </div>
+                
+                <div className="comparison-item pro featured">
+                  <div className="comparison-header">
+                    <div className="plan-badge pro-badge">PRO</div>
+                    <div className="plan-price">4М</div>
+                    <div className="popular-tag">Популярный</div>
+                  </div>
+                  <div className="comparison-features">
+                    <div className="feature-check">✓ Все из Basic +</div>
+                    <div className="feature-check">✓ ИИ ассистент</div>
+                    <div className="feature-check">✓ Продвинутая аналитика</div>
+                    <div className="feature-check">✓ Приоритетная поддержка</div>
+                  </div>
+                </div>
+                
+                <div className="comparison-item max">
+                  <div className="comparison-header">
+                    <div className="plan-badge max-badge">MAX</div>
+                    <div className="plan-price">5М</div>
+                  </div>
+                  <div className="comparison-features">
+                    <div className="feature-check">✓ Все из Pro +</div>
+                    <div className="feature-check">✓ ДЖАРВИС ИИ</div>
+                    <div className="feature-check">✓ Индивидуальные решения</div>
+                    <div className="feature-check">✓ VIP поддержка 24/7</div>
+                  </div>
                 </div>
               </div>
-              <div className="plan-header">
-                <h3 className="plan-name">MAX</h3>
-                <div className="plan-subtitle">Максимум</div>
-              </div>
-              <div className="plan-price">
-                <div className="price-wrapper">
-                  <span className="price-amount">5.000.000</span>
-                  <span className="currency">сумм</span>
-                </div>
-                <span className="price-period">за проект</span>
-              </div>
-              <div className="plan-features">
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              
+              <div className="cost-calculator">
+                <div className="calculator-header">
+                  <div className="calculator-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M9 9h6v6H9z" stroke="currentColor" strokeWidth="2"/>
                     </svg>
                   </div>
-                  <span>Все функции Pro +</span>
+                  <span>Калькулятор стоимости</span>
                 </div>
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                <div className="calculator-content">
+                  <div className="calc-row">
+                    <span className="calc-label">Стоимость разработки:</span>
+                    <span className="calc-value highlighted">4.000.000 сумм</span>
                   </div>
-                  <span>ДЖАРВИС ИИ</span>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                  <div className="calc-row">
+                    <span className="calc-label">Поддержка (год):</span>
+                    <span className="calc-value">включена</span>
                   </div>
-                  <span>Индивидуальные решения</span>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                  <div className="calc-row">
+                    <span className="calc-label">Обновления:</span>
+                    <span className="calc-value">бесплатно</span>
                   </div>
-                  <span>VIP поддержка 24/7</span>
+                  <div className="calc-divider"></div>
+                  <div className="calc-row total">
+                    <span className="calc-label">Итого к оплате:</span>
+                    <span className="calc-value final">4.000.000 сумм</span>
+                  </div>
+                  <div className="savings-note">Экономия на поддержке: 1.200.000 сумм</div>
                 </div>
               </div>
-              <button className="plan-button max-button">
-                <span>Выбрать план</span>
-                <div className="button-glow"></div>
-              </button>
             </div>
           </div>
         </div>

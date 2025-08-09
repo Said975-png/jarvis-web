@@ -17,21 +17,14 @@ export default function Hero() {
 
   return (
     <section className="hero-section">
-      {/* Background Decorative Elements */}
+      {/* Beautiful orb on the right side */}
       <div className="bg-decoration">
-        <div 
-          className="floating-orb orb-1" 
+        <div
+          className="hero-orb"
           style={{
-            transform: `translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px)`
+            transform: `translate(${mousePosition.x * 0.08}px, ${mousePosition.y * 0.06}px)`
           }}
         />
-        <div 
-          className="floating-orb orb-2"
-          style={{
-            transform: `translate(${mousePosition.x * -0.05}px, ${mousePosition.y * 0.08}px)`
-          }}
-        />
-        <div className="grid-pattern" />
       </div>
 
       <div className="hero-container">
