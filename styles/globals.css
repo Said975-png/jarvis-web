@@ -1164,9 +1164,7 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .process-steps {
-    grid-template-columns: 1fr;
-  }
+  /* Process styles removed */
 
   .feature-slide {
     padding: 0 1rem;
