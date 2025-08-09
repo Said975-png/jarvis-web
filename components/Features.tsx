@@ -63,6 +63,10 @@ export default function Features() {
   ]
 
   useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % features.length)
     }, 4000)
