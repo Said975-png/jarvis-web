@@ -732,21 +732,16 @@ body {
   perspective: 1000px;
 }
 
-/* Futuristic Card Design */
+/* Modern Card Design */
 .pricing-card {
   position: relative;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%),
-    rgba(30, 31, 60, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: white;
+  border: 1px solid var(--color-gray-200);
   border-radius: 24px;
   padding: 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(20px);
   overflow: hidden;
-  transform-style: preserve-3d;
-  will-change: transform;
   min-height: 480px;
+  box-shadow: var(--shadow-md);
 }
 
 .pricing-card::before {
@@ -759,70 +754,24 @@ body {
   border-radius: 24px;
   padding: 1px;
   background: linear-gradient(135deg,
-    rgba(99, 102, 241, 0.4) 0%,
-    rgba(139, 92, 246, 0.4) 25%,
-    rgba(168, 85, 247, 0.4) 50%,
-    rgba(139, 92, 246, 0.4) 75%,
-    rgba(99, 102, 241, 0.4) 100%);
+    rgba(99, 102, 241, 0.2) 0%,
+    rgba(139, 92, 246, 0.2) 50%,
+    rgba(99, 102, 241, 0.2) 100%);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: xor;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+  opacity: 0.3;
 }
 
-.pricing-card:hover {
-  transform: translateY(-12px) rotateY(5deg) rotateX(2deg);
-  box-shadow:
-    0 32px 64px rgba(0, 0, 0, 0.4),
-    0 0 80px rgba(99, 102, 241, 0.2);
-}
 
-.pricing-card:hover::before {
-  opacity: 1;
-}
-
-/* Card Glow Effects */
-.card-glow {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.pro-glow {
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
-}
-
-.max-glow {
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
-}
-
-.pricing-card:hover .card-glow {
-  opacity: 1;
-}
 
 /* Pro Card Enhanced */
 .pro-card {
-  background:
-    linear-gradient(145deg, rgba(99, 102, 241, 0.1) 0%, rgba(79, 70, 229, 0.05) 100%),
-    rgba(30, 31, 60, 0.6);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  background: white;
+  border: 2px solid var(--color-primary);
   transform: scale(1.05);
-}
-
-.pro-card:hover {
-  transform: translateY(-15px) rotateY(5deg) rotateX(2deg) scale(1.05);
-  box-shadow:
-    0 40px 80px rgba(0, 0, 0, 0.5),
-    0 0 100px rgba(99, 102, 241, 0.4);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Popular Badge */
