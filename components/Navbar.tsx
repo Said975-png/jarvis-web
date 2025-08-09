@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { useCart } from '../contexts/CartContext'
+import { useOrders } from '../contexts/OrderContext'
 import AuthForms from './AuthForms'
 import Profile from './Profile'
 import Checkout from './Checkout'
@@ -172,7 +173,7 @@ export default function Navbar() {
                             setCartOpen(false)
                           }}
                         >
-                          Оформить заказ
+                          Оформ��ть заказ
                         </button>
                       </div>
                     </>
