@@ -76,6 +76,23 @@
   animation-delay: 4s;
 }
 
+/* Background blobs positioning */
+.top-0 { top: 0; }
+.left-1\\/4 { left: 25%; }
+.right-1\\/4 { right: 25%; }
+.bottom-0 { bottom: 0; }
+.left-1\\/3 { left: 33.333333%; }
+
+/* Opacity utilities */
+.opacity-20 { opacity: 0.2; }
+
+/* Filter utilities */
+.filter { filter: var(--tw-filter); }
+.blur-xl { --tw-blur: blur(24px); filter: var(--tw-blur); }
+
+/* Mix blend mode */
+.mix-blend-multiply { mix-blend-mode: multiply; }
+
 /* Shadow utilities */
 .shadow-2xl {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
