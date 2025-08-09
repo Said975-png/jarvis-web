@@ -9,10 +9,17 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "keywords": ["ai", "web development", "next.js", "react"],
+  "keywords": [
+    "ai",
+    "web development",
+    "next.js",
+    "react"
+  ],
   "author": "JARVIS Team",
   "license": "ISC",
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "jsonwebtoken": "^9.0.2",
     "next": "^14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
