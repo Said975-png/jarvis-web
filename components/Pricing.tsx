@@ -616,43 +616,65 @@ export default function Pricing() {
         }
 
         .basic-button {
-          background: white;
+          background: rgba(255, 255, 255, 0.1);
           color: #0f172a;
-          border: 2px solid #e2e8f0;
-          box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(15px);
+          box-shadow:
+            0 4px 15px rgba(0,0,0,0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .basic-button:hover {
-          background: #f8fafc;
-          border-color: #2563eb;
+          background: rgba(255, 255, 255, 0.2);
+          border: 1px solid rgba(37, 99, 235, 0.4);
           color: #2563eb;
           transform: scale(1.05);
-          box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          box-shadow:
+            0 8px 25px rgba(37, 99, 235, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
 
         .pro-button {
-          background: white;
-          color: #2563eb;
-          border: 2px solid white;
+          background: rgba(255, 255, 255, 0.15);
+          color: white;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(15px);
         }
 
         .pro-button:hover {
-          background: rgba(255,255,255,0.9);
+          background: rgba(255, 255, 255, 0.25);
+          border: 1px solid rgba(255, 255, 255, 0.4);
           transform: scale(1.05);
-          box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          box-shadow:
+            0 8px 25px rgba(255, 255, 255, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
 
         .max-button {
-          background: white;
+          background: rgba(255, 255, 255, 0.1);
           color: #8b5cf6;
-          border: 2px solid #e2e8f0;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(15px);
         }
 
         .max-button:hover {
-          background: #f8fafc;
-          border-color: #8b5cf6;
+          background: rgba(255, 255, 255, 0.2);
+          border: 1px solid rgba(139, 92, 246, 0.4);
+          color: #8b5cf6;
           transform: scale(1.05);
-          box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          box-shadow:
+            0 8px 25px rgba(139, 92, 246, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
 
         .button-glow-modern {
