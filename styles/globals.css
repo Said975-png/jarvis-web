@@ -1234,32 +1234,42 @@ body {
     padding: 0 1rem;
   }
 
-  .feature-widget {
-    padding: 2rem 1.5rem;
+  .ai-feature-card {
     min-height: 400px;
   }
 
-  .widget-title {
-    font-size: 1.5rem;
+  .ai-background {
+    padding: 1.5rem;
   }
 
-  .widget-description {
-    font-size: 1rem;
+  .ai-content {
+    padding: 1rem 1.5rem;
   }
 
-  .widget-icon {
-    width: 64px;
-    height: 64px;
+  .ai-title {
+    font-size: 1.25rem;
   }
 
-  .design-grid {
+  .ai-description {
+    font-size: 0.875rem;
+  }
+
+  .hologram-cube {
+    width: 80px;
     height: 80px;
   }
 
-  .circle-progress {
-    width: 100px;
-    height: 100px;
-    font-size: 1.25rem;
+  .cube-face {
+    width: 80px;
+    height: 80px;
+  }
+
+  .neural-svg {
+    height: 250px;
+  }
+
+  .ai-terminal {
+    max-width: 300px;
   }
 
   .slider-controls {
