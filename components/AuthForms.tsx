@@ -29,9 +29,11 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
       }
 
       const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register'
-      const body = isLogin 
+      const body = isLogin
         ? { email: formData.email, password: formData.password }
         : { email: formData.email, password: formData.password, name: formData.name }
+
+      console.log('AuthForms: Making request to:', endpoint, 'with body:', body)
 
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -134,7 +136,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
               value={formData.password}
               onChange={handleInputChange}
               required
-              placeholder="Введите пароль"
+              placeholder="Введите п��роль"
               minLength={6}
             />
           </div>
