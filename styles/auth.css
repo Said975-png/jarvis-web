@@ -717,23 +717,43 @@
     padding: 1rem;
   }
 
-  .profile-avatar-large {
-    width: 80px;
-    height: 80px;
-    font-size: 1.75rem;
-  }
-
-  .profile-name {
-    font-size: 1.5rem;
-  }
-
-  .profile-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .info-item {
+  .profile-header {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .profile-main-title {
+    font-size: 2rem;
+  }
+
+  .profile-subtitle {
+    font-size: 1rem;
+  }
+
+  .profile-welcome-card {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .profile-user-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 1.25rem;
+  }
+
+  .profile-main-content {
+    padding: 2rem 1rem;
+    min-height: 300px;
+  }
+
+  .profile-placeholder {
+    font-size: 1rem;
   }
 }
