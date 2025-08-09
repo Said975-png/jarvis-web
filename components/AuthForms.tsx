@@ -43,16 +43,25 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         body: JSON.stringify(body),
       })
 
-      // Читаем JSON только один раз
-      const data = await response.json()
-
+      // Обрабатываем ответ в зависимости от статуса
       if (response.ok) {
-        localStorage.setItem('user', JSON.stringify(data.user))
-        localStorage.setItem('token', data.token)
-        onLogin(data.user)
-        onClose()
+        try {
+          const data = await response.json()
+          localStorage.setItem('user', JSON.stringify(data.user))
+          localStorage.setItem('token', data.token)
+          onLogin(data.user)
+          onClose()
+        } catch (parseError) {
+          setError('Ошибка обработки ответа сервера')
+        }
       } else {
-        setError(data.message || 'Произошла ошибка авторизации')
+        // Обрабатываем ошибку от сервера
+        try {
+          const errorData = await response.json()
+          setError(errorData.message || `Ошибка ${response.status}`)
+        } catch (parseError) {
+          setError(`Ошибка ${response.status}: ${response.statusText}`)
+        }
       }
     } catch (error) {
       setError('Ошибка соединения с сервером')
@@ -173,7 +182,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
 
         <div className="auth-switch">
           <p>
-            {isLogin ? 'Нет аккаунта?' : 'Уже есть аккаунт?'}
+            {isLogin ? 'Н��т аккаунта?' : 'Уже есть аккаунт?'}
             <button 
               type="button" 
               onClick={() => setIsLogin(!isLogin)}
