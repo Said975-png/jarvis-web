@@ -331,6 +331,8 @@ body {
   gap: 0.5rem;
   transition: var(--transition);
   box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+  min-width: fit-content;
 }
 
 .btn-primary:hover {
