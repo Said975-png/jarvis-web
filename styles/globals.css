@@ -218,9 +218,19 @@ body::after {
   letter-spacing: -0.02em;
 }
 
+.nav-links-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .nav-links {
   display: flex;
   gap: 2rem;
+}
+
+.mobile-menu-toggle {
+  display: none;
 }
 
 .nav-links a {
