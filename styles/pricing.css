@@ -212,7 +212,7 @@
   overflow-wrap: break-word;
   hyphens: auto;
   text-align: center;
-  padding: 0;
+  padding: 0 1rem;
 }
 
 .plan-price {
