@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 
 export default function Features() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isClient, setIsClient] = useState(false)
 
   const features = [
     {
@@ -19,7 +18,7 @@ export default function Features() {
     },
     {
       title: "ДЖАРВИС ИИ-Ассистент",
-      description: "Умны�� ассистент помогает клиентам выбрать товар и отвечает на вопросы как человек",
+      description: "Умный ассистент помогает клиентам выбрать товар и отвечает на вопросы как человек",
       type: "ai",
       stats: "99.8% точность",
       icon: (
@@ -31,7 +30,7 @@ export default function Features() {
       )
     },
     {
-      title: "Персональный подход",
+      title: "Персо��альный подход",
       description: "Адаптируем общение под каждого клиента, создавая комфортную атмосферу взаимодействия",
       type: "personal",
       stats: "10x конверсия",
