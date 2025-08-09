@@ -965,10 +965,11 @@ body {
 
 /* Features Section */
 .features-section {
-  padding: calc(var(--spacing-3xl) * 1.5) 0;
-  background: white;
-  margin-top: var(--spacing-3xl);
+  padding: 100px 0;
+  background: transparent;
   position: relative;
+  overflow: hidden;
+  margin-top: 0;
 }
 
 .features-section::before {
