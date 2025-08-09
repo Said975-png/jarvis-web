@@ -71,7 +71,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2.5rem;
   animation: fadeInUp 0.8s ease-out 0.2s both;
   perspective: 1200px;
   padding: 2rem 0;
