@@ -1,5 +1,5 @@
 /* ================================
-   MODERN PRICING SECTION
+   MODERN PRICING SECTION WITH NEW CARD SHAPES
    ================================ */
 
 .pricing-section {
@@ -79,56 +79,166 @@
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 3rem;
   max-width: 1200px;
   margin: 0 auto;
   animation: slideInUp 0.8s ease-out 0.2s both;
 }
 
 /* ================================
-   PRICING CARDS
+   HEXAGONAL CARDS - BASIC
    ================================ */
 
-.pricing-card {
+.pricing-card.basic-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 24px;
+  background: transparent;
   padding: 0;
-  overflow: hidden;
+  height: 500px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-  height: fit-content;
 }
 
-.pricing-card::before {
+.pricing-card.basic-card::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(255, 255, 255, 0.1) 100%);
-  border-radius: 24px;
-  pointer-events: none;
-  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 480px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.95));
+  clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+  border: 2px solid rgba(229, 231, 235, 0.5);
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.4s ease;
 }
+
+.pricing-card.basic-card:hover::before {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* ================================
+   DIAMOND CARDS - PRO (FEATURED)
+   ================================ */
+
+.pricing-card.pro-card {
+  position: relative;
+  background: transparent;
+  padding: 0;
+  height: 520px;
+  transform: scale(1.08);
+  z-index: 3;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pricing-card.pro-card::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 500px;
+  background: linear-gradient(145deg, 
+    rgba(16, 185, 129, 0.1), 
+    rgba(255, 255, 255, 0.95),
+    rgba(6, 182, 212, 0.1));
+  clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%);
+  border: 3px solid rgba(16, 185, 129, 0.3);
+  backdrop-filter: blur(24px);
+  box-shadow: 
+    0 25px 50px rgba(16, 185, 129, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.4s ease;
+}
+
+.pricing-card.pro-card:hover::before {
+  transform: translateX(-50%) scale(1.05) rotate(5deg);
+  box-shadow: 
+    0 35px 70px rgba(16, 185, 129, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+/* ================================
+   CURVED CARDS - MAX
+   ================================ */
+
+.pricing-card.max-card {
+  position: relative;
+  background: transparent;
+  padding: 0;
+  height: 500px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pricing-card.max-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 480px;
+  background: linear-gradient(145deg, 
+    rgba(139, 92, 246, 0.05), 
+    rgba(255, 255, 255, 0.9),
+    rgba(124, 58, 237, 0.05));
+  clip-path: ellipse(140px 240px at 50% 50%);
+  border: 2px solid rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(139, 92, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.4s ease;
+}
+
+.pricing-card.max-card:hover::before {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 
+    0 20px 40px rgba(139, 92, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+/* ================================
+   CARD GLOW EFFECTS
+   ================================ */
 
 .card-glow {
   position: absolute;
-  inset: -2px;
-  background: linear-gradient(135deg, 
-    rgba(16, 185, 129, 0.2),
-    rgba(6, 182, 212, 0.2),
-    rgba(139, 92, 246, 0.2));
-  border-radius: 26px;
+  inset: -4px;
   opacity: 0;
   transition: opacity 0.4s ease;
-  z-index: 0;
-  filter: blur(8px);
+  z-index: -1;
+  filter: blur(12px);
+}
+
+.basic-card .card-glow {
+  background: linear-gradient(135deg, 
+    rgba(229, 231, 235, 0.3),
+    rgba(156, 163, 175, 0.3));
+  clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+}
+
+.pro-card .card-glow {
+  background: linear-gradient(135deg, 
+    rgba(16, 185, 129, 0.4),
+    rgba(6, 182, 212, 0.4));
+  clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%);
+}
+
+.max-card .card-glow {
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.4),
+    rgba(124, 58, 237, 0.4));
+  clip-path: ellipse(144px 244px at 50% 50%);
 }
 
 .pricing-card:hover .card-glow {
@@ -141,55 +251,13 @@
   50% { opacity: 1; transform: scale(1.02); }
 }
 
-.pricing-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.15),
-    0 12px 25px rgba(16, 185, 129, 0.2);
-  border-color: rgba(16, 185, 129, 0.3);
-}
-
-/* ================================
-   CARD VARIANTS
-   ================================ */
-
-.basic-card {
-  box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.pro-card {
-  transform: scale(1.05);
-  box-shadow: 
-    0 20px 25px rgba(0, 0, 0, 0.1),
-    0 10px 10px rgba(0, 0, 0, 0.04),
-    0 0 0 1px rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.2);
-  z-index: 2;
-}
-
-.pro-card .card-glow {
-  background: linear-gradient(135deg, 
-    rgba(16, 185, 129, 0.4),
-    rgba(6, 182, 212, 0.3),
-    rgba(139, 92, 246, 0.3));
-  opacity: 0.3;
-}
-
-.max-card {
-  box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
 /* ================================
    POPULAR BADGE
    ================================ */
 
 .popular-badge {
   position: absolute;
-  top: -12px;
+  top: -15px;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, #10b981, #059669);
@@ -228,10 +296,13 @@
 .card-content {
   position: relative;
   z-index: 2;
-  padding: 2.5rem;
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
 }
 
 /* ================================
@@ -239,54 +310,51 @@
    ================================ */
 
 .plan-header {
-  text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .plan-icon {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   margin: 0 auto 1rem;
-  border-radius: 16px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   transition: all 0.3s ease;
 }
 
 .basic-icon {
-  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-  color: #64748b;
-  border: 2px solid #e2e8f0;
+  background: linear-gradient(135deg, #64748b, #475569);
+  color: white;
 }
 
 .pro-icon {
   background: linear-gradient(135deg, #10b981, #059669);
   color: white;
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
 }
 
 .max-icon {
   background: linear-gradient(135deg, #8b5cf6, #7c3aed);
   color: white;
-  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
 }
 
 .pricing-card:hover .plan-icon {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1) rotate(10deg);
 }
 
 .plan-name {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #1f2937;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   letter-spacing: -0.025em;
 }
 
 .plan-subtitle {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #6b7280;
   font-weight: 500;
   text-transform: uppercase;
@@ -298,33 +366,29 @@
    ================================ */
 
 .plan-pricing {
-  text-align: center;
-  margin-bottom: 2rem;
-  padding: 1.5rem 0;
-  background: rgba(248, 250, 252, 0.5);
-  border-radius: 16px;
-  backdrop-filter: blur(8px);
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
 }
 
 .price-display {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
   margin-bottom: 8px;
   flex-wrap: wrap;
 }
 
 .currency {
-  font-size: 1.25rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #6b7280;
   align-self: flex-start;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .price-amount {
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: #1f2937;
   line-height: 1;
@@ -332,18 +396,20 @@
 }
 
 .price-period {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #9ca3af;
   font-weight: 500;
   align-self: flex-end;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .price-description {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #6b7280;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.4;
+  max-width: 200px;
+  margin: 0 auto;
 }
 
 /* ================================
@@ -352,32 +418,29 @@
 
 .plan-features {
   flex: 1;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  max-width: 220px;
 }
 
 .feature-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  font-size: 0.875rem;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 0.75rem;
   color: #374151;
-  line-height: 1.5;
+  line-height: 1.4;
   transition: all 0.2s ease;
-  border-radius: 8px;
-  margin: 0 -8px;
-  padding-left: 8px;
-  padding-right: 8px;
 }
 
 .feature-item:hover {
-  background: rgba(16, 185, 129, 0.05);
-  transform: translateX(4px);
+  color: #10b981;
+  transform: translateX(2px);
 }
 
 .feature-icon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: linear-gradient(135deg, #10b981, #059669);
   display: flex;
@@ -389,11 +452,12 @@
 
 .feature-icon svg {
   color: white;
+  width: 8px;
+  height: 8px;
 }
 
 .feature-item:hover .feature-icon {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 }
 
 /* ================================
@@ -402,10 +466,10 @@
 
 .plan-button {
   position: relative;
-  width: 100%;
-  padding: 16px 24px;
-  border-radius: 12px;
-  font-size: 0.875rem;
+  width: 180px;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -433,39 +497,36 @@
 }
 
 .basic-button {
-  background: white;
-  color: #374151;
-  border: 2px solid #e5e7eb;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #64748b, #475569);
+  color: white;
+  box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3);
 }
 
 .basic-button:hover {
-  border-color: #10b981;
-  color: #10b981;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 8px 25px rgba(100, 116, 139, 0.4);
 }
 
 .pro-button {
   background: linear-gradient(135deg, #10b981, #059669);
   color: white;
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
 }
 
 .pro-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
 }
 
 .max-button {
   background: linear-gradient(135deg, #8b5cf6, #7c3aed);
   color: white;
-  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
 }
 
 .max-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
 }
 
 /* ================================
@@ -490,16 +551,27 @@
 @media (max-width: 1024px) {
   .pricing-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: 480px;
+    gap: 3rem;
+    max-width: 320px;
   }
 
-  .pro-card {
+  .pricing-card.pro-card {
     transform: none;
   }
 
-  .pricing-card:hover {
-    transform: translateY(-4px);
+  .pricing-card {
+    height: 450px;
+  }
+
+  .basic-card::before,
+  .max-card::before {
+    width: 250px;
+    height: 430px;
+  }
+
+  .pro-card::before {
+    width: 270px;
+    height: 450px;
   }
 }
 
@@ -516,16 +588,27 @@
     font-size: 2.5rem;
   }
   
-  .card-content {
-    padding: 2rem 1.5rem;
-  }
-  
-  .price-amount {
-    font-size: 2rem;
+  .pricing-grid {
+    gap: 2rem;
   }
 
-  .pricing-grid {
-    gap: 1.5rem;
+  .pricing-card {
+    height: 400px;
+  }
+
+  .basic-card::before,
+  .max-card::before {
+    width: 220px;
+    height: 380px;
+  }
+
+  .pro-card::before {
+    width: 240px;
+    height: 400px;
+  }
+
+  .card-content {
+    padding: 1.5rem 1rem;
   }
 }
 
@@ -537,18 +620,30 @@
   .pricing-description {
     font-size: 1rem;
   }
-  
-  .price-amount {
-    font-size: 1.75rem;
+
+  .pricing-card {
+    height: 350px;
   }
 
-  .card-content {
-    padding: 1.5rem 1rem;
+  .basic-card::before,
+  .max-card::before {
+    width: 200px;
+    height: 330px;
+  }
+
+  .pro-card::before {
+    width: 220px;
+    height: 350px;
   }
 
   .plan-icon {
-    width: 56px;
-    height: 56px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .plan-button {
+    width: 160px;
+    padding: 10px 16px;
   }
 }
 
@@ -571,8 +666,8 @@
 
 /* High contrast mode */
 @media (prefers-contrast: high) {
-  .pricing-card {
-    border: 2px solid #000;
+  .pricing-card::before {
+    border: 3px solid #000;
   }
   
   .plan-button {
