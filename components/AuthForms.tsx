@@ -41,6 +41,14 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         body: JSON.stringify(body),
       })
 
+      // Проверяем Content-Type перед парсингом JSON
+      const contentType = response.headers.get('content-type')
+      if (!contentType || !contentType.includes('application/json')) {
+        console.error('AuthForms: Response is not JSON, Content-Type:', contentType)
+        setError(`Ошибка сервера: ${response.status} ${response.statusText}`)
+        return
+      }
+
       let data
       try {
         data = await response.json()
