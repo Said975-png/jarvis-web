@@ -531,15 +531,18 @@ body {
 /* Floating Crosses */
 .floating-cross {
   position: absolute;
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 900;
-  color: rgba(99, 102, 241, 0.4);
-  opacity: 0.8;
+  color: rgba(134, 239, 172, 0.7);
+  opacity: 0.9;
   pointer-events: none;
   z-index: 1;
   animation: floatCross 8s ease-in-out infinite;
-  text-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  text-shadow: 0 0 25px rgba(134, 239, 172, 0.4);
   transform-origin: center;
+  font-family: Arial, sans-serif;
+  text-stroke: 1px rgba(134, 239, 172, 0.8);
+  -webkit-text-stroke: 1px rgba(134, 239, 172, 0.8);
 }
 
 .cross-1 {
