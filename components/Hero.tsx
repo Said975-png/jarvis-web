@@ -172,7 +172,7 @@ export default function Hero() {
                 </div>
                 <div>
                   <h4>Высокая производительность</h4>
-                  <p>Оптимизация и ��корость</p>
+                  <p>Оптимизация и скорость</p>
                 </div>
               </div>
               <div className="feature">
