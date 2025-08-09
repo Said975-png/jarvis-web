@@ -5,59 +5,24 @@ export default function Features() {
 
   const features = [
     {
-      title: "Стильные AI-дизайны",
-      description: "Создаем уникальные и современные дизайны сайтов, используя передовые технологии искусственного интеллекта",
-      type: "design",
-      stats: "50+ шаблонов",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
-          <circle cx="12" cy="12" r="3" fill="white"/>
-        </svg>
-      )
+      title: "Нейронные сети",
+      description: "Используем глубокое машинное обучение для создания интеллектуальных веб-решений",
+      type: "neural"
     },
     {
-      title: "ДЖАРВИС ИИ-Ассистент",
-      description: "Умный ассистент помогает клиентам выбрать товар и отвечает на вопросы как человек",
-      type: "ai",
-      stats: "99.8% точность",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="8" r="3" fill="currentColor"/>
-          <path d="M12 11C13.1 11 14 11.9 14 13V17H10V13C10 11.9 10.9 11 12 11Z" fill="currentColor"/>
-          <path d="M3 21V19C3 16.79 4.79 15 7 15H17C19.21 15 21 16.79 21 19V21" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-      )
+      title: "Квантовые алгоритмы",
+      description: "Передовые вычислите��ьные технологии для обработки больших данных",
+      type: "quantum"
     },
     {
-      title: "Персональный подход",
-      description: "Адаптируем общение под каждого клиента, создавая комфортную атмосферу взаимодействия",
-      type: "personal",
-      stats: "10x конверсия",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <path d="M20 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H6L10 22L14 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor"/>
-          <circle cx="8" cy="9" r="1.5" fill="white"/>
-          <circle cx="12" cy="9" r="1.5" fill="white"/>
-          <circle cx="16" cy="9" r="1.5" fill="white"/>
-        </svg>
-      )
+      title: "Голографический интерфейс",
+      description: "Трёхмерные интерактивные элементы будущего уже сегодня",
+      type: "hologram"
     },
     {
-      title: "Умная аналитика",
-      description: "Отслеживаем поведение пользователей и предоставляем детальную статистику для роста",
-      type: "analytics",
-      stats: "Real-time данные",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-          <path d="M3 17V7C3 5.9 3.9 5 5 5H19C20.1 5 21 5.9 21 7V17C21 18.1 20.1 19 19 19H5C3.9 19 3 18.1 3 17Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-          <path d="M7 13L10 10L13 13L17 9" stroke="currentColor" strokeWidth="2" fill="none"/>
-          <circle cx="7" cy="13" r="1" fill="currentColor"/>
-          <circle cx="10" cy="10" r="1" fill="currentColor"/>
-          <circle cx="13" cy="13" r="1" fill="currentColor"/>
-          <circle cx="17" cy="9" r="1" fill="currentColor"/>
-        </svg>
-      )
+      title: "AI-Терминал",
+      description: "Прямое взаимодействие с искусственным интеллектом через командную строку",
+      type: "terminal"
     }
   ]
 
