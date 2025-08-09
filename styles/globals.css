@@ -624,6 +624,19 @@ body {
   opacity: 0.6;
 }
 
+/* Additional positioning for different sections */
+.pricing-section .cross-1 { top: 10%; right: 20%; }
+.pricing-section .cross-2 { bottom: 20%; left: 10%; }
+.pricing-section .cross-3 { top: 60%; right: 15%; }
+
+.features-section .cross-1 { top: 15%; left: 15%; }
+.features-section .cross-2 { top: 40%; right: 10%; }
+.features-section .cross-3 { bottom: 30%; left: 20%; }
+
+.process-section .cross-1 { top: 20%; right: 25%; }
+.process-section .cross-2 { bottom: 40%; left: 15%; }
+.process-section .cross-3 { top: 70%; right: 20%; }
+
 @keyframes floatCross {
   0%, 100% {
     transform: translateY(0px) translateX(0px) rotate(0deg);
