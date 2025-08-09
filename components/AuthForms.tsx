@@ -120,7 +120,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
               value={formData.email}
               onChange={handleInputChange}
               required
-              placeholder="your@email.com"
+              placeholder="Введите ваш email"
             />
           </div>
 
