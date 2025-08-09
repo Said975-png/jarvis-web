@@ -43,6 +43,12 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         body: JSON.stringify(body),
       })
 
+      console.log('AuthForms: Response received:', {
+        status: response.status,
+        statusText: response.statusText,
+        headers: Object.fromEntries(response.headers.entries())
+      })
+
       // Проверяем Content-Type перед парсингом JSON
       const contentType = response.headers.get('content-type')
       if (!contentType || !contentType.includes('application/json')) {
@@ -136,7 +142,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
               value={formData.password}
               onChange={handleInputChange}
               required
-              placeholder="Введите п��роль"
+              placeholder="Введите пароль"
               minLength={6}
             />
           </div>
