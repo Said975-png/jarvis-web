@@ -875,20 +875,16 @@ body {
 }
 
 .plan-name {
-  color: white;
+  color: var(--color-text);
   font-size: 1.75rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .plan-subtitle {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text-light);
   font-size: 0.875rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -913,35 +909,28 @@ body {
 .currency {
   font-size: 1.25rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text-light);
   font-family: var(--font-mono);
 }
 
 .price-amount {
   font-size: 2.5rem;
   font-weight: 900;
-  color: white;
+  color: var(--color-primary);
   font-family: var(--font-mono);
   line-height: 1;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .pro-card .price-amount {
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
 }
 
 .max-card .price-amount {
-  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-secondary);
 }
 
 .price-period {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-muted);
   font-size: 0.875rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -961,19 +950,13 @@ body {
   margin-bottom: 1rem;
   padding: 0.75rem;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
-  color: rgba(255, 255, 255, 0.9);
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  color: var(--color-text);
   font-size: 0.9rem;
   font-weight: 500;
 }
 
-.feature-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.1);
-  transform: translateX(4px);
-}
 
 .feature-icon {
   width: 24px;
