@@ -64,9 +64,11 @@ body {
 /* Hero Section */
 .hero-section {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   background: transparent;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 /* Background Decoration */
@@ -670,11 +672,11 @@ body {
 
 /* Pricing Section */
 .pricing-section {
-  padding: 100px 0;
+  padding: 50px 0 100px 0;
   background: transparent;
   position: relative;
   overflow: hidden;
-  margin-top: -50px;
+  margin: 0;
 }
 
 
@@ -1041,7 +1043,8 @@ body {
   min-height: 100vh;
   background: transparent;
   overflow: hidden;
-  padding: 100px 0;
+  padding: 50px 0;
+  margin: 0;
 }
 
 /* Features Container - Hero Style */
