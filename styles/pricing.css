@@ -9,7 +9,7 @@
 .to-slate-900 { --tw-gradient-to: #0f172a; }
 
 .bg-gradient-to-br {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-to));
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-from, #f8fafc), var(--tw-gradient-via, #eff6ff), var(--tw-gradient-to, #e0e7ff));
 }
 
 .bg-gradient-to-r {
