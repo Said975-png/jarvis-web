@@ -60,6 +60,73 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* Shopping Cart */}
+          <div className="cart-container-chatgpt">
+            <button
+              className="cart-button-chatgpt"
+              onClick={() => setCartOpen(!cartOpen)}
+              aria-label="Корзина"
+            >
+              <div className="cart-icon-wrapper-chatgpt">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="cart-icon-chatgpt">
+                  <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17M17 13V16.5M9 19.5A1.5 1.5 0 1 0 10.5 21A1.5 1.5 0 0 0 9 19.5ZM20 19.5A1.5 1.5 0 1 0 21.5 21A1.5 1.5 0 0 0 20 19.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                {cartItems > 0 && (
+                  <span className="cart-badge-chatgpt">{cartItems}</span>
+                )}
+              </div>
+            </button>
+
+            {cartOpen && (
+              <div className="cart-dropdown-chatgpt">
+                <div className="cart-header-chatgpt">
+                  <h3>Корзина</h3>
+                  <span className="cart-count-chatgpt">{cartItems} товара</span>
+                </div>
+                <div className="cart-items-chatgpt">
+                  <div className="cart-item-chatgpt">
+                    <div className="cart-item-image-chatgpt">
+                      <div className="placeholder-image-chatgpt"></div>
+                    </div>
+                    <div className="cart-item-info-chatgpt">
+                      <h4>Веб-разработка</h4>
+                      <p>Создание сайта</p>
+                      <span className="cart-item-price-chatgpt">₽25,000</span>
+                    </div>
+                    <button className="cart-item-remove-chatgpt">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="cart-item-chatgpt">
+                    <div className="cart-item-image-chatgpt">
+                      <div className="placeholder-image-chatgpt"></div>
+                    </div>
+                    <div className="cart-item-info-chatgpt">
+                      <h4>ИИ интеграция</h4>
+                      <p>Чат-бот для сайта</p>
+                      <span className="cart-item-price-chatgpt">₽15,000</span>
+                    </div>
+                    <button className="cart-item-remove-chatgpt">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div className="cart-footer-chatgpt">
+                  <div className="cart-total-chatgpt">
+                    <span>Итого: ₽40,000</span>
+                  </div>
+                  <button className="cart-checkout-chatgpt">
+                    Оформить заказ
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
           <div className="nav-links-wrapper-chatgpt">
             <button
               className="mobile-menu-toggle-chatgpt"
@@ -300,7 +367,7 @@ export default function Hero() {
 
                 <div className="profile-main-section">
                   <div className="profile-section">
-                    <h4 className="section-title">Мои проекты</h4>
+                    <h4 className="section-title">Мои ��роекты</h4>
                     <div className="projects-grid">
                       <div className="project-card">
                         <div className="project-icon">
@@ -310,7 +377,7 @@ export default function Hero() {
                         </div>
                         <div className="project-info">
                           <h5>Корпоративный сайт</h5>
-                          <p>В разработ��е</p>
+                          <p>В разработке</p>
                         </div>
                       </div>
                       <div className="project-card">
@@ -320,7 +387,7 @@ export default function Hero() {
                           </svg>
                         </div>
                         <div className="project-info">
-                          <h5>Интернет-магазин</h5>
+                          <h5>Интернет-��агазин</h5>
                           <p>Завершен</p>
                         </div>
                       </div>
