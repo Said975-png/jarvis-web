@@ -1,74 +1,68 @@
 /* ================================
-   MODERN PRICING SECTION WITH NEW CARD SHAPES
+   MODERN PRICING SECTION
    ================================ */
 
-.pricing-section {
+.pricing-section-modern {
   position: relative;
   min-height: 100vh;
   background: transparent;
-  overflow: hidden;
   padding: 120px 0;
-  margin: 0;
+  overflow: hidden;
 }
 
-.pricing-container {
+.pricing-container-modern {
   position: relative;
   z-index: 2;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 0 2rem;
 }
 
 /* ================================
    SECTION HEADER
    ================================ */
 
-.pricing-header {
+.section-header-modern {
   text-align: center;
-  margin-bottom: 5rem;
-  animation: slideInUp 0.8s ease-out;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease-out;
 }
 
-.pricing-badge {
+.header-badge-modern {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  color: #000000;
   padding: 12px 24px;
-  border-radius: 32px;
+  border-radius: 50px;
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 24px;
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  backdrop-filter: blur(12px);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.badge-icon {
-  color: #10b981;
-}
-
-.pricing-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+.section-title-modern {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
   line-height: 1.1;
-  color: #1f2937;
-  margin-bottom: 24px;
-  letter-spacing: -0.025em;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
 }
 
-.title-highlight {
-  background: linear-gradient(135deg, #10b981, #059669);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.title-highlight-modern {
+  color: #000000;
+  position: relative;
 }
 
-.pricing-description {
-  font-size: 1.125rem;
-  color: #6b7280;
-  line-height: 1.7;
-  max-width: 640px;
+.section-description-modern {
+  font-size: 1.25rem;
+  color: #000000;
+  line-height: 1.6;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -76,196 +70,88 @@
    PRICING GRID
    ================================ */
 
-.pricing-grid {
+.pricing-grid-modern {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  animation: slideInUp 0.8s ease-out 0.2s both;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
 }
 
 /* ================================
-   HEXAGONAL CARDS - BASIC
+   PRICING CARDS
    ================================ */
 
-.pricing-card.basic-card {
+.pricing-card-modern {
   position: relative;
-  background: transparent;
-  padding: 0;
-  height: 500px;
+  background: #f8f9fa;
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-.pricing-card.basic-card::before {
+.pricing-card-modern::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 280px;
-  height: 480px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.95));
-  clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-  border: 2px solid rgba(229, 231, 235, 0.5);
-  backdrop-filter: blur(20px);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  transition: all 0.4s ease;
-}
-
-.pricing-card.basic-card:hover::before {
-  transform: translateX(-50%) scale(1.05);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  border-color: rgba(16, 185, 129, 0.4);
-}
-
-/* ================================
-   DIAMOND CARDS - PRO (FEATURED)
-   ================================ */
-
-.pricing-card.pro-card {
-  position: relative;
-  background: transparent;
-  padding: 0;
-  height: 520px;
-  transform: scale(1.08);
-  z-index: 3;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.pricing-card.pro-card::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
-  height: 500px;
-  background: linear-gradient(145deg, 
-    rgba(16, 185, 129, 0.1), 
-    rgba(255, 255, 255, 0.95),
-    rgba(6, 182, 212, 0.1));
-  clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%);
-  border: 3px solid rgba(16, 185, 129, 0.3);
-  backdrop-filter: blur(24px);
-  box-shadow: 
-    0 25px 50px rgba(16, 185, 129, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  transition: all 0.4s ease;
-}
-
-.pricing-card.pro-card:hover::before {
-  transform: translateX(-50%) scale(1.05) rotate(5deg);
-  box-shadow: 
-    0 35px 70px rgba(16, 185, 129, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
-  border-color: rgba(16, 185, 129, 0.5);
-}
-
-/* ================================
-   CURVED CARDS - MAX
-   ================================ */
-
-.pricing-card.max-card {
-  position: relative;
-  background: transparent;
-  padding: 0;
-  height: 500px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.pricing-card.max-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 280px;
-  height: 480px;
-  background: linear-gradient(145deg, 
-    rgba(139, 92, 246, 0.05), 
-    rgba(255, 255, 255, 0.9),
-    rgba(124, 58, 237, 0.05));
-  clip-path: ellipse(140px 240px at 50% 50%);
-  border: 2px solid rgba(139, 92, 246, 0.2);
-  backdrop-filter: blur(20px);
-  box-shadow: 
-    0 8px 32px rgba(139, 92, 246, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  transition: all 0.4s ease;
-}
-
-.pricing-card.max-card:hover::before {
-  transform: translateX(-50%) scale(1.05);
-  box-shadow: 
-    0 20px 40px rgba(139, 92, 246, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  border-color: rgba(139, 92, 246, 0.4);
-}
-
-/* ================================
-   CARD GLOW EFFECTS
-   ================================ */
-
-.card-glow {
-  position: absolute;
-  inset: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-  filter: blur(12px);
+  transition: opacity 0.3s ease;
 }
 
-.basic-card .card-glow {
-  background: linear-gradient(135deg, 
-    rgba(229, 231, 235, 0.3),
-    rgba(156, 163, 175, 0.3));
-  clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-}
-
-.pro-card .card-glow {
-  background: linear-gradient(135deg, 
-    rgba(16, 185, 129, 0.4),
-    rgba(6, 182, 212, 0.4));
-  clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%);
-}
-
-.max-card .card-glow {
-  background: linear-gradient(135deg, 
-    rgba(139, 92, 246, 0.4),
-    rgba(124, 58, 237, 0.4));
-  clip-path: ellipse(144px 244px at 50% 50%);
-}
-
-.pricing-card:hover .card-glow {
+.pricing-card-modern:hover::before {
   opacity: 1;
-  animation: glowPulse 2s infinite;
 }
 
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.02); }
+.pricing-card-modern:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 32px 64px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.pricing-card-popular {
+  transform: scale(1.05);
+  background: #f1f3f4;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  box-shadow:
+    0 20px 25px -5px rgba(16, 185, 129, 0.1),
+    0 0 50px rgba(16, 185, 129, 0.2);
+}
+
+.pricing-card-popular:hover {
+  transform: translateY(-8px) scale(1.07);
+  box-shadow: 
+    0 32px 64px rgba(16, 185, 129, 0.2),
+    0 0 100px rgba(16, 185, 129, 0.3);
 }
 
 /* ================================
    POPULAR BADGE
    ================================ */
 
-.popular-badge {
+.popular-badge-modern {
   position: absolute;
-  top: -15px;
+  top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
   padding: 8px 20px;
   border-radius: 20px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -273,90 +159,83 @@
   z-index: 10;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  animation: pulse 2s infinite;
 }
 
-.popular-badge .badge-glow {
-  position: absolute;
-  inset: -4px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 70%);
-  border-radius: 24px;
-  z-index: -1;
-  animation: badgeGlow 3s infinite;
-}
-
-@keyframes badgeGlow {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
+@keyframes pulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.05); }
 }
 
 /* ================================
-   CARD CONTENT
+   CARD HEADER
    ================================ */
 
-.card-content {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.card-header-modern {
   text-align: center;
-  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
 }
 
-/* ================================
-   PLAN HEADER
-   ================================ */
-
-.plan-header {
-  margin-bottom: 1.5rem;
-}
-
-.plan-icon {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 1rem;
-  border-radius: 12px;
+.plan-icon-modern {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.basic-icon {
-  background: linear-gradient(135deg, #64748b, #475569);
-  color: white;
+.plan-icon-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
 }
 
-.pro-icon {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+.pricing-card-modern:hover .plan-icon-modern::before {
+  left: 100%;
 }
 
-.max-icon {
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  color: white;
-  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+.plan-icon-blue {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
 }
 
-.pricing-card:hover .plan-icon {
-  transform: scale(1.1) rotate(10deg);
+.plan-icon-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
 }
 
-.plan-name {
-  font-size: 1.25rem;
-  font-weight: 700;
+.plan-icon-purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+.pricing-card-modern:hover .plan-icon-modern {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.plan-name-modern {
+  font-size: 1.75rem;
+  font-weight: 800;
   color: #1f2937;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   letter-spacing: -0.025em;
 }
 
-.plan-subtitle {
-  font-size: 0.75rem;
+.plan-subtitle-modern {
+  font-size: 0.875rem;
   color: #6b7280;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -365,50 +244,62 @@
    PRICING DISPLAY
    ================================ */
 
-.plan-pricing {
-  margin-bottom: 1.5rem;
-  padding: 1rem 0;
+.pricing-display-modern {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem 0;
+  position: relative;
 }
 
-.price-display {
+.pricing-display-modern::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.price-container-modern {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 2px;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 0.5rem;
 }
 
-.currency {
-  font-size: 0.875rem;
+.currency-modern {
+  font-size: 1.25rem;
   font-weight: 600;
   color: #6b7280;
   align-self: flex-start;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
-.price-amount {
-  font-size: 1.5rem;
-  font-weight: 800;
+.price-amount-modern {
+  font-size: 2.5rem;
+  font-weight: 900;
   color: #1f2937;
   line-height: 1;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
 }
 
-.price-period {
-  font-size: 0.75rem;
+.price-period-modern {
+  font-size: 0.875rem;
   color: #9ca3af;
   font-weight: 500;
-  align-self: flex-end;
-  margin-bottom: 2px;
+  margin-bottom: 1rem;
+  display: block;
 }
 
-.price-description {
-  font-size: 0.75rem;
+.price-description-modern {
+  font-size: 0.875rem;
   color: #6b7280;
   margin: 0;
-  line-height: 1.4;
-  max-width: 200px;
+  line-height: 1.5;
+  max-width: 280px;
   margin: 0 auto;
 }
 
@@ -416,33 +307,30 @@
    FEATURES LIST
    ================================ */
 
-.plan-features {
-  flex: 1;
-  margin-bottom: 1.5rem;
-  max-width: 220px;
+.features-list-modern {
+  margin-bottom: 2.5rem;
+  space-y: 1rem;
 }
 
-.feature-item {
+.feature-item-modern {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 0;
-  font-size: 0.75rem;
-  color: #374151;
-  line-height: 1.4;
+  gap: 12px;
+  padding: 0.75rem 0;
   transition: all 0.2s ease;
+  border-radius: 8px;
+  padding-left: 0.5rem;
 }
 
-.feature-item:hover {
-  color: #10b981;
-  transform: translateX(2px);
+.feature-item-modern:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
 }
 
-.feature-icon {
-  width: 16px;
-  height: 16px;
+.feature-icon-modern {
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #10b981, #059669);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -450,93 +338,120 @@
   transition: all 0.2s ease;
 }
 
-.feature-icon svg {
+.feature-included .feature-icon-modern {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
-  width: 8px;
-  height: 8px;
 }
 
-.feature-item:hover .feature-icon {
-  transform: scale(1.1);
+.feature-excluded .feature-icon-modern {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.feature-text-modern {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.feature-included .feature-text-modern {
+  color: #374151;
+}
+
+.feature-excluded .feature-text-modern {
+  color: #9ca3af;
+  text-decoration: line-through;
 }
 
 /* ================================
-   PLAN BUTTONS
+   CTA BUTTONS
    ================================ */
 
-.plan-button {
+.cta-button-modern {
   position: relative;
-  width: 180px;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   overflow: hidden;
-  z-index: 1;
-  margin-top: auto;
+  color: white;
+  backdrop-filter: blur(20px);
 }
 
-.button-glow {
+.button-content-modern {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.button-shine-modern {
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.6s ease;
-  z-index: -1;
+  z-index: 1;
 }
 
-.plan-button:hover .button-glow {
+.cta-button-modern:hover .button-shine-modern {
   left: 100%;
 }
 
-.basic-button {
-  background: linear-gradient(135deg, #64748b, #475569);
-  color: white;
-  box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3);
+.cta-button-blue {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
 }
 
-.basic-button:hover {
+.cta-button-blue:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(100, 116, 139, 0.4);
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.4);
 }
 
-.pro-button {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+.cta-button-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
 }
 
-.pro-button:hover {
+.cta-button-green:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 16px 40px rgba(16, 185, 129, 0.5);
 }
 
-.max-button {
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  color: white;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+.cta-button-purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
 }
 
-.max-button:hover {
+.cta-button-purple:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 16px 40px rgba(139, 92, 246, 0.5);
+}
+
+.cta-button-modern:hover .button-content-modern {
+  transform: translateX(2px);
 }
 
 /* ================================
    ANIMATIONS
    ================================ */
 
-@keyframes slideInUp {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -549,128 +464,98 @@
    ================================ */
 
 @media (max-width: 1024px) {
-  .pricing-grid {
+  .pricing-grid-modern {
     grid-template-columns: 1fr;
-    gap: 3rem;
-    max-width: 320px;
+    max-width: 400px;
+    gap: 2rem;
   }
 
-  .pricing-card.pro-card {
+  .pricing-card-popular {
     transform: none;
   }
 
-  .pricing-card {
-    height: 450px;
-  }
-
-  .basic-card::before,
-  .max-card::before {
-    width: 250px;
-    height: 430px;
-  }
-
-  .pro-card::before {
-    width: 270px;
-    height: 450px;
+  .pricing-card-popular:hover {
+    transform: translateY(-8px) scale(1.02);
   }
 }
 
 @media (max-width: 768px) {
-  .pricing-section {
+  .pricing-section-modern {
     padding: 80px 0;
   }
   
-  .pricing-container {
-    padding: 0 1.5rem;
+  .pricing-container-modern {
+    padding: 0 1rem;
   }
   
-  .pricing-title {
+  .section-title-modern {
     font-size: 2.5rem;
   }
   
-  .pricing-grid {
-    gap: 2rem;
+  .pricing-card-modern {
+    padding: 2rem 1.5rem;
   }
 
-  .pricing-card {
-    height: 400px;
-  }
-
-  .basic-card::before,
-  .max-card::before {
-    width: 220px;
-    height: 380px;
-  }
-
-  .pro-card::before {
-    width: 240px;
-    height: 400px;
-  }
-
-  .card-content {
-    padding: 1.5rem 1rem;
+  .price-amount-modern {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .pricing-title {
-    font-size: 2rem;
-  }
-  
-  .pricing-description {
-    font-size: 1rem;
+  .pricing-grid-modern {
+    grid-template-columns: 1fr;
+    max-width: 100%;
   }
 
-  .pricing-card {
-    height: 350px;
+  .pricing-card-modern {
+    padding: 1.5rem 1rem;
   }
 
-  .basic-card::before,
-  .max-card::before {
-    width: 200px;
-    height: 330px;
+  .plan-icon-modern {
+    width: 48px;
+    height: 48px;
   }
 
-  .pro-card::before {
-    width: 220px;
-    height: 350px;
+  .plan-name-modern {
+    font-size: 1.5rem;
   }
 
-  .plan-icon {
-    width: 40px;
-    height: 40px;
+  .price-amount-modern {
+    font-size: 1.75rem;
   }
 
-  .plan-button {
-    width: 160px;
-    padding: 10px 16px;
+  .cta-button-modern {
+    padding: 14px 20px;
   }
 }
 
 /* ================================
-   ACCESSIBILITY
+   ACCESSIBILITY & PERFORMANCE
    ================================ */
 
 @media (prefers-reduced-motion: reduce) {
-  .pricing-card,
-  .plan-icon,
-  .feature-item {
+  .pricing-card-modern,
+  .plan-icon-modern,
+  .feature-item-modern,
+  .popular-badge-modern {
     transition: none;
-  }
-  
-  .card-glow,
-  .popular-badge .badge-glow {
     animation: none;
   }
 }
 
-/* High contrast mode */
 @media (prefers-contrast: high) {
-  .pricing-card::before {
-    border: 3px solid #000;
+  .pricing-card-modern {
+    border: 2px solid #ffffff;
   }
   
-  .plan-button {
-    border: 2px solid #000;
+  .cta-button-modern {
+    border: 2px solid #ffffff;
+  }
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+  .pricing-section-modern {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   }
 }
