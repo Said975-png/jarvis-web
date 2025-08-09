@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import { useAuth } from '../contexts/AuthContext'
+import AuthForms from './AuthForms'
+import Profile from './Profile'
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -82,8 +85,8 @@ export default function Hero() {
             </h1>
 
             <p className="hero-description">
-              Мы объединяем креативность дизайна с мощью искусственного интеллекта,
-              чтобы создавать веб-сайты и приложения, которые не просто впечатл��ют,
+              Мы объед��няем креативность дизайна с мощью искусственного интеллекта,
+              чтобы создавать веб-сайты и приложения, которые не пр��сто впечатл��ют,
               а революционизируют пользовательский опыт.
             </p>
 
