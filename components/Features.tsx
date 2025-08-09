@@ -6,12 +6,12 @@ export default function Features() {
   const features = [
     {
       title: "Нейронные сети",
-      description: "Используем глубокое машинное обучение для создания интеллектуальных веб-решений",
+      description: "Используем глубок��е машинное обучение для создания интеллектуальных веб-решений",
       type: "neural"
     },
     {
       title: "Квантовые алгоритмы",
-      description: "Передовые вычислите��ьные технологии для обработки больших данных",
+      description: "Передовые вычислительные технологии для обработки больших данных",
       type: "quantum"
     },
     {
@@ -68,67 +68,113 @@ export default function Features() {
             >
               {features.map((feature, index) => (
                 <div key={index} className="feature-slide">
-                  <div className={`feature-widget widget-${feature.type}`}>
-                    <div className="widget-header">
-                      <div className="widget-icon">
-                        {feature.icon}
+                  <div className={`ai-feature-card ai-${feature.type}`}>
+                    <div className="ai-background">
+                      {feature.type === 'neural' && (
+                        <div className="neural-network">
+                          <svg className="neural-svg" viewBox="0 0 400 300">
+                            <defs>
+                              <filter id="glow">
+                                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                <feMerge>
+                                  <feMergeNode in="coloredBlur"/>
+                                  <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                              </filter>
+                            </defs>
+                            {Array.from({length: 12}, (_, i) => (
+                              <circle
+                                key={i}
+                                cx={50 + (i % 4) * 100}
+                                cy={50 + Math.floor(i / 4) * 100}
+                                r="8"
+                                className="neural-node"
+                                style={{animationDelay: `${i * 0.2}s`}}
+                              />
+                            ))}
+                            {Array.from({length: 20}, (_, i) => (
+                              <line
+                                key={i}
+                                x1={50 + (i % 4) * 100}
+                                y1={50 + Math.floor(i / 4) * 100}
+                                x2={150 + ((i + 1) % 4) * 100}
+                                y2={150 + Math.floor((i + 1) / 4) * 100}
+                                className="neural-connection"
+                                style={{animationDelay: `${i * 0.1}s`}}
+                              />
+                            ))}
+                          </svg>
+                        </div>
+                      )}
+                      {feature.type === 'quantum' && (
+                        <div className="quantum-field">
+                          <div className="quantum-particles">
+                            {Array.from({length: 15}, (_, i) => (
+                              <div
+                                key={i}
+                                className="quantum-particle"
+                                style={{
+                                  animationDelay: `${i * 0.3}s`,
+                                  left: `${Math.random() * 100}%`,
+                                  top: `${Math.random() * 100}%`
+                                }}
+                              ></div>
+                            ))}
+                          </div>
+                          <div className="quantum-waves">
+                            <div className="wave wave-1"></div>
+                            <div className="wave wave-2"></div>
+                            <div className="wave wave-3"></div>
+                          </div>
+                        </div>
+                      )}
+                      {feature.type === 'hologram' && (
+                        <div className="hologram-display">
+                          <div className="hologram-cube">
+                            <div className="cube-face front"></div>
+                            <div className="cube-face back"></div>
+                            <div className="cube-face right"></div>
+                            <div className="cube-face left"></div>
+                            <div className="cube-face top"></div>
+                            <div className="cube-face bottom"></div>
+                          </div>
+                          <div className="hologram-scan"></div>
+                        </div>
+                      )}
+                      {feature.type === 'terminal' && (
+                        <div className="ai-terminal">
+                          <div className="terminal-header">
+                            <span className="terminal-dot red"></span>
+                            <span className="terminal-dot yellow"></span>
+                            <span className="terminal-dot green"></span>
+                            <span className="terminal-title">JARVIS AI TERMINAL</span>
+                          </div>
+                          <div className="terminal-body">
+                            <div className="terminal-line">
+                              <span className="prompt">jarvis@ai:~$</span>
+                              <span className="command">initialize neural_network</span>
+                            </div>
+                            <div className="terminal-line">
+                              <span className="response">Loading neural pathways...</span>
+                            </div>
+                            <div className="terminal-line">
+                              <span className="response success">✓ AI System Online</span>
+                            </div>
+                            <div className="terminal-line active">
+                              <span className="prompt">jarvis@ai:~$</span>
+                              <span className="cursor">_</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="ai-content">
+                      <div className="ai-title-wrapper">
+                        <h3 className="ai-title">{feature.title}</h3>
+                        <div className="ai-status">ONLINE</div>
                       </div>
-                      <div className="widget-badge">{feature.stats}</div>
-                    </div>
-                    <div className="widget-content">
-                      <h3 className="widget-title">{feature.title}</h3>
-                      <p className="widget-description">{feature.description}</p>
-                    </div>
-                    <div className="widget-visual">
-                      {feature.type === 'design' && (
-                        <div className="design-preview">
-                          <div className="preview-window">
-                            <div className="window-header">
-                              <span></span><span></span><span></span>
-                            </div>
-                            <div className="window-content">
-                              <div className="design-grid">
-                                <div className="grid-item"></div>
-                                <div className="grid-item"></div>
-                                <div className="grid-item large"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                      {feature.type === 'ai' && (
-                        <div className="ai-chat">
-                          <div className="chat-message user">Помогите выбрать товар</div>
-                          <div className="chat-message ai">
-                            <div className="typing-dots">
-                              <span></span><span></span><span></span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                      {feature.type === 'personal' && (
-                        <div className="personal-stats">
-                          <div className="stat-circle">
-                            <div className="circle-progress" style={{background: `conic-gradient(var(--color-primary) 75%, var(--color-gray-200) 0)`}}>
-                              <span>75%</span>
-                            </div>
-                          </div>
-                          <div className="stat-labels">
-                            <div>Персонализация</div>
-                          </div>
-                        </div>
-                      )}
-                      {feature.type === 'analytics' && (
-                        <div className="analytics-chart">
-                          <div className="chart-bars">
-                            <div className="bar" style={{height: '60%'}}></div>
-                            <div className="bar" style={{height: '80%'}}></div>
-                            <div className="bar" style={{height: '45%'}}></div>
-                            <div className="bar" style={{height: '90%'}}></div>
-                            <div className="bar" style={{height: '70%'}}></div>
-                          </div>
-                        </div>
-                      )}
+                      <p className="ai-description">{feature.description}</p>
                     </div>
                   </div>
                 </div>
