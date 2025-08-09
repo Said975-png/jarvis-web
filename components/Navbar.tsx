@@ -286,140 +286,14 @@ export default function Navbar() {
 
       {/* Profile Modal */}
       {showProfile && user && (
-        <div className="profile-overlay">
-          <div className="profile-fullscreen">
-            <div className="profile-container">
-              <div className="profile-header">
-                <div className="profile-title-section">
-                  <h1 className="profile-main-title">Личный кабинет</h1>
-                  <p className="profile-subtitle">Добро пожаловать, {user.name}</p>
-                </div>
-                <button
-                  className="profile-close-btn"
-                  onClick={() => setShowProfile(false)}
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
-                </button>
-              </div>
-
-              <div className="profile-content">
-                <div className="profile-info-section">
-                  <div className="profile-user-card">
-                    <div className="profile-avatar">
-                      {user.name.split(' ').map(n => n[0]).join('').toUpperCase()}
-                    </div>
-                    <div className="profile-user-details">
-                      <h3>{user.name}</h3>
-                      <p>{user.email}</p>
-                      <div className="profile-status">
-                        <div className="status-dot"></div>
-                        Активен
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="profile-stats">
-                    <div className="stat-item">
-                      <div className="stat-number">15</div>
-                      <div className="stat-label">Дней с нами</div>
-                    </div>
-                    <div className="stat-item">
-                      <div className="stat-number">3</div>
-                      <div className="stat-label">Проекта</div>
-                    </div>
-                    <div className="stat-item">
-                      <div className="stat-number">24/7</div>
-                      <div className="stat-label">Поддержка</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="profile-main-section">
-                  <div className="profile-section">
-                    <h4 className="section-title">Мои проекты</h4>
-                    <div className="projects-grid">
-                      <div className="project-card">
-                        <div className="project-icon">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2"/>
-                          </svg>
-                        </div>
-                        <div className="project-info">
-                          <h5>Корпоративный сайт</h5>
-                          <p>В разработке</p>
-                        </div>
-                      </div>
-                      <div className="project-card">
-                        <div className="project-icon">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" strokeWidth="2"/>
-                          </svg>
-                        </div>
-                        <div className="project-info">
-                          <h5>Интернет-магазин</h5>
-                          <p>Завершен</p>
-                        </div>
-                      </div>
-                      <div className="project-card add-project">
-                        <div className="add-icon">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                          </svg>
-                        </div>
-                        <span>Создать проект</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="profile-section">
-                    <h4 className="section-title">Настройки аккаунта</h4>
-                    <div className="settings-list">
-                      <div className="setting-item">
-                        <div className="setting-icon">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
-                            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="currentColor" strokeWidth="2"/>
-                          </svg>
-                        </div>
-                        <span>Общие настройки</span>
-                      </div>
-                      <div className="setting-item">
-                        <div className="setting-icon">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2"/>
-                          </svg>
-                        </div>
-                        <span>Безопасность</span>
-                      </div>
-                      <div className="setting-item">
-                        <div className="setting-icon">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" strokeWidth="2"/>
-                          </svg>
-                        </div>
-                        <span>Уведомления</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="profile-actions">
-                    <button className="logout-btn" onClick={() => {
-                      logout()
-                      setShowProfile(false)
-                    }}>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M16 17L21 12L16 7M21 12H9M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                      Выйти из аккаунта
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProfileModal
+          user={user}
+          onClose={() => setShowProfile(false)}
+          onLogout={() => {
+            logout()
+            setShowProfile(false)
+          }}
+        />
       )}
 
       <style jsx>{`
