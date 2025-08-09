@@ -248,10 +248,6 @@
   flex-direction: column;
   margin-bottom: 1.5rem;
   min-height: 220px;
-  padding: 1rem;
-  background: rgba(248, 250, 252, 0.5);
-  border-radius: 12px;
-  border: 1px solid rgba(226, 232, 240, 0.4);
 }
 
 .feature-item {
