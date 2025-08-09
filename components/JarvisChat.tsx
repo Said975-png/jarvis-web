@@ -16,7 +16,7 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: 'Привет! Я ДЖАРВИС — ваш AI-помощник в мире веб-разработки. Чем могу помочь?',
+      text: 'Привет Я ДЖАРВИС ваш AI-помощник в мире веб-разработки Чем могу помочь',
       isUser: false,
       timestamp: new Date()
     }
@@ -47,57 +47,57 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
 
     // Приветствие
     if (message.includes('привет') || message.includes('здравствуй') || message.includes('добрый')) {
-      return 'Привет! Меня зовут ДЖАРВИС, и я ваш персональный AI-помощник в мире веб-разработки. Готов создать что-то удивительное вместе!'
+      return 'Привет! Меня зовут ДЖАРВИС, и я ваш персональный AI-помощник в мире веб-разработки. Готов создать что-то удивительное вместе'
     }
 
     // Веб-разработка
     if (message.includes('сайт') || message.includes('веб') || message.includes('интернет-магазин')) {
-      return 'Превосходно! Я специализируюсь на создании современных веб-решений:\n\n• Корпоративные сайты\n• Интернет-магазины\n• Веб-приложения\n• Landing pages\n\nКакой тип проекта вас интересует? Расскажите о ваших целях!'
+      return 'Превосходно Я специализируюсь на создании современных веб-решений\n\nКорпоративные сайты\nИнтернет-магазины\nВеб-приложения\nLanding pages\n\nКакой тип проекта вас интересует Расскажите о ваших целях'
     }
 
     // Дизайн
     if (message.includes('дизайн') || message.includes('ui') || message.includes('ux')) {
-      return 'Дизайн — это искусство, которое я освоил в совершенстве! Создаю:\n\n• Современные адаптивные интерфейсы\n• Уникальные пользовательские решения\n• AI-генерированные элементы\n• Анимации и интерактивность\n\nКакой стиль вам ближе: минимализм, футуризм или что-то особенное?'
+      return 'Дизайн это искусство которое я освоил в совершенстве Создаю\n\nСовременные адаптивные интерфейсы\nУникальные пользовательские решения\nAI-генерированные элементы\nАнимации и интерактивность\n\nКакой стиль вам ближе минимализм футуризм или что-то особенное'
     }
 
     // Цены и тарифы
     if (message.includes('цена') || message.includes('стоимость') || message.includes('тариф') || message.includes('план')) {
-      return 'Наши тарифные планы:\n\n**Basic** - 2500000 сумм\n• Простые сайты и лендинги\n• Базовый дизайн\n• 1 месяц поддержки\n\n**Pro** - 4000000 сумм\n• Сложные веб-приложения\n• Продвинутый дизайн\n• AI-интеграция\n• 3 месяца поддержки\n\n**Max** - 5000000 сумм\n• Корпоративные решения\n• Индивидуальный дизайн\n• Полная AI-интеграция\n• 6 ��есяцев поддержки\n\nКакие задачи планируете решать?'
+      return 'Наши тарифные планы\n\nBasic - 2500000 сумм\nПростые сайты и лендинги\nБазовый дизайн\n1 месяц поддержки\n\nPro - 4000000 сумм\nСложные веб-приложения\nПродвинутый дизайн\nAI-интеграция\n3 месяца поддержки\n\nMax - 5000000 сумм\nКорпоративные решения\nИндивидуальный дизайн\nПолная AI-интеграция\n6 месяцев поддержки\n\nКакие задачи планируете решать'
     }
 
     // AI и технологии
-    if (message.includes('ai') || message.includes('искусственный') || message.includes('технолог')) {
-      return 'AI — это будущее, которое уже здесь! Интегрирую:\n\n• Чат-боты и виртуальные помощники\n• Системы рекомендаций\n• Автоматизация процессов\n• Машинное обучение\n• Обработка естественного языка\n\nКакую AI-магию хотите добавить в свой проект?'
+    if (message.includes('ai') || message.includes('и��кусственный') || message.includes('технолог')) {
+      return 'AI это будущее которое уже здесь Интегрирую\n\nЧат-боты и виртуальные помощники\nСистемы рекомендаций\nАвтоматизация процессов\nМашинное обучение\nОбработка естественного языка\n\nКакую AI-магию хотите добавить в свой проект'
     }
 
     // Контакты
     if (message.includes('контакт') || message.includes('связаться') || message.includes('заказать')) {
-      return 'Готов приступить к работе!\n\n**Способы связи:**\n• Telegram: @jarvis_ai_dev\n• Email: hello@jarvis-ai.uz\n• Телефон: +998 90 123 45 67\n\nИли просто продолжите общение здесь — я всегда на связи! Когда можем начать ваш проект?'
+      return 'Готов приступить к работе\n\nСпособы связи\nTelegram @jarvis_ai_dev\nEmail hello@jarvis-ai.uz\nТелефон +998 90 123 45 67\n\nИли просто продолжите общение здесь я всегда на связи Когда можем начать ваш проект'
     }
 
     // Портфолио
     if (message.includes('портфолио') || message.includes('примеры') || message.includes('работы')) {
-      return 'Мои работы говорят сами за себя:\n\n• **200+** успешных проектов\n• **99.9%** время работы серверов\n• **24/7** техническая поддержка\n• **Международные** клиенты\n\nПримеры работ можно посмотреть в разделе портфолио. Хотите увидеть что-то конкретное?'
+      return 'Мои работы говорят сами за себя\n\n200+ успешных проектов\n99.9% время работы серверов\n24/7 тех��ическая поддержка\nМеждународные клиенты\n\nПримеры работ можно посмотреть в разделе портфолио Хотите увидеть что-то конкретное'
     }
 
     // Сроки
     if (message.includes('срок') || message.includes('когда') || message.includes('время')) {
-      return 'Сроки выполнения:\n\n• **Landing page**: 3-5 дней\n• **Корпоративный сайт**: 1-2 недели\n• **Интернет-магазин**: 2-3 недели\n• **Веб-приложение**: 3-6 недель\n\nТочные сроки зависят от сложности. Расскажите о вашем проекте для точной оценки!'
+      return 'Сроки выполнения\n\nLanding page 3-5 дней\nКорпоративный сайт 1-2 недели\nИнтернет-магазин 2-3 недели\nВеб-приложение 3-6 недель\n\nТочные сроки зависят от сложности Расскажите о вашем проекте для точной оценки'
     }
 
     // Благодарность
     if (message.includes('спасибо') || message.includes('благодар')) {
-      return 'Всегда пожалуйста! Помогать вам создавать цифровое будущее �� это мое предназначение. Есть еще вопросы?'
+      return 'Всегда пожалуйста Помогать вам создавать цифровое будущее это мое предназначение Есть еще вопросы'
     }
 
     // Общие ответы
     const generalResponses = [
-      'Интересный вопрос! Давайте разберем его детально. Можете рассказать больше подробностей?',
-      'Отличная идея! Я анализирую возможности реализации. Какие у вас есть требования?',
-      'Как ваш AI-помощник, готов предложить несколько вариантов решения. Что именно вас интересует?',
-      'Обрабатываю ваш запрос с помощью продвинутых алгоритмов. Нужна дополнительная информация.',
-      'Я готов воплотить самые смелые идеи в реальность! Расскажите о ваших планах.',
-      'Давайте создадим что-то революционное! Какие задачи стоят перед вами?'
+      'Интересный вопрос Давайте разберем его детально Можете рассказать больше подробностей',
+      'Отличная идея Я анализирую возможности реализации Какие у вас есть требования',
+      'Как ваш AI-помощник готов предложить несколько вариантов решения Что именно вас интересует',
+      'Обрабатываю ваш запрос с помощью продвинутых алгоритмов Нужна дополнительная информация',
+      'Я готов воплотить самые смелые идеи в реальность Расскажите о ваших планах',
+      'Давайте создадим что-то революционное Какие задачи стоят перед вами'
     ]
 
     return generalResponses[Math.floor(Math.random() * generalResponses.length)]
@@ -145,11 +145,14 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
         {/* Header */}
         <div className="jarvis-chat-header-chatgpt">
           <div className="jarvis-chat-title-chatgpt">
-            <div className="jarvis-avatar-chatgpt">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-              </svg>
-            </div>
+          <div className="jarvis-avatar-chatgpt">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Ff21efa9d331c44c6b55bad01cab8169b%2F342e3ad8cb1542ae9b5155023da06c0d?format=webp&width=800"
+              alt="JARVIS"
+              width="20"
+              height="20"
+            />
+          </div>
             <div>
               <h3>ДЖАРВИС</h3>
               <div className="status-indicator-chatgpt">
@@ -174,9 +177,12 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
             >
               {!message.isUser && (
                 <div className="message-avatar-chatgpt">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                  </svg>
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2Ff21efa9d331c44c6b55bad01cab8169b%2F342e3ad8cb1542ae9b5155023da06c0d?format=webp&width=800"
+                    alt="JARVIS"
+                    width="16"
+                    height="16"
+                  />
                 </div>
               )}
               <div className="message-content-chatgpt">
@@ -195,16 +201,22 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
           {isTyping && (
             <div className="message-chatgpt ai-message-chatgpt">
               <div className="message-avatar-chatgpt">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                </svg>
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2Ff21efa9d331c44c6b55bad01cab8169b%2F342e3ad8cb1542ae9b5155023da06c0d?format=webp&width=800"
+                  alt="JARVIS"
+                  width="16"
+                  height="16"
+                />
               </div>
               <div className="message-content-chatgpt">
                 <div className="message-bubble-chatgpt typing-indicator-chatgpt">
-                  <div className="typing-dots-chatgpt">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                  <div className="typing-content-wrapper">
+                    <div className="typing-dots-chatgpt">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <span className="typing-text-chatgpt">печатает</span>
                   </div>
                 </div>
               </div>
@@ -279,11 +291,17 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
           width: 32px;
           height: 32px;
           border-radius: 50%;
-          background: #000000;
-          color: #ffffff;
+          background: #ffffff;
           display: flex;
           align-items: center;
           justify-content: center;
+          overflow: hidden;
+        }
+
+        .jarvis-avatar-chatgpt img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
 
         .jarvis-chat-title-chatgpt h3 {
@@ -366,12 +384,18 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
           width: 24px;
           height: 24px;
           border-radius: 50%;
-          background: #000000;
-          color: #ffffff;
+          background: #ffffff;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
+          overflow: hidden;
+        }
+
+        .message-avatar-chatgpt img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
 
         .message-content-chatgpt {
@@ -404,10 +428,22 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
           color: #000000 !important;
         }
 
+        .typing-content-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
         .typing-dots-chatgpt {
           display: flex;
           gap: 4px;
           align-items: center;
+        }
+
+        .typing-text-chatgpt {
+          font-size: 12px;
+          color: #999999;
+          font-style: italic;
         }
 
         .typing-dots-chatgpt span {
