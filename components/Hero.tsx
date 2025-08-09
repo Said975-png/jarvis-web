@@ -255,7 +255,7 @@ export default function Hero() {
               <div className="chat-messages-chatgpt">
                 <div className="message-chatgpt user-message-chatgpt">
                   <div className="message-bubble-chatgpt">
-                    Созда�� современный веб-сайт с ИИ функциями
+                    Созда�� современный в��б-сайт с ИИ функциями
                   </div>
                 </div>
                 <div className="message-chatgpt ai-message-chatgpt">
@@ -345,7 +345,7 @@ export default function Hero() {
                     </div>
                     <div className="stat-item">
                       <div className="stat-number">24/7</div>
-                      <div className="stat-label">Поддержка</div>
+                      <div className="stat-label">По��держка</div>
                     </div>
                   </div>
                 </div>
@@ -862,7 +862,7 @@ export default function Hero() {
           border-radius: 8px;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
           min-width: 200px;
-          z-index: 100;
+          z-index: 1100;
         }
 
         .dropdown-item-chatgpt {
