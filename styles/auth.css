@@ -168,27 +168,42 @@
   text-decoration: underline;
 }
 
-/* Auth Button in Navigation */
-.auth-btn {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)) !important;
-  color: white !important;
-  border: none !important;
-  padding: 0.5rem 1rem !important;
-  border-radius: 25px !important;
-  font-weight: 600 !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease !important;
-  text-decoration: none !important;
+/* Auth Button in Navigation - Cart Style */
+.auth-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
 }
 
-.auth-btn:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3) !important;
-  color: white !important;
+.auth-link:hover {
+  color: var(--color-primary);
+  background: rgba(99, 102, 241, 0.05);
 }
 
-.auth-btn::after {
-  display: none !important;
+.auth-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.auth-link:hover::after {
+  transform: scaleX(1);
 }
 
 /* Profile Modal */
