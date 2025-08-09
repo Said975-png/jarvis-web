@@ -1,51 +1,27 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Benefits() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+  const [activeTab, setActiveTab] = useState('conversation')
 
   return (
-    <section className="benefits-section">
-      {/* Global background handles all decorations */}
-
-      <div className="benefits-container">
-        {/* Benefits Main Content */}
-        <div className="benefits-main">
-          <div className="benefits-content">
-            <div className="benefits-badge">
-              <div className="badge-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="2"/>
-                </svg>
-              </div>
-              Революционный ИИ-ассистент
-            </div>
-
-            <h2 className="benefits-title">
-              ДЖАРВИС заменяет <span className="title-highlight">целую команду</span><br />
-              продавцов-консультантов
+    <section className="benefits-section-chatgpt">
+      <div className="benefits-container-chatgpt">
+        {/* Main Content */}
+        <div className="benefits-main-chatgpt">
+          <div className="benefits-content-chatgpt">
+            <h2 className="benefits-title-chatgpt">
+              ДЖАРВИС заменяет целую команду продавцов-консультантов
             </h2>
 
-            <p className="benefits-description">
+            <p className="benefits-description-chatgpt">
               Один умный ассистент выполняет работу десятков сотрудников. ДЖАРВИС 
               ведет естественные диалоги с клиентами, предлагает товары, консультирует 
               и находит лучшие предложения 24/7 без перерывов и выходных.
             </p>
 
-            <div className="benefits-list">
-              <div className="benefit-item">
-                <div className="benefit-icon">
+            <div className="benefits-list-chatgpt">
+              <div className="benefit-item-chatgpt">
+                <div className="benefit-icon-chatgpt">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2"/>
                     <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
@@ -57,8 +33,8 @@ export default function Benefits() {
                   <p>Один ИИ = 20+ консультантов</p>
                 </div>
               </div>
-              <div className="benefit-item">
-                <div className="benefit-icon">
+              <div className="benefit-item-chatgpt">
+                <div className="benefit-icon-chatgpt">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2"/>
                     <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
@@ -69,10 +45,10 @@ export default function Benefits() {
                   <p>Анализирует потребности клиента</p>
                 </div>
               </div>
-              <div className="benefit-item">
-                <div className="benefit-icon">
+              <div className="benefit-item-chatgpt">
+                <div className="benefit-icon-chatgpt">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H6L10 22L14 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor"/>
+                    <path d="M20 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H6L10 22L14 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" stroke="currentColor" strokeWidth="2"/>
                   </svg>
                 </div>
                 <div>
@@ -80,8 +56,8 @@ export default function Benefits() {
                   <p>Общается как человек</p>
                 </div>
               </div>
-              <div className="benefit-item">
-                <div className="benefit-icon">
+              <div className="benefit-item-chatgpt">
+                <div className="benefit-icon-chatgpt">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M12 2v6m6 2-6 6-6-6" stroke="currentColor" strokeWidth="2"/>
                     <circle cx="12" cy="21" r="1" stroke="currentColor" strokeWidth="2"/>
@@ -94,91 +70,138 @@ export default function Benefits() {
               </div>
             </div>
 
-            <div className="benefits-stats">
-              <div className="stat">
-                <div className="stat-number">1 ИИ</div>
-                <div className="stat-label">заменяет 20+ сотрудников</div>
+            <div className="benefits-stats-chatgpt">
+              <div className="stat-chatgpt">
+                <div className="stat-number-chatgpt">1 ИИ</div>
+                <div className="stat-label-chatgpt">заменяет 20+ сотрудников</div>
               </div>
-              <div className="stat">
-                <div className="stat-number">24/7</div>
-                <div className="stat-label">без перерывов</div>
+              <div className="stat-chatgpt">
+                <div className="stat-number-chatgpt">24/7</div>
+                <div className="stat-label-chatgpt">без перерывов</div>
               </div>
-              <div className="stat">
-                <div className="stat-number">90%</div>
-                <div className="stat-label">экономия на зарплатах</div>
+              <div className="stat-chatgpt">
+                <div className="stat-number-chatgpt">90%</div>
+                <div className="stat-label-chatgpt">экономия на зарплатах</div>
               </div>
             </div>
           </div>
 
-          <div className="benefits-visual">
-            <div className="visual-container">
-              <div className="ai-conversation">
-                <div className="conversation-header">
-                  <div className="user-avatar">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="8" r="4" fill="currentColor"/>
-                      <path d="M12 14c-6 0-8 4-8 6v2h16v-2c0-2-2-6-8-6z" fill="currentColor"/>
-                    </svg>
+          <div className="benefits-visual-chatgpt">
+            <div className="tabs-chatgpt">
+              <button 
+                className={`tab-button-chatgpt ${activeTab === 'conversation' ? 'active' : ''}`}
+                onClick={() => setActiveTab('conversation')}
+              >
+                Диалог с клиентом
+              </button>
+              <button 
+                className={`tab-button-chatgpt ${activeTab === 'calculator' ? 'active' : ''}`}
+                onClick={() => setActiveTab('calculator')}
+              >
+                Калькулятор экономии
+              </button>
+            </div>
+
+            {activeTab === 'conversation' && (
+              <div className="ai-conversation-chatgpt">
+                <div className="conversation-header-chatgpt">
+                  <div className="user-info-chatgpt">
+                    <div className="user-avatar-chatgpt">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2"/>
+                        <path d="M12 14c-6 0-8 4-8 6v2h16v-2c0-2-2-6-8-6z" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                    </div>
+                    <div className="conversation-info-chatgpt">
+                      <div className="user-name-chatgpt">Клиент</div>
+                      <div className="online-status-chatgpt">
+                        <div className="status-dot-chatgpt"></div>
+                        онлайн
+                      </div>
+                    </div>
                   </div>
-                  <div className="conversation-info">
-                    <div className="user-name">Клиент</div>
-                    <div className="online-status">онлайн</div>
-                  </div>
-                  <div className="jarvis-badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"/>
+                  <div className="jarvis-badge-chatgpt">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                     </svg>
                     JARVIS
                   </div>
                 </div>
                 
-                <div className="conversation-messages">
-                  <div className="message user-message">
-                    <div className="message-text">Мне нужен хороший смартфон до 300$</div>
-                    <div className="message-time">14:32</div>
-                  </div>
-                  
-                  <div className="message jarvis-message">
-                    <div className="message-text">
-                      Отличный выбор! Рекомендую Samsung Galaxy A54 5G. 
-                      Отличная камера, быстрая работа, цена $280. 
-                      Хотите подробнее о характеристиках?
-                    </div>
-                    <div className="message-time">14:32</div>
-                  </div>
-                  
-                  <div className="message user-message">
-                    <div className="message-text">А есть что-то похожее, но дешевле?</div>
-                    <div className="message-time">14:33</div>
-                  </div>
-                  
-                  <div className="message jarvis-message">
-                    <div className="message-text">
-                      Конечно! Galaxy A34 5G за $240 - практически те же возможности, 
-                      немного слабее процессор. Сэкономите $40 при схожем качестве.
-                      Добавить в корзину?
-                    </div>
-                    <div className="message-time">14:33</div>
-                    <div className="message-actions">
-                      <button className="action-btn">📱 Galaxy A34</button>
-                      <button className="action-btn">🛒 В корзину</button>
+                <div className="conversation-messages-chatgpt">
+                  <div className="message-chatgpt user-message">
+                    <div className="message-content-chatgpt">
+                      <div className="message-text-chatgpt">Мне нужен хороший смартфон до 300$</div>
+                      <div className="message-time-chatgpt">14:32</div>
                     </div>
                   </div>
                   
-                  <div className="typing-indicator">
-                    <div className="typing-dots">
-                      <span></span>
-                      <span></span>
-                      <span></span>
+                  <div className="message-chatgpt jarvis-message">
+                    <div className="jarvis-avatar-chatgpt">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                      </svg>
                     </div>
-                    <span>JARVIS печатает...</span>
+                    <div className="message-content-chatgpt">
+                      <div className="message-text-chatgpt">
+                        Отличный выбор! Рекомендую Samsung Galaxy A54 5G. 
+                        Отличная камера, быстрая работа, цена $280. 
+                        Хотите подробнее о характеристиках?
+                      </div>
+                      <div className="message-time-chatgpt">14:32</div>
+                    </div>
+                  </div>
+                  
+                  <div className="message-chatgpt user-message">
+                    <div className="message-content-chatgpt">
+                      <div className="message-text-chatgpt">А есть что-то похожее, но дешевле?</div>
+                      <div className="message-time-chatgpt">14:33</div>
+                    </div>
+                  </div>
+                  
+                  <div className="message-chatgpt jarvis-message">
+                    <div className="jarvis-avatar-chatgpt">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                      </svg>
+                    </div>
+                    <div className="message-content-chatgpt">
+                      <div className="message-text-chatgpt">
+                        Конечно! Galaxy A34 5G за $240 - практически те же возможности, 
+                        немного слабее процессор. Сэкономите $40 при схожем качестве.
+                        Добавить в корзину?
+                      </div>
+                      <div className="message-time-chatgpt">14:33</div>
+                      <div className="message-actions-chatgpt">
+                        <button className="action-btn-chatgpt">Galaxy A34</button>
+                        <button className="action-btn-chatgpt">В корзину</button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="typing-indicator-chatgpt">
+                    <div className="jarvis-avatar-chatgpt">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                      </svg>
+                    </div>
+                    <div className="typing-content-chatgpt">
+                      <div className="typing-dots-chatgpt">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                      <span className="typing-text-chatgpt">JARVIS печатает...</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              
-              <div className="savings-calculator">
-                <div className="calculator-header">
-                  <div className="calculator-icon">
+            )}
+
+            {activeTab === 'calculator' && (
+              <div className="savings-calculator-chatgpt">
+                <div className="calculator-header-chatgpt">
+                  <div className="calculator-icon-chatgpt">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                       <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
                       <path d="M9 9h6v6H9z" stroke="currentColor" strokeWidth="2"/>
@@ -186,27 +209,488 @@ export default function Benefits() {
                   </div>
                   <span>Калькулятор экономии</span>
                 </div>
-                <div className="calculator-content">
-                  <div className="calculation-row">
-                    <span className="calc-label">Зарплата 20 сотрудников:</span>
-                    <span className="calc-value negative">$20,000/мес</span>
+                <div className="calculator-content-chatgpt">
+                  <div className="calculation-row-chatgpt">
+                    <span className="calc-label-chatgpt">Зарплата 20 сотрудников:</span>
+                    <span className="calc-value-chatgpt negative">$20,000/мес</span>
                   </div>
-                  <div className="calculation-row">
-                    <span className="calc-label">ДЖАРВИС ИИ:</span>
-                    <span className="calc-value positive">$2,000/мес</span>
+                  <div className="calculation-row-chatgpt">
+                    <span className="calc-label-chatgpt">ДЖАРВИС ИИ:</span>
+                    <span className="calc-value-chatgpt positive">$2,000/мес</span>
                   </div>
-                  <div className="calculation-divider"></div>
-                  <div className="calculation-row total">
-                    <span className="calc-label">Экономия в год:</span>
-                    <span className="calc-value savings">$216,000</span>
+                  <div className="calculation-divider-chatgpt"></div>
+                  <div className="calculation-row-chatgpt total">
+                    <span className="calc-label-chatgpt">Экономия в год:</span>
+                    <span className="calc-value-chatgpt savings">$216,000</span>
                   </div>
-                  <div className="savings-percent">90% экономии</div>
+                  <div className="savings-percent-chatgpt">90% экономии</div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .benefits-section-chatgpt {
+          background: #ffffff;
+          padding: 80px 24px;
+        }
+
+        .benefits-container-chatgpt {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .benefits-main-chatgpt {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 80px;
+          align-items: center;
+        }
+
+        .benefits-content-chatgpt {
+          max-width: 500px;
+        }
+
+        .benefits-title-chatgpt {
+          font-size: 48px;
+          font-weight: 600;
+          line-height: 1.1;
+          color: #000000;
+          margin-bottom: 24px;
+        }
+
+        .benefits-description-chatgpt {
+          font-size: 18px;
+          line-height: 1.6;
+          color: #666666;
+          margin-bottom: 48px;
+        }
+
+        .benefits-list-chatgpt {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          margin-bottom: 48px;
+        }
+
+        .benefit-item-chatgpt {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 16px;
+          border: 1px solid #e5e5e5;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+        }
+
+        .benefit-item-chatgpt:hover {
+          border-color: #000000;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon-chatgpt {
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #f8f8f8;
+          border-radius: 8px;
+          color: #000000;
+          flex-shrink: 0;
+        }
+
+        .benefit-item-chatgpt h4 {
+          font-size: 16px;
+          font-weight: 600;
+          color: #000000;
+          margin: 0 0 4px 0;
+        }
+
+        .benefit-item-chatgpt p {
+          font-size: 14px;
+          color: #666666;
+          margin: 0;
+        }
+
+        .benefits-stats-chatgpt {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          padding: 32px 0;
+          border-top: 1px solid #e5e5e5;
+        }
+
+        .stat-chatgpt {
+          text-align: center;
+        }
+
+        .stat-number-chatgpt {
+          font-size: 24px;
+          font-weight: 700;
+          color: #000000;
+          margin-bottom: 8px;
+        }
+
+        .stat-label-chatgpt {
+          color: #666666;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .benefits-visual-chatgpt {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .tabs-chatgpt {
+          display: flex;
+          gap: 8px;
+          margin-bottom: 24px;
+        }
+
+        .tab-button-chatgpt {
+          padding: 12px 20px;
+          background: none;
+          border: 1px solid #e5e5e5;
+          border-radius: 8px;
+          color: #666666;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 500;
+          transition: all 0.2s ease;
+        }
+
+        .tab-button-chatgpt.active {
+          background: #000000;
+          color: #ffffff;
+          border-color: #000000;
+        }
+
+        .tab-button-chatgpt:hover:not(.active) {
+          border-color: #000000;
+          color: #000000;
+        }
+
+        .ai-conversation-chatgpt {
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          border-radius: 12px;
+          overflow: hidden;
+        }
+
+        .conversation-header-chatgpt {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px 20px;
+          border-bottom: 1px solid #e5e5e5;
+          background: #f8f8f8;
+        }
+
+        .user-info-chatgpt {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .user-avatar-chatgpt {
+          width: 32px;
+          height: 32px;
+          background: #e5e5e5;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #666666;
+        }
+
+        .user-name-chatgpt {
+          font-weight: 600;
+          color: #000000;
+          font-size: 14px;
+        }
+
+        .online-status-chatgpt {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 12px;
+          color: #666666;
+        }
+
+        .status-dot-chatgpt {
+          width: 8px;
+          height: 8px;
+          background: #10b981;
+          border-radius: 50%;
+        }
+
+        .jarvis-badge-chatgpt {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          background: #000000;
+          color: #ffffff;
+          padding: 6px 12px;
+          border-radius: 16px;
+          font-size: 12px;
+          font-weight: 500;
+        }
+
+        .conversation-messages-chatgpt {
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          max-height: 350px;
+          overflow-y: auto;
+        }
+
+        .message-chatgpt {
+          display: flex;
+          gap: 8px;
+          align-items: flex-start;
+        }
+
+        .user-message {
+          justify-content: flex-end;
+        }
+
+        .user-message .message-content-chatgpt {
+          background: #000000;
+          color: #ffffff;
+          max-width: 70%;
+        }
+
+        .jarvis-message {
+          justify-content: flex-start;
+        }
+
+        .jarvis-message .message-content-chatgpt {
+          background: #f5f5f5;
+          color: #000000;
+          max-width: 70%;
+        }
+
+        .jarvis-avatar-chatgpt {
+          width: 24px;
+          height: 24px;
+          background: #000000;
+          color: #ffffff;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .message-content-chatgpt {
+          padding: 12px 16px;
+          border-radius: 18px;
+        }
+
+        .message-text-chatgpt {
+          font-size: 14px;
+          line-height: 1.4;
+          margin-bottom: 4px;
+        }
+
+        .message-time-chatgpt {
+          font-size: 12px;
+          opacity: 0.7;
+        }
+
+        .message-actions-chatgpt {
+          display: flex;
+          gap: 8px;
+          margin-top: 8px;
+        }
+
+        .action-btn-chatgpt {
+          background: #ffffff;
+          color: #000000;
+          border: 1px solid #e5e5e5;
+          padding: 6px 12px;
+          border-radius: 16px;
+          font-size: 12px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .action-btn-chatgpt:hover {
+          border-color: #000000;
+        }
+
+        .typing-indicator-chatgpt {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+        }
+
+        .typing-content-chatgpt {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background: #f5f5f5;
+          padding: 12px 16px;
+          border-radius: 18px;
+        }
+
+        .typing-dots-chatgpt {
+          display: flex;
+          gap: 4px;
+        }
+
+        .typing-dots-chatgpt span {
+          width: 6px;
+          height: 6px;
+          background: #999999;
+          border-radius: 50%;
+          animation: typing 1.4s infinite;
+        }
+
+        .typing-dots-chatgpt span:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        .typing-dots-chatgpt span:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        .typing-text-chatgpt {
+          font-size: 12px;
+          color: #666666;
+        }
+
+        @keyframes typing {
+          0%, 60%, 100% {
+            transform: translateY(0);
+            opacity: 0.5;
+          }
+          30% {
+            transform: translateY(-10px);
+            opacity: 1;
+          }
+        }
+
+        .savings-calculator-chatgpt {
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          border-radius: 12px;
+          overflow: hidden;
+        }
+
+        .calculator-header-chatgpt {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 16px 20px;
+          border-bottom: 1px solid #e5e5e5;
+          background: #f8f8f8;
+          font-weight: 600;
+          color: #000000;
+        }
+
+        .calculator-icon-chatgpt {
+          color: #000000;
+        }
+
+        .calculator-content-chatgpt {
+          padding: 20px;
+        }
+
+        .calculation-row-chatgpt {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 12px 0;
+          font-size: 14px;
+        }
+
+        .calc-label-chatgpt {
+          color: #000000;
+        }
+
+        .calc-value-chatgpt {
+          font-weight: 600;
+        }
+
+        .calc-value-chatgpt.negative {
+          color: #ef4444;
+        }
+
+        .calc-value-chatgpt.positive {
+          color: #10b981;
+        }
+
+        .calc-value-chatgpt.savings {
+          color: #000000;
+          font-size: 18px;
+          font-weight: 700;
+        }
+
+        .calculation-divider-chatgpt {
+          height: 1px;
+          background: #e5e5e5;
+          margin: 16px 0;
+        }
+
+        .calculation-row-chatgpt.total {
+          font-weight: 600;
+          padding: 16px 0 8px 0;
+        }
+
+        .savings-percent-chatgpt {
+          text-align: center;
+          background: #f0f9ff;
+          color: #0369a1;
+          padding: 12px;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 14px;
+          margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+          .benefits-section-chatgpt {
+            padding: 60px 16px;
+          }
+
+          .benefits-main-chatgpt {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+
+          .benefits-title-chatgpt {
+            font-size: 32px;
+          }
+
+          .benefits-description-chatgpt {
+            font-size: 16px;
+          }
+
+          .benefits-stats-chatgpt {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+
+          .tabs-chatgpt {
+            flex-direction: column;
+          }
+
+          .message-content-chatgpt {
+            max-width: 85%;
+          }
+
+          .conversation-messages-chatgpt {
+            max-height: 250px;
+          }
+        }
+      `}</style>
     </section>
   )
 }

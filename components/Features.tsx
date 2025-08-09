@@ -1,207 +1,158 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+
+const features = [
+  {
+    id: 'ai-design',
+    title: 'ИИ дизайн',
+    description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2"/>
+      </svg>
+    ),
+    stats: '50+ шаблонов'
+  },
+  {
+    id: 'ai-assistant',
+    title: 'ДЖАРВИС ИИ ассистент',
+    description: 'Умный помощник для разработки, который понимает контекст и пом��гает решать задачи',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2"/>
+        <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+      </svg>
+    ),
+    stats: '99.8% точность'
+  },
+  {
+    id: 'automation',
+    title: 'Автоматизация',
+    description: 'Автоматические процессы разработки и развертывания для ускорения работы',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" strokeWidth="2"/>
+        <polyline points="3.27,6.96 12,12.01 20.73,6.96" stroke="currentColor" strokeWidth="2"/>
+        <line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" strokeWidth="2"/>
+      </svg>
+    ),
+    stats: '10x быстрее'
+  },
+  {
+    id: 'analytics',
+    title: 'Аналитика',
+    description: 'Глубокий анализ пользовательского поведения и оптимизация конверсии',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M3 17V7C3 5.9 3.9 5 5 5H19C20.1 5 21 5.9 21 7V17C21 18.1 20.1 19 19 19H5C3.9 19 3 18.1 3 17Z" stroke="currentColor" strokeWidth="2"/>
+        <path d="M7 13L10 10L13 13L17 9" stroke="currentColor" strokeWidth="2"/>
+      </svg>
+    ),
+    stats: '3x рост продаж'
+  }
+]
 
 export default function Features() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    let rafId: number
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (rafId) return
-
-      rafId = requestAnimationFrame(() => {
-        setMousePosition({
-          x: (e.clientX / window.innerWidth) * 100,
-          y: (e.clientY / window.innerHeight) * 100,
-        })
-        rafId = 0
-      })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove, { passive: true })
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      if (rafId) cancelAnimationFrame(rafId)
-    }
-  }, [])
+  const [selectedFeature, setSelectedFeature] = useState<string | null>(null)
 
   return (
-    <section className="features-section">
-      {/* Global background handles all decorations */}
+    <section className="features-section-chatgpt">
+      <div className="features-container-chatgpt">
+        {/* Header */}
+        <div className="features-header-chatgpt">
+          <h2 className="features-title-chatgpt">
+            Возможности нашей платформы
+          </h2>
+          
+          <p className="features-description-chatgpt">
+            Используйте мощь искусственного интеллекта для создания веб-решений нового поколения
+          </p>
+        </div>
 
-      <div className="features-container">
-        {/* Features Main Content */}
-        <div className="features-main">
-          <div className="features-content">
-            <div className="features-badge">
-              <div className="badge-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L14 8H21L16 12L18 19L12 15L6 19L8 12L3 8H10L12 2Z" fill="currentColor"/>
-                </svg>
-              </div>
-              Наши преимущества
-            </div>
-
-            <h2 className="features-title">
-              <span className="title-highlight">Инновационные</span><br />
-              AI-решения для бизнеса
-            </h2>
-
-            <p className="features-description">
-              Откройте для себя мощь искусственного интеллекта в веб-разработке.
-              Наши передовые технологии создают уникальный пользовательский опыт
-              и помогают вашему бизнесу достигать новых высот.
-            </p>
-
-            <div className="features-list">
-              <div className="feature-item">
-                <div className="feature-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
-                  </svg>
-                </div>
-                <div>
-                  <h4>Стильные AI-дизайны</h4>
-                  <p>50+ готовых шаблонов</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <div className="feature-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="8" r="3" fill="currentColor"/>
-                    <path d="M12 11C13.1 11 14 11.9 14 13V17H10V13C10 11.9 10.9 11 12 11Z" fill="currentColor"/>
-                  </svg>
-                </div>
-                <div>
-                  <h4>ДЖАРВИС ИИ-Ассистент</h4>
-                  <p>99.8% точность ответов</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <div className="feature-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H6L10 22L14 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor"/>
-                  </svg>
-                </div>
-                <div>
-                  <h4>Персональный подход</h4>
-                  <p>10x увеличение конверсии</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="features-stats">
-              <div className="stat">
-                <div className="stat-number">95%</div>
-                <div className="stat-label">Удовлетворенность клиентов</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">3x</div>
-                <div className="stat-label">Рост продаж</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">24/7</div>
-                <div className="stat-label">AI поддержка</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="features-visual">
-            <div className="visual-container">
-              <div className="ai-capabilities">
-                <div className="capability-item">
-                  <div className="capability-logo">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                  </div>
-                  <span>Машинное обучение</span>
-                </div>
-                <div className="capability-item">
-                  <div className="capability-logo">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                  </div>
-                  <span>Анализ данных</span>
-                </div>
-                <div className="capability-item">
-                  <div className="capability-logo">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
-                      <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                  </div>
-                  <span>Автоматизация</span>
-                </div>
-                <div className="capability-item">
-                  <div className="capability-logo">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                  </div>
-                  <span>Оптимизация</span>
-                </div>
-                <div className="capability-item">
-                  <div className="capability-logo">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                  </div>
-                  <span>Cloud AI</span>
-                </div>
-                <div className="capability-item">
-                  <div className="capability-logo">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-                      <circle cx="9" cy="9" r="2" stroke="currentColor" strokeWidth="2"/>
-                      <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                  </div>
-                  <span>Computer Vision</span>
-                </div>
+        {/* Features Grid */}
+        <div className="features-grid-chatgpt">
+          {features.map((feature) => (
+            <div
+              key={feature.id}
+              className={`feature-card-chatgpt ${selectedFeature === feature.id ? 'selected' : ''}`}
+              onClick={() => setSelectedFeature(selectedFeature === feature.id ? null : feature.id)}
+            >
+              <div className="feature-icon-chatgpt">
+                {feature.icon}
               </div>
               
-              <div className="ai-dashboard">
-                <div className="dashboard-header">
-                  <div className="dashboard-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <span className="dashboard-title">AI Analytics</span>
+              <div className="feature-content-chatgpt">
+                <h3 className="feature-title-chatgpt">{feature.title}</h3>
+                <p className="feature-description-chatgpt">{feature.description}</p>
+                
+                <div className="feature-stats-chatgpt">
+                  {feature.stats}
                 </div>
-                <div className="dashboard-content">
-                  <div className="metric-card">
-                    <div className="metric-icon">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 17V7C3 5.9 3.9 5 5 5H19C20.1 5 21 5.9 21 7V17C21 18.1 20.1 19 19 19H5C3.9 19 3 18.1 3 17Z" stroke="currentColor" strokeWidth="2"/>
-                        <path d="M7 13L10 10L13 13L17 9" stroke="currentColor" strokeWidth="2"/>
-                      </svg>
-                    </div>
-                    <div className="metric-value">98.5%</div>
-                    <div className="metric-label">Accuracy</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Stats Section */}
+        <div className="stats-section-chatgpt">
+          <div className="stats-grid-chatgpt">
+            <div className="stat-item-chatgpt">
+              <div className="stat-number-chatgpt">95%</div>
+              <div className="stat-label-chatgpt">Удовлетворенность клиентов</div>
+            </div>
+            <div className="stat-item-chatgpt">
+              <div className="stat-number-chatgpt">15K+</div>
+              <div className="stat-label-chatgpt">Активных пользователей</div>
+            </div>
+            <div className="stat-item-chatgpt">
+              <div className="stat-number-chatgpt">24/7</div>
+              <div className="stat-label-chatgpt">Техподдержка</div>
+            </div>
+            <div className="stat-item-chatgpt">
+              <div className="stat-number-chatgpt">0.3s</div>
+              <div className="stat-label-chatgpt">Время отклика ИИ</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Demo Section */}
+        <div className="demo-section-chatgpt">
+          <div className="demo-container-chatgpt">
+            <div className="demo-content-chatgpt">
+              <h3 className="demo-title-chatgpt">Попробуйте ДЖАРВИС ИИ</h3>
+              <p className="demo-description-chatgpt">
+                Задайте вопрос нашему ИИ ассистенту и получите мгновенный ответ
+              </p>
+              
+              <div className="demo-input-chatgpt">
+                <input 
+                  type="text" 
+                  placeholder="Напишите ваш вопрос..."
+                  className="demo-input-field-chatgpt"
+                />
+                <button className="demo-send-button-chatgpt">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <div className="demo-preview-chatgpt">
+              <div className="demo-messages-chatgpt">
+                <div className="demo-message-chatgpt user-message">
+                  <div className="message-bubble-chatgpt">
+                    Как создать современный веб-сайт?
                   </div>
-                  <div className="metric-card">
-                    <div className="metric-icon">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-                        <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2"/>
-                      </svg>
-                    </div>
-                    <div className="metric-value">0.3s</div>
-                    <div className="metric-label">Response</div>
+                </div>
+                <div className="demo-message-chatgpt ai-message">
+                  <div className="ai-avatar-demo-chatgpt">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/>
+                    </svg>
                   </div>
-                  <div className="metric-card">
-                    <div className="metric-icon">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2"/>
-                        <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
-                        <path d="m22 21-3-3m0 0a5 5 0 1 0-7 0l3 3a5 5 0 0 0 7 0z" stroke="currentColor" strokeWidth="2"/>
-                      </svg>
-                    </div>
-                    <div className="metric-value">15K+</div>
-                    <div className="metric-label">Users</div>
+                  <div className="message-bubble-chatgpt">
+                    Я помогу вам создать современный веб-сайт используя последние технологии: React, Next.js, и ИИ интеграции. Начнем с анализа ваших потребностей.
                   </div>
                 </div>
               </div>
@@ -209,6 +160,302 @@ export default function Features() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .features-section-chatgpt {
+          background: #ffffff;
+          padding: 80px 24px;
+        }
+
+        .features-container-chatgpt {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .features-header-chatgpt {
+          text-align: center;
+          margin-bottom: 64px;
+        }
+
+        .features-title-chatgpt {
+          font-size: 48px;
+          font-weight: 600;
+          color: #000000;
+          margin-bottom: 16px;
+          line-height: 1.2;
+        }
+
+        .features-description-chatgpt {
+          font-size: 18px;
+          color: #666666;
+          max-width: 600px;
+          margin: 0 auto;
+          line-height: 1.6;
+        }
+
+        .features-grid-chatgpt {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 24px;
+          margin-bottom: 80px;
+        }
+
+        .feature-card-chatgpt {
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          border-radius: 12px;
+          padding: 32px;
+          transition: all 0.2s ease;
+          cursor: pointer;
+        }
+
+        .feature-card-chatgpt:hover {
+          border-color: #000000;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card-chatgpt.selected {
+          border-color: #000000;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon-chatgpt {
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #f8f8f8;
+          border-radius: 12px;
+          margin-bottom: 20px;
+          color: #000000;
+        }
+
+        .feature-content-chatgpt {
+          flex: 1;
+        }
+
+        .feature-title-chatgpt {
+          font-size: 20px;
+          font-weight: 600;
+          color: #000000;
+          margin-bottom: 12px;
+        }
+
+        .feature-description-chatgpt {
+          color: #666666;
+          font-size: 14px;
+          line-height: 1.5;
+          margin-bottom: 16px;
+        }
+
+        .feature-stats-chatgpt {
+          color: #000000;
+          font-size: 12px;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .stats-section-chatgpt {
+          padding: 48px 0;
+          border-top: 1px solid #e5e5e5;
+          border-bottom: 1px solid #e5e5e5;
+          margin-bottom: 80px;
+        }
+
+        .stats-grid-chatgpt {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 32px;
+        }
+
+        .stat-item-chatgpt {
+          text-align: center;
+        }
+
+        .stat-number-chatgpt {
+          font-size: 32px;
+          font-weight: 700;
+          color: #000000;
+          margin-bottom: 8px;
+        }
+
+        .stat-label-chatgpt {
+          color: #666666;
+          font-size: 14px;
+        }
+
+        .demo-section-chatgpt {
+          background: #f8f8f8;
+          border-radius: 16px;
+          padding: 48px;
+        }
+
+        .demo-container-chatgpt {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 48px;
+          align-items: center;
+        }
+
+        .demo-title-chatgpt {
+          font-size: 24px;
+          font-weight: 600;
+          color: #000000;
+          margin-bottom: 12px;
+        }
+
+        .demo-description-chatgpt {
+          color: #666666;
+          font-size: 16px;
+          line-height: 1.5;
+          margin-bottom: 24px;
+        }
+
+        .demo-input-chatgpt {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+        }
+
+        .demo-input-field-chatgpt {
+          flex: 1;
+          padding: 14px 16px;
+          border: 1px solid #e5e5e5;
+          border-radius: 8px;
+          font-size: 14px;
+          outline: none;
+          transition: border-color 0.2s ease;
+        }
+
+        .demo-input-field-chatgpt:focus {
+          border-color: #000000;
+        }
+
+        .demo-send-button-chatgpt {
+          padding: 14px;
+          background: #000000;
+          color: #ffffff;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.2s ease;
+        }
+
+        .demo-send-button-chatgpt:hover {
+          background: #333333;
+        }
+
+        .demo-preview-chatgpt {
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          border-radius: 12px;
+          padding: 20px;
+        }
+
+        .demo-messages-chatgpt {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .demo-message-chatgpt {
+          display: flex;
+          gap: 8px;
+          align-items: flex-start;
+        }
+
+        .user-message {
+          justify-content: flex-end;
+        }
+
+        .user-message .message-bubble-chatgpt {
+          background: #000000;
+          color: #ffffff;
+          max-width: 80%;
+        }
+
+        .ai-message {
+          justify-content: flex-start;
+        }
+
+        .ai-message .message-bubble-chatgpt {
+          background: #f5f5f5;
+          color: #000000;
+          max-width: 80%;
+        }
+
+        .ai-avatar-demo-chatgpt {
+          width: 24px;
+          height: 24px;
+          background: #000000;
+          color: #ffffff;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .message-bubble-chatgpt {
+          padding: 12px 16px;
+          border-radius: 18px;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+          .features-section-chatgpt {
+            padding: 60px 16px;
+          }
+
+          .features-title-chatgpt {
+            font-size: 32px;
+          }
+
+          .features-description-chatgpt {
+            font-size: 16px;
+          }
+
+          .features-grid-chatgpt {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 60px;
+          }
+
+          .feature-card-chatgpt {
+            padding: 24px;
+          }
+
+          .stats-grid-chatgpt {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+          }
+
+          .demo-section-chatgpt {
+            padding: 32px 24px;
+          }
+
+          .demo-container-chatgpt {
+            grid-template-columns: 1fr;
+            gap: 32px;
+          }
+
+          .demo-input-chatgpt {
+            flex-direction: column;
+            align-items: stretch;
+          }
+
+          .demo-send-button-chatgpt {
+            align-self: flex-end;
+            width: auto;
+          }
+        }
+      `}</style>
     </section>
   )
 }
