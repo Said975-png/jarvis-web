@@ -1,29 +1,4 @@
-import { useState, useEffect } from 'react'
-import { useAuth } from '../contexts/AuthContext'
-import AuthForms from './AuthForms'
-import Profile from './Profile'
-
 export default function Hero() {
-  const { user, logout, login } = useAuth()
-  const [showAuthForms, setShowAuthForms] = useState(false)
-  const [showProfile, setShowProfile] = useState(false)
-  const [showUserDropdown, setShowUserDropdown] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [searchValue, setSearchValue] = useState('')
-  const [searchFocused, setSearchFocused] = useState(false)
-  const [cartItems, setCartItems] = useState(0) // Пустая корзина
-  const [cartOpen, setCartOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY
-      setIsScrolled(scrollTop > 20)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
     <section className="hero-section-chatgpt">
@@ -238,7 +213,7 @@ export default function Hero() {
                     <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <span>ИИ интеграция</span>
+                <span>ИИ и��теграция</span>
               </div>
             </div>
           </div>
