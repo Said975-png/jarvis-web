@@ -178,6 +178,9 @@
   cursor: pointer;
   margin-left: 0.5rem;
   transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .switch-btn:hover {
