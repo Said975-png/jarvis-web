@@ -43,7 +43,11 @@ export default function AdminPanel() {
     loadOrders()
   }, [])
 
-  const loadOrders = async () => {
+  const loadOrders = async (isRefresh = false) => {
+    if (isRefresh) {
+      setRefreshing(true)
+    }
+
     try {
       // Добавляем небольшую задержку для стабильности
       await new Promise(resolve => setTimeout(resolve, 100))
@@ -62,16 +66,19 @@ export default function AdminPanel() {
 
       const ordersData = await response.json()
       setOrders(Array.isArray(ordersData) ? ordersData : [])
+
+      if (isRefresh) {
+        alert('Данные обновлены!')
+      }
     } catch (error) {
       console.error('Error loading orders:', error)
       // Fallback - пытаемся загрузить данные из локального состояния или показать пустой массив
       setOrders([])
-      // Показываем уведомление пользователю только если это не проблема с сетью во время разработки
-      if (process.env.NODE_ENV === 'production') {
-        alert('Ошибка загрузки заказов. Попробуйте обновить страницу.')
-      }
+      // Показываем уведомление пользователю
+      alert('Ошибка загрузки заказов. Проверьте подключение к интернету.')
     } finally {
       setLoading(false)
+      setRefreshing(false)
     }
   }
 
@@ -166,7 +173,7 @@ export default function AdminPanel() {
   return (
     <>
       <Head>
-        <title>Админ пан��ль - JARVIS</title>
+        <title>Админ панель - JARVIS</title>
       </Head>
 
       <div className="admin-panel">
@@ -231,7 +238,7 @@ export default function AdminPanel() {
           <div className="order-modal-overlay">
             <div className="order-modal">
               <div className="modal-header">
-                <h2>За��аз #{selectedOrder.id.slice(-8)}</h2>
+                <h2>Заказ #{selectedOrder.id.slice(-8)}</h2>
                 <button 
                   className="close-btn"
                   onClick={() => setSelectedOrder(null)}
