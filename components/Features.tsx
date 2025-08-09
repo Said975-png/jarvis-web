@@ -30,7 +30,7 @@ export default function Features() {
       )
     },
     {
-      title: "Персо��альный подход",
+      title: "Персональный подход",
       description: "Адаптируем общение под каждого клиента, создавая комфортную атмосферу взаимодействия",
       type: "personal",
       stats: "10x конверсия",
@@ -60,10 +60,6 @@ export default function Features() {
       )
     }
   ]
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
 
   useEffect(() => {
     const timer = setInterval(() => {
