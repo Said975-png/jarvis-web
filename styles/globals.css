@@ -825,12 +825,11 @@ body {
 }
 
 .price-amount {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: 900;
   color: var(--color-primary);
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1;
-  letter-spacing: -0.02em;
 }
 
 .pro-card .price-amount {
