@@ -705,14 +705,14 @@ body {
 }
 
 .price-amount {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-5xl);
   font-weight: 800;
   color: var(--color-primary);
   font-family: var(--font-mono);
 }
 
 .price-currency {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   color: var(--color-text-muted);
 }
 
