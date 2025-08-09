@@ -144,6 +144,19 @@
   transform: none;
 }
 
+.loading-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Auth Switch */
 .auth-switch {
   margin-top: 1.5rem;
