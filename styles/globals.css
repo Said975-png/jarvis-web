@@ -704,27 +704,25 @@ body {
 }
 
 .pricing-card-header {
-  padding: calc(var(--spacing-xl) * 2);
+  padding: calc(var(--spacing-xl) * 1.5);
   text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border-light);
   position: relative;
 }
 
 .plan-name {
-  font-size: var(--font-size-3xl);
-  font-weight: 900;
-  color: white;
-  margin-bottom: 1rem;
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .plan-description {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text-light);
   font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-xl);
-  font-weight: 500;
 }
 
 .plan-price {
