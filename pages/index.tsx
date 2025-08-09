@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Pricing from '../components/Pricing'
 import Features from '../components/Features'
