@@ -672,7 +672,7 @@ body {
 .section-number {
   font-size: 6rem;
   font-weight: 900;
-  color: rgba(0, 0, 0, 0.05);
+  color: rgba(255, 255, 255, 0.05);
   font-family: var(--font-mono);
   line-height: 1;
   margin-bottom: 1rem;
@@ -685,14 +685,14 @@ body {
 .pricing-title {
   font-size: 2.25rem;
   font-weight: 800;
-  color: var(--color-text);
+  color: white;
   margin-bottom: 1rem;
   margin-top: 3rem;
 }
 
 .pricing-subtitle {
   font-size: 1.25rem;
-  color: var(--color-text-light);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .pricing-grid {
