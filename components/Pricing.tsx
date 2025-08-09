@@ -87,7 +87,7 @@ export default function Pricing() {
           </h2>
           
           <p className="pricing-description-modern">
-            От стартапов до крупных корп��раций — у нас есть идеальное решение для вашего бизнеса. 
+            От стартапов до крупных корпораций — у нас есть идеальное решение для вашего бизнеса. 
             Прозрачные цены, полный функционал и техподдержка мирового уровня.
           </p>
         </div>
@@ -107,7 +107,7 @@ export default function Pricing() {
                   <svg className="popular-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                  Поп��лярный
+                  Популярный
                 </div>
               )}
 
@@ -346,7 +346,14 @@ export default function Pricing() {
         .pricing-card-modern:hover,
         .pricing-card-modern.hovered {
           transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 35px 60px -12px rgba(0,0,0,0.2);
+          background: rgba(255, 255, 255, 0.15);
+          border: 1px solid rgba(255, 255, 255, 0.4);
+          box-shadow:
+            0 20px 40px rgba(31, 38, 135, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4),
+            0 1px 3px rgba(0, 0, 0, 0.15);
+          backdrop-filter: blur(25px);
+          -webkit-backdrop-filter: blur(25px);
         }
 
         .pro-card {
