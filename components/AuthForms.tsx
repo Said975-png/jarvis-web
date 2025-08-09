@@ -33,7 +33,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         return
       }
 
-      const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register'
+      // Используем мемоизированный endpoint
       const body = isLogin
         ? { email: formData.email, password: formData.password }
         : { email: formData.email, password: formData.password, name: formData.name }
