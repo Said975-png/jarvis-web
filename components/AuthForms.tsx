@@ -31,7 +31,6 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
     try {
       if (!isLogin && formData.password !== formData.confirmPassword) {
         setError('Пароли не совпадают')
-        setLoading(false)
         return
       }
 
