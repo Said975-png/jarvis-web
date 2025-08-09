@@ -161,7 +161,17 @@ export default function Navbar() {
                         <div className="cart-total-chatgpt">
                           <span>Итого: ₽{getTotalPrice().toLocaleString()}</span>
                         </div>
-                        <button className="cart-checkout-chatgpt">
+                        <button
+                          className="cart-checkout-chatgpt"
+                          onClick={() => {
+                            if (!user) {
+                              setShowAuthForms(true)
+                              return
+                            }
+                            setShowCheckout(true)
+                            setCartOpen(false)
+                          }}
+                        >
                           Оформить заказ
                         </button>
                       </div>
