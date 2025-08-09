@@ -108,6 +108,7 @@ export default function Pricing() {
                     <div className="feature-check">✓ SEO оптимизация</div>
                     <div className="feature-check">✓ Техподдержка</div>
                   </div>
+                  <button className="order-button basic-button">Заказать Basic</button>
                 </div>
                 
                 <div className="comparison-item pro featured">
@@ -122,6 +123,7 @@ export default function Pricing() {
                     <div className="feature-check">✓ Продвинутая аналитика</div>
                     <div className="feature-check">✓ Приоритетная поддержка</div>
                   </div>
+                  <button className="order-button pro-button">Заказать PRO</button>
                 </div>
                 
                 <div className="comparison-item max">
@@ -135,6 +137,7 @@ export default function Pricing() {
                     <div className="feature-check">✓ Индивидуальные решения</div>
                     <div className="feature-check">✓ VIP поддержка 24/7</div>
                   </div>
+                  <button className="order-button max-button">Заказать MAX</button>
                 </div>
               </div>
               
