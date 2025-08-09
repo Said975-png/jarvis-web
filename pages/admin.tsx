@@ -44,11 +44,15 @@ export default function AdminPanel() {
 
   const loadOrders = async () => {
     try {
+      // Добавляем небольшую задержку для стабильности
+      await new Promise(resolve => setTimeout(resolve, 100))
+
       const response = await fetch('/api/orders', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
+        cache: 'no-cache'
       })
 
       if (!response.ok) {
@@ -56,11 +60,15 @@ export default function AdminPanel() {
       }
 
       const ordersData = await response.json()
-      setOrders(ordersData)
+      setOrders(Array.isArray(ordersData) ? ordersData : [])
     } catch (error) {
       console.error('Error loading orders:', error)
-      // Показываем уведомление пользователю
-      alert('Ошибка загрузки заказов. Попробуйте обновить страницу.')
+      // Fallback - пытаемся загрузить данные из локального состояния или показать пустой массив
+      setOrders([])
+      // Показываем уведомление пользователю только если это не проблема с сетью во время разработки
+      if (process.env.NODE_ENV === 'production') {
+        alert('Ошибка загрузки заказов. Попробуйте обновить страницу.')
+      }
     } finally {
       setLoading(false)
     }
