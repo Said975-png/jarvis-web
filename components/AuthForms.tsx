@@ -87,7 +87,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
     <div className="auth-overlay">
       <div className="auth-modal">
         <div className="auth-header">
-          <h2>{isLogin ? 'Вход в систем��' : 'Регистрация'}</h2>
+          <h2>{isLogin ? 'Вход в систему' : 'Регистрация'}</h2>
           <button className="close-btn" onClick={onClose}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
