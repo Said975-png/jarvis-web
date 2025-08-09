@@ -721,6 +721,26 @@
     margin: 0 -24px -24px -24px;
   }
 
+  .user-button {
+    padding: 4px 12px 4px 4px;
+    gap: 8px;
+  }
+
+  .user-button span {
+    display: none;
+  }
+
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .user-dropdown {
+    right: -8px;
+    min-width: 200px;
+  }
+
   .profile-container {
     padding: 16px;
   }
