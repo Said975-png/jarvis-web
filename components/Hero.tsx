@@ -143,7 +143,7 @@ export default function Hero() {
 
             <h1 className="hero-title">
               Создаем <span className="title-highlight">инновационные</span><br />
-              веб-решения будущего
+              веб-решения бу��ущего
             </h1>
 
             <p className="hero-description">
@@ -317,26 +317,59 @@ export default function Hero() {
 
       {/* Profile Modal */}
       {showProfile && user && (
-        <div className="auth-overlay">
-          <div className="profile-modal">
-            <div className="profile-modal-header">
-              <h2>Личный кабинет</h2>
-              <button
-                className="close-btn"
-                onClick={() => setShowProfile(false)}
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </button>
+        <div className="profile-overlay">
+          <div className="profile-fullscreen">
+            {/* Global background pattern for profile */}
+            <div className="profile-background">
+              <div className="profile-grid-pattern"></div>
+              <div className="profile-orb profile-orb-1"></div>
+              <div className="profile-orb profile-orb-2"></div>
             </div>
-            <Profile
-              user={user}
-              onLogout={() => {
-                logout()
-                setShowProfile(false)
-              }}
-            />
+
+            <div className="profile-container">
+              <div className="profile-header">
+                <div className="profile-title-section">
+                  <h1 className="profile-main-title">Личный кабинет</h1>
+                  <p className="profile-subtitle">Добро пожаловать, {user.name}</p>
+                </div>
+                <button
+                  className="profile-close-btn"
+                  onClick={() => setShowProfile(false)}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="profile-content">
+                <div className="profile-welcome-card">
+                  <div className="profile-user-info">
+                    <div className="profile-avatar">
+                      {user.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                    </div>
+                    <div className="profile-user-details">
+                      <h3>{user.name}</h3>
+                      <p>{user.email}</p>
+                    </div>
+                  </div>
+
+                  <button className="profile-logout-btn" onClick={() => {
+                    logout()
+                    setShowProfile(false)
+                  }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M16 17L21 12L16 7M21 12H9M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    Выйти
+                  </button>
+                </div>
+
+                <div className="profile-main-content">
+                  <p className="profile-placeholder">Контент личного кабинета будет добавлен позже...</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
