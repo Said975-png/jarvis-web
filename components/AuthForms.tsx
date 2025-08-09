@@ -43,39 +43,28 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         body: JSON.stringify(body),
       })
 
-      console.log('AuthForms: Response received:', {
-        status: response.status,
-        statusText: response.statusText,
-        headers: Object.fromEntries(response.headers.entries())
-      })
+      console.log('AuthForms: Response status:', response.status, response.statusText)
 
-      // Проверяем Content-Type перед парсингом JSON
-      const contentType = response.headers.get('content-type')
-      if (!contentType || !contentType.includes('application/json')) {
-        console.error('AuthForms: Response is not JSON, Content-Type:', contentType)
-        setError(`Ошибка сервера: ${response.status} ${response.statusText}`)
-        return
-      }
-
+      // Читаем JSON только один раз
       let data
       try {
         data = await response.json()
+        console.log('AuthForms: Parsed JSON data:', data)
       } catch (jsonError) {
-        console.error('AuthForms: Error parsing JSON response:', jsonError)
-        setError('Ошибка обработки ответа сервера')
+        console.error('AuthForms: Failed to parse JSON:', jsonError)
+        setError('Ошибка формата ответа сервера')
         return
       }
 
       if (response.ok) {
-        console.log('AuthForms: successful auth response:', data)
+        console.log('AuthForms: Authentication successful')
         localStorage.setItem('user', JSON.stringify(data.user))
         localStorage.setItem('token', data.token)
-        console.log('AuthForms: calling onLogin with user:', data.user)
         onLogin(data.user)
         onClose()
       } else {
-        console.log('AuthForms: error response:', response.status, data)
-        setError(data.message || `Ошибка ${response.status}: ${response.statusText}`)
+        console.log('AuthForms: Authentication failed:', data.message)
+        setError(data.message || 'Произошла ошибка авторизации')
       }
     } catch (error) {
       console.error('AuthForms: Network error:', error)
@@ -96,7 +85,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
     <div className="auth-overlay">
       <div className="auth-modal">
         <div className="auth-header">
-          <h2>{isLogin ? 'Вход в систему' : 'Регистрация'}</h2>
+          <h2>{isLogin ? 'Вход в систему' : 'Регистр��ция'}</h2>
           <button className="close-btn" onClick={onClose}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
