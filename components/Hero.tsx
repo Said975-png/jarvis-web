@@ -9,6 +9,8 @@ export default function Hero() {
   const [showProfile, setShowProfile] = useState(false)
   const [showUserDropdown, setShowUserDropdown] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [searchValue, setSearchValue] = useState('')
+  const [searchFocused, setSearchFocused] = useState(false)
 
   return (
     <section className="hero-section-chatgpt">
