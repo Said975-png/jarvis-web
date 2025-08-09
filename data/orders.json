@@ -1,0 +1,33 @@
+[
+  {
+    "id": "order_1754780662642_ft12ewwcs",
+    "userId": "0fc713f7-b5fd-4cb0-bbdd-326383c53a8f",
+    "items": [
+      {
+        "id": "pro",
+        "name": "Pro",
+        "subtitle": "Лучший выбор",
+        "price": "4000000",
+        "period": "сумм в месяц",
+        "features": [
+          "Все из Basic",
+          "До 15 страниц сайта",
+          "ИИ ассистент интеграция",
+          "Продвинутая аналитика",
+          "Приоритетная поддержка"
+        ],
+        "quantity": 1
+      }
+    ],
+    "formData": {
+      "fullName": "Хусаинов Саид Румильевич",
+      "phone": "+9989129391737",
+      "description": "ЫФВЫФОВФДЛ",
+      "referenceUrl": ""
+    },
+    "totalPrice": 4000000,
+    "status": "pending",
+    "createdAt": "2025-08-09T23:04:22.642Z",
+    "updatedAt": "2025-08-09T23:04:22.642Z"
+  }
+]

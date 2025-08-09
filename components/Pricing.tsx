@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useCart } from '../contexts/CartContext'
 
 const pricingPlans = [
   {
@@ -53,6 +54,18 @@ const pricingPlans = [
 
 export default function Pricing() {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null)
+  const { addToCart } = useCart()
+
+  const handleAddToCart = (plan: typeof pricingPlans[0]) => {
+    addToCart({
+      id: plan.id,
+      name: plan.name,
+      subtitle: plan.subtitle,
+      price: plan.price,
+      period: plan.period,
+      features: plan.features
+    })
+  }
 
   return (
     <section className="pricing-section-chatgpt">
@@ -115,7 +128,13 @@ export default function Pricing() {
                 </div>
 
                 {/* Button */}
-                <button className="plan-button-chatgpt">
+                <button
+                  className="plan-button-chatgpt"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleAddToCart(plan)
+                  }}
+                >
                   Выбрать {plan.name}
                 </button>
               </div>

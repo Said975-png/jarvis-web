@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Pricing from '../components/Pricing'
 import Features from '../components/Features'
@@ -21,6 +22,8 @@ export default function Home() {
         <div className="global-orb global-orb-1"></div>
         <div className="global-orb global-orb-2"></div>
       </div>
+
+      <Navbar />
 
       <main>
         <Hero />
