@@ -33,7 +33,7 @@ const pricingPlans = [
       'До 15 страниц сайта',
       'ИИ-ассистент интеграция',
       'Продвинутая аналитика',
-      'П��иоритетная поддержка'
+      'Приоритетная поддержка'
     ],
     cardClass: 'pro-card',
     buttonClass: 'pro-button',
@@ -460,7 +460,13 @@ export default function Pricing() {
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          box-shadow:
+            0 10px 15px -3px rgba(0,0,0,0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .plan-icon-modern svg {
