@@ -186,7 +186,11 @@ export default function AdminPanel() {
           <div className="orders-list">
             <div className="orders-header">
               <h2>Заказы ({orders.length})</h2>
-              <button onClick={loadOrders} className="refresh-btn">
+              <button
+                onClick={() => loadOrders(true)}
+                className="refresh-btn"
+                disabled={refreshing}
+              >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.39 0 4.56.94 6.16 2.46" stroke="currentColor" strokeWidth="2"/>
                   <path d="M17 8l4-4-4-4" stroke="currentColor" strokeWidth="2"/>
