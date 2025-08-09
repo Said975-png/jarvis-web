@@ -1200,7 +1200,8 @@ body {
   }
 
   .hero-container,
-  .pricing-container {
+  .pricing-container,
+  .features-container {
     padding: 0 1.5rem;
   }
 
@@ -1227,6 +1228,32 @@ body {
 
   .process-steps {
     grid-template-columns: 1fr;
+  }
+
+  .feature-slide {
+    padding: 0 0.5rem;
+  }
+
+  .feature-card-modern {
+    padding: 2rem 1.5rem;
+    min-height: 350px;
+  }
+
+  .feature-title-modern {
+    font-size: 1.5rem;
+  }
+
+  .feature-description-modern {
+    font-size: 1rem;
+  }
+
+  .slider-controls {
+    gap: 1rem;
+  }
+
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
   }
 }
 
