@@ -413,7 +413,7 @@ export default function Hero() {
                             <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" strokeWidth="2"/>
                           </svg>
                         </div>
-                        <span>Ув��домления</span>
+                        <span>Уведомления</span>
                       </div>
                     </div>
                   </div>
@@ -1139,6 +1139,7 @@ export default function Hero() {
             margin-top: 8px;
             padding: 16px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1100;
           }
 
           .nav-links-chatgpt.mobile-open {
