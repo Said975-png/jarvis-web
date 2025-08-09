@@ -205,10 +205,14 @@ body::after {
 }
 
 .logo-icon {
-  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.logo-icon img {
+  object-fit: contain;
+  border-radius: 4px;
 }
 
 .logo-text {
