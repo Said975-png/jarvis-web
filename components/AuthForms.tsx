@@ -58,9 +58,11 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         // Обрабатываем ошибку от сервера
         try {
           const errorData = await response.json()
-          setError(errorData.message || `Ошибка ${response.status}`)
+          console.log('Error response data:', errorData)
+          setError(errorData.message || errorData.error || `Ош��бка ${response.status}`)
         } catch (parseError) {
-          setError(`Ошибка ${response.status}: ${response.statusText}`)
+          console.log('Failed to parse error response:', parseError)
+          setError(`Ошибка ${response.status}: ${response.statusText || 'Неизвестная ошибка'}`)
         }
       }
     } catch (error) {
