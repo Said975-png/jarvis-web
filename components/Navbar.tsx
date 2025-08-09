@@ -6,13 +6,13 @@ import Profile from './Profile'
 
 export default function Navbar() {
   const { user, logout, login } = useAuth()
+  const { items, removeFromCart, updateQuantity, getTotalItems, getTotalPrice } = useCart()
   const [showAuthForms, setShowAuthForms] = useState(false)
   const [showProfile, setShowProfile] = useState(false)
   const [showUserDropdown, setShowUserDropdown] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [searchValue, setSearchValue] = useState('')
   const [searchFocused, setSearchFocused] = useState(false)
-  const [cartItems, setCartItems] = useState(0) // Пустая корзина
   const [cartOpen, setCartOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -95,7 +95,7 @@ export default function Navbar() {
                 <div className="cart-dropdown-chatgpt">
                   <div className="cart-header-chatgpt">
                     <h3>Корзина</h3>
-                    <span className="cart-count-chatgpt">Пустая</span>
+                    <span className="cart-count-chatgpt">Пус��ая</span>
                   </div>
                   <div className="cart-empty-chatgpt">
                     <div className="cart-empty-icon-chatgpt">
@@ -281,7 +281,7 @@ export default function Navbar() {
                         </div>
                         <div className="project-info">
                           <h5>Интернет-магазин</h5>
-                          <p>Завершен</p>
+                          <p>��авершен</p>
                         </div>
                       </div>
                       <div className="project-card add-project">
