@@ -1,31 +1,6 @@
-import { useState, useEffect } from 'react'
-
 export default function Pricing() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
   return (
-    <section className="pricing-section">
-      <div className="bg-decoration">
-        <div 
-          className="pricing-orb" 
-          style={{
-            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
-          }}
-        />
-      </div>
-      
+    <section className="pricing-section">      
       <div className="pricing-container">
         <div className="pricing-header">
           <div className="pricing-badge">
