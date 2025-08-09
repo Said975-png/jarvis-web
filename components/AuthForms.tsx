@@ -16,7 +16,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  // Мемоизируем endpoint чтобы уменьшить рер��ндеры
+  // Мемоизируем endpoint чтобы уменьшить ререндеры
   const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register'
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -177,29 +177,12 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         <div className="auth-switch">
           <p>
             {isLogin ? 'Нет аккаунта?' : 'Уже есть аккаунт?'}
-            <button 
-              type="button" 
+            <button
+              type="button"
               onClick={() => setIsLogin(!isLogin)}
               className="switch-btn"
             >
-              {isLogin ? (
-                <>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                    <path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="8.5" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
-                    <line x1="20" y1="8" x2="20" y2="14" stroke="currentColor" strokeWidth="2"/>
-                    <line x1="17" y1="11" x2="23" y2="11" stroke="currentColor" strokeWidth="2"/>
-                  </svg>
-                  Зарегистрироваться
-                </>
-              ) : (
-                <>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 3H21V9M21 3L12 12M9 21H3V15M3 21L12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  Войти
-                </>
-              )}
+              {isLogin ? 'Зарегистрироваться' : 'Войти'}
             </button>
           </p>
         </div>
