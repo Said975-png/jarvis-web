@@ -806,7 +806,7 @@ body {
 }
 
 .feature-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-gray-100);
   transform: translateX(4px);
 }
 
@@ -822,7 +822,7 @@ body {
 
 .pricing-card-footer {
   padding: 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--color-gray-200);
 }
 
 .plan-button {
@@ -839,42 +839,40 @@ body {
 }
 
 .plan-button-basic {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: white;
+  color: var(--color-text);
+  border: 2px solid var(--color-gray-200);
 }
 
 .plan-button-basic:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-lg);
 }
 
 .plan-button-pro {
-  background: linear-gradient(135deg, #ff6b6b, #ffa500);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.4);
+  border: none;
+  box-shadow: var(--shadow-md);
 }
 
 .plan-button-pro:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(255, 107, 107, 0.6);
-  background: linear-gradient(135deg, #ff5252, #ff9500);
+  box-shadow: var(--shadow-xl);
 }
 
 .plan-button-max {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--color-secondary), #764ba2);
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  border: none;
+  box-shadow: var(--shadow-md);
 }
 
 .plan-button-max:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
-  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+  box-shadow: var(--shadow-xl);
 }
 
 /* Features Section */
