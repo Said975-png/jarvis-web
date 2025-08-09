@@ -432,16 +432,8 @@
     height: 56px;
   }
 
-  .jarvis-chat-container {
-    width: 100%;
-    height: 100vh;
-    border-radius: 0;
-    max-width: none;
-  }
-
   .jarvis-chat-header {
     padding: 1rem 1.5rem;
-    border-radius: 0;
   }
 
   .jarvis-messages {
