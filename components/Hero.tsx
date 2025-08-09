@@ -56,8 +56,62 @@ export default function Hero() {
             <span className="logo-text">JARVIS</span>
           </div>
           <div className="nav-links">
-            <a href="#register" className="nav-link">Регистрация</a>
-            <a href="#login" className="nav-link">Вход</a>
+            {user ? (
+              <div className="user-menu">
+                <button
+                  className="user-button"
+                  onClick={() => setShowUserDropdown(!showUserDropdown)}
+                >
+                  <div className="user-avatar">
+                    {user.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                  </div>
+                  <span>{user.name}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+
+                {showUserDropdown && (
+                  <div className="user-dropdown">
+                    <button
+                      className="dropdown-item"
+                      onClick={() => {
+                        setShowProfile(true)
+                        setShowUserDropdown(false)
+                      }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                      Личный кабинет
+                    </button>
+                    <div className="dropdown-divider"></div>
+                    <button
+                      className="dropdown-item"
+                      onClick={() => {
+                        logout()
+                        setShowUserDropdown(false)
+                      }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M16 17L21 12L16 7M21 12H9M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      Выйти
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <>
+                <button
+                  className="nav-link auth-btn"
+                  onClick={() => setShowAuthForms(true)}
+                >
+                  Вход / Регистраци��
+                </button>
+              </>
+            )}
             <a href="#cart" className="nav-link cart-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="currentColor" strokeWidth="2"/>
@@ -89,7 +143,7 @@ export default function Hero() {
             </h1>
 
             <p className="hero-description">
-              Мы объед��няем ��реативность дизайна с мощью искусственного интеллекта,
+              Мы объед��няем креативность дизайна с мощью искусственного интеллекта,
               чтобы создавать веб-сайты и приложения, которые не просто впечатл��ют,
               а революционизируют пользовательский опыт.
             </p>
