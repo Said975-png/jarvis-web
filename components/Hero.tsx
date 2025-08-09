@@ -235,7 +235,7 @@ export default function Hero() {
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <span>Современный дизайн</span>
+                <span>Современны�� дизайн</span>
               </div>
               <div className="feature-item-chatgpt">
                 <div className="feature-icon-chatgpt">
@@ -367,7 +367,7 @@ export default function Hero() {
 
                 <div className="profile-main-section">
                   <div className="profile-section">
-                    <h4 className="section-title">Мои ��роекты</h4>
+                    <h4 className="section-title">Мои проекты</h4>
                     <div className="projects-grid">
                       <div className="project-card">
                         <div className="project-icon">
@@ -387,7 +387,7 @@ export default function Hero() {
                           </svg>
                         </div>
                         <div className="project-info">
-                          <h5>Интернет-��агазин</h5>
+                          <h5>Интернет-магазин</h5>
                           <p>Завершен</p>
                         </div>
                       </div>
@@ -559,6 +559,198 @@ export default function Hero() {
         .search-clear-chatgpt:hover {
           background: #f0f0f0;
           color: #000000;
+        }
+
+        .cart-container-chatgpt {
+          position: relative;
+          margin-right: 16px;
+        }
+
+        .cart-button-chatgpt {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 8px;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .cart-button-chatgpt:hover {
+          background: #f5f5f5;
+        }
+
+        .cart-icon-wrapper-chatgpt {
+          position: relative;
+        }
+
+        .cart-icon-chatgpt {
+          color: #000000;
+        }
+
+        .cart-badge-chatgpt {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          background: #ef4444;
+          color: white;
+          font-size: 10px;
+          font-weight: 600;
+          min-width: 18px;
+          height: 18px;
+          border-radius: 9px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          line-height: 1;
+        }
+
+        .cart-dropdown-chatgpt {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          border-radius: 12px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+          min-width: 320px;
+          max-width: 400px;
+          z-index: 100;
+          margin-top: 8px;
+        }
+
+        .cart-header-chatgpt {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px 20px;
+          border-bottom: 1px solid #f0f0f0;
+        }
+
+        .cart-header-chatgpt h3 {
+          margin: 0;
+          font-size: 16px;
+          font-weight: 600;
+          color: #000000;
+        }
+
+        .cart-count-chatgpt {
+          font-size: 12px;
+          color: #666666;
+          background: #f8f8f8;
+          padding: 4px 8px;
+          border-radius: 6px;
+        }
+
+        .cart-items-chatgpt {
+          max-height: 300px;
+          overflow-y: auto;
+          padding: 12px 0;
+        }
+
+        .cart-item-chatgpt {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 12px 20px;
+          transition: background-color 0.2s ease;
+        }
+
+        .cart-item-chatgpt:hover {
+          background: #f9f9f9;
+        }
+
+        .cart-item-image-chatgpt {
+          width: 48px;
+          height: 48px;
+          flex-shrink: 0;
+        }
+
+        .placeholder-image-chatgpt {
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .cart-item-info-chatgpt {
+          flex: 1;
+          min-width: 0;
+        }
+
+        .cart-item-info-chatgpt h4 {
+          margin: 0 0 4px 0;
+          font-size: 14px;
+          font-weight: 600;
+          color: #000000;
+        }
+
+        .cart-item-info-chatgpt p {
+          margin: 0 0 6px 0;
+          font-size: 12px;
+          color: #666666;
+        }
+
+        .cart-item-price-chatgpt {
+          font-size: 14px;
+          font-weight: 600;
+          color: #000000;
+        }
+
+        .cart-item-remove-chatgpt {
+          background: none;
+          border: none;
+          color: #999999;
+          cursor: pointer;
+          padding: 4px;
+          border-radius: 4px;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+
+        .cart-item-remove-chatgpt:hover {
+          background: #f0f0f0;
+          color: #ef4444;
+        }
+
+        .cart-footer-chatgpt {
+          border-top: 1px solid #f0f0f0;
+          padding: 16px 20px;
+        }
+
+        .cart-total-chatgpt {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 12px;
+        }
+
+        .cart-total-chatgpt span {
+          font-size: 16px;
+          font-weight: 600;
+          color: #000000;
+        }
+
+        .cart-checkout-chatgpt {
+          width: 100%;
+          background: #000000;
+          color: #ffffff;
+          border: none;
+          padding: 12px 16px;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .cart-checkout-chatgpt:hover {
+          background: #333333;
         }
 
         .nav-links-wrapper-chatgpt {
