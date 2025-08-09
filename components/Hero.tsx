@@ -29,7 +29,7 @@ export default function Hero() {
     <section className="hero-section-chatgpt">
       <div className="hero-container-chatgpt">
         {/* Navigation */}
-        <nav className="hero-nav-chatgpt">
+        <nav className={`hero-nav-chatgpt ${isScrolled ? 'scrolled' : ''}`}>
           <div className="logo-chatgpt">
             <div className="logo-icon-chatgpt">
               <img
@@ -265,7 +265,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div className="message-bubble-chatgpt">
-                    О��лично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
+                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
                   </div>
                 </div>
                 <div className="typing-indicator-chatgpt">
