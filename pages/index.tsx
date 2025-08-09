@@ -19,8 +19,6 @@ export default function Home() {
         <div className="global-grid-pattern"></div>
         <div className="global-orb global-orb-1"></div>
         <div className="global-orb global-orb-2"></div>
-        <div className="global-orb global-orb-3"></div>
-        <div className="global-orb global-orb-4"></div>
       </div>
 
       <main>
