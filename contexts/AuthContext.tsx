@@ -31,6 +31,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [loading, setLoading] = useState(true)
 
   const login = (userData: User) => {
+    console.log('AuthContext: logging in user', userData)
     setUser(userData)
   }
 
