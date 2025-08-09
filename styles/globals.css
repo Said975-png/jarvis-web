@@ -134,12 +134,18 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask: radial-gradient(circle at center, black 20%, transparent 80%);
-  -webkit-mask: radial-gradient(circle at center, black 20%, transparent 80%);
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.12) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask: radial-gradient(circle at center, black 30%, transparent 70%);
+  -webkit-mask: radial-gradient(circle at center, black 30%, transparent 70%);
+  animation: gridShift 20s linear infinite;
+}
+
+@keyframes gridShift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(40px, 40px); }
 }
 
 /* Container */
