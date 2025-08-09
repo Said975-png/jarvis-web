@@ -11,6 +11,14 @@ export interface User {
   lastLogin?: string
 }
 
+export interface PublicUser {
+  id: string
+  email: string
+  name: string
+  createdAt: string
+  lastLogin?: string
+}
+
 const DB_FILE = path.join(process.cwd(), 'data', 'users.json')
 
 // Ensure data directory exists
