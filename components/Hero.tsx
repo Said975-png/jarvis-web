@@ -69,7 +69,9 @@ export default function Hero() {
             >
               <div className="cart-icon-wrapper-chatgpt">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="cart-icon-chatgpt">
-                  <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17M17 13V16.5M9 19.5A1.5 1.5 0 1 0 10.5 21A1.5 1.5 0 0 0 9 19.5ZM20 19.5A1.5 1.5 0 1 0 21.5 21A1.5 1.5 0 0 0 20 19.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="9" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
+                  <circle cx="20" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
                 </svg>
                 {cartItems > 0 && (
                   <span className="cart-badge-chatgpt">{cartItems}</span>
@@ -201,7 +203,7 @@ export default function Hero() {
                     setMobileMenuOpen(false)
                   }}
                 >
-                  Войти
+                  Во��ти
                 </button>
               )}
             </div>
@@ -280,7 +282,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div className="message-bubble-chatgpt">
-                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
+                    Отличн��! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
                   </div>
                 </div>
                 <div className="typing-indicator-chatgpt">
