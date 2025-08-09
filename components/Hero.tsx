@@ -50,9 +50,12 @@ export default function Hero() {
         <nav className="hero-nav">
           <div className="logo">
             <div className="logo-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F185ef73899124925a57d08c91328e660%2F2a222a0d6e114e388c816605ceb14f01?format=webp&width=800"
+                alt="JARVIS Logo"
+                width="24"
+                height="24"
+              />
             </div>
             <span className="logo-text">JARVIS</span>
           </div>
@@ -166,7 +169,7 @@ export default function Hero() {
                   <path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              Передовые AI-технологии
+              Передовые AI-техноло��ии
             </div>
 
             <h1 className="hero-title">
