@@ -358,8 +358,23 @@ export default function Pricing() {
 
         .pro-card {
           transform: scale(1.05);
-          background: linear-gradient(145deg, #2563eb, #8b5cf6);
+          background: rgba(37, 99, 235, 0.15);
+          border: 1px solid rgba(255, 255, 255, 0.4);
           color: white;
+          backdrop-filter: blur(25px);
+          -webkit-backdrop-filter: blur(25px);
+          box-shadow:
+            0 12px 40px rgba(37, 99, 235, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3),
+            0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .pro-card::before {
+          background: linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.1) 0%,
+            rgba(139, 92, 246, 0.1) 100%
+          );
         }
 
         .pro-card:hover,
