@@ -15,7 +15,7 @@ export default function Hero() {
 
             <div className="hero-cta-chatgpt">
               <button className="primary-button-chatgpt">
-                Начать проект
+                Процесс договора
               </button>
               <button className="secondary-button-chatgpt">
                 Узнать больше
