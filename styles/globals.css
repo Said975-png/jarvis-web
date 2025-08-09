@@ -646,12 +646,10 @@ body {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  gap: var(--spacing-2xl);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
   margin-bottom: var(--spacing-2xl);
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
 }
 
 .pricing-card {
