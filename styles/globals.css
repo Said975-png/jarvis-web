@@ -350,6 +350,8 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
+  flex-shrink: 0;
+  min-width: fit-content;
 }
 
 .btn-secondary:hover {
