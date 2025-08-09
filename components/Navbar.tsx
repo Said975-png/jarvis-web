@@ -3,7 +3,7 @@ import { useAuth } from '../contexts/AuthContext'
 import { useCart } from '../contexts/CartContext'
 import { useOrders } from '../contexts/OrderContext'
 import AuthForms from './AuthForms'
-import Profile from './Profile'
+import ProfileModal from './ProfileModal'
 import Checkout from './Checkout'
 
 export default function Navbar() {
@@ -173,7 +173,7 @@ export default function Navbar() {
                             setCartOpen(false)
                           }}
                         >
-                          Оформ��ть заказ
+                          Оформить заказ
                         </button>
                       </div>
                     </>
