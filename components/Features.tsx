@@ -7,7 +7,7 @@ export default function Features() {
   const features = [
     {
       title: "Стильные AI-дизайны",
-      description: "Создаем уникальные и современные дизай��ы сайтов, используя передовые технологии искусственного интеллекта",
+      description: "Создаем уникальные и современные дизайны сайтов, используя передовые технологии искусственного интеллекта",
       type: "design",
       stats: "50+ шаблонов",
       icon: (
@@ -19,7 +19,7 @@ export default function Features() {
     },
     {
       title: "ДЖАРВИС ИИ-Ассистент",
-      description: "Умный ассистент помогает клиентам выбрать товар и отвечает на вопросы как человек",
+      description: "Умны�� ассистент помогает клиентам выбрать товар и отвечает на вопросы как человек",
       type: "ai",
       stats: "99.8% точность",
       icon: (
@@ -80,23 +80,6 @@ export default function Features() {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + features.length) % features.length)
-  }
-
-  if (!isClient) {
-    return (
-      <section className="features-section">
-        {/* Loading state or placeholder */}
-        <div className="features-container">
-          <div className="features-header">
-            <div className="section-number">03</div>
-            <h2 className="features-title">Наши преимущества</h2>
-            <p className="features-subtitle">
-              Загрузка...
-            </p>
-          </div>
-        </div>
-      </section>
-    )
   }
 
   return (
