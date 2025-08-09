@@ -1,103 +1,158 @@
+import { useState, useEffect } from 'react'
+
 export default function Features() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const features = [
+    {
+      title: "Стильные AI-дизайны",
+      description: "Создаем уникальные и современные дизайны сайтов, используя передовые технологии искусственного интеллекта для максимального пользовательского опыта",
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+          <circle cx="12" cy="12" r="3" fill="white"/>
+        </svg>
+      )
+    },
+    {
+      title: "ДЖАРВИС ИИ-Ассистент",
+      description: "Наш умный ассистент помогает клиентам выбрать подходящий товар, отвечает на вопросы и общается как настоящий человек, обеспечивая персональный подход к каждому",
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="8" r="3" fill="currentColor"/>
+          <path d="M12 11C13.1 11 14 11.9 14 13V17H10V13C10 11.9 10.9 11 12 11Z" fill="currentColor"/>
+          <path d="M3 21V19C3 16.79 4.79 15 7 15H17C19.21 15 21 16.79 21 19V21" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      )
+    },
+    {
+      title: "Персонализированное общение",
+      description: "ДЖАРВИС анализирует поведение пользователей и адаптирует общение под каждого клиента, предлагая релевантные решения и создавая комфортную атмосферу взаимодействия",
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <path d="M20 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H6L10 22L14 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor"/>
+          <circle cx="8" cy="9" r="1.5" fill="white"/>
+          <circle cx="12" cy="9" r="1.5" fill="white"/>
+          <circle cx="16" cy="9" r="1.5" fill="white"/>
+        </svg>
+      )
+    },
+    {
+      title: "Умная аналитика",
+      description: "Встроенная система аналитики отслеживает поведение пользователей и предос��авляет детальные отчеты для оптимизации конверсии и улучшения пользовательского опыта",
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <path d="M3 17V7C3 5.9 3.9 5 5 5H19C20.1 5 21 5.9 21 7V17C21 18.1 20.1 19 19 19H5C3.9 19 3 18.1 3 17Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <path d="M7 13L10 10L13 13L17 9" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <circle cx="7" cy="13" r="1" fill="currentColor"/>
+          <circle cx="10" cy="10" r="1" fill="currentColor"/>
+          <circle cx="13" cy="13" r="1" fill="currentColor"/>
+          <circle cx="17" cy="9" r="1" fill="currentColor"/>
+        </svg>
+      )
+    },
+    {
+      title: "24/7 Поддержка",
+      description: "ДЖАРВИС работает круглосуточно, обеспечивая непрерывную поддержку клиентов и мгновенные ответы на любые вопросы в любое время дня и ночи",
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="2"/>
+          <circle cx="12" cy="12" r="2" fill="currentColor"/>
+        </svg>
+      )
+    }
+  ]
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % features.length)
+    }, 4000)
+
+    return () => clearInterval(timer)
+  }, [features.length])
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % features.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + features.length) % features.length)
+  }
+
   return (
     <section className="features-section">
+      {/* Background Decorative Elements */}
+      <div className="bg-decoration">
+        <div className="floating-orb orb-1" />
+        <div className="floating-orb orb-2" />
+        <div className="grid-pattern" />
+      </div>
+
       <div className="features-container">
-        {/* How JARVIS Works */}
-        <div className="jarvis-intro">
-          <div className="intro-number">03</div>
-          <div className="intro-content">
-            <h2 className="intro-title">КАК РАБОТАЕТ ДЖАРВИС</h2>
-            <h3 className="intro-subtitle">Умный помощник для ваших клиентов</h3>
-            <p className="intro-description">
-              Превратите каждого посетителя в клиента<br />
-              Джарвис анализирует поведение пользователей и предлагает персонализированные решения в режиме реального времени
-            </p>
-          </div>
-        </div>
-
-        {/* Statistics */}
-        <div className="stats-grid">
-          <div className="stat-card">
-            <div className="stat-number">+40%</div>
-            <div className="stat-label">Конверсия</div>
-          </div>
-          <div className="stat-card">
-            <div className="stat-number">3x</div>
-            <div className="stat-label">Время на сайте</div>
-          </div>
-          <div className="stat-card">
-            <div className="stat-number">-60%</div>
-            <div className="stat-label">Отказов</div>
-          </div>
-        </div>
-
-        {/* Features Grid */}
         <div className="features-header">
-          <h3 className="features-title">Возможности системы</h3>
+          <div className="section-number">03</div>
+          <h2 className="features-title">Наши преимущества</h2>
+          <p className="features-subtitle">
+            Откройте для себя инновационные возможности наших AI-решений
+          </p>
         </div>
 
-        <div className="features-grid">
-          <div className="feature-card">
-            <div className="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+        <div className="features-slider">
+          <div className="slider-container">
+            <div 
+              className="slides-wrapper"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {features.map((feature, index) => (
+                <div key={index} className="feature-slide">
+                  <div className="feature-card-modern">
+                    <div className="feature-icon-wrapper">
+                      <div className="feature-icon-modern">
+                        {feature.icon}
+                      </div>
+                    </div>
+                    <div className="feature-content">
+                      <h3 className="feature-title-modern">{feature.title}</h3>
+                      <p className="feature-description-modern">{feature.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <h4 className="feature-title">Умная рекомендация</h4>
-            <p className="feature-description">
-              Анализирует историю покупок, поведение на сайте и предпочтения для точных рекомендаций товаров
-            </p>
           </div>
 
-          <div className="feature-card">
-            <div className="feature-icon">
+          <div className="slider-controls">
+            <button 
+              className="slider-arrow slider-prev" 
+              onClick={prevSlide}
+              aria-label="Previous slide"
+            >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
+            </button>
+            
+            <div className="slider-dots">
+              {features.map((_, index) => (
+                <button
+                  key={index}
+                  className={`slider-dot ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => setCurrentSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
-            <h4 className="feature-title">Персонализация</h4>
-            <p className="feature-description">
-              Адаптирует интерфейс и контент под каждого пользователя, создавая уникальный опыт покупок
-            </p>
-          </div>
 
-          <div className="feature-card">
-            <div className="feature-icon">
+            <button 
+              className="slider-arrow slider-next" 
+              onClick={nextSlide}
+              aria-label="Next slide"
+            >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-                <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </div>
-            <h4 className="feature-title">Поддержка 24/7</h4>
-            <p className="feature-description">
-              Мгновенные ответы на вопросы клиентов в любое время, без выходных и праздников
-            </p>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <h4 className="feature-title">Аналитика продаж</h4>
-            <p className="feature-description">
-              Детальная отчет��ость по эффективности, популярным товарам и поведению покупателей
-            </p>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <polyline points="16,18 22,12 16,6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <polyline points="8,6 2,12 8,18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <h4 className="feature-title">Простая интеграция</h4>
-            <p className="feature-description">
-              Запуск за 24 часа без изменения существующего сайта
-            </p>
+            </button>
           </div>
         </div>
       </div>
