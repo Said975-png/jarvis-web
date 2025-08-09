@@ -85,12 +85,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    linear-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
-  animation: globalGridShift 25s linear infinite;
-  opacity: 0.6;
+  animation: globalGridShift 60s linear infinite;
+  opacity: 0.3;
+  will-change: transform;
 }
 
 /* Global Animations */
