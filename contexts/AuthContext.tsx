@@ -1,12 +1,8 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
-interface User {
-  id: string
-  email: string
-  name: string
-  createdAt: string
-  lastLogin?: string
-}
+import { PublicUser } from '../lib/database'
+
+type User = PublicUser
 
 interface AuthContextType {
   user: User | null
