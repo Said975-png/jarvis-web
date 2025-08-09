@@ -5,8 +5,8 @@ const pricingPlans = [
     id: 'basic',
     name: 'Basic',
     subtitle: 'Стартовое решение',
-    price: '2.500.000',
-    period: 'сумм / месяц',
+    price: '2500000',
+    period: 'сумм в месяц',
     description: 'Идеально для небольших проектов и стартапов',
     popular: false,
     features: [
@@ -24,8 +24,8 @@ const pricingPlans = [
     id: 'pro',
     name: 'Pro',
     subtitle: 'Лучший выбор',
-    price: '4.000.000',
-    period: 'сумм / месяц',
+    price: '4000000',
+    period: 'сумм в месяц',
     description: 'Лучший выбор для растущего бизнеса',
     popular: true,
     features: [
@@ -43,8 +43,8 @@ const pricingPlans = [
     id: 'max',
     name: 'Max',
     subtitle: 'Премиум решение',
-    price: '5.000.000',
-    period: 'сумм / месяц',
+    price: '5000000',
+    period: 'сумм в месяц',
     description: 'Максимум возможностей для крупного бизнеса',
     popular: false,
     features: [
@@ -141,7 +141,6 @@ export default function Pricing() {
                 {/* Pricing */}
                 <div className="plan-pricing-modern">
                   <div className="price-display-modern">
-                    <span className="currency-modern">₽</span>
                     <span className="price-amount-modern">{plan.price}</span>
                   </div>
                   <p className="price-period-modern">{plan.period}</p>
@@ -394,7 +393,7 @@ export default function Pricing() {
         .pro-card .plan-subtitle-modern,
         .pro-card .price-amount-modern,
         .pro-card .feature-text-modern {
-          color: white;
+          color: #000000;
         }
 
         .popular-badge-modern {
@@ -495,11 +494,11 @@ export default function Pricing() {
           margin-bottom: 0.5rem;
           text-transform: uppercase;
           letter-spacing: 2px;
-          color: #0f172a;
+          color: #000000;
         }
 
         .plan-subtitle-modern {
-          color: #475569;
+          color: #000000;
           font-size: 0.875rem;
           font-weight: 500;
           text-transform: uppercase;
@@ -528,18 +527,18 @@ export default function Pricing() {
         .price-amount-modern {
           font-size: 2.5rem;
           font-weight: 900;
-          color: #2563eb;
+          color: #000000;
           line-height: 1;
         }
 
         .price-period-modern {
-          color: #64748b;
+          color: #000000;
           font-size: 0.875rem;
           margin-bottom: 0.75rem;
         }
 
         .price-description-modern {
-          color: #475569;
+          color: #000000;
           font-size: 0.875rem;
           line-height: 1.625;
         }
@@ -595,7 +594,7 @@ export default function Pricing() {
         }
 
         .feature-text-modern {
-          color: #475569;
+          color: #000000;
           font-size: 0.875rem;
         }
 
@@ -617,7 +616,7 @@ export default function Pricing() {
 
         .basic-button {
           background: rgba(255, 255, 255, 0.1);
-          color: #0f172a;
+          color: #000000;
           border: 1px solid rgba(255, 255, 255, 0.3);
           backdrop-filter: blur(15px);
           -webkit-backdrop-filter: blur(15px);
@@ -640,7 +639,7 @@ export default function Pricing() {
 
         .pro-button {
           background: rgba(255, 255, 255, 0.15);
-          color: white;
+          color: #000000;
           border: 1px solid rgba(255, 255, 255, 0.3);
           backdrop-filter: blur(15px);
           -webkit-backdrop-filter: blur(15px);
@@ -659,7 +658,7 @@ export default function Pricing() {
 
         .max-button {
           background: rgba(255, 255, 255, 0.1);
-          color: #8b5cf6;
+          color: #000000;
           border: 1px solid rgba(255, 255, 255, 0.3);
           backdrop-filter: blur(15px);
           -webkit-backdrop-filter: blur(15px);
