@@ -44,8 +44,10 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
       const data = await response.json()
 
       if (response.ok) {
+        console.log('AuthForms: successful auth response:', data)
         localStorage.setItem('user', JSON.stringify(data.user))
         localStorage.setItem('token', data.token)
+        console.log('AuthForms: calling onLogin with user:', data.user)
         onLogin(data.user)
         onClose()
       } else {
