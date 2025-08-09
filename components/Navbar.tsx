@@ -273,6 +273,16 @@ export default function Navbar() {
         />
       )}
 
+      {/* Checkout Modal */}
+      {showCheckout && (
+        <Checkout
+          onClose={() => setShowCheckout(false)}
+          onSuccess={() => {
+            alert('Заказ успешно оформлен! Вы можете отслеживать его статус в личном кабинете.')
+          }}
+        />
+      )}
+
       {/* Profile Modal */}
       {showProfile && user && (
         <div className="profile-overlay">
