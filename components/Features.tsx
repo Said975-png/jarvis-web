@@ -32,13 +32,6 @@ export default function Features() {
           }}
         />
         <div className="grid-pattern" />
-        
-        {/* Decorative Crosses */}
-        <div className="floating-cross cross-1">✕</div>
-        <div className="floating-cross cross-2">✕</div>
-        <div className="floating-cross cross-3">✕</div>
-        <div className="floating-cross cross-4">✕</div>
-        <div className="floating-cross cross-5">✕</div>
       </div>
 
       <div className="features-container">
@@ -113,7 +106,7 @@ export default function Features() {
               </div>
               <div className="stat">
                 <div className="stat-number">24/7</div>
-                <div className="stat-label">AI п��ддержка</div>
+                <div className="stat-label">AI поддержка</div>
               </div>
             </div>
           </div>
@@ -144,7 +137,7 @@ export default function Features() {
                       <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="currentColor" strokeWidth="2"/>
                     </svg>
                   </div>
-                  <span>Автоматизация</span>
+                  <span>А��томатизация</span>
                 </div>
                 <div className="capability-item">
                   <div className="capability-logo">

@@ -32,16 +32,6 @@ export default function Hero() {
           }}
         />
         <div className="grid-pattern" />
-
-        {/* Decorative Crosses */}
-        <div className="floating-cross cross-1">✕</div>
-        <div className="floating-cross cross-2">✕</div>
-        <div className="floating-cross cross-3">✕</div>
-        <div className="floating-cross cross-4">✕</div>
-        <div className="floating-cross cross-5">✕</div>
-        <div className="floating-cross cross-6">✕</div>
-        <div className="floating-cross cross-7">✕</div>
-        <div className="floating-cross cross-8">✕</div>
       </div>
 
       <div className="hero-container">
@@ -126,7 +116,7 @@ export default function Hero() {
                   </svg>
                 </div>
                 <div>
-                  <h4>AI-интеграция</h4>
+                  <h4>AI-интег��ация</h4>
                   <p>Умные алгоритмы</p>
                 </div>
               </div>

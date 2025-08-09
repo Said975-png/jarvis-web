@@ -6,14 +6,6 @@ export default function Pricing() {
         <div className="floating-orb orb-1" />
         <div className="floating-orb orb-2" />
         <div className="grid-pattern" />
-
-        {/* Decorative Crosses */}
-        <div className="floating-cross cross-1">✕</div>
-        <div className="floating-cross cross-2">✕</div>
-        <div className="floating-cross cross-3">✕</div>
-        <div className="floating-cross cross-4">✕</div>
-        <div className="floating-cross cross-5">✕</div>
-        <div className="floating-cross cross-6">✕</div>
       </div>
 
       <div className="pricing-container">
@@ -127,7 +119,7 @@ export default function Pricing() {
                       <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <span>Все функции Basic +</span>
+                  <span>Все функци�� Basic +</span>
                 </div>
                 <div className="feature-item">
                   <div className="feature-icon">
