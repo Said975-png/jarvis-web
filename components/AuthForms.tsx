@@ -39,7 +39,6 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         ? { email: formData.email, password: formData.password }
         : { email: formData.email, password: formData.password, name: formData.name }
 
-      console.log('AuthForms: Making request to:', endpoint, 'with body:', body)
 
       const response = await fetch(endpoint, {
         method: 'POST',
