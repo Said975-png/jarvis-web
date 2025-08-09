@@ -359,11 +359,11 @@
 }
 
 .feature-included .feature-text-modern {
-  color: rgba(255, 255, 255, 0.9);
+  color: #374151;
 }
 
 .feature-excluded .feature-text-modern {
-  color: rgba(255, 255, 255, 0.4);
+  color: #9ca3af;
   text-decoration: line-through;
 }
 
