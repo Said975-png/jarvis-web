@@ -36,6 +36,7 @@ export default function AdminPanel() {
   const [orders, setOrders] = useState<Order[]>([])
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null)
   const [loading, setLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
 
   useEffect(() => {
     // Загружаем заказы при монтировании компонента
@@ -165,7 +166,7 @@ export default function AdminPanel() {
   return (
     <>
       <Head>
-        <title>Админ панель - JARVIS</title>
+        <title>Админ пан��ль - JARVIS</title>
       </Head>
 
       <div className="admin-panel">
@@ -230,7 +231,7 @@ export default function AdminPanel() {
           <div className="order-modal-overlay">
             <div className="order-modal">
               <div className="modal-header">
-                <h2>Заказ #{selectedOrder.id.slice(-8)}</h2>
+                <h2>За��аз #{selectedOrder.id.slice(-8)}</h2>
                 <button 
                   className="close-btn"
                   onClick={() => setSelectedOrder(null)}
