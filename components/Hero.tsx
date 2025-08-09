@@ -15,6 +15,16 @@ export default function Hero() {
   const [cartOpen, setCartOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      setIsScrolled(scrollTop > 20)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <section className="hero-section-chatgpt">
       <div className="hero-container-chatgpt">
@@ -228,7 +238,7 @@ export default function Hero() {
                     <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <span>ИИ ин��еграция</span>
+                <span>ИИ интеграция</span>
               </div>
             </div>
           </div>
@@ -255,7 +265,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div className="message-bubble-chatgpt">
-                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших треб��ваний и создания концепции дизайна.
+                    О��лично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
                   </div>
                 </div>
                 <div className="typing-indicator-chatgpt">
