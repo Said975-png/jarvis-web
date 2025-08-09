@@ -18,18 +18,15 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    // Проверяем, что не обрабатываем запрос уже
-    if (loading) {
-      return
-    }
-
+    
+    if (loading) return
+    
     setLoading(true)
     setError('')
 
     try {
       if (!isLogin && formData.password !== formData.confirmPassword) {
-        setError('Пароли не совп��дают')
+        setError('Па��оли не совпадают')
         return
       }
 
@@ -37,7 +34,6 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
       const body = isLogin
         ? { email: formData.email, password: formData.password }
         : { email: formData.email, password: formData.password, name: formData.name }
-
 
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -47,38 +43,18 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         body: JSON.stringify(body),
       })
 
-      // Клонируем response для безопасного чтения
-      let data
-
-      // Читаем JSON только один раз в зависимости от статуса
-      if (response.ok) {
-        try {
-          data = await response.json()
-        } catch (jsonError) {
-          setError('Ошибка обработки ответа сервера')
-          return
-        }
-      } else {
-        try {
-          data = await response.json()
-        } catch (jsonError) {
-          setError(`Ошибка ${response.status}: ${response.statusText}`)
-          return
-        }
-      }
+      // Читаем JSON только один раз
+      const data = await response.json()
 
       if (response.ok) {
-        console.log('AuthForms: Authentication successful')
         localStorage.setItem('user', JSON.stringify(data.user))
         localStorage.setItem('token', data.token)
         onLogin(data.user)
         onClose()
       } else {
-        console.log('AuthForms: Authentication failed:', data.message)
-        setError(data.message || 'Произошла ошибка авториза��ии')
+        setError(data.message || 'Произошла ошибка авторизации')
       }
     } catch (error) {
-      console.error('AuthForms: Network error:', error)
       setError('Ошибка соединения с сервером')
     } finally {
       setLoading(false)
@@ -149,7 +125,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
 
           {!isLogin && (
             <div className="form-group">
-              <label htmlFor="confirmPassword">Подтвердите пар��ль</label>
+              <label htmlFor="confirmPassword">Подтвердите пароль</label>
               <input
                 type="password"
                 id="confirmPassword"
@@ -198,8 +174,8 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         <div className="auth-switch">
           <p>
             {isLogin ? 'Нет аккаунта?' : 'Уже есть аккаунт?'}
-            <button
-              type="button"
+            <button 
+              type="button" 
               onClick={() => setIsLogin(!isLogin)}
               className="switch-btn"
             >
