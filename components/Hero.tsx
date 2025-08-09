@@ -11,6 +11,8 @@ export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [searchValue, setSearchValue] = useState('')
   const [searchFocused, setSearchFocused] = useState(false)
+  const [cartItems, setCartItems] = useState(3) // Пример количества товаров в корзине
+  const [cartOpen, setCartOpen] = useState(false)
 
   return (
     <section className="hero-section-chatgpt">
@@ -308,7 +310,7 @@ export default function Hero() {
                         </div>
                         <div className="project-info">
                           <h5>Корпоративный сайт</h5>
-                          <p>В разработке</p>
+                          <p>В разработ��е</p>
                         </div>
                       </div>
                       <div className="project-card">
@@ -372,7 +374,7 @@ export default function Hero() {
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                         <path d="M16 17L21 12L16 7M21 12H9M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
-                      Выйти из аккаун��а
+                      Выйти из аккаунта
                     </button>
                   </div>
                 </div>
