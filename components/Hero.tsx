@@ -9,6 +9,7 @@ export default function Hero() {
   const [showAuthForms, setShowAuthForms] = useState(false)
   const [showProfile, setShowProfile] = useState(false)
   const [showUserDropdown, setShowUserDropdown] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     let rafId: number
