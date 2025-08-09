@@ -1,12 +1,8 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
-interface User {
-  id: string
-  email: string
-  name: string
-  createdAt: string
-  lastLogin?: string
-}
+import { PublicUser } from '../lib/database'
+
+type User = PublicUser
 
 interface AuthContextType {
   user: User | null
@@ -35,6 +31,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [loading, setLoading] = useState(true)
 
   const login = (userData: User) => {
+    console.log('AuthContext: logging in user', userData)
     setUser(userData)
   }
 
@@ -59,9 +56,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
         if (response.ok) {
           const data = await response.json()
+          console.log('AuthContext: token verified, user data:', data.user)
           setUser(data.user)
         } else {
           // Token is invalid, clear localStorage
+          console.log('AuthContext: token invalid, logging out')
           logout()
         }
       }

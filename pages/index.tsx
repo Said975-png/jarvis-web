@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import Pricing from '../components/Pricing'
 import Features from '../components/Features'
 import Benefits from '../components/Benefits'
+import ChatManager from '../components/ChatManager'
 
 export default function Home() {
   return (
@@ -27,6 +28,8 @@ export default function Home() {
         <Features />
         <Benefits />
       </main>
+
+      <ChatManager />
     </>
   )
 }

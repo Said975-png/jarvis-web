@@ -4,7 +4,7 @@ import AuthForms from './AuthForms'
 import Profile from './Profile'
 
 export default function Hero() {
-  const { user, logout } = useAuth()
+  const { user, logout, login } = useAuth()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [showAuthForms, setShowAuthForms] = useState(false)
   const [showProfile, setShowProfile] = useState(false)
@@ -105,10 +105,14 @@ export default function Hero() {
             ) : (
               <>
                 <button
-                  className="nav-link auth-btn"
+                  className="nav-link auth-link"
                   onClick={() => setShowAuthForms(true)}
                 >
-                  Вход / Регистраци��
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+                  </svg>
+                  <span>Вход</span>
                 </button>
               </>
             )}
@@ -143,9 +147,9 @@ export default function Hero() {
             </h1>
 
             <p className="hero-description">
-              Мы объед��няем креативность дизайна с мощью искусственного интеллекта,
-              чтобы создавать веб-сайты и приложения, которые не просто впечатл��ют,
-              а ��еволюционизируют пользовательский опыт.
+              Мы объединяем креативность дизайна с мощью искусственного интеллекта,
+              чтобы создавать веб-сайты и приложения, которые не просто впечатляют,
+              а революционизируют пользовательский опыт.
             </p>
 
             <div className="hero-features">
@@ -168,7 +172,7 @@ export default function Hero() {
                 </div>
                 <div>
                   <h4>Высокая производительность</h4>
-                  <p>Оптимизация и ��корость</p>
+                  <p>Оптимизация и скорость</p>
                 </div>
               </div>
               <div className="feature">
@@ -305,7 +309,7 @@ export default function Hero() {
         <AuthForms
           onClose={() => setShowAuthForms(false)}
           onLogin={(userData) => {
-            // AuthContext will handle the login
+            login(userData)
             setShowAuthForms(false)
           }}
         />
@@ -313,26 +317,59 @@ export default function Hero() {
 
       {/* Profile Modal */}
       {showProfile && user && (
-        <div className="auth-overlay">
-          <div className="profile-modal">
-            <div className="profile-modal-header">
-              <h2>Личный кабинет</h2>
-              <button
-                className="close-btn"
-                onClick={() => setShowProfile(false)}
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </button>
+        <div className="profile-overlay">
+          <div className="profile-fullscreen">
+            {/* Global background pattern for profile */}
+            <div className="profile-background">
+              <div className="profile-grid-pattern"></div>
+              <div className="profile-orb profile-orb-1"></div>
+              <div className="profile-orb profile-orb-2"></div>
             </div>
-            <Profile
-              user={user}
-              onLogout={() => {
-                logout()
-                setShowProfile(false)
-              }}
-            />
+
+            <div className="profile-container">
+              <div className="profile-header">
+                <div className="profile-title-section">
+                  <h1 className="profile-main-title">Личный кабинет</h1>
+                  <p className="profile-subtitle">Добро пожаловать, {user.name}</p>
+                </div>
+                <button
+                  className="profile-close-btn"
+                  onClick={() => setShowProfile(false)}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="profile-content">
+                <div className="profile-welcome-card">
+                  <div className="profile-user-info">
+                    <div className="profile-avatar">
+                      {user.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                    </div>
+                    <div className="profile-user-details">
+                      <h3>{user.name}</h3>
+                      <p>{user.email}</p>
+                    </div>
+                  </div>
+
+                  <button className="profile-logout-btn" onClick={() => {
+                    logout()
+                    setShowProfile(false)
+                  }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M16 17L21 12L16 7M21 12H9M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    Выйти
+                  </button>
+                </div>
+
+                <div className="profile-main-content">
+                  <p className="profile-placeholder">Контент личного кабинета будет добавлен позже...</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
