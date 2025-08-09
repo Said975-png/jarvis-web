@@ -85,8 +85,8 @@ export default function Navbar() {
                     <circle cx="9" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
                     <circle cx="20" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
                   </svg>
-                  {cartItems > 0 && (
-                    <span className="cart-badge-chatgpt">{cartItems}</span>
+                  {getTotalItems() > 0 && (
+                    <span className="cart-badge-chatgpt">{getTotalItems()}</span>
                   )}
                 </div>
               </button>
@@ -95,7 +95,7 @@ export default function Navbar() {
                 <div className="cart-dropdown-chatgpt">
                   <div className="cart-header-chatgpt">
                     <h3>Корзина</h3>
-                    <span className="cart-count-chatgpt">Пус��ая</span>
+                    <span className="cart-count-chatgpt">Пустая</span>
                   </div>
                   <div className="cart-empty-chatgpt">
                     <div className="cart-empty-icon-chatgpt">
@@ -107,7 +107,7 @@ export default function Navbar() {
                     </div>
                     <p className="cart-empty-text-chatgpt">Ваша корзина пуста</p>
                     <button className="cart-empty-button-chatgpt">
-                      Начать покупки
+                      Начать пок��пки
                     </button>
                   </div>
                 </div>
@@ -281,7 +281,7 @@ export default function Navbar() {
                         </div>
                         <div className="project-info">
                           <h5>Интернет-магазин</h5>
-                          <p>��авершен</p>
+                          <p>Завершен</p>
                         </div>
                       </div>
                       <div className="project-card add-project">
