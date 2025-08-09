@@ -380,6 +380,14 @@ export default function Pricing() {
         .pro-card:hover,
         .pro-card.hovered {
           transform: scale(1.08) translateY(-8px);
+          background: rgba(37, 99, 235, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          backdrop-filter: blur(30px);
+          -webkit-backdrop-filter: blur(30px);
+          box-shadow:
+            0 25px 50px rgba(37, 99, 235, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4),
+            0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .pro-card .plan-name-modern,
