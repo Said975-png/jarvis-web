@@ -17,7 +17,15 @@ export default function Hero() {
 
   return (
     <section className="hero-section">
-      {/* Global background handles all decorations */}
+      {/* Beautiful orb on the right side */}
+      <div className="bg-decoration">
+        <div
+          className="hero-orb"
+          style={{
+            transform: `translate(${mousePosition.x * 0.08}px, ${mousePosition.y * 0.06}px)`
+          }}
+        />
+      </div>
 
       <div className="hero-container">
         {/* Navigation */}
