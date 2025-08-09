@@ -1,7 +1,35 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
-import { useOrders, Order } from '../contexts/OrderContext'
 import Head from 'next/head'
+
+// Типы для заказов
+interface CartItem {
+  id: string
+  name: string
+  subtitle: string
+  price: string
+  period: string
+  features: string[]
+  quantity: number
+}
+
+interface OrderFormData {
+  fullName: string
+  phone: string
+  description: string
+  referenceUrl?: string
+}
+
+interface Order {
+  id: string
+  userId: string
+  items: CartItem[]
+  formData: OrderFormData
+  totalPrice: number
+  status: 'pending' | 'confirmed' | 'rejected'
+  createdAt: string
+  updatedAt: string
+}
 
 export default function AdminPanel() {
   const { user } = useAuth()
@@ -91,7 +119,7 @@ export default function AdminPanel() {
   if (!user) {
     return (
       <div className="admin-access-denied">
-        <h1>Т��ебуется авторизация</h1>
+        <h1>Требуется авторизация</h1>
         <p>Войдите в систему для доступа к админ панели</p>
         <style jsx>{`
           .admin-access-denied {
