@@ -95,21 +95,76 @@ export default function Navbar() {
                 <div className="cart-dropdown-chatgpt">
                   <div className="cart-header-chatgpt">
                     <h3>Корзина</h3>
-                    <span className="cart-count-chatgpt">Пустая</span>
+                    <span className="cart-count-chatgpt">
+                      {getTotalItems() > 0 ? `${getTotalItems()} товар${getTotalItems() > 1 ? 'а' : ''}` : 'Пустая'}
+                    </span>
                   </div>
-                  <div className="cart-empty-chatgpt">
-                    <div className="cart-empty-icon-chatgpt">
-                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        <circle cx="9" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
-                        <circle cx="20" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
-                      </svg>
+
+                  {items.length === 0 ? (
+                    <div className="cart-empty-chatgpt">
+                      <div className="cart-empty-icon-chatgpt">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                          <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <circle cx="9" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
+                          <circle cx="20" cy="20" r="1" stroke="currentColor" strokeWidth="1.5"/>
+                        </svg>
+                      </div>
+                      <p className="cart-empty-text-chatgpt">Ваша корзина пуста</p>
+                      <button className="cart-empty-button-chatgpt">
+                        Начать покупки
+                      </button>
                     </div>
-                    <p className="cart-empty-text-chatgpt">Ваша корзина пуста</p>
-                    <button className="cart-empty-button-chatgpt">
-                      Начать пок��пки
-                    </button>
-                  </div>
+                  ) : (
+                    <>
+                      <div className="cart-items-chatgpt">
+                        {items.map((item) => (
+                          <div key={item.id} className="cart-item-chatgpt">
+                            <div className="cart-item-image-chatgpt">
+                              <div className="placeholder-image-chatgpt">
+                                <span className="plan-letter-chatgpt">{item.name[0]}</span>
+                              </div>
+                            </div>
+                            <div className="cart-item-info-chatgpt">
+                              <h4>{item.name}</h4>
+                              <p>{item.subtitle}</p>
+                              <div className="cart-item-quantity-chatgpt">
+                                <button
+                                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                  className="quantity-btn-chatgpt"
+                                >
+                                  -
+                                </button>
+                                <span>{item.quantity}</span>
+                                <button
+                                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                  className="quantity-btn-chatgpt"
+                                >
+                                  +
+                                </button>
+                              </div>
+                              <span className="cart-item-price-chatgpt">₽{parseInt(item.price).toLocaleString()}</span>
+                            </div>
+                            <button
+                              className="cart-item-remove-chatgpt"
+                              onClick={() => removeFromCart(item.id)}
+                            >
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                              </svg>
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="cart-footer-chatgpt">
+                        <div className="cart-total-chatgpt">
+                          <span>Итого: ₽{getTotalPrice().toLocaleString()}</span>
+                        </div>
+                        <button className="cart-checkout-chatgpt">
+                          Оформить заказ
+                        </button>
+                      </div>
+                    </>
+                  )}
                 </div>
               )}
             </div>
