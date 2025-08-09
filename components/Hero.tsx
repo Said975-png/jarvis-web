@@ -211,7 +211,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div className="message-bubble-chatgpt">
-                    От��ично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
+                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
                   </div>
                 </div>
                 <div className="typing-indicator-chatgpt">
@@ -428,6 +428,67 @@ export default function Hero() {
         .logo-text-chatgpt {
           font-size: 20px;
           font-weight: 600;
+          color: #000000;
+        }
+
+        .search-container-chatgpt {
+          flex: 1;
+          max-width: 600px;
+          margin: 0 32px;
+        }
+
+        .search-wrapper-chatgpt {
+          position: relative;
+          display: flex;
+          align-items: center;
+          background: #f8f8f8;
+          border: 1px solid #e5e5e5;
+          border-radius: 24px;
+          padding: 12px 16px;
+          transition: all 0.2s ease;
+        }
+
+        .search-wrapper-chatgpt.focused {
+          background: #ffffff;
+          border-color: #000000;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-icon-chatgpt {
+          color: #666666;
+          margin-right: 12px;
+        }
+
+        .search-input-chatgpt {
+          flex: 1;
+          background: none;
+          border: none;
+          outline: none;
+          font-size: 14px;
+          color: #000000;
+          placeholder-color: #999999;
+        }
+
+        .search-input-chatgpt::placeholder {
+          color: #999999;
+        }
+
+        .search-clear-chatgpt {
+          background: none;
+          border: none;
+          color: #666666;
+          cursor: pointer;
+          padding: 2px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 8px;
+          transition: all 0.2s ease;
+        }
+
+        .search-clear-chatgpt:hover {
+          background: #f0f0f0;
           color: #000000;
         }
 
