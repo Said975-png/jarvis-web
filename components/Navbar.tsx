@@ -814,22 +814,6 @@ export default function Navbar() {
             gap: 8px;
           }
 
-          .profile-container {
-            padding: 20px 16px;
-          }
-
-          .profile-content {
-            grid-template-columns: 1fr;
-            gap: 24px;
-          }
-
-          .profile-main-title {
-            font-size: 24px;
-          }
-
-          .projects-grid {
-            grid-template-columns: 1fr;
-          }
         }
       `}</style>
     </>
