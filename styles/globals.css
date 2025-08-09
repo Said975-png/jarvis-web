@@ -1110,11 +1110,11 @@ body {
 
 /* Features Section */
 .features-section {
-  padding: 100px 0;
-  background: transparent;
   position: relative;
+  min-height: 100vh;
+  background: transparent;
   overflow: hidden;
-  margin-top: 0;
+  padding: 100px 0;
 }
 
 .features-section::before {
