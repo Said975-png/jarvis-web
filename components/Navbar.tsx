@@ -3,6 +3,7 @@ import { useAuth } from '../contexts/AuthContext'
 import { useCart } from '../contexts/CartContext'
 import AuthForms from './AuthForms'
 import Profile from './Profile'
+import Checkout from './Checkout'
 
 export default function Navbar() {
   const { user, logout, login } = useAuth()
