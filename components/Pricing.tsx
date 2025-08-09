@@ -107,8 +107,8 @@ export default function Pricing() {
               </div>
               <div className="plan-price">
                 <div className="price-wrapper">
-                  <span className="currency">₽</span>
-                  <span className="price-amount">4М</span>
+                  <span className="price-amount">4.000.000</span>
+                  <span className="currency">сумм</span>
                 </div>
                 <span className="price-period">за проект</span>
               </div>
