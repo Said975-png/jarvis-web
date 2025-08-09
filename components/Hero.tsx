@@ -9,6 +9,7 @@ export default function Hero() {
   const [showAuthForms, setShowAuthForms] = useState(false)
   const [showProfile, setShowProfile] = useState(false)
   const [showUserDropdown, setShowUserDropdown] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     let rafId: number
@@ -49,82 +50,112 @@ export default function Hero() {
         <nav className="hero-nav">
           <div className="logo">
             <div className="logo-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F185ef73899124925a57d08c91328e660%2F5ff7c4c9a68a48e9a66c7ebef1696f03?format=webp&width=800"
+                alt="JARVIS Logo"
+                width="32"
+                height="32"
+              />
             </div>
             <span className="logo-text">JARVIS</span>
           </div>
-          <div className="nav-links">
-            {user ? (
-              <div className="user-menu">
-                <button
-                  className="user-button"
-                  onClick={() => setShowUserDropdown(!showUserDropdown)}
-                >
-                  <div className="user-avatar">
-                    {user.name.split(' ').map(n => n[0]).join('').toUpperCase()}
-                  </div>
-                  <span>{user.name}</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </button>
-
-                {showUserDropdown && (
-                  <div className="user-dropdown">
-                    <button
-                      className="dropdown-item"
-                      onClick={() => {
-                        setShowProfile(true)
-                        setShowUserDropdown(false)
-                      }}
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
-                      </svg>
-                      Личный кабинет
-                    </button>
-                    <div className="dropdown-divider"></div>
-                    <button
-                      className="dropdown-item"
-                      onClick={() => {
-                        logout()
-                        setShowUserDropdown(false)
-                      }}
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M16 17L21 12L16 7M21 12H9M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                      Выйти
-                    </button>
-                  </div>
+          <div className="nav-links-wrapper">
+            <button
+              className="mobile-menu-toggle"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Открыть меню"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                {mobileMenuOpen ? (
+                  <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                ) : (
+                  <>
+                    <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </>
                 )}
-              </div>
-            ) : (
-              <>
-                <button
-                  className="nav-link auth-link"
-                  onClick={() => setShowAuthForms(true)}
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
-                  </svg>
-                  <span>Вход</span>
-                </button>
-              </>
-            )}
-            <a href="#cart" className="nav-link cart-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="currentColor" strokeWidth="2"/>
-                <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="currentColor" strokeWidth="2"/>
-                <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span>Корзина</span>
-              <span className="cart-count">0</span>
-            </a>
+            </button>
+
+            <div className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+              {user ? (
+                <div className="user-menu">
+                  <button
+                    className="user-button"
+                    onClick={() => setShowUserDropdown(!showUserDropdown)}
+                  >
+                    <div className="user-avatar">
+                      {user.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                    </div>
+                    <span>{user.name}</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+
+                  {showUserDropdown && (
+                    <div className="user-dropdown">
+                      <button
+                        className="dropdown-item"
+                        onClick={() => {
+                          setShowProfile(true)
+                          setShowUserDropdown(false)
+                          setMobileMenuOpen(false)
+                        }}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                          <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+                        </svg>
+                        Личный кабинет
+                      </button>
+                      <div className="dropdown-divider"></div>
+                      <button
+                        className="dropdown-item"
+                        onClick={() => {
+                          logout()
+                          setShowUserDropdown(false)
+                          setMobileMenuOpen(false)
+                        }}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                          <path d="M16 17L21 12L16 7M21 12H9M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        Выйти
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <>
+                  <button
+                    className="nav-link auth-link"
+                    onClick={() => {
+                      setShowAuthForms(true)
+                      setMobileMenuOpen(false)
+                    }}
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+                    </svg>
+                    <span>Вход</span>
+                  </button>
+                </>
+              )}
+              <a
+                href="#cart"
+                className="nav-link cart-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>Корзина</span>
+                <span className="cart-count">0</span>
+              </a>
+            </div>
           </div>
         </nav>
 
@@ -148,7 +179,7 @@ export default function Hero() {
 
             <p className="hero-description">
               Мы объединяем креативность дизайна с мощью искусственного интеллекта,
-              чтобы создавать веб-сайты и приложения, которые не просто впечатляют,
+              чтобы создавать веб-сайты и приложения, которые не ��росто впечатляют,
               а революционизируют пользовательский опыт.
             </p>
 

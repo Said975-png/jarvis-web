@@ -87,9 +87,9 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
     <div className="auth-overlay">
       <div className="auth-modal">
         <div className="auth-header">
-          <h2>{isLogin ? 'Вход в систему' : 'Регистрация'}</h2>
-          <button className="close-btn" onClick={onClose}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <h2>{isLogin ? 'Добро пожаловать' : 'Создать аккаунт'}</h2>
+          <button className="close-btn" onClick={onClose} aria-label="Закрыть">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
             </svg>
           </button>
@@ -120,7 +120,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
               value={formData.email}
               onChange={handleInputChange}
               required
-              placeholder="your@email.com"
+              placeholder="Введите ваш email"
             />
           </div>
 
@@ -160,28 +160,16 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
             {loading ? (
               <>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="loading-icon">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-                  <path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="60" strokeDashoffset="60">
+                    <animate attributeName="stroke-dashoffset" dur="2s" values="60;0;60" repeatCount="indefinite"/>
+                  </circle>
                 </svg>
-                Загрузка...
+                {isLogin ? 'Вход...' : 'Создание аккаунта...'}
               </>
             ) : isLogin ? (
-              <>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M15 3H21V9M21 3L12 12M9 21H3V15M3 21L12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                Войти
-              </>
+              'Войти'
             ) : (
-              <>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="8.5" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
-                  <line x1="20" y1="8" x2="20" y2="14" stroke="currentColor" strokeWidth="2"/>
-                  <line x1="17" y1="11" x2="23" y2="11" stroke="currentColor" strokeWidth="2"/>
-                </svg>
-                Зарегистрироваться
-              </>
+              'Создать аккаунт'
             )}
           </button>
         </form>
@@ -189,29 +177,12 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         <div className="auth-switch">
           <p>
             {isLogin ? 'Нет аккаунта?' : 'Уже есть аккаунт?'}
-            <button 
-              type="button" 
+            <button
+              type="button"
               onClick={() => setIsLogin(!isLogin)}
               className="switch-btn"
             >
-              {isLogin ? (
-                <>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                    <path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="8.5" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
-                    <line x1="20" y1="8" x2="20" y2="14" stroke="currentColor" strokeWidth="2"/>
-                    <line x1="17" y1="11" x2="23" y2="11" stroke="currentColor" strokeWidth="2"/>
-                  </svg>
-                  Зарегистрироваться
-                </>
-              ) : (
-                <>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 3H21V9M21 3L12 12M9 21H3V15M3 21L12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  Войти
-                </>
-              )}
+              {isLogin ? 'Зарегистрироваться' : 'Войти'}
             </button>
           </p>
         </div>

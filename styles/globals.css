@@ -5,6 +5,7 @@
 @import './features.css';
 @import './benefits.css';
 @import './jarvis-chat.css';
+@import './mobile-responsive.css';
 
 * {
   margin: 0;
@@ -204,10 +205,18 @@ body::after {
 }
 
 .logo-icon {
-  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: none;
+}
+
+.logo-icon img {
+  object-fit: contain;
+  background: transparent;
+  border: none;
+  filter: none;
+  mix-blend-mode: normal;
 }
 
 .logo-text {
@@ -217,9 +226,19 @@ body::after {
   letter-spacing: -0.02em;
 }
 
+.nav-links-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .nav-links {
   display: flex;
   gap: 2rem;
+}
+
+.mobile-menu-toggle {
+  display: none;
 }
 
 .nav-links a {
