@@ -1,6 +1,13 @@
 export default function Pricing() {
   return (
     <section className="pricing-section">
+      {/* Background Decorative Elements - like hero section */}
+      <div className="pricing-bg-decoration">
+        <div className="pricing-orb pricing-orb-1" />
+        <div className="pricing-orb pricing-orb-2" />
+        <div className="pricing-grid-pattern" />
+      </div>
+
       <div className="pricing-container">
         <div className="pricing-header">
           <div className="section-number">02</div>
