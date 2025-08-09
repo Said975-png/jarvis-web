@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Hero from '../components/Hero'
-import Pricing from '../components/Pricing'
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
       </Head>
       <main>
         <Hero />
-        <Pricing />
       </main>
     </>
   )
