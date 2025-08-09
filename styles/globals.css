@@ -5,6 +5,7 @@
 @import './features.css';
 @import './benefits.css';
 @import './jarvis-chat.css';
+@import './mobile-responsive.css';
 
 * {
   margin: 0;
