@@ -389,8 +389,22 @@ export default function AdminPanel() {
           transition: all 0.2s ease;
         }
 
-        .refresh-btn:hover {
+        .refresh-btn:hover:not(:disabled) {
           background: #333333;
+        }
+
+        .refresh-btn:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+
+        .spinning {
+          animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
 
         .orders-grid {
