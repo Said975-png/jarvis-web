@@ -69,7 +69,7 @@ function writeUsers(users: User[]): void {
 }
 
 // Create new user
-export function createUser(email: string, name: string, password: string): User {
+export function createUser(email: string, name: string, password: string): PublicUser {
   const users = readUsers()
   
   // Check if user already exists
@@ -90,7 +90,7 @@ export function createUser(email: string, name: string, password: string): User 
   
   // Return user without password
   const { password: _, ...userWithoutPassword } = newUser
-  return userWithoutPassword as User
+  return userWithoutPassword as PublicUser
 }
 
 // Find user by email
@@ -100,19 +100,19 @@ export function findUserByEmail(email: string): User | null {
 }
 
 // Find user by ID
-export function findUserById(id: string): User | null {
+export function findUserById(id: string): PublicUser | null {
   const users = readUsers()
   const user = users.find(user => user.id === id)
   if (user) {
     // Return user without password
     const { password, ...userWithoutPassword } = user
-    return userWithoutPassword as User
+    return userWithoutPassword as PublicUser
   }
   return null
 }
 
 // Verify user credentials
-export function verifyUser(email: string, password: string): User | null {
+export function verifyUser(email: string, password: string): PublicUser | null {
   const user = findUserByEmail(email)
   
   if (!user) {
@@ -126,7 +126,7 @@ export function verifyUser(email: string, password: string): User | null {
     
     // Return user without password
     const { password: _, ...userWithoutPassword } = user
-    return userWithoutPassword as User
+    return userWithoutPassword as PublicUser
   }
   
   return null
@@ -144,7 +144,7 @@ function updateUserLastLogin(userId: string): void {
 }
 
 // Get all users (admin function)
-export function getAllUsers(): Omit<User, 'password'>[] {
+export function getAllUsers(): PublicUser[] {
   const users = readUsers()
   return users.map(({ password, ...user }) => user)
 }
