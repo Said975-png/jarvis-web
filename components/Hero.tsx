@@ -4,7 +4,7 @@ import AuthForms from './AuthForms'
 import Profile from './Profile'
 
 export default function Hero() {
-  const { user, logout } = useAuth()
+  const { user, logout, login } = useAuth()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [showAuthForms, setShowAuthForms] = useState(false)
   const [showProfile, setShowProfile] = useState(false)
