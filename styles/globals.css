@@ -598,8 +598,11 @@ body {
 
 /* Pricing Section */
 .pricing-section {
-  padding: 80px 0;
-  background: linear-gradient(135deg, #1a1b3e 0%, #2d2d5f 50%, #1a1b3e 100%);
+  padding: 100px 0;
+  background:
+    radial-gradient(ellipse at top, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0b1e 0%, #1a1b3e 25%, #2d2d5f 50%, #1a1b3e 75%, #0a0b1e 100%);
   position: relative;
   overflow: hidden;
   margin-top: 0;
