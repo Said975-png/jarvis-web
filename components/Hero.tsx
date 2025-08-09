@@ -11,7 +11,7 @@ export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [searchValue, setSearchValue] = useState('')
   const [searchFocused, setSearchFocused] = useState(false)
-  const [cartItems, setCartItems] = useState(3) // Пример количества товаров в корзине
+  const [cartItems, setCartItems] = useState(0) // Пустая корзина
   const [cartOpen, setCartOpen] = useState(false)
 
   return (
@@ -203,7 +203,7 @@ export default function Hero() {
                     setMobileMenuOpen(false)
                   }}
                 >
-                  Во��ти
+                  Войти
                 </button>
               )}
             </div>
@@ -282,7 +282,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div className="message-bubble-chatgpt">
-                    Отличн��! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
+                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
                   </div>
                 </div>
                 <div className="typing-indicator-chatgpt">
