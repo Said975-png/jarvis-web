@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useCart } from '../contexts/CartContext'
 
 const pricingPlans = [
   {
@@ -7,7 +8,7 @@ const pricingPlans = [
     subtitle: 'Стартовое решение',
     price: '2500000',
     period: 'сумм в месяц',
-    description: 'Идеально для небольших проектов и стартапов',
+    description: 'Идеально для небольших прое��тов и стартапов',
     popular: false,
     features: [
       'До 5 страниц сайта',
