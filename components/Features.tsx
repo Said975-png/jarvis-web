@@ -122,7 +122,7 @@ export default function Features() {
                       <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="currentColor" strokeWidth="2"/>
                     </svg>
                   </div>
-                  <span>А��томатизация</span>
+                  <span>Автоматизация</span>
                 </div>
                 <div className="capability-item">
                   <div className="capability-logo">
