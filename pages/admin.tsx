@@ -63,11 +63,32 @@ export default function AdminPanel() {
   }
 
   // Простая проверка на админа (в реальном проекте нужна более надежная проверка)
-  if (!user || user.email !== 'admin@example.com') {
+  if (!user) {
     return (
       <div className="admin-access-denied">
-        <h1>Доступ запрещен</h1>
-        <p>У вас нет прав для доступа к админ панели</p>
+        <h1>Требуется авторизация</h1>
+        <p>Войдите в систему для доступа к админ панели</p>
+        <style jsx>{`
+          .admin-access-denied {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            background: #f8f9fa;
+            padding: 40px;
+          }
+          .admin-access-denied h1 {
+            font-size: 24px;
+            color: #000000;
+            margin-bottom: 8px;
+          }
+          .admin-access-denied p {
+            color: #666666;
+            font-size: 16px;
+          }
+        `}</style>
       </div>
     )
   }
