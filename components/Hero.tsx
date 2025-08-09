@@ -457,6 +457,17 @@ export default function Hero() {
           align-items: center;
           padding: 20px 0;
           border-bottom: 1px solid #e5e5e5;
+          position: sticky;
+          top: 0;
+          background: #ffffff;
+          z-index: 1000;
+          transition: all 0.3s ease;
+        }
+
+        .hero-nav-chatgpt.scrolled {
+          padding: 16px 0;
+          border-bottom: 1px solid #e5e5e5;
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         }
 
         .logo-chatgpt {
