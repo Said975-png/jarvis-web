@@ -402,7 +402,10 @@ export default function Pricing() {
           top: -0.75rem;
           left: 50%;
           transform: translateX(-50%);
-          background: linear-gradient(135deg, #facc15, #f59e0b);
+          background: rgba(250, 204, 21, 0.2);
+          backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
           color: white;
           padding: 0.5rem 1.5rem;
           border-radius: 50px;
@@ -411,10 +414,24 @@ export default function Pricing() {
           display: flex;
           align-items: center;
           gap: 0.375rem;
-          box-shadow: 0 8px 32px rgba(245,158,11,0.4);
+          box-shadow:
+            0 8px 32px rgba(250, 204, 21, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
           z-index: 20;
           text-transform: uppercase;
           letter-spacing: 0.5px;
+        }
+
+        .popular-badge-modern::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(250, 204, 21, 0.3), rgba(245, 158, 11, 0.2));
+          border-radius: 50px;
+          z-index: -1;
         }
 
         .popular-icon {
