@@ -5,24 +5,59 @@ export default function Features() {
 
   const features = [
     {
-      title: "Нейронные сети",
-      description: "Используем глубок��е машинное обучение для создания интеллектуальных веб-решений",
-      type: "neural"
+      title: "Стильные AI-дизайны",
+      description: "Создаем уникальные и современные дизайны сайтов, используя передовые технологии искусственного интеллекта",
+      type: "design",
+      stats: "50+ шаблонов",
+      icon: (
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+          <circle cx="12" cy="12" r="3" fill="white"/>
+        </svg>
+      )
     },
     {
-      title: "Квантовые алгоритмы",
-      description: "Передовые вычислительные технологии для обработки больших данных",
-      type: "quantum"
+      title: "ДЖАРВИС ИИ-Ассистент",
+      description: "Умный ассистент помогает клиентам выбрать товар и отвечает на вопросы как человек",
+      type: "ai",
+      stats: "99.8% точность",
+      icon: (
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="8" r="3" fill="currentColor"/>
+          <path d="M12 11C13.1 11 14 11.9 14 13V17H10V13C10 11.9 10.9 11 12 11Z" fill="currentColor"/>
+          <path d="M3 21V19C3 16.79 4.79 15 7 15H17C19.21 15 21 16.79 21 19V21" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      )
     },
     {
-      title: "Голографический интерфейс",
-      description: "Трёхмерные интерактивные элементы будущего уже сегодня",
-      type: "hologram"
+      title: "Персональный подход",
+      description: "Адаптируем общение под каждого клиента, создавая комфортную атмосферу взаимодействия",
+      type: "personal",
+      stats: "10x конверсия",
+      icon: (
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+          <path d="M20 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H6L10 22L14 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor"/>
+          <circle cx="8" cy="9" r="1.5" fill="white"/>
+          <circle cx="12" cy="9" r="1.5" fill="white"/>
+          <circle cx="16" cy="9" r="1.5" fill="white"/>
+        </svg>
+      )
     },
     {
-      title: "AI-Терминал",
-      description: "Прямое взаимодействие с искусственным интеллектом через командную строку",
-      type: "terminal"
+      title: "Умная аналитика",
+      description: "Отслеживаем поведение пользователей и предоставляем детальную статистику для роста",
+      type: "analytics",
+      stats: "Real-time данные",
+      icon: (
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+          <path d="M3 17V7C3 5.9 3.9 5 5 5H19C20.1 5 21 5.9 21 7V17C21 18.1 20.1 19 19 19H5C3.9 19 3 18.1 3 17Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <path d="M7 13L10 10L13 13L17 9" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <circle cx="7" cy="13" r="1" fill="currentColor"/>
+          <circle cx="10" cy="10" r="1" fill="currentColor"/>
+          <circle cx="13" cy="13" r="1" fill="currentColor"/>
+          <circle cx="17" cy="9" r="1" fill="currentColor"/>
+        </svg>
+      )
     }
   ]
 
@@ -68,113 +103,67 @@ export default function Features() {
             >
               {features.map((feature, index) => (
                 <div key={index} className="feature-slide">
-                  <div className={`ai-feature-card ai-${feature.type}`}>
-                    <div className="ai-background">
-                      {feature.type === 'neural' && (
-                        <div className="neural-network">
-                          <svg className="neural-svg" viewBox="0 0 400 300">
-                            <defs>
-                              <filter id="glow">
-                                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                                <feMerge>
-                                  <feMergeNode in="coloredBlur"/>
-                                  <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                              </filter>
-                            </defs>
-                            {Array.from({length: 12}, (_, i) => (
-                              <circle
-                                key={i}
-                                cx={50 + (i % 4) * 100}
-                                cy={50 + Math.floor(i / 4) * 100}
-                                r="8"
-                                className="neural-node"
-                                style={{animationDelay: `${i * 0.2}s`}}
-                              />
-                            ))}
-                            {Array.from({length: 20}, (_, i) => (
-                              <line
-                                key={i}
-                                x1={50 + (i % 4) * 100}
-                                y1={50 + Math.floor(i / 4) * 100}
-                                x2={150 + ((i + 1) % 4) * 100}
-                                y2={150 + Math.floor((i + 1) / 4) * 100}
-                                className="neural-connection"
-                                style={{animationDelay: `${i * 0.1}s`}}
-                              />
-                            ))}
-                          </svg>
-                        </div>
-                      )}
-                      {feature.type === 'quantum' && (
-                        <div className="quantum-field">
-                          <div className="quantum-particles">
-                            {Array.from({length: 15}, (_, i) => (
-                              <div
-                                key={i}
-                                className="quantum-particle"
-                                style={{
-                                  animationDelay: `${i * 0.3}s`,
-                                  left: `${Math.random() * 100}%`,
-                                  top: `${Math.random() * 100}%`
-                                }}
-                              ></div>
-                            ))}
-                          </div>
-                          <div className="quantum-waves">
-                            <div className="wave wave-1"></div>
-                            <div className="wave wave-2"></div>
-                            <div className="wave wave-3"></div>
-                          </div>
-                        </div>
-                      )}
-                      {feature.type === 'hologram' && (
-                        <div className="hologram-display">
-                          <div className="hologram-cube">
-                            <div className="cube-face front"></div>
-                            <div className="cube-face back"></div>
-                            <div className="cube-face right"></div>
-                            <div className="cube-face left"></div>
-                            <div className="cube-face top"></div>
-                            <div className="cube-face bottom"></div>
-                          </div>
-                          <div className="hologram-scan"></div>
-                        </div>
-                      )}
-                      {feature.type === 'terminal' && (
-                        <div className="ai-terminal">
-                          <div className="terminal-header">
-                            <span className="terminal-dot red"></span>
-                            <span className="terminal-dot yellow"></span>
-                            <span className="terminal-dot green"></span>
-                            <span className="terminal-title">JARVIS AI TERMINAL</span>
-                          </div>
-                          <div className="terminal-body">
-                            <div className="terminal-line">
-                              <span className="prompt">jarvis@ai:~$</span>
-                              <span className="command">initialize neural_network</span>
-                            </div>
-                            <div className="terminal-line">
-                              <span className="response">Loading neural pathways...</span>
-                            </div>
-                            <div className="terminal-line">
-                              <span className="response success">✓ AI System Online</span>
-                            </div>
-                            <div className="terminal-line active">
-                              <span className="prompt">jarvis@ai:~$</span>
-                              <span className="cursor">_</span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="ai-content">
-                      <div className="ai-title-wrapper">
-                        <h3 className="ai-title">{feature.title}</h3>
-                        <div className="ai-status">ONLINE</div>
+                  <div className={`feature-widget widget-${feature.type}`}>
+                    <div className="widget-header">
+                      <div className="widget-icon">
+                        {feature.icon}
                       </div>
-                      <p className="ai-description">{feature.description}</p>
+                      <div className="widget-badge">{feature.stats}</div>
+                    </div>
+                    <div className="widget-content">
+                      <h3 className="widget-title">{feature.title}</h3>
+                      <p className="widget-description">{feature.description}</p>
+                    </div>
+                    <div className="widget-visual">
+                      {feature.type === 'design' && (
+                        <div className="design-preview">
+                          <div className="preview-window">
+                            <div className="window-header">
+                              <span></span><span></span><span></span>
+                            </div>
+                            <div className="window-content">
+                              <div className="design-grid">
+                                <div className="grid-item"></div>
+                                <div className="grid-item"></div>
+                                <div className="grid-item large"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      {feature.type === 'ai' && (
+                        <div className="ai-chat">
+                          <div className="chat-message user">Помогите выбрать товар</div>
+                          <div className="chat-message ai">
+                            <div className="typing-dots">
+                              <span></span><span></span><span></span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      {feature.type === 'personal' && (
+                        <div className="personal-stats">
+                          <div className="stat-circle">
+                            <div className="circle-progress" style={{background: `conic-gradient(var(--color-primary) 75%, var(--color-gray-200) 0)`}}>
+                              <span>75%</span>
+                            </div>
+                          </div>
+                          <div className="stat-labels">
+                            <div>Персонализация</div>
+                          </div>
+                        </div>
+                      )}
+                      {feature.type === 'analytics' && (
+                        <div className="analytics-chart">
+                          <div className="chart-bars">
+                            <div className="bar" style={{height: '60%'}}></div>
+                            <div className="bar" style={{height: '80%'}}></div>
+                            <div className="bar" style={{height: '45%'}}></div>
+                            <div className="bar" style={{height: '90%'}}></div>
+                            <div className="bar" style={{height: '70%'}}></div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
