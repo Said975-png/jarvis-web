@@ -31,6 +31,12 @@ export default function Hero() {
             transform: `translate(${mousePosition.x * -0.05}px, ${mousePosition.y * 0.08}px)`
           }}
         />
+        <div
+          className="floating-orb orb-3"
+          style={{
+            transform: `translate(${mousePosition.x * 0.03}px, ${mousePosition.y * -0.04}px)`
+          }}
+        />
         <div className="grid-pattern" />
       </div>
 
@@ -116,7 +122,7 @@ export default function Hero() {
                   </svg>
                 </div>
                 <div>
-                  <h4>AI-интег��ация</h4>
+                  <h4>AI-интеграция</h4>
                   <p>Умные алгоритмы</p>
                 </div>
               </div>
