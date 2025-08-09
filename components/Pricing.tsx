@@ -3,6 +3,7 @@ export default function Pricing() {
     <section className="pricing-section">
       <div className="pricing-container">
         <div className="pricing-header">
+          <div className="section-number">02</div>
           <h2 className="pricing-title">Наши цены</h2>
           <p className="pricing-subtitle">
             Выберите план, который подходит для вашего бизнеса
