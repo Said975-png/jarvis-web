@@ -1,0 +1,392 @@
+/* Pricing Section */
+.pricing-section {
+  position: relative;
+  min-height: 100vh;
+  background: transparent;
+  overflow: hidden;
+  padding: 50px 0;
+  margin: 0;
+}
+
+/* Pricing Container - Hero Style */
+.pricing-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Pricing Main Content */
+.pricing-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+/* Pricing Content */
+.pricing-content {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.pricing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.pricing-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.pricing-description {
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+
+/* Pricing Plans */
+.pricing-plans {
+  margin-bottom: 2rem;
+}
+
+.plan-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.plan-item.featured {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.plan-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.plan-item.featured .plan-icon {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.plan-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.plan-item p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.plan-item.featured h4 {
+  color: var(--color-primary);
+}
+
+/* Pricing Stats */
+.pricing-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.pricing-stats .stat {
+  text-align: center;
+}
+
+.pricing-stats .stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  display: block;
+  font-family: var(--font-mono);
+}
+
+.pricing-stats .stat-label {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Pricing Visual */
+.pricing-visual {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.pricing-visual .visual-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+  justify-content: center;
+}
+
+/* Plans Comparison */
+.plans-comparison {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.comparison-item {
+  background: white;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.comparison-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.comparison-item.featured {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transform: scale(1.05);
+}
+
+.comparison-header {
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.plan-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.basic-badge {
+  background: var(--color-gray-100);
+  color: var(--color-text);
+}
+
+.pro-badge {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+}
+
+.max-badge {
+  background: linear-gradient(135deg, var(--color-secondary), #a855f7);
+  color: white;
+}
+
+.plan-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+}
+
+.popular-tag {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  font-size: 0.6rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.comparison-features {
+  space-y: 0.5rem;
+}
+
+.feature-check {
+  font-size: 0.8rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.feature-check::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+/* Cost Calculator */
+.cost-calculator {
+  background: var(--color-gray-900);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.calculator-header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 600;
+}
+
+.calculator-icon {
+  color: var(--color-primary);
+}
+
+.calculator-content {
+  padding: 1.5rem;
+}
+
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.calc-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+.calc-value {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-mono);
+}
+
+.calc-value.highlighted {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.calc-value.final {
+  color: #10b981;
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
+.calc-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 1rem 0;
+}
+
+.calc-row.total {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.savings-note {
+  text-align: center;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* Responsive for Pricing */
+@media (max-width: 1024px) {
+  .pricing-main {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .plans-comparison {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .comparison-item.featured {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-container {
+    padding: 0 1rem;
+  }
+  
+  .pricing-title {
+    font-size: 2.5rem;
+  }
+  
+  .pricing-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .calculator-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-title {
+    font-size: 2rem;
+  }
+
+  .pricing-description {
+    font-size: 1rem;
+  }
+  
+  .plan-price {
+    font-size: 1.25rem;
+  }
+}
