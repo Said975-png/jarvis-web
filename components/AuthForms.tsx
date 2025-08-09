@@ -50,13 +50,12 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         body: JSON.stringify(body),
       })
 
-      console.log('AuthForms: Response status:', response.status, response.statusText)
-
-      // Читаем JSON только один раз
+      // Клонируем response для безопасного чтения
+      const responseClone = response.clone()
       let data
+
       try {
-        data = await response.json()
-        console.log('AuthForms: Parsed JSON data:', data)
+        data = await responseClone.json()
       } catch (jsonError) {
         console.error('AuthForms: Failed to parse JSON:', jsonError)
         setError('Ошибка формата ответа сервера')
