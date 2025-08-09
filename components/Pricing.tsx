@@ -2,10 +2,10 @@ export default function Pricing() {
   return (
     <section className="pricing-section">
       {/* Background Decorative Elements - like hero section */}
-      <div className="pricing-bg-decoration">
-        <div className="pricing-orb pricing-orb-1" />
-        <div className="pricing-orb pricing-orb-2" />
-        <div className="pricing-grid-pattern" />
+      <div className="bg-decoration">
+        <div className="floating-orb orb-1" />
+        <div className="floating-orb orb-2" />
+        <div className="grid-pattern" />
       </div>
 
       <div className="pricing-container">
@@ -175,7 +175,7 @@ export default function Pricing() {
                   <span className="price-amount">5.000.000</span>
                   <span className="currency">сумм</span>
                 </div>
-                <span className="price-period">за проек��</span>
+                <span className="price-period">за проект</span>
               </div>
               <div className="plan-features">
                 <div className="feature-item">
