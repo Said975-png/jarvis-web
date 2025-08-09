@@ -41,7 +41,14 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         body: JSON.stringify(body),
       })
 
-      const data = await response.json()
+      let data
+      try {
+        data = await response.json()
+      } catch (jsonError) {
+        console.error('AuthForms: Error parsing JSON response:', jsonError)
+        setError('Ошибка обработки ответа сервера')
+        return
+      }
 
       if (response.ok) {
         console.log('AuthForms: successful auth response:', data)
@@ -51,9 +58,11 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
         onLogin(data.user)
         onClose()
       } else {
-        setError(data.message || 'Произошла ошибка')
+        console.log('AuthForms: error response:', response.status, data)
+        setError(data.message || `Ошибка ${response.status}: ${response.statusText}`)
       }
     } catch (error) {
+      console.error('AuthForms: Network error:', error)
       setError('Ошибка соединения с сервером')
     } finally {
       setLoading(false)
