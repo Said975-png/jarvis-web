@@ -128,7 +128,13 @@ export default function Pricing() {
                 </div>
 
                 {/* Button */}
-                <button className="plan-button-chatgpt">
+                <button
+                  className="plan-button-chatgpt"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleAddToCart(plan)
+                  }}
+                >
                   Выбрать {plan.name}
                 </button>
               </div>
