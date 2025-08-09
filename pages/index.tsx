@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Hero from '../components/Hero'
-import Pricing from '../components/Pricing'
 import Features from '../components/Features'
 import Benefits from '../components/Benefits'
 
@@ -15,7 +14,6 @@ export default function Home() {
       </Head>
       <main>
         <Hero />
-        <Pricing />
         <Features />
         <Benefits />
       </main>
