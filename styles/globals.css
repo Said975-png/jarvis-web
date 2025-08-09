@@ -734,15 +734,21 @@ body {
 }
 
 .price-amount {
-  font-size: var(--font-size-5xl);
-  font-weight: 800;
-  color: var(--color-primary);
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
   font-family: var(--font-mono);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .price-currency {
   font-size: var(--font-size-xl);
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
 }
 
 .pricing-card-body {
