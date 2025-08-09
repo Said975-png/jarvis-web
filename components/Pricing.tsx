@@ -8,7 +8,7 @@ const pricingPlans = [
     subtitle: 'Стартовое решение',
     price: '2500000',
     period: 'сумм в месяц',
-    description: 'Идеально для небольших прое��тов и стартапов',
+    description: 'Идеально для небольших проектов и стартапов',
     popular: false,
     features: [
       'До 5 страниц сайта',
@@ -54,6 +54,18 @@ const pricingPlans = [
 
 export default function Pricing() {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null)
+  const { addToCart } = useCart()
+
+  const handleAddToCart = (plan: typeof pricingPlans[0]) => {
+    addToCart({
+      id: plan.id,
+      name: plan.name,
+      subtitle: plan.subtitle,
+      price: plan.price,
+      period: plan.period,
+      features: plan.features
+    })
+  }
 
   return (
     <section className="pricing-section-chatgpt">
