@@ -41,13 +41,28 @@ export default function AdminPanel() {
 
   const handleStatusUpdate = async (orderId: string, status: 'confirmed' | 'rejected') => {
     try {
-      await updateOrderStatus(orderId, status)
-      setOrders(prev => prev.map(order => 
-        order.id === orderId 
+      const response = await fetch('/api/orders', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ orderId, status }),
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const updatedOrder = await response.json()
+
+      setOrders(prev => prev.map(order =>
+        order.id === orderId
           ? { ...order, status, updatedAt: new Date().toISOString() }
           : order
       ))
       setSelectedOrder(null)
+
+      alert(`Заказ ${status === 'confirmed' ? 'подтвержден' : 'отклонен'}`)
     } catch (error) {
       console.error('Error updating order status:', error)
       alert('Ошибка при обновлении статуса заказа')
@@ -76,7 +91,7 @@ export default function AdminPanel() {
   if (!user) {
     return (
       <div className="admin-access-denied">
-        <h1>Требуется авторизация</h1>
+        <h1>Т��ебуется авторизация</h1>
         <p>Войдите в систему для доступа к админ панели</p>
         <style jsx>{`
           .admin-access-denied {
