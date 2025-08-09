@@ -21,7 +21,6 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
 
     // Проверяем, что не обрабатываем запрос уже
     if (loading) {
-      console.log('AuthForms: Request already in progress, ignoring')
       return
     }
 
