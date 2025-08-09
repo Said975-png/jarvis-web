@@ -305,7 +305,7 @@ export default function Hero() {
         <AuthForms
           onClose={() => setShowAuthForms(false)}
           onLogin={(userData) => {
-            // AuthContext will handle the login
+            login(userData)
             setShowAuthForms(false)
           }}
         />
