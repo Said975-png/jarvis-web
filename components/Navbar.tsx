@@ -635,6 +635,149 @@ export default function Navbar() {
           background: #333333;
         }
 
+        .plan-letter-chatgpt {
+          color: #ffffff;
+          font-weight: 600;
+          font-size: 16px;
+        }
+
+        .cart-items-chatgpt {
+          max-height: 300px;
+          overflow-y: auto;
+          padding: 12px 0;
+        }
+
+        .cart-item-chatgpt {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 12px 20px;
+          transition: background-color 0.2s ease;
+        }
+
+        .cart-item-chatgpt:hover {
+          background: #f9f9f9;
+        }
+
+        .cart-item-image-chatgpt {
+          width: 48px;
+          height: 48px;
+          flex-shrink: 0;
+        }
+
+        .placeholder-image-chatgpt {
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .cart-item-info-chatgpt {
+          flex: 1;
+          min-width: 0;
+        }
+
+        .cart-item-info-chatgpt h4 {
+          margin: 0 0 4px 0;
+          font-size: 14px;
+          font-weight: 600;
+          color: #000000;
+        }
+
+        .cart-item-info-chatgpt p {
+          margin: 0 0 8px 0;
+          font-size: 12px;
+          color: #666666;
+        }
+
+        .cart-item-quantity-chatgpt {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 6px;
+        }
+
+        .quantity-btn-chatgpt {
+          background: #f0f0f0;
+          border: none;
+          width: 24px;
+          height: 24px;
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 600;
+          color: #666666;
+          transition: all 0.2s ease;
+        }
+
+        .quantity-btn-chatgpt:hover {
+          background: #e0e0e0;
+          color: #000000;
+        }
+
+        .cart-item-price-chatgpt {
+          font-size: 14px;
+          font-weight: 600;
+          color: #000000;
+        }
+
+        .cart-item-remove-chatgpt {
+          background: none;
+          border: none;
+          color: #999999;
+          cursor: pointer;
+          padding: 4px;
+          border-radius: 4px;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+
+        .cart-item-remove-chatgpt:hover {
+          background: #f0f0f0;
+          color: #ef4444;
+        }
+
+        .cart-footer-chatgpt {
+          border-top: 1px solid #f0f0f0;
+          padding: 16px 20px;
+        }
+
+        .cart-total-chatgpt {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 12px;
+        }
+
+        .cart-total-chatgpt span {
+          font-size: 16px;
+          font-weight: 600;
+          color: #000000;
+        }
+
+        .cart-checkout-chatgpt {
+          width: 100%;
+          background: #000000;
+          color: #ffffff;
+          border: none;
+          padding: 12px 16px;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .cart-checkout-chatgpt:hover {
+          background: #333333;
+        }
+
         .mobile-menu-toggle-chatgpt {
           display: none;
           background: none;
