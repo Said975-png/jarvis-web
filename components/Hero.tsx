@@ -255,7 +255,7 @@ export default function Hero() {
               <div className="chat-messages-chatgpt">
                 <div className="message-chatgpt user-message-chatgpt">
                   <div className="message-bubble-chatgpt">
-                    Созда�� современный в��б-сайт с ИИ функциями
+                    Созда�� современный веб-сайт с ИИ функциями
                   </div>
                 </div>
                 <div className="message-chatgpt ai-message-chatgpt">
@@ -345,7 +345,7 @@ export default function Hero() {
                     </div>
                     <div className="stat-item">
                       <div className="stat-number">24/7</div>
-                      <div className="stat-label">По��держка</div>
+                      <div className="stat-label">Поддержка</div>
                     </div>
                   </div>
                 </div>
@@ -413,7 +413,7 @@ export default function Hero() {
                             <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" strokeWidth="2"/>
                           </svg>
                         </div>
-                        <span>Уведомления</span>
+                        <span>Ув��домления</span>
                       </div>
                     </div>
                   </div>
@@ -613,7 +613,7 @@ export default function Hero() {
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
           min-width: 320px;
           max-width: 400px;
-          z-index: 100;
+          z-index: 1100;
           margin-top: 8px;
         }
 
