@@ -53,8 +53,8 @@ export default function Hero() {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F185ef73899124925a57d08c91328e660%2F5ff7c4c9a68a48e9a66c7ebef1696f03?format=webp&width=800"
                 alt="JARVIS Logo"
-                width="24"
-                height="24"
+                width="32"
+                height="32"
               />
             </div>
             <span className="logo-text">JARVIS</span>
@@ -179,7 +179,7 @@ export default function Hero() {
 
             <p className="hero-description">
               Мы объединяем креативность дизайна с мощью искусственного интеллекта,
-              чтобы создавать веб-сайты и приложения, которые не просто впечатляют,
+              чтобы создавать веб-сайты и приложения, которые не ��росто впечатляют,
               а революционизируют пользовательский опыт.
             </p>
 
