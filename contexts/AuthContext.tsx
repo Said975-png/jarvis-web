@@ -56,9 +56,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
         if (response.ok) {
           const data = await response.json()
+          console.log('AuthContext: token verified, user data:', data.user)
           setUser(data.user)
         } else {
           // Token is invalid, clear localStorage
+          console.log('AuthContext: token invalid, logging out')
           logout()
         }
       }
