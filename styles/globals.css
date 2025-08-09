@@ -1231,20 +1231,35 @@ body {
   }
 
   .feature-slide {
-    padding: 0 0.5rem;
+    padding: 0 1rem;
   }
 
-  .feature-card-modern {
+  .feature-widget {
     padding: 2rem 1.5rem;
-    min-height: 350px;
+    min-height: 400px;
   }
 
-  .feature-title-modern {
+  .widget-title {
     font-size: 1.5rem;
   }
 
-  .feature-description-modern {
+  .widget-description {
     font-size: 1rem;
+  }
+
+  .widget-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .design-grid {
+    height: 80px;
+  }
+
+  .circle-progress {
+    width: 100px;
+    height: 100px;
+    font-size: 1.25rem;
   }
 
   .slider-controls {
