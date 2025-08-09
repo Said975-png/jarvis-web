@@ -15,6 +15,7 @@ export default function Navbar() {
   const [searchValue, setSearchValue] = useState('')
   const [searchFocused, setSearchFocused] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
+  const [showCheckout, setShowCheckout] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
