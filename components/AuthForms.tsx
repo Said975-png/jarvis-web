@@ -16,6 +16,9 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
+  // Мемоизируем endpoint чтобы уменьшить ререндеры
+  const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register'
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
