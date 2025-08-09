@@ -248,6 +248,7 @@
   flex-direction: column;
   margin-bottom: 1.5rem;
   min-height: 220px;
+  padding: 0 0.5rem;
 }
 
 .feature-item {
