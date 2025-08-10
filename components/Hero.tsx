@@ -10,7 +10,7 @@ export default function Hero() {
         <div className="hero-main-chatgpt">
           <div className="hero-content-chatgpt">
             <h1 className="hero-title-chatgpt">
-              Создаем веб-решения будущего с помощью ИИ
+              Создаем веб-решен��я будущего с помощью ИИ
             </h1>
 
             <p className="hero-description-chatgpt">
@@ -22,7 +22,7 @@ export default function Hero() {
                 className="primary-button-chatgpt"
                 onClick={() => setIsProcessModalOpen(true)}
               >
-                Пр��цесс договора
+                Процесс договора
               </button>
               <button className="secondary-button-chatgpt">
                 Узнать больше
@@ -155,7 +155,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">5</div>
                 <div className="step-content-chatgpt">
                   <h3>Сдача проекта</h3>
-                  <p>После завершения разработки и получения окончательного платежа мы передаем вам готовый проект. Предоставляем инструкции по использованию, помогаем с размещением на хостинге и даем гарантию на исправление ошибок.</p>
+                  <p>После завершения разработки и получения окончательного платежа мы передаем вам готовый проект. Предоставляем инструкции по использованию, помогаем с размещением на хостинге и даем гарантию на исправление ошибо��.</p>
                 </div>
               </div>
 
@@ -207,6 +207,7 @@ export default function Hero() {
           line-height: 1.1;
           color: #000000;
           margin-bottom: 24px;
+          position: relative;
         }
 
         .hero-description-chatgpt {
