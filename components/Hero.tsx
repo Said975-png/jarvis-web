@@ -13,7 +13,7 @@ export default function Hero() {
     },
     {
       name: 'Ghon bot web',
-      description: 'ИИ-бот ��латформа',
+      description: 'ИИ-бот платформа',
       tech: 'Node.js • AI Integration • WebSocket',
       gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
     },
@@ -171,7 +171,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">1</div>
                 <div className="step-content-chatgpt">
                   <h3>Создание макета</h3>
-                  <p>Сначала мы создаем детальный макет вашего проекта. Это включает в себя дизайн всех страниц, структуру сайта и техническое задание. На этом этапе вы видите ка�� будет выглядеть конечный результат.</p>
+                  <p>Сначала мы создаем детальный макет вашего проекта. Это включает в себя дизайн всех страниц, структуру сайта и техническое задание. На этом этапе вы видите как будет выглядеть конечный результат.</p>
                 </div>
               </div>
 
@@ -179,7 +179,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
                   <h3>Согласование и предоплата</h3>
-                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам приступить к разработке с полной уверенностью.</p>
+                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам прис��упить к разработке с полной уверенностью.</p>
                 </div>
               </div>
 
@@ -195,7 +195,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
                   <h3>Тестирование и доработки</h3>
-                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загрузки. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
+                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загрузки. Испра��ляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
 
@@ -708,8 +708,33 @@ export default function Hero() {
             flex-direction: column;
           }
 
-          .chat-interface-chatgpt {
+          .partnerships-slider-chatgpt {
             max-width: 100%;
+          }
+
+          .slider-header-chatgpt {
+            padding: 16px 20px;
+          }
+
+          .slider-title-chatgpt {
+            font-size: 16px;
+          }
+
+          .slide-chatgpt {
+            padding: 20px;
+          }
+
+          .project-card-chatgpt {
+            height: 180px;
+            padding: 20px;
+          }
+
+          .project-name-chatgpt {
+            font-size: 18px;
+          }
+
+          .project-description-chatgpt {
+            font-size: 13px;
           }
 
           .modal-content-chatgpt {
