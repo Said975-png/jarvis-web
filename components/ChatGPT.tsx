@@ -135,7 +135,6 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       
       const finalMessages = [...updatedMessages, errorResponse]
       setMessages(finalMessages)
-      chatManager.updateSession(currentSessionId, finalMessages)
     } finally {
       setIsTyping(false)
     }
