@@ -270,24 +270,6 @@ export default function Features() {
             gap: 24px;
           }
 
-          .demo-section-chatgpt {
-            padding: 32px 24px;
-          }
-
-          .demo-container-chatgpt {
-            grid-template-columns: 1fr;
-            gap: 32px;
-          }
-
-          .demo-input-chatgpt {
-            flex-direction: column;
-            align-items: stretch;
-          }
-
-          .demo-send-button-chatgpt {
-            align-self: flex-end;
-            width: auto;
-          }
         }
       `}</style>
     </section>
