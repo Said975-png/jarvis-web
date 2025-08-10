@@ -9,7 +9,7 @@ export default function CodeProtection() {
 
   useEffect(() => {
     if (!isClient) return
-    // Отключаем правую кнопку мы��и
+    // Отключаем правую кнопку мыши
     const disableRightClick = (e: MouseEvent) => {
       e.preventDefault()
       return false
@@ -66,7 +66,7 @@ export default function CodeProtection() {
       }
     }
 
-    // Отключаем выделение текста
+    // Отключаем ��ыделение текста
     const disableTextSelection = () => {
       document.body.style.userSelect = 'none'
       document.body.style.webkitUserSelect = 'none'
@@ -106,7 +106,7 @@ export default function CodeProtection() {
       }, 500)
     }
 
-    // Защита от копирования
+    // Защита от к��пирования
     const disableCopy = (e: Event) => {
       e.preventDefault()
       return false
@@ -147,7 +147,7 @@ export default function CodeProtection() {
       e.returnValue = ''
     })
 
-    // Очистка при размонтировании
+    // Очистка при размонтирова��ии
     return () => {
       document.removeEventListener('contextmenu', disableRightClick)
       document.removeEventListener('keydown', disableKeyboardShortcuts)
