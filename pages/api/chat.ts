@@ -32,7 +32,25 @@ export default async function handler(
     const openRouterApiKey = process.env.OPENROUTER_API_KEY
 
     if (!openRouterApiKey) {
-      throw new Error('OpenRouter API key not configured')
+      // Return a helpful fallback message when API key is not configured
+      return res.status(200).json({
+        message: `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке.
+
+🔥 Сейчас я работаю в демо-режиме, но готов помочь вам с:
+
+• Созданием современных веб-сайтов
+• Разработкой веб-приложений с AI
+• UI/UX дизайном и интерфейсами
+• Интеграцией AI в ваши проекты
+• Бизнес-консультациями по IT
+
+📋 Мои тарифы:
+• Basic (2,500,000 сум) - простые сайты
+• Pro (4,000,000 сум) - сложные веб-приложения
+• Max (5,000,000 сум) - корпоративны�� решения
+
+📞 Для полного доступа к моим возможностям напишите в Telegram: @jarvis_ai_dev или на email: hello@jarvis-ai.uz`
+      })
     }
     
     // Добавляем системное сообщение для ДЖАРВИС
