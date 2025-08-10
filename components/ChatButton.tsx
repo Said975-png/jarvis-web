@@ -11,28 +11,24 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
 
   return (
     <>
-      <div className={`chat-button-container ${isDarkTheme ? 'dark' : ''}`}>
+      <div className="chat-button-container">
         <button
           className="chat-button"
           onClick={onClick}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <div className="chat-button-bg-effect"></div>
           <div className="chat-button-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2" fill="currentColor"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
 
           {isHovered && (
             <div className="chat-button-tooltip">
-              <span>Чат с ДЖАРВИС</span>
-              <div className="tooltip-arrow"></div>
+              Чат с ДЖАРВИС
             </div>
           )}
-
-          <div className="chat-button-pulse"></div>
         </button>
       </div>
 
