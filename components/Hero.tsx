@@ -144,7 +144,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">6</div>
                 <div className="step-content-chatgpt">
                   <h3>Поддержка и развитие</h3>
-                  <p>Предлагаем техническую под��ержку проекта, обновления и добавление новых функций. Помогаем масштабировать ваш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
+                  <p>Предлагаем техническую поддержку проекта, обновления и добавление новых функций. Помогаем масштабировать ваш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
                 </div>
               </div>
 
@@ -583,33 +583,18 @@ export default function Hero() {
             flex-direction: column;
           }
 
-          .partnerships-slider-chatgpt {
+          .model-viewer-chatgpt {
             max-width: 100%;
+            height: 320px;
           }
 
-          .slider-header-chatgpt {
-            padding: 16px 20px;
+          .placeholder-icon-chatgpt svg {
+            width: 48px;
+            height: 48px;
           }
 
-          .slider-title-chatgpt {
-            font-size: 16px;
-          }
-
-          .slide-chatgpt {
-            padding: 20px;
-          }
-
-          .project-card-chatgpt {
-            height: 180px;
-            padding: 20px;
-          }
-
-          .project-name-chatgpt {
-            font-size: 18px;
-          }
-
-          .project-description-chatgpt {
-            font-size: 13px;
+          .placeholder-text-chatgpt {
+            font-size: 14px;
           }
 
           .modal-content-chatgpt {
