@@ -41,7 +41,7 @@ export default async function handler(
       if (lastMessage.includes('привет') || lastMessage.includes('здравствуй') || lastMessage.includes('добро пожаловать') || messages.length === 1) {
         response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀
 
-Я помогу вам с:
+Я помогу в��м с:
 • Созданием современных веб-сайтов
 • Разработкой веб-приложений с AI
 • UI/UX дизайном и интерфейсами
@@ -50,7 +50,7 @@ export default async function handler(
 Что вас интересует?`
       }
       // Pricing questions
-      else if (lastMessage.includes('��ен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
+      else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
         response = `💰 Наши тарифы:
 
 📦 **Basic** - 2,500,000 сум
@@ -102,7 +102,7 @@ export default async function handler(
 🎨 **Дизайн и UX:**
 • Современный UI/UX дизайн
 • Брендинг и айдентика
-• Адаптивная верстка
+• Ад��птивная верстка
 
 Что именно вас интересует?`
       }
@@ -139,7 +139,7 @@ export default async function handler(
 **Что я могу интегрировать:**
 • Умные чат-боты для сайтов
 • Системы рекомендаций
-• Автоматическая обработка данных
+• Автомати��еская обработка данных
 • Анализ пользовательского поведения
 • Персонализация контента
 
@@ -169,7 +169,7 @@ export default async function handler(
 • LMS системы с AI
 • Интерактивные курсы
 
-Хотите увидеть демо или обсудить ваш проект?`
+Хот��те увидеть демо или обсудить ваш проект?`
       }
       // Default response for other questions
       else {
@@ -181,7 +181,7 @@ export default async function handler(
 • Техническими вопросами по разработке
 • Планированием вашего проекта
 • Выбором подходящих технологий
-• Оценкой с��оимости и сроков
+• Оценкой стоимости и сроков
 
 Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
 
@@ -207,7 +207,7 @@ export default async function handler(
 - Дружелюбный и готовый помочь
 - Объясняешь сложные вещи простым языком
 - Предлагаешь практические решения
-- Всегда в курсе новейших технологи��
+- Всегда в курсе новейших технологий
 
 Отвечай на русском языке, будь полезным и инф��рмативным. Если пользователь спрашивает о твоих услугах, упоминай тарифы:
 - Basic (2,500,000 сум) - простые сайты
@@ -226,10 +226,10 @@ export default async function handler(
         'X-Title': 'JARVIS AI Web Development'
       },
       body: JSON.stringify({
-        model: 'anthropic/claude-3-haiku',
+        model: 'anthropic/claude-3.5-sonnet',
         messages: [systemMessage, ...messages],
         temperature: 0.7,
-        max_tokens: 500,
+        max_tokens: 2000,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0
@@ -265,7 +265,7 @@ export default async function handler(
     console.error('Chat API error:', error)
     
     // Возвращаем дружелюбное сообщение об ошибке
-    const fallbackMessage = "Извините, произошла временная ошибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишит�� в Telegram @jarvis_ai_dev для прямой связи."
+    const fallbackMessage = "Извините, произошла временная ошибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишите в Telegram @jarvis_ai_dev для прямой связи."
     
     return res.status(500).json({ 
       message: fallbackMessage,
