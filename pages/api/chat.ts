@@ -29,7 +29,11 @@ export default async function handler(
       return res.status(400).json({ message: 'Некорректные сообщения', error: 'Invalid messages' })
     }
 
-    const openRouterApiKey = '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'
+    const openRouterApiKey = process.env.OPENROUTER_API_KEY
+
+    if (!openRouterApiKey) {
+      throw new Error('OpenRouter API key not configured')
+    }
     
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
