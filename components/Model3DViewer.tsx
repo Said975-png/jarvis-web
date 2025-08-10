@@ -65,52 +65,59 @@ export default function Model3DViewer({ modelUrl, className = '' }: Model3DViewe
 
     // Load model if provided
     if (modelUrl) {
-      const loader = new GLTFLoader()
-      
-      loader.load(
-        modelUrl,
-        (gltf) => {
-          const model = gltf.scene
-          
-          // Center and scale the model
-          const box = new THREE.Box3().setFromObject(model)
-          const center = box.getCenter(new THREE.Vector3())
-          const size = box.getSize(new THREE.Vector3())
-          
-          const maxDim = Math.max(size.x, size.y, size.z)
-          const scale = 2 / maxDim
-          model.scale.setScalar(scale)
-          
-          model.position.sub(center.multiplyScalar(scale))
-          
-          // Enable shadows
-          model.traverse((child) => {
-            if (child instanceof THREE.Mesh) {
-              child.castShadow = true
-              child.receiveShadow = true
+      // For now, we'll implement GLTFLoader dynamically to avoid SSR issues
+      import('three/addons/loaders/GLTFLoader.js').then(({ GLTFLoader }) => {
+        const loader = new GLTFLoader()
+
+        loader.load(
+          modelUrl,
+          (gltf) => {
+            const model = gltf.scene
+
+            // Center and scale the model
+            const box = new THREE.Box3().setFromObject(model)
+            const center = box.getCenter(new THREE.Vector3())
+            const size = box.getSize(new THREE.Vector3())
+
+            const maxDim = Math.max(size.x, size.y, size.z)
+            const scale = 2 / maxDim
+            model.scale.setScalar(scale)
+
+            model.position.sub(center.multiplyScalar(scale))
+
+            // Enable shadows
+            model.traverse((child) => {
+              if (child instanceof THREE.Mesh) {
+                child.castShadow = true
+                child.receiveShadow = true
+              }
+            })
+
+            scene.add(model)
+            setLoading(false)
+
+            // Auto-rotate animation
+            const animate = () => {
+              animationIdRef.current = requestAnimationFrame(animate)
+              model.rotation.y += 0.005
+              renderer.render(scene, camera)
             }
-          })
-          
-          scene.add(model)
-          setLoading(false)
-          
-          // Auto-rotate animation
-          const animate = () => {
-            animationIdRef.current = requestAnimationFrame(animate)
-            model.rotation.y += 0.005
-            renderer.render(scene, camera)
+            animate()
+          },
+          (progress) => {
+            console.log('Loading progress:', (progress.loaded / progress.total * 100) + '%')
+          },
+          (error) => {
+            console.error('Error loading model:', error)
+            setError('Ошибка загруз��и 3D модели')
+            setLoading(false)
           }
-          animate()
-        },
-        (progress) => {
-          console.log('Loading progress:', (progress.loaded / progress.total * 100) + '%')
-        },
-        (error) => {
-          console.error('Error loading model:', error)
-          setError('Ошибка загрузки 3D модели')
-          setLoading(false)
-        }
-      )
+        )
+      }).catch((error) => {
+        console.error('Error loading GLTFLoader:', error)
+        setError('Ошибка загрузки 3D модели')
+        setLoading(false)
+      })
     } else {
       // If no model URL, show a placeholder with basic geometry
       const geometry = new THREE.BoxGeometry(1, 1, 1)
@@ -119,9 +126,9 @@ export default function Model3DViewer({ modelUrl, className = '' }: Model3DViewe
       cube.castShadow = true
       cube.receiveShadow = true
       scene.add(cube)
-      
+
       setLoading(false)
-      
+
       // Animate placeholder
       const animate = () => {
         animationIdRef.current = requestAnimationFrame(animate)
