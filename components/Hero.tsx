@@ -96,42 +96,54 @@ export default function Hero() {
           </div>
 
           <div className="hero-visual-chatgpt">
-            <div className="chat-interface-chatgpt">
-              <div className="chat-header-chatgpt">
-                <div className="chat-title-chatgpt">JARVIS AI</div>
-                <div className="chat-status-chatgpt">
-                  <div className="status-dot-chatgpt"></div>
-                  Онлайн
+            <div className="partnerships-slider-chatgpt">
+              <div className="slider-header-chatgpt">
+                <h3 className="slider-title-chatgpt">Наши сотрудничества</h3>
+                <div className="slider-indicators-chatgpt">
+                  {partnerships.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`indicator-dot-chatgpt ${index === currentSlide ? 'active' : ''}`}
+                      onClick={() => setCurrentSlide(index)}
+                    />
+                  ))}
                 </div>
               </div>
-              <div className="chat-messages-chatgpt">
-                <div className="message-chatgpt user-message-chatgpt">
-                  <div className="message-bubble-chatgpt">
-                    Можешь создать ИИ-помощника для моего интернет-магазина?
-                  </div>
+
+              <div className="slider-content-chatgpt">
+                <div
+                  className="slides-container-chatgpt"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {partnerships.map((partnership, index) => (
+                    <div key={index} className="slide-chatgpt">
+                      <div
+                        className="project-card-chatgpt"
+                        style={{ background: partnership.gradient }}
+                      >
+                        <div className="project-info-chatgpt">
+                          <h4 className="project-name-chatgpt">{partnership.name}</h4>
+                          <p className="project-description-chatgpt">{partnership.description}</p>
+                          <div className="project-tech-chatgpt">{partnership.tech}</div>
+                        </div>
+                        <div className="project-icon-chatgpt">
+                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                            <path d="M9 9h.01M15 9h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="message-chatgpt ai-message-chatgpt">
-                  <div className="ai-avatar-chatgpt">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                  </div>
-                  <div className="message-bubble-chatgpt">
-                    Конечно! Создам умного ИИ-консультанта, который будет отвечать на вопросы клиентов 24/7, рекомендовать товары на основе предпочтений, обрабатывать заказы и даже анализировать поведение пользователей для увеличения продаж. Готов приступить? 🚀
-                  </div>
-                </div>
-                <div className="typing-indicator-chatgpt">
-                  <div className="ai-avatar-chatgpt">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                  </div>
-                  <div className="typing-dots-chatgpt">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
+              </div>
+
+              <div className="slider-progress-chatgpt">
+                <div
+                  className="progress-bar-chatgpt"
+                  style={{ width: `${((currentSlide + 1) / partnerships.length) * 100}%` }}
+                />
               </div>
             </div>
           </div>
@@ -159,7 +171,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">1</div>
                 <div className="step-content-chatgpt">
                   <h3>Создание макета</h3>
-                  <p>Сначала мы создаем детальный макет вашего проекта. Это включает в себя дизайн всех страниц, стру��туру сайта и техническое задание. На этом этапе вы видите как будет выглядеть конечный результат.</p>
+                  <p>Сначала мы создаем детальный макет вашего проекта. Это включает в себя дизайн всех страниц, структуру сайта и техническое задание. На этом этапе вы видите как будет выглядеть конечный результат.</p>
                 </div>
               </div>
 
