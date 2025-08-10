@@ -17,6 +17,11 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   ])
   const [inputText, setInputText] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+  const [sessions, setSessions] = useState<ChatSession[]>([])
+  const [currentSessionId, setCurrentSessionId] = useState<string>('')
+
+  const chatManager = ChatHistoryManager.getInstance()
   
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -50,6 +55,52 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
+
+  useEffect(() => {
+    // Initialize chat sessions on component mount
+    const initialSessions = chatManager.getAllSessions()
+    setSessions(initialSessions)
+
+    if (initialSessions.length === 0) {
+      // Create first session
+      const newSession = chatManager.createNewSession()
+      setCurrentSessionId(newSession.id)
+      setSessions([newSession])
+    } else {
+      setCurrentSessionId(initialSessions[0].id)
+      setMessages(initialSessions[0].messages)
+    }
+  }, [])
+
+  const createNewChat = () => {
+    const newSession = chatManager.createNewSession()
+    setCurrentSessionId(newSession.id)
+    setMessages(newSession.messages)
+    setSessions(chatManager.getAllSessions())
+  }
+
+  const selectChat = (sessionId: string) => {
+    const session = chatManager.getSession(sessionId)
+    if (session) {
+      setCurrentSessionId(sessionId)
+      setMessages(session.messages)
+    }
+  }
+
+  const deleteChat = (sessionId: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    chatManager.deleteSession(sessionId)
+    const remainingSessions = chatManager.getAllSessions()
+    setSessions(remainingSessions)
+
+    if (sessionId === currentSessionId) {
+      if (remainingSessions.length > 0) {
+        selectChat(remainingSessions[0].id)
+      } else {
+        createNewChat()
+      }
+    }
+  }
 
   const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
     try {
