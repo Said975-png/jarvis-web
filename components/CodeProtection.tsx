@@ -1,7 +1,14 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function CodeProtection() {
+  const [isClient, setIsClient] = useState(false)
+
   useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isClient) return
     // Отключаем правую кнопку мыши
     const disableRightClick = (e: MouseEvent) => {
       e.preventDefault()
@@ -34,7 +41,7 @@ export default function CodeProtection() {
         return false
       }
       
-      // Ctrl+U (просмотр исходного кода)
+      // Ctrl+U (просмо��р исходного кода)
       if (e.ctrlKey && e.keyCode === 85) {
         e.preventDefault()
         return false
