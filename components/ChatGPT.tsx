@@ -48,7 +48,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       // Блокируем скролл страницы когда чат открыт
       document.body.style.overflow = 'hidden'
     } else {
-      // Воз��ращаем скролл страницы когда чат закрыт
+      // Возвращаем скролл страницы когда чат закрыт
       document.body.style.overflow = 'unset'
     }
 
@@ -215,13 +215,29 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   if (!isOpen) return null
 
   return (
-    <div className="chatgpt-overlay">
+    <div className={`chatgpt-overlay ${isDarkTheme ? 'dark' : ''}`}>
       <div className="chatgpt-container">
-        {/* Sidebar */}
+        {/* Modern Gradient Background */}
+        <div className="chat-bg-gradient">
+          <div className="gradient-orb gradient-orb-1"></div>
+          <div className="gradient-orb gradient-orb-2"></div>
+          <div className="gradient-orb gradient-orb-3"></div>
+        </div>
+
+        {/* Enhanced Sidebar */}
         <div className={`chatgpt-sidebar ${sidebarCollapsed ? 'collapsed' : ''}`}>
           <div className="sidebar-header">
+            <div className="jarvis-brand">
+              <div className="brand-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2" fill="currentColor"/>
+                </svg>
+              </div>
+              {!sidebarCollapsed && <span className="brand-text">ДЖАРВИС</span>}
+            </div>
+
             <button className="new-chat-btn" onClick={createNewChat}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 5v14M5 12h14" strokeLinecap="round"/>
               </svg>
               {!sidebarCollapsed && <span>Новый чат</span>}
@@ -236,7 +252,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
               </svg>
             </button>
           </div>
-          
+
           <div className="chat-history">
             {sessions.map((session) => (
               <div
@@ -244,6 +260,11 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
                 className={`chat-item ${session.id === currentSessionId ? 'active' : ''}`}
                 onClick={() => selectChat(session.id)}
               >
+                <div className="chat-item-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
                 <div className="chat-content">
                   <div className="chat-title">{session.title}</div>
                   {!sidebarCollapsed && (
@@ -256,7 +277,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
                     onClick={(e) => deleteChat(session.id, e)}
                     title="Удалить чат"
                   >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6h14zM10 11v6M14 11v6" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </button>
@@ -269,74 +290,125 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
             <div className="sidebar-footer">
               <div className="user-info">
                 <div className="user-avatar-footer">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
                     <circle cx="12" cy="7" r="4"/>
                   </svg>
                 </div>
                 <div className="user-details">
-                  <div className="user-name">ДЖАРВИС Пользователь</div>
-                  <div className="user-plan">Базовый план</div>
+                  <div className="user-name">Пользователь</div>
+                  <div className="user-status">В сети</div>
                 </div>
               </div>
             </div>
           )}
         </div>
 
-        {/* Main Chat */}
+        {/* Enhanced Main Chat */}
         <div className="chatgpt-main">
           <div className="chat-header">
             <div className="chat-info">
               <div className="chat-avatar">
-                <div className="jarvis-icon">J</div>
+                <div className="jarvis-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2" fill="currentColor"/>
+                  </svg>
+                </div>
               </div>
               <div className="chat-details">
-                <h3>ДЖАРВИС</h3>
-                <span>AI-помощник по веб-разработке</span>
+                <h3>ДЖАРВИС AI</h3>
+                <div className="ai-status">
+                  <div className="status-indicator"></div>
+                  <span>Готов к работе</span>
+                </div>
               </div>
             </div>
-            <button className="close-btn" onClick={onClose}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </button>
+            <div className="header-actions">
+              <button className="action-btn settings-btn" title="Настройки">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M12 1v6m0 6v6M5.6 5.6l4.2 4.2m4.2 4.2l4.2 4.2M1 12h6m6 0h6M5.6 18.4l4.2-4.2m4.2-4.2l4.2-4.2"/>
+                </svg>
+              </button>
+              <button className="action-btn close-btn" onClick={onClose} title="Закрыть">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round"/>
+                </svg>
+              </button>
+            </div>
           </div>
 
           <div className="chat-messages">
-            {messages.map((message) => (
+            {messages.map((message, index) => (
               <div
                 key={message.id}
                 className={`message ${message.isUser ? 'user-message' : 'ai-message'}`}
               >
                 <div className="message-avatar">
                   {message.isUser ? (
-                    <div className="user-avatar">У</div>
+                    <div className="user-avatar">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                      </svg>
+                    </div>
                   ) : (
-                    <div className="jarvis-avatar">J</div>
+                    <div className="jarvis-avatar">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                      </svg>
+                    </div>
                   )}
                 </div>
                 <div className="message-content">
+                  <div className="message-header">
+                    <span className="message-sender">{message.isUser ? 'Вы' : 'ДЖАРВИС'}</span>
+                    <span className="message-time">{message.timestamp.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })}</span>
+                  </div>
                   <div className="message-text">
-                    {message.text.split('\n').map((line, index) => (
-                      <p key={index}>{line}</p>
+                    {message.text.split('\n').map((line, lineIndex) => (
+                      <p key={lineIndex}>{line}</p>
                     ))}
                   </div>
+                  {!message.isUser && (
+                    <div className="message-actions">
+                      <button className="action-btn copy-btn" title="Копировать">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                          <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                        </svg>
+                      </button>
+                      <button className="action-btn like-btn" title="Нравится">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/>
+                        </svg>
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
-            
+
             {isTyping && (
-              <div className="message ai-message">
+              <div className="message ai-message typing-message">
                 <div className="message-avatar">
-                  <div className="jarvis-avatar">J</div>
+                  <div className="jarvis-avatar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                    </svg>
+                  </div>
                 </div>
                 <div className="message-content">
+                  <div className="message-header">
+                    <span className="message-sender">ДЖАРВИС</span>
+                  </div>
                   <div className="typing-indicator">
                     <div className="typing-dots">
                       <span></span>
                       <span></span>
                       <span></span>
                     </div>
+                    <span className="typing-text">думает...</span>
                   </div>
                 </div>
               </div>
@@ -346,26 +418,35 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
           <div className="chat-input-area">
             <div className="input-wrapper">
-              <textarea
-                ref={textareaRef}
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Напишите сообщение..."
-                className="chat-input"
-                rows={1}
-                disabled={isTyping}
-              />
-              <button
-                onClick={handleSendMessage}
-                disabled={!inputText.trim() || isTyping}
-                className="send-btn"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
+              <div className="input-container">
+                <textarea
+                  ref={textareaRef}
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  placeholder="Спросите что-нибудь у ДЖАРВИС..."
+                  className="chat-input"
+                  rows={1}
+                  disabled={isTyping}
+                />
+                <div className="input-actions">
+                  <button className="attachment-btn" title="Прикрепить файл">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66L9.64 16.2a2 2 0 01-2.83-2.83l8.49-8.49"/>
+                    </svg>
+                  </button>
+                  <button
+                    onClick={handleSendMessage}
+                    disabled={!inputText.trim() || isTyping}
+                    className="send-btn"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M22 2L11 13"/>
+                      <path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
