@@ -52,7 +52,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       document.body.style.overflow = 'unset'
     }
 
-    // Cleanup при ра��монтировании
+    // Cleanup при размонтировании
     return () => {
       document.body.style.overflow = 'unset'
     }
@@ -798,7 +798,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           min-width: 0;
           display: flex;
           flex-direction: column;
-          gap: 2px;
+          gap: 4px;
         }
 
         .chatgpt-sidebar.collapsed .chat-content {
@@ -807,31 +807,35 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
         .chat-title {
           font-size: 14px;
-          font-weight: 400;
+          font-weight: 500;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
           line-height: 1.3;
-          color: #ececf1;
+          color: inherit;
           margin: 0;
         }
 
         .chat-date {
           font-size: 12px;
-          color: #8e8ea0;
+          color: #94a3b8;
           line-height: 1;
           margin: 0;
+        }
+
+        .chatgpt-overlay.dark .chat-date {
+          color: #64748b;
         }
 
         .delete-chat-btn {
           background: none;
           border: none;
-          color: #8e8ea0;
+          color: #94a3b8;
           cursor: pointer;
           padding: 6px;
-          border-radius: 6px;
+          border-radius: 8px;
           opacity: 0;
-          transition: all 0.15s ease;
+          transition: all 0.2s ease;
           position: absolute;
           right: 8px;
           top: 50%;
@@ -848,8 +852,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .delete-chat-btn:hover {
-          background: #565869;
-          color: #fff;
+          background: rgba(239, 68, 68, 0.1);
+          color: #ef4444;
         }
 
         .chatgpt-sidebar.collapsed .delete-chat-btn {
