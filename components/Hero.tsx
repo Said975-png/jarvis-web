@@ -71,7 +71,7 @@ export default function Hero() {
               <div className="chat-messages-chatgpt">
                 <div className="message-chatgpt user-message-chatgpt">
                   <div className="message-bubble-chatgpt">
-                    Напиши код компонента React для анимированной кнопки
+                    Как оптимизировать загрузку сайта для мобильных устройств?
                   </div>
                 </div>
                 <div className="message-chatgpt ai-message-chatgpt">
