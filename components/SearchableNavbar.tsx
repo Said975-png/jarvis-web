@@ -30,7 +30,7 @@ const searchData = [
   { title: 'Корзина', description: 'Просмотр добавленных товаров и оформление заказа', url: '/', section: 'Покупки' },
   { title: 'Профиль', description: 'Личный кабинет пользователя', url: '/', section: 'Аккаунт' },
   { title: 'Войти', description: 'Авторизация в системе', url: '/', section: 'Аккаунт' },
-  { title: 'Регистрация', description: 'Создание нового аккаунта', url: '/', section: 'Аккаунт' }
+  { title: 'Регистрация', description: 'Создание нового аккау��та', url: '/', section: 'Аккаунт' }
 ]
 
 export default function SearchableNavbar() {
@@ -94,7 +94,7 @@ export default function SearchableNavbar() {
           case 'Тарифы':
             targetElement = document.querySelector('.pricing-section-chatgpt')
             break
-          case 'Функции':
+          case 'Функци��':
             targetElement = document.querySelector('.hero-features-chatgpt')
             break
           case 'Услуги':
@@ -411,7 +411,7 @@ export default function SearchableNavbar() {
                           <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
                         </svg>
-                        Личный ��абинет
+                        Личный кабинет
                       </button>
                       <div className="dropdown-divider-chatgpt"></div>
                       <button
@@ -613,9 +613,27 @@ export default function SearchableNavbar() {
         }
 
         .navbar-chatgpt.dark-theme .search-input-chatgpt:focus {
-          border: none;
-          outline: none;
-          box-shadow: none;
+          border: none !important;
+          outline: none !important;
+          box-shadow: none !important;
+          -webkit-appearance: none !important;
+          -moz-appearance: none !important;
+          appearance: none !important;
+        }
+
+        /* Дополнительные стили для убирания всех возможных рамок в темной теме */
+        body.dark-theme .navbar-chatgpt .search-input-chatgpt {
+          background: transparent !important;
+          border: none !important;
+          outline: none !important;
+          box-shadow: none !important;
+          color: #ffffff !important;
+        }
+
+        body.dark-theme .navbar-chatgpt .search-input-chatgpt:focus {
+          border: none !important;
+          outline: none !important;
+          box-shadow: none !important;
         }
 
         .navbar-chatgpt.dark-theme .search-input-chatgpt::placeholder {
