@@ -14,7 +14,7 @@ export default function Hero() {
             </h1>
 
             <p className="hero-description-chatgpt">
-              Мы объединяем креативность дизайна с мощью искусственного интеллекта для создания веб-сайтов и приложений нового уровня.
+              Революционный ИИ-ассистент, который понимает ваши потребности и превращает идеи в реальность. Будущее взаимодействия с технологиями уже здесь.
             </p>
 
             <div className="hero-cta-chatgpt">
@@ -22,7 +22,7 @@ export default function Hero() {
                 className="primary-button-chatgpt"
                 onClick={() => setIsProcessModalOpen(true)}
               >
-                Процесс договора
+                Пр��цесс договора
               </button>
               <button className="secondary-button-chatgpt">
                 Узнать больше
