@@ -38,7 +38,6 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
   useEffect(() => {
     if (isOpen) {
-      loadChatHistory()
       // Блокируем скролл страницы когда чат открыт
       document.body.style.overflow = 'hidden'
     } else {
@@ -51,51 +50,6 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
-
-  const loadChatHistory = () => {
-    const allSessions = chatManager.getAllSessions()
-    setSessions(allSessions)
-    
-    if (allSessions.length > 0) {
-      const latestSession = allSessions[0]
-      setCurrentSessionId(latestSession.id)
-      setMessages(latestSession.messages)
-    } else {
-      createNewChat()
-    }
-  }
-
-  const createNewChat = () => {
-    const newSession = chatManager.createNewSession()
-    setSessions(chatManager.getAllSessions())
-    setCurrentSessionId(newSession.id)
-    setMessages(newSession.messages)
-  }
-
-  const selectChat = (sessionId: string) => {
-    const session = chatManager.getSession(sessionId)
-    if (session) {
-      setCurrentSessionId(sessionId)
-      setMessages(session.messages)
-    }
-  }
-
-  const deleteChat = (sessionId: string, e: React.MouseEvent) => {
-    e.stopPropagation()
-    chatManager.deleteSession(sessionId)
-    const updatedSessions = chatManager.getAllSessions()
-    setSessions(updatedSessions)
-    
-    if (sessionId === currentSessionId) {
-      if (updatedSessions.length > 0) {
-        const nextSession = updatedSessions[0]
-        setCurrentSessionId(nextSession.id)
-        setMessages(nextSession.messages)
-      } else {
-        createNewChat()
-      }
-    }
-  }
 
   const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
     try {
@@ -134,7 +88,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       return data.message
     } catch (error) {
       console.error('Error calling AI API:', error)
-      return 'Извините, у меня временные проблемы с подключением. П��пробуйте ещ�� раз.'
+      return 'Извините, у меня временные проблемы с подключением. Попробуйте ещ�� раз.'
     }
   }
 
