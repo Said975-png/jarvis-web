@@ -12,7 +12,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?',
+      text: 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире в��б-разработки. Чем могу помочь?',
       isUser: false,
       timestamp: new Date()
     }
@@ -40,7 +40,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
   useEffect(() => {
     if (isOpen) {
-      // Блокируем скролл страницы ��огда чат открыт
+      // Блокируем скролл страницы когда чат открыт
       document.body.style.overflow = 'hidden'
     } else {
       // Возвращаем скролл страницы когда чат закрыт
@@ -53,51 +53,6 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
     }
   }, [isOpen])
 
-  useEffect(() => {
-    // Initialize chat sessions on component mount
-    const initialSessions = chatManager.getAllSessions()
-    setSessions(initialSessions)
-
-    if (initialSessions.length === 0) {
-      // Create first session
-      const newSession = chatManager.createNewSession()
-      setCurrentSessionId(newSession.id)
-      setSessions([newSession])
-    } else {
-      setCurrentSessionId(initialSessions[0].id)
-      setMessages(initialSessions[0].messages)
-    }
-  }, [])
-
-  const createNewChat = () => {
-    const newSession = chatManager.createNewSession()
-    setCurrentSessionId(newSession.id)
-    setMessages(newSession.messages)
-    setSessions(chatManager.getAllSessions())
-  }
-
-  const selectChat = (sessionId: string) => {
-    const session = chatManager.getSession(sessionId)
-    if (session) {
-      setCurrentSessionId(sessionId)
-      setMessages(session.messages)
-    }
-  }
-
-  const deleteChat = (sessionId: string, e: React.MouseEvent) => {
-    e.stopPropagation()
-    chatManager.deleteSession(sessionId)
-    const remainingSessions = chatManager.getAllSessions()
-    setSessions(remainingSessions)
-
-    if (sessionId === currentSessionId) {
-      if (remainingSessions.length > 0) {
-        selectChat(remainingSessions[0].id)
-      } else {
-        createNewChat()
-      }
-    }
-  }
 
   const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
     try {
@@ -332,7 +287,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
               </button>
             </div>
             <div className="input-footer">
-              <p>ChatGPT может совершать ошибки. Проверяйте важную информацию.</p>
+              <p>ChatGPT может совершать ошибки. Про��еряйте важную информацию.</p>
             </div>
           </div>
         </div>
