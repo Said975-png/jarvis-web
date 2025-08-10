@@ -576,6 +576,61 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           display: none;
         }
 
+        .sidebar-footer {
+          border-top: 1px solid #4d4d4f;
+          padding: 12px;
+          flex-shrink: 0;
+        }
+
+        .user-info {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 8px 12px;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: background-color 0.15s ease;
+        }
+
+        .user-info:hover {
+          background: #40414f;
+        }
+
+        .user-avatar-footer {
+          width: 32px;
+          height: 32px;
+          background: #40414f;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #ececf1;
+          flex-shrink: 0;
+        }
+
+        .user-details {
+          flex: 1;
+          min-width: 0;
+        }
+
+        .user-name {
+          font-size: 14px;
+          font-weight: 500;
+          color: #ececf1;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin: 0;
+          line-height: 1.3;
+        }
+
+        .user-plan {
+          font-size: 12px;
+          color: #8e8ea0;
+          margin: 0;
+          line-height: 1.2;
+        }
+
         /* Main Chat */
         .chatgpt-main {
           flex: 1;
