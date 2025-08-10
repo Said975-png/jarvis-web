@@ -87,7 +87,7 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
   const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
     try {
       const apiMessages = conversationHistory
-        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ваш AI-помощник в ми��е веб-разработки. Чем могу помочь?')
+        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?')
         .map(msg => ({
           role: msg.isUser ? 'user' as const : 'assistant' as const,
           content: msg.text
@@ -572,15 +572,18 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
           display: flex;
           flex-direction: column;
           overflow: hidden;
+          background: #ffffff;
         }
 
         .jarvis-chat-header {
-          padding: 16px 20px;
+          padding: 16px 24px;
           background: #ffffff;
-          border-bottom: 1px solid #e5e5e5;
+          border-bottom: 1px solid #e5e7eb;
           display: flex;
           align-items: center;
           justify-content: space-between;
+          height: 60px;
+          flex-shrink: 0;
         }
 
         .jarvis-chat-title {
