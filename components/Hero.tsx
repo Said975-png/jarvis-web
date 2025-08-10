@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Simple3DViewer from './Simple3DViewer'
+import LiquidSphere from './LiquidSphere'
 
 export default function Hero() {
   const [isProcessModalOpen, setIsProcessModalOpen] = useState(false)
@@ -97,7 +97,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
                   <h3>Согласование и предоплата</h3>
-                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам приступить к разработке с полной уверенностью.</p>
+                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем пред��плату 50 процентов от стоимости проекта. Это позволяет нам приступить к разработке с полной уверенностью.</p>
                 </div>
               </div>
 
@@ -129,7 +129,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">6</div>
                 <div className="step-content-chatgpt">
                   <h3>Поддержка и развитие</h3>
-                  <p>Предлагаем техническую поддержку проекта, обновления и добавление новых функций. Помогаем масштабировать ваш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
+                  <p>Предлагаем техническую поддержку проект��, обновления и добавление новых функций. Помогаем масштабировать ваш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
                 </div>
               </div>
 
@@ -460,7 +460,7 @@ export default function Hero() {
           background: rgba(255, 255, 255, 0.2);
         }
 
-        /* Модальное окно */
+        /* Модальное ��кно */
         .modal-overlay-chatgpt {
           position: fixed;
           top: 0;
