@@ -32,25 +32,163 @@ export default async function handler(
     const openRouterApiKey = process.env.OPENROUTER_API_KEY
 
     if (!openRouterApiKey) {
-      // Return a helpful fallback message when API key is not configured
-      return res.status(200).json({
-        message: `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке.
+      // Local JARVIS logic when API key is not configured
+      const lastMessage = messages[messages.length - 1]?.content.toLowerCase() || ''
 
-🔥 Сейчас я работаю в демо-режиме, но готов помочь вам с:
+      let response = ''
 
+      // Greeting responses
+      if (lastMessage.includes('привет') || lastMessage.includes('здравствуй') || lastMessage.includes('добро пожаловать') || messages.length === 1) {
+        response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀
+
+Я помогу вам с:
 • Созданием современных веб-сайтов
 • Разработкой веб-приложений с AI
 • UI/UX дизайном и интерфейсами
 • Интеграцией AI в ваши проекты
-• Бизнес-консультациями по IT
 
-📋 Мои тарифы:
-• Basic (2,500,000 сум) - простые сайты
-• Pro (4,000,000 сум) - сложные веб-приложения
-• Max (5,000,000 сум) - корпоративны�� решения
+Что вас интересует?`
+      }
+      // Pricing questions
+      else if (lastMessage.includes('��ен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
+        response = `💰 Наши тарифы:
 
-📞 Для полного доступа к моим возможностям напишите в Telegram: @jarvis_ai_dev или на email: hello@jarvis-ai.uz`
-      })
+📦 **Basic** - 2,500,000 сум
+• До 5 страниц сайта
+• Современный дизайн
+• Адаптивная верстка
+• SEO оптимизация
+
+🚀 **Pro** - 4,000,000 сум (Популярный!)
+• Все из Basic + до 15 страниц
+• ИИ ассистент интеграция
+• Продвинутая аналитика
+• Приоритетная поддержка
+
+💎 **Max** - 5,000,000 сум
+• Безлимитные страницы
+• ДЖАРВИС ИИ полная версия
+• Индивидуальные решения
+• VIP поддержка 24/7
+
+Какой план вас интересует?`
+      }
+      // Contact information
+      else if (lastMessage.includes('контакт') || lastMessage.includes('связаться') || lastMessage.includes('telegram') || lastMessage.includes('телефон')) {
+        response = `📞 Свяжитесь со мной:
+
+• Telegram: @jarvis_ai_dev
+• Email: hello@jarvis-ai.uz
+• Онлайн-консультация: прямо здесь в чате
+
+Я отвечу в течение нескольких минут!
+
+Какой способ связи вам удобнее?`
+      }
+      // Services questions
+      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
+        response = `🛠️ Мои основные услуги:
+
+🌐 **Веб-разработка:**
+• Landing pages и корпоративные сайты
+• Интернет-магазины и каталоги
+• Веб-приложения и порталы
+
+🤖 **AI интеграция:**
+• Чат-боты и виртуальные ассистенты
+• Анализ данных и автоматизация
+• Персонализация пользовательского опыта
+
+🎨 **Дизайн и UX:**
+• Современный UI/UX дизайн
+• Брендинг и айдентика
+• Адаптивная верстка
+
+Что именно вас интересует?`
+      }
+      // Technology questions
+      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как работаешь')) {
+        response = `⚡ Технологии, которые я использую:
+
+**Frontend:**
+• React, Next.js, Vue.js
+• TypeScript, JavaScript
+• CSS3, Tailwind, SCSS
+
+**Backend:**
+• Node.js, Python
+• PostgreSQL, MongoDB
+• REST API, GraphQL
+
+**AI & ML:**
+• OpenAI GPT, Claude
+• TensorFlow, PyTorch
+• Natural Language Processing
+
+**Инфраструктура:**
+• Vercel, Netlify
+• AWS, Docker
+• CI/CD автоматизация
+
+Хотите узнать больше о конкретной технологии?`
+      }
+      // AI questions
+      else if (lastMessage.includes('искусственный интеллект') || lastMessage.includes('машинное обучение') || lastMessage.includes('ai') || lastMessage.includes('ии')) {
+        response = `🤖 AI интеграция - моя специализация!
+
+**Что я могу интегрировать:**
+• Умные чат-боты для сайтов
+• Системы рекомендаций
+• Автоматическая обработка данных
+• Анализ пользовательского поведения
+• Персонализация контента
+
+**Примеры проектов:**
+• E-commerce с AI рекомендациями
+• Образовательные платформы с ИИ
+• CRM системы с умной аналитикой
+
+Какой AI функционал вас интересует?`
+      }
+      // Portfolio/examples
+      else if (lastMessage.includes('портфолио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('проекты')) {
+        response = `💼 Примеры моих работ:
+
+🏪 **E-commerce платформы:**
+• Интернет-магазины с AI рекомендациями
+• Системы управления каталогом
+• Интеграция платежей и доставки
+
+🏢 **Корпоративные решения:**
+• CRM системы с аналитикой
+• Порталы сотрудников
+• Системы документооборота
+
+🎓 **EdTech проекты:**
+• Образовательные платформы
+• LMS системы с AI
+• Интерактивные курсы
+
+Хотите увидеть демо или обсудить ваш проект?`
+      }
+      // Default response for other questions
+      else {
+        response = `Интересный вопрос! 🤔
+
+Я ДЖАРВИС, специализируюсь на веб-разработке и AI интеграции.
+
+Могу помочь с:
+• Техническими вопросами по разработке
+• Планированием вашего проекта
+• Выбором подходящих технологий
+• Оценкой с��оимости и сроков
+
+Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
+
+💬 Для детального обсуждения: @jarvis_ai_dev`
+      }
+
+      return res.status(200).json({ message: response })
     }
     
     // Добавляем системное сообщение для ДЖАРВИС
@@ -69,7 +207,7 @@ export default async function handler(
 - Дружелюбный и готовый помочь
 - Объясняешь сложные вещи простым языком
 - Предлагаешь практические решения
-- Всегда в курсе новейших технологий
+- Всегда в курсе новейших технологи��
 
 Отвечай на русском языке, будь полезным и инф��рмативным. Если пользователь спрашивает о твоих услугах, упоминай тарифы:
 - Basic (2,500,000 сум) - простые сайты
@@ -127,7 +265,7 @@ export default async function handler(
     console.error('Chat API error:', error)
     
     // Возвращаем дружелюбное сообщение об ошибке
-    const fallbackMessage = "Извините, произошла временная ошибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишите в Telegram @jarvis_ai_dev для прямой связи."
+    const fallbackMessage = "Извините, произошла временная ошибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишит�� в Telegram @jarvis_ai_dev для прямой связи."
     
     return res.status(500).json({ 
       message: fallbackMessage,
