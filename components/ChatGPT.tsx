@@ -91,7 +91,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       return data.message
     } catch (error) {
       console.error('Error calling AI API:', error)
-      return 'Извини��е, у меня временные проблемы с подключением. Попробуйте ещ�� раз.'
+      return 'Извините, у меня временные проблемы с подключением. Попробуйте ещ�� раз.'
     }
   }
 
@@ -395,24 +395,17 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .message {
-          border-bottom: 1px solid #f7f7f8;
           padding: 24px;
           width: 100%;
-        }
-
-        .message.user-message {
-          background: #f7f7f8;
-        }
-
-        .message.ai-message {
           background: #ffffff;
         }
 
         .message-wrapper {
           max-width: 768px;
-          margin: 0 auto;
+          margin: 0;
           display: flex;
           gap: 16px;
+          padding-left: 24px;
         }
 
         .message-avatar {
