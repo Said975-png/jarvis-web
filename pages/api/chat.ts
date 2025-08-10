@@ -40,12 +40,12 @@ export default async function handler(
       let response = ''
 
       // Greeting responses
-      if (lastMessage.includes('привет') || lastMessage.includes('зд��авствуй') || lastMessage.includes('добро пожаловать') || messages.length === 1) {
+      if (lastMessage.includes('привет') || lastMessage.includes('здравствуй') || lastMessage.includes('добро пожаловать') || messages.length === 1) {
         response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀
 
 Я помогу в��м с:
 • Созданием современных веб-сайтов
-• Разработкой веб-приложений с AI
+• Раз��аботкой веб-приложений с AI
 • UI/UX дизайном и интерфейсами
 • Интеграцией AI в ваши проекты
 
@@ -69,7 +69,7 @@ export default async function handler(
 
 💎 **Max** - 5,000,000 сум
 • Безлимитные страницы
-• ДЖАРВИС ИИ ��олная версия
+• ДЖАРВИС ИИ полная версия
 • Индивидуальные решения
 • VIP поддержка 24/7
 
@@ -98,7 +98,7 @@ export default async function handler(
 
 🤖 **AI интеграция:**
 • Чат-боты и виртуальные ассистенты
-• Анализ да��ных и автоматизация
+• Анализ данных и автоматизация
 • Персонализация пользовательского опыта
 
 🎨 **Дизайн и UX:**
@@ -142,7 +142,7 @@ export default async function handler(
 • Умные чат-боты для сайтов
 • Системы рекомендаций
 • Автомати��еская обработка данных
-• Анализ пользовательского поведения
+• Анализ пользова��ельского поведения
 • Персонализация контента
 
 **Примеры проектов:**
@@ -163,7 +163,7 @@ export default async function handler(
 
 🏢 **Корпоративные решения:**
 • CRM системы с аналитикой
-• По��талы сотрудников
+• Порталы сотрудников
 • Системы документооборота
 
 🎓 **EdTech проекты:**
@@ -196,7 +196,7 @@ export default async function handler(
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - п��одвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
@@ -218,18 +218,31 @@ export default async function handler(
 🛠️ ФОРМАТ ОТВЕТОВ:
 - Структурируй информацию четко
 - Используй эмодзи для наглядности
-- Давай практич��ские советы
+- Давай практические советы
 - Предлагай следующие шаги
 - Ссылайся на актуальные технологии
 
 📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
-• Pro (4,000,000 сум) - веб-приложения с AI интеграцией
+• Pro (4,000,000 с��м) - веб-приложения с AI интеграцией
 • Max (5,000,000 сум) - корпоративные и enterprise решения
 
 📞 КОНТАКТЫ: @jarvis_ai_dev в Telegram, hello@jarvis-ai.uz
 
 Отвечай на русском языке. Будь максимально полезным и информативным!`
+    }
+
+    console.log('Making request to OpenRouter with model: anthropic/claude-3.5-sonnet')
+    console.log('Messages count:', messages.length)
+
+    const requestBody = {
+      model: 'anthropic/claude-3.5-sonnet',
+      messages: [systemMessage, ...messages],
+      temperature: 0.7,
+      max_tokens: 2000,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0
     }
 
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -240,20 +253,15 @@ export default async function handler(
         'HTTP-Referer': 'https://jarvis-ai.uz',
         'X-Title': 'JARVIS AI Web Development'
       },
-      body: JSON.stringify({
-        model: 'anthropic/claude-3.5-sonnet',
-        messages: [systemMessage, ...messages],
-        temperature: 0.7,
-        max_tokens: 2000,
-        top_p: 1,
-        frequency_penalty: 0,
-        presence_penalty: 0
-      })
+      body: JSON.stringify(requestBody)
     })
+
+    console.log('OpenRouter response status:', response.status)
 
     if (!response.ok) {
       const errorData = await response.text()
       console.error('OpenRouter API error:', response.status, errorData)
+      console.error('Request body was:', JSON.stringify(requestBody, null, 2))
 
       // Handle specific error cases
       if (response.status === 402) {
@@ -280,7 +288,7 @@ export default async function handler(
     console.error('Chat API error:', error)
     
     // Возвращаем дружелюбное сообщение об ошибке
-    const fallbackMessage = "Извините, произошл�� временная ошибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишите в Telegram @jarvis_ai_dev для прямой связи."
+    const fallbackMessage = "Извините, произошла временная о��ибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишите в Telegram @jarvis_ai_dev для прямой связи."
     
     return res.status(500).json({ 
       message: fallbackMessage,
