@@ -102,6 +102,87 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Модальное окно процесса договора */}
+      {isProcessModalOpen && (
+        <div className="modal-overlay-chatgpt" onClick={() => setIsProcessModalOpen(false)}>
+          <div className="modal-content-chatgpt" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header-chatgpt">
+              <h2>Процесс работы с нами</h2>
+              <button
+                className="modal-close-chatgpt"
+                onClick={() => setIsProcessModalOpen(false)}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
+            </div>
+
+            <div className="modal-body-chatgpt">
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">1</div>
+                <div className="step-content-chatgpt">
+                  <h3>Создание макета</h3>
+                  <p>Сначала мы создаем детальный макет вашего проекта. Это включает в себя дизайн всех страниц, структуру сайта и техническое задание. На этом этапе вы видите как будет выглядеть конечный результат.</p>
+                </div>
+              </div>
+
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">2</div>
+                <div className="step-content-chatgpt">
+                  <h3>Согласование и предоплата</h3>
+                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам приступить к разработке с полной уверенностью.</p>
+                </div>
+              </div>
+
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">3</div>
+                <div className="step-content-chatgpt">
+                  <h3>Разработка проекта</h3>
+                  <p>Приступаем к программированию и созданию вашего проекта. Макет кор��ектируется и дорабатывается в процессе работы для достижения наилучшего результата. Мы не меняем макет по несколько раз без весомых оснований.</p>
+                </div>
+              </div>
+
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">4</div>
+                <div className="step-content-chatgpt">
+                  <h3>Тестирование и доработки</h3>
+                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загрузки. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
+                </div>
+              </div>
+
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">5</div>
+                <div className="step-content-chatgpt">
+                  <h3>Сдача проекта</h3>
+                  <p>После завершения разработки и получения окончательного платежа мы передаем вам готовый проект. Предоставляем инструкции по использованию, помогаем с размещением ��а хостинге и даем гарантию на исправление ошибок.</p>
+                </div>
+              </div>
+
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">6</div>
+                <div className="step-content-chatgpt">
+                  <h3>Поддержка и развитие</h3>
+                  <p>Предлагаем техническую поддержку проекта, обновления и добавление новых функций. Помогаем масштабировать ваш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
+                </div>
+              </div>
+
+              <div className="contact-info-chatgpt">
+                <p>Готовы начать работу над вашим проектом? Свяжитесь с нами для обсуждения деталей и получения персонального предложения.</p>
+                <div className="contact-buttons-chatgpt">
+                  <a href="https://t.me/jarvis_ai_dev" target="_blank" rel="noopener noreferrer">
+                    Telegram
+                  </a>
+                  <a href="mailto:hello@jarvis-ai.uz">
+                    Email
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style jsx>{`
         .hero-section-chatgpt {
           background: #ffffff;
