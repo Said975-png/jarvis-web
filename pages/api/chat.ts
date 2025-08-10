@@ -31,6 +31,8 @@ export default async function handler(
 
     const openRouterApiKey = process.env.OPENROUTER_API_KEY
 
+    console.log('API Key available:', !!openRouterApiKey)
+
     if (!openRouterApiKey) {
       // Local JARVIS logic when API key is not configured
       const lastMessage = messages[messages.length - 1]?.content.toLowerCase() || ''
@@ -38,7 +40,7 @@ export default async function handler(
       let response = ''
 
       // Greeting responses
-      if (lastMessage.includes('привет') || lastMessage.includes('здравствуй') || lastMessage.includes('добро пожаловать') || messages.length === 1) {
+      if (lastMessage.includes('привет') || lastMessage.includes('зд��авствуй') || lastMessage.includes('добро пожаловать') || messages.length === 1) {
         response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀
 
 Я помогу в��м с:
@@ -56,7 +58,7 @@ export default async function handler(
 📦 **Basic** - 2,500,000 сум
 • До 5 страниц сайта
 • Современный дизайн
-• Адаптивная вер��тка
+• Адаптивная верстка
 • SEO оптимизация
 
 🚀 **Pro** - 4,000,000 сум (Популярный!)
@@ -67,7 +69,7 @@ export default async function handler(
 
 💎 **Max** - 5,000,000 сум
 • Безлимитные страницы
-• ДЖАРВИС ИИ полная версия
+• ДЖАРВИС ИИ ��олная версия
 • Индивидуальные решения
 • VIP поддержка 24/7
 
@@ -96,7 +98,7 @@ export default async function handler(
 
 🤖 **AI интеграция:**
 • Чат-боты и виртуальные ассистенты
-• Анализ данных и автоматизация
+• Анализ да��ных и автоматизация
 • Персонализация пользовательского опыта
 
 🎨 **Дизайн и UX:**
@@ -161,7 +163,7 @@ export default async function handler(
 
 🏢 **Корпоративные решения:**
 • CRM системы с аналитикой
-• Порталы сотрудников
+• По��талы сотрудников
 • Системы документооборота
 
 🎓 **EdTech проекты:**
@@ -183,7 +185,7 @@ export default async function handler(
 • Выбором подходящих технологий
 • Оценкой стоимости и сроков
 
-Расскажите подробнее о вашей задаче, и я да�� конкретные рекомендации!
+Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
 
 💬 Для детального обсуждения: @jarvis_ai_dev`
       }
@@ -194,7 +196,7 @@ export default async function handler(
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖАРВИС - п��одвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
@@ -216,7 +218,7 @@ export default async function handler(
 🛠️ ФОРМАТ ОТВЕТОВ:
 - Структурируй информацию четко
 - Используй эмодзи для наглядности
-- Давай практические советы
+- Давай практич��ские советы
 - Предлагай следующие шаги
 - Ссылайся на актуальные технологии
 
@@ -278,7 +280,7 @@ export default async function handler(
     console.error('Chat API error:', error)
     
     // Возвращаем дружелюбное сообщение об ошибке
-    const fallbackMessage = "Извините, произошла временная ошибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишите в Telegram @jarvis_ai_dev для прямой связи."
+    const fallbackMessage = "Извините, произошл�� временная ошибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишите в Telegram @jarvis_ai_dev для прямой связи."
     
     return res.status(500).json({ 
       message: fallbackMessage,
