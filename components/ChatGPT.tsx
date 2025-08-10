@@ -147,16 +147,6 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
     }
   }
 
-  const formatDate = (date: Date) => {
-    const now = new Date()
-    const diffTime = now.getTime() - date.getTime()
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24))
-    
-    if (diffDays === 0) return 'Сегодня'
-    if (diffDays === 1) return 'Вчера'
-    if (diffDays < 7) return `${diffDays} дн. назад`
-    return date.toLocaleDateString('ru-RU', { month: 'short', day: 'numeric' })
-  }
 
   if (!isOpen) return null
 
