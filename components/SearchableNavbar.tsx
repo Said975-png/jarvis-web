@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { useCart } from '../contexts/CartContext'
 import { useOrders } from '../contexts/OrderContext'
+import { useTheme } from '../contexts/ThemeContext'
 import AuthForms from './AuthForms'
 import ProfileModal from './ProfileModal'
 import Checkout from './Checkout'
@@ -11,9 +12,9 @@ import { useRouter } from 'next/router'
 const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
-  { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
+  { title: 'Созда��м веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
-  { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
+  { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов �� помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
   { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
   { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
@@ -35,6 +36,7 @@ const searchData = [
 export default function SearchableNavbar() {
   const { user, logout, login } = useAuth()
   const { items, removeFromCart, updateQuantity, getTotalItems, getTotalPrice } = useCart()
+  const { isDarkTheme, toggleTheme } = useTheme()
   const router = useRouter()
   const [showAuthForms, setShowAuthForms] = useState(false)
   const [showProfile, setShowProfile] = useState(false)
@@ -42,7 +44,7 @@ export default function SearchableNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [searchValue, setSearchValue] = useState('')
   const [searchFocused, setSearchFocused] = useState(false)
-  const [searchResults, setSearchResults] = useState<typeof searchData>([]) 
+  const [searchResults, setSearchResults] = useState<typeof searchData>([])
   const [showSearchResults, setShowSearchResults] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
   const [showCheckout, setShowCheckout] = useState(false)
@@ -155,7 +157,7 @@ export default function SearchableNavbar() {
 
   return (
     <>
-      <nav className={`navbar-chatgpt ${isScrolled ? 'scrolled' : ''}`}>
+      <nav className={`navbar-chatgpt ${isScrolled ? 'scrolled' : ''} ${isDarkTheme ? 'dark-theme' : ''}`}>
         <div className="navbar-container-chatgpt">
           <div className="logo-chatgpt">
             <div className="logo-icon-chatgpt">
@@ -236,6 +238,26 @@ export default function SearchableNavbar() {
           </div>
 
           <div className="nav-links-wrapper-chatgpt">
+            {/* Theme Toggle */}
+            <div className="theme-toggle-container-chatgpt">
+              <button
+                className="theme-toggle-button-chatgpt"
+                onClick={toggleTheme}
+                aria-label="Переключить тему"
+              >
+                {isDarkTheme ? (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="theme-icon-chatgpt">
+                    <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                  </svg>
+                ) : (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="theme-icon-chatgpt">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )}
+              </button>
+            </div>
+
             {/* Shopping Cart */}
             <div className="cart-container-chatgpt">
               <button
@@ -470,6 +492,11 @@ export default function SearchableNavbar() {
           padding: 20px 0;
         }
 
+        .navbar-chatgpt.dark-theme {
+          background: #000000;
+          border-bottom: 1px solid #333333;
+        }
+
         .navbar-chatgpt.scrolled {
           padding: 16px 0;
           box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -508,6 +535,11 @@ export default function SearchableNavbar() {
           font-size: 20px;
           font-weight: 600;
           color: #000000;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .logo-text-chatgpt {
+          color: #ffffff;
         }
 
         .search-container-chatgpt {
@@ -534,9 +566,25 @@ export default function SearchableNavbar() {
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .navbar-chatgpt.dark-theme .search-wrapper-chatgpt {
+          background: #333333;
+          border-color: #555555;
+        }
+
+        .navbar-chatgpt.dark-theme .search-wrapper-chatgpt.focused {
+          background: #444444;
+          border-color: #ffffff;
+          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+        }
+
         .search-icon-chatgpt {
           color: #666666;
           margin-right: 12px;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .search-icon-chatgpt {
+          color: #cccccc;
         }
 
         .search-input-chatgpt {
@@ -547,10 +595,20 @@ export default function SearchableNavbar() {
           font-size: 14px;
           color: #000000;
           placeholder-color: #999999;
+          transition: color 0.3s ease;
         }
 
         .search-input-chatgpt::placeholder {
           color: #999999;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .search-input-chatgpt {
+          color: #ffffff;
+        }
+
+        .navbar-chatgpt.dark-theme .search-input-chatgpt::placeholder {
+          color: #888888;
         }
 
         .search-clear-chatgpt {
@@ -572,6 +630,15 @@ export default function SearchableNavbar() {
           color: #000000;
         }
 
+        .navbar-chatgpt.dark-theme .search-clear-chatgpt {
+          color: #cccccc;
+        }
+
+        .navbar-chatgpt.dark-theme .search-clear-chatgpt:hover {
+          background: #555555;
+          color: #ffffff;
+        }
+
         .search-results-chatgpt {
           position: absolute;
           top: 100%;
@@ -585,6 +652,12 @@ export default function SearchableNavbar() {
           overflow-y: auto;
           z-index: 1100;
           margin-top: 8px;
+        }
+
+        .navbar-chatgpt.dark-theme .search-results-chatgpt {
+          background: #222222;
+          border: 1px solid #444444;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         }
 
         .search-result-item-chatgpt {
@@ -605,6 +678,14 @@ export default function SearchableNavbar() {
           background: #f8f8f8;
         }
 
+        .navbar-chatgpt.dark-theme .search-result-item-chatgpt {
+          border-bottom: 1px solid #333333;
+        }
+
+        .navbar-chatgpt.dark-theme .search-result-item-chatgpt:hover {
+          background: #333333;
+        }
+
         .search-result-content-chatgpt {
           flex: 1;
           min-width: 0;
@@ -615,6 +696,11 @@ export default function SearchableNavbar() {
           font-weight: 600;
           color: #000000;
           margin-bottom: 4px;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .search-result-title-chatgpt {
+          color: #ffffff;
         }
 
         .search-result-description-chatgpt {
@@ -624,6 +710,11 @@ export default function SearchableNavbar() {
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .search-result-description-chatgpt {
+          color: #cccccc;
         }
 
         .search-result-section-chatgpt {
@@ -637,6 +728,12 @@ export default function SearchableNavbar() {
           font-weight: 500;
           flex-shrink: 0;
           margin-left: 12px;
+          transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .search-result-section-chatgpt {
+          color: #888888;
+          background: #444444;
         }
 
         .search-no-results-chatgpt {
@@ -668,6 +765,39 @@ export default function SearchableNavbar() {
           align-items: center;
         }
 
+        .theme-toggle-container-chatgpt {
+          margin-right: 8px;
+        }
+
+        .theme-toggle-button-chatgpt {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 8px;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .theme-toggle-button-chatgpt:hover {
+          background: #f5f5f5;
+        }
+
+        .navbar-chatgpt.dark-theme .theme-toggle-button-chatgpt:hover {
+          background: #333333;
+        }
+
+        .theme-icon-chatgpt {
+          color: #000000;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .theme-icon-chatgpt {
+          color: #ffffff;
+        }
+
         .cart-container-chatgpt {
           position: relative;
           margin-right: 8px;
@@ -689,12 +819,21 @@ export default function SearchableNavbar() {
           background: #f5f5f5;
         }
 
+        .navbar-chatgpt.dark-theme .cart-button-chatgpt:hover {
+          background: #333333;
+        }
+
         .cart-icon-wrapper-chatgpt {
           position: relative;
         }
 
         .cart-icon-chatgpt {
           color: #000000;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .cart-icon-chatgpt {
+          color: #ffffff;
         }
 
         .cart-badge-chatgpt {
@@ -728,6 +867,12 @@ export default function SearchableNavbar() {
           margin-top: 8px;
         }
 
+        .navbar-chatgpt.dark-theme .cart-dropdown-chatgpt {
+          background: #222222;
+          border: 1px solid #444444;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
         .cart-header-chatgpt {
           display: flex;
           justify-content: space-between;
@@ -741,6 +886,11 @@ export default function SearchableNavbar() {
           font-size: 16px;
           font-weight: 600;
           color: #000000;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .cart-header-chatgpt h3 {
+          color: #ffffff;
         }
 
         .cart-count-chatgpt {
@@ -935,6 +1085,11 @@ export default function SearchableNavbar() {
           color: #000000;
           cursor: pointer;
           padding: 8px;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .mobile-menu-toggle-chatgpt {
+          color: #ffffff;
         }
 
         .nav-links-chatgpt {
@@ -959,6 +1114,15 @@ export default function SearchableNavbar() {
           background: #333333;
         }
 
+        .navbar-chatgpt.dark-theme .auth-button-chatgpt {
+          background: #ffffff;
+          color: #000000;
+        }
+
+        .navbar-chatgpt.dark-theme .auth-button-chatgpt:hover {
+          background: #f0f0f0;
+        }
+
         .user-menu-chatgpt {
           position: relative;
         }
@@ -978,6 +1142,14 @@ export default function SearchableNavbar() {
 
         .user-button-chatgpt:hover {
           background: #f5f5f5;
+        }
+
+        .navbar-chatgpt.dark-theme .user-button-chatgpt {
+          color: #ffffff;
+        }
+
+        .navbar-chatgpt.dark-theme .user-button-chatgpt:hover {
+          background: #333333;
         }
 
         .user-avatar-chatgpt {
@@ -1005,6 +1177,12 @@ export default function SearchableNavbar() {
           z-index: 1100;
         }
 
+        .navbar-chatgpt.dark-theme .user-dropdown-chatgpt {
+          background: #222222;
+          border: 1px solid #444444;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
         .dropdown-item-chatgpt {
           display: flex;
           align-items: center;
@@ -1021,6 +1199,14 @@ export default function SearchableNavbar() {
 
         .dropdown-item-chatgpt:hover {
           background: #f5f5f5;
+        }
+
+        .navbar-chatgpt.dark-theme .dropdown-item-chatgpt {
+          color: #ffffff;
+        }
+
+        .navbar-chatgpt.dark-theme .dropdown-item-chatgpt:hover {
+          background: #333333;
         }
 
         .dropdown-divider-chatgpt {
@@ -1072,6 +1258,12 @@ export default function SearchableNavbar() {
             padding: 16px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             z-index: 1100;
+          }
+
+          .navbar-chatgpt.dark-theme .nav-links-chatgpt {
+            background: #222222;
+            border: 1px solid #444444;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
           }
 
           .nav-links-chatgpt.mobile-open {

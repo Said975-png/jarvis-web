@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { useTheme } from '../contexts/ThemeContext'
 
 interface ChatButtonProps {
   onClick: () => void
 }
 
 export default function ChatButton({ onClick }: ChatButtonProps) {
+  const { isDarkTheme } = useTheme()
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -17,9 +19,8 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
           onMouseLeave={() => setIsHovered(false)}
         >
           <div className="chat-button-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M13 11h-2M9 11h0M15 11h0" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
             </svg>
           </div>
 
@@ -28,8 +29,6 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
               Чат с ДЖАРВИС
             </div>
           )}
-
-          <div className="chat-button-pulse"></div>
         </button>
       </div>
 
@@ -43,9 +42,9 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
 
         .chat-button {
           position: relative;
-          width: 64px;
-          height: 64px;
-          background: #000000;
+          width: 56px;
+          height: 56px;
+          background: #19c37d;
           border: none;
           border-radius: 50%;
           cursor: pointer;
@@ -53,19 +52,16 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
           align-items: center;
           justify-content: center;
           color: #ffffff;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-          transition: all 0.3s ease;
-          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          transition: all 0.2s ease;
         }
 
         .chat-button:hover {
           transform: scale(1.05);
-          box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
 
         .chat-button-icon {
-          position: relative;
-          z-index: 2;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -73,12 +69,12 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
 
         .chat-button-tooltip {
           position: absolute;
-          bottom: 80px;
+          bottom: 68px;
           right: 0;
           background: rgba(0, 0, 0, 0.9);
           color: #ffffff;
           padding: 8px 12px;
-          border-radius: 8px;
+          border-radius: 6px;
           font-size: 14px;
           white-space: nowrap;
           animation: fadeIn 0.3s ease;
@@ -93,17 +89,6 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
           border-top-color: rgba(0, 0, 0, 0.9);
         }
 
-        .chat-button-pulse {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          background: #000000;
-          animation: pulse 2s infinite;
-        }
-
         @keyframes fadeIn {
           from {
             opacity: 0;
@@ -115,21 +100,6 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
           }
         }
 
-        @keyframes pulse {
-          0% {
-            transform: scale(1);
-            opacity: 0.8;
-          }
-          50% {
-            transform: scale(1.1);
-            opacity: 0.4;
-          }
-          100% {
-            transform: scale(1.2);
-            opacity: 0;
-          }
-        }
-
         @media (max-width: 768px) {
           .chat-button-container {
             bottom: 20px;
@@ -137,12 +107,12 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
           }
 
           .chat-button {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
           }
 
           .chat-button-tooltip {
-            bottom: 70px;
+            bottom: 64px;
             font-size: 12px;
           }
         }
