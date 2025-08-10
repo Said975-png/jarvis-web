@@ -264,18 +264,17 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 20px;
+          padding: 0;
         }
 
         .giga-chat-container {
           width: 100%;
-          max-width: 900px;
-          height: 90vh;
+          height: 100vh;
           background: rgba(15, 20, 25, 0.95);
-          border-radius: 20px;
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 0;
+          border: none;
           backdrop-filter: blur(20px);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+          box-shadow: none;
           display: flex;
           flex-direction: column;
           overflow: hidden;
