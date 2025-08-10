@@ -63,7 +63,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
     if (initialSessions.length === 0) {
       // Create first session
-      const newSession = chatManager.createSession()
+      const newSession = chatManager.createNewSession()
       setCurrentSessionId(newSession.id)
       setSessions([newSession])
     } else {
@@ -73,11 +73,11 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   }, [])
 
   const createNewChat = () => {
-    const newSession = chatManager.createSession()
+    const newSession = chatManager.createNewSession()
     setCurrentSessionId(newSession.id)
     setMessages([{
       id: '1',
-      text: 'Пр��вет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?',
+      text: 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?',
       isUser: false,
       timestamp: new Date()
     }])
@@ -110,7 +110,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
     try {
       const apiMessages = conversationHistory
-        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?')
+        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработк��. Чем могу помочь?')
         .map(msg => ({
           role: msg.isUser ? 'user' as const : 'assistant' as const,
           content: msg.text
@@ -294,7 +294,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
                 <div className="jarvis-icon">J</div>
               </div>
               <div className="chat-details">
-                <h3>ДЖАРВИС</h3>
+                <h3>ДЖАР��ИС</h3>
                 <span>AI-помощник по веб-разработке</span>
               </div>
             </div>
