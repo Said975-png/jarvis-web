@@ -653,6 +653,12 @@ export default function SearchableNavbar() {
           margin-top: 8px;
         }
 
+        .navbar-chatgpt.dark-theme .search-results-chatgpt {
+          background: #222222;
+          border: 1px solid #444444;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
         .search-result-item-chatgpt {
           display: flex;
           align-items: center;
