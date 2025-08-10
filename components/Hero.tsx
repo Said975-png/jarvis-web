@@ -1,43 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Hero() {
   const [isProcessModalOpen, setIsProcessModalOpen] = useState(false)
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const partnerships = [
-    {
-      name: 'Vivo website',
-      description: 'Современный корпоративный сайт',
-      tech: 'React • Next.js • TypeScript',
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-    },
-    {
-      name: 'Ghon bot web',
-      description: 'ИИ-бот платформа',
-      tech: 'Node.js • AI Integration • WebSocket',
-      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
-    },
-    {
-      name: 'azio.ru',
-      description: 'E-commerce решение',
-      tech: 'React • Redux • Payment API',
-      gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
-    },
-    {
-      name: 'port.web',
-      description: 'Портфолио платформа',
-      tech: 'Vue.js • Nuxt • Portfolio CMS',
-      gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
-    }
-  ]
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % partnerships.length)
-    }, 3000) // Change slide every 3 seconds
-
-    return () => clearInterval(timer)
-  }, [partnerships.length])
 
   return (
     <section className="hero-section-chatgpt">
@@ -179,7 +143,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
                   <h3>Согласование и предоплата</h3>
-                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам прис��упить к разработке с полной уверенностью.</p>
+                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам приступить к разработке с полной уверенностью.</p>
                 </div>
               </div>
 
@@ -195,7 +159,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
                   <h3>Тестирование и доработки</h3>
-                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загрузки. Испра��ляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
+                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загрузки. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
 
