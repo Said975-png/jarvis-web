@@ -1,4 +1,8 @@
+import { useState } from 'react'
+
 export default function Hero() {
+  const [isProcessModalOpen, setIsProcessModalOpen] = useState(false)
+
   return (
     <section className="hero-section-chatgpt">
       <div className="hero-container-chatgpt">
