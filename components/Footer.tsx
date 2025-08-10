@@ -45,7 +45,7 @@ export default function Footer() {
               <span className="footer-logo-text-chatgpt">JARVIS</span>
             </div>
             <p className="footer-description-chatgpt">
-              Создаем веб-решения будущего с помощью искусственного интеллекта. 
+              Создаем веб-��ешения будущего с помощью искусственного интеллекта. 
               Современные технологии для вашего бизнеса.
             </p>
           </div>
@@ -329,6 +329,13 @@ export default function Footer() {
             grid-template-columns: 1fr;
             gap: 24px;
           }
+        }
+        .footer-overlay-chatgpt {
+          position: relative;
+          background: #ffffff;
+          height: 40px;
+          margin-top: -40px;
+          z-index: 1;
         }
       `}</style>
     </footer>
