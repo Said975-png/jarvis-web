@@ -71,7 +71,7 @@ export default function Hero() {
               <div className="chat-messages-chatgpt">
                 <div className="message-chatgpt user-message-chatgpt">
                   <div className="message-bubble-chatgpt">
-                    Как оптимизировать загрузку сайта для мобильных устр��йств?
+                    Как оптимизировать загрузку сайта для мобильных устройств?
                   </div>
                 </div>
                 <div className="message-chatgpt ai-message-chatgpt">
@@ -139,7 +139,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">3</div>
                 <div className="step-content-chatgpt">
                   <h3>Разработка проекта</h3>
-                  <p>Приступаем к программированию и созданию вашего проекта. Макет корректируется и дорабатывается в процессе работы для достижения наилучшего результата. Мы не меняем макет по несколько раз без весомых оснований.</p>
+                  <p>Приступаем к программированию и созданию вашего проекта. Макет корректируется и дорабатывается в процессе работы для достижения наилучшего результата. Мы не мен��ем макет по несколько раз без весомых оснований.</p>
                 </div>
               </div>
 
