@@ -26,7 +26,7 @@ export default function Hero() {
                 Процесс договора
               </button>
               <button className="secondary-button-chatgpt">
-                Узнать больше
+                Узнать боль��е
               </button>
             </div>
 
@@ -97,7 +97,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
                   <h3>Согласование и предоплата</h3>
-                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позвол��ет нам приступит�� к разработке с полной уверенностью.</p>
+                  <p>��сли макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позвол��ет нам приступить к разработке с полной уверенностью.</p>
                 </div>
               </div>
 
@@ -112,8 +112,8 @@ export default function Hero() {
               <div className="process-step-chatgpt">
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
-                  <h3>Тестирование и доработки</h3>
-                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость заг��уз��и. Исправ��яем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
+                  <h3>Тестирование и ��оработки</h3>
+                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость заг��уз��и. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
 
@@ -129,7 +129,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">6</div>
                 <div className="step-content-chatgpt">
                   <h3>Поддержка и развитие</h3>
-                  <p>Предлагаем техническую поддержку проекта, обновления и добавление новых функций. Помогаем масштабировать ��аш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
+                  <p>Предлагаем техническую поддержку проекта, обновления и добавление новых функций. Помогаем масштабировать ваш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
                 </div>
               </div>
 
@@ -351,14 +351,14 @@ export default function Hero() {
         }
 
         .model-viewer-chatgpt {
-          background: #ffffff;
-          border: 1px solid #e5e5e5;
-          border-radius: 20px;
+          background: transparent;
+          border: none;
+          border-radius: 0;
           width: 100%;
           max-width: 500px;
           height: 400px;
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-          overflow: hidden;
+          box-shadow: none;
+          overflow: visible;
           position: relative;
         }
 
