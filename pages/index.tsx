@@ -9,7 +9,6 @@ import ChatManager from '../components/ChatManager'
 import Footer from '../components/Footer'
 import ShineEffect from '../components/ShineEffect'
 import LoadingAnimation from '../components/LoadingAnimation'
-import ScrollingSphere from '../components/ScrollingSphere'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
