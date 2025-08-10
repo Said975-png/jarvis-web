@@ -11,6 +11,25 @@ import ShineEffect from '../components/ShineEffect'
 import LoadingAnimation from '../components/LoadingAnimation'
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    // Минимальное время загрузки для красивой анимации
+    const minLoadingTime = setTimeout(() => {
+      setIsLoading(false)
+    }, 2000)
+
+    return () => clearTimeout(minLoadingTime)
+  }, [])
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false)
+  }
+
+  if (isLoading) {
+    return <LoadingAnimation onLoadingComplete={handleLoadingComplete} />
+  }
+
   return (
     <>
       <Head>
