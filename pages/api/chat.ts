@@ -77,7 +77,7 @@ export default async function handler(
 🚀 **Pro** - 4,000,000 сум (Популярный!)
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
-• Продвинутая аналитика
+• Продвинутая а��алитика
 • Приоритетная поддержка
 
 💎 **Max** - 5,000,000 сум
@@ -107,7 +107,7 @@ export default async function handler(
 🌐 **Веб-разработка:**
 • Landing pages и корпоративные сайты
 • Интернет-магазины и каталоги
-• Веб-приложения и порталы
+• В��б-приложения и порталы
 
 🤖 **AI интеграция:**
 • Чат-боты и виртуальные ассистенты
@@ -117,7 +117,7 @@ export default async function handler(
 🎨 **Дизайн и UX:**
 • Современный UI/UX дизайн
 • Брендинг и айдентика
-• Адаптивная верс��ка
+• Адаптивная верстка
 
 Что именно вас интересует?`
       }
@@ -154,7 +154,7 @@ export default async function handler(
 **Что я могу интегрировать:**
 • Умные чат-боты для сайтов
 • Системы рекомендаций
-• Автоматическая обрабо��ка данных
+• Автоматическая обработка данных
 • Анализ пользовательского поведения
 • Персонализация контента
 
@@ -186,6 +186,14 @@ export default async function handler(
 
 Хотите увидеть демо или обсудить ваш проект?`
       }
+      // Creator questions
+      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разработчик') || lastMessage.includes('кто твой автор')) {
+        response = `Мой создатель @jarvis_intercoma 👨‍💻`
+      }
+      // Technical creation questions
+      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на ч��м ты написан')) {
+        response = `Это секретная информация 🤐🔒`
+      }
       // Default response for other questions
       else {
         response = `Интересный вопрос! 🤔
@@ -210,7 +218,7 @@ export default async function handler(
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, прак��ичные и умные ответы.
+      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
