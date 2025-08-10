@@ -9,7 +9,7 @@ export default function CodeProtection() {
 
   useEffect(() => {
     if (!isClient) return
-    // Отключаем правую кнопку мыши
+    // Отключаем правую кнопку мы��и
     const disableRightClick = (e: MouseEvent) => {
       e.preventDefault()
       return false
@@ -41,7 +41,7 @@ export default function CodeProtection() {
         return false
       }
       
-      // Ctrl+U (просмо��р исходного кода)
+      // Ctrl+U (просмотр исходного кода)
       if (e.ctrlKey && e.keyCode === 85) {
         e.preventDefault()
         return false
@@ -163,6 +163,10 @@ export default function CodeProtection() {
       document.body.style.msUserSelect = ''
     }
   }, [])
+
+  if (!isClient) {
+    return null
+  }
 
   return (
     <>
