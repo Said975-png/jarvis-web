@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { ChatHistoryManager, ChatSession, Message } from '../lib/chatHistory'
+import { useTheme } from '../contexts/ThemeContext'
 
 interface ChatGPTProps {
   isOpen: boolean
