@@ -422,7 +422,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .user-avatar {
           width: 30px;
           height: 30px;
-          background: #19c37d;
+          background: #6b7280;
           color: white;
           border-radius: 2px;
           display: flex;
@@ -432,7 +432,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           font-size: 14px;
         }
 
-        .ai-avatar {
+        .message-avatar .ai-avatar {
           width: 30px;
           height: 30px;
           background: #19c37d;
