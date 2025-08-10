@@ -649,15 +649,16 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
         .jarvis-messages {
           flex: 1;
           overflow-y: auto;
-          padding: 20px;
+          padding: 24px;
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 24px;
           background: #ffffff;
+          max-width: 100%;
         }
 
         .jarvis-messages::-webkit-scrollbar {
-          width: 6px;
+          width: 4px;
         }
 
         .jarvis-messages::-webkit-scrollbar-track {
@@ -666,7 +667,11 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
 
         .jarvis-messages::-webkit-scrollbar-thumb {
           background: #d1d5db;
-          border-radius: 3px;
+          border-radius: 2px;
+        }
+
+        .jarvis-messages::-webkit-scrollbar-thumb:hover {
+          background: #9ca3af;
         }
 
         .message {
