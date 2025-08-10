@@ -50,6 +50,9 @@ export default function Home() {
       {/* Эффект сияния как ChatGPT */}
       <ShineEffect />
 
+      {/* Перемещающаяся яркая сфера */}
+      <ScrollingSphere />
+
       <SearchableNavbar />
 
       <main>
