@@ -121,7 +121,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       return data.message
     } catch (error) {
       console.error('Error calling AI API:', error)
-      return 'Извините, у меня временные проблемы с подключением. Попробуйте еще раз.'
+      return 'Извините, у меня временные проблемы с подключением. Попробуйте ещ�� раз.'
     }
   }
 
@@ -256,7 +256,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
                 </div>
                 <div className="user-details">
                   <div className="user-name">ДЖАРВИС Пользователь</div>
-                  <div className="user-plan">Базовый план</div>
+                  <div className="user-plan">Ба��овый план</div>
                 </div>
               </div>
             </div>
@@ -762,7 +762,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           height: 30px;
           background: #19c37d;
           color: white;
-          border-radius: 2px;
+          border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -775,7 +775,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           height: 30px;
           background: #ab68ff;
           color: white;
-          border-radius: 2px;
+          border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
