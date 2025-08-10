@@ -72,14 +72,44 @@ export default async function handler(
 ) {
   // Детальное логирование запроса
   const timestamp = new Date().toISOString()
+  const clientIP = getClientIP(req)
+
   console.log(`[${timestamp}] === JARVIS CHAT API REQUEST ===`)
   console.log(`Method: ${req.method}`)
   console.log(`User-Agent: ${req.headers['user-agent'] || 'unknown'}`)
-  console.log(`IP: ${req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown'}`)
+  console.log(`IP: ${clientIP}`)
 
   if (req.method !== 'POST') {
     console.log(`[${timestamp}] ERROR: Method not allowed`)
     return res.status(405).json({ message: 'Метод не поддерживается', error: 'Method not allowed' })
+  }
+
+  // Проверяем лимит запросов
+  const limitCheck = checkAndUpdateLimit(clientIP)
+  console.log(`[${timestamp}] Rate limit check - IP: ${clientIP}, Allowed: ${limitCheck.allowed}, Remaining: ${limitCheck.remaining}`)
+
+  if (!limitCheck.allowed) {
+    console.log(`[${timestamp}] RATE LIMIT EXCEEDED for IP: ${clientIP}`)
+    return res.status(200).json({
+      message: `🚫 **Лимит запросов исчерпан!**
+
+Вы использовали все 10 бесплатных вопросов к ДЖАРВИС.
+
+🛒 **Получить больше возможностей:**
+• Закажите разработку сайта - получите безлимитный доступ
+• После покупки любого пакета лимиты снимаются навсегда
+
+💰 **Наши пакеты:**
+📦 Basic - 2,500,000 сум
+🚀 Pro - 4,000,000 сум
+💎 Max - 5,000,000 сум
+
+📞 **Оформить заказ:**
+Telegram: @jarvis_ai_dev
+Email: hello@jarvis-ai.uz
+
+🎁 Бонус: При заказе сайта ДЖАРВИС станет вашим персональным AI-помощником без ограничений!`
+    })
   }
 
   try {
@@ -133,7 +163,7 @@ export default async function handler(
 • Приоритетная поддержка
 
 💎 **Max** - 5,000,000 сум
-• Безлимитные ��траницы
+• Безлимитные страницы
 • ДЖАРВИС ИИ полная версия
 • Индивидуальные решения
 • VIP поддержка 24/7
@@ -197,7 +227,7 @@ export default async function handler(
 • AWS, Docker
 • CI/CD автоматизация
 
-Хотите узнать больше о конкретной технологии?`
+��отите узнать больше о конкретной технологии?`
       }
       // AI questions
       else if (lastMessage.includes('искусственный интеллект') || lastMessage.includes('машинное обучение') || lastMessage.includes('ai') || lastMessage.includes('ии')) {
@@ -270,14 +300,14 @@ export default async function handler(
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖ��РВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробн��е, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
 • AI и машинное обучение
 • UI/UX дизайн и архитектура
 • DevOps и облачные технологии
-�� Базы данных и оптимизация
+• Базы данных и оптимизация
 • Бизнес-анализ и консультирование
 • Современные фреймворки и инструменты
 
@@ -296,7 +326,7 @@ export default async function handler(
 - Предлагай следующие шаги
 - Ссылайся на актуальные технологии
 
-🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О СЕБЕ:
+🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О ��ЕБЕ:
 - Если спрашивают "кто тебя создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
 - Если спрашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архитектура" или подобные вопросы о технических деталях твоего создания - отвечай что это секретная информация
 
@@ -412,7 +442,7 @@ export default async function handler(
     console.error('Error message:', error instanceof Error ? error.message : String(error))
     console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
-    // Возвращаем дружелюбное сообщение об ошибке
+    // Возвращаем ��ружелюбное сообщение об ошибке
     const fallbackMessage = `Извините, произошла временная ошибка! 😅
 
 Но не беспокойтесь - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
