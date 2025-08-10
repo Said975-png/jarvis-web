@@ -204,7 +204,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                 <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
               </svg>
-              {!sidebarCollapsed && <span>Новый ча��</span>}
+              {!sidebarCollapsed && <span>Новый чат</span>}
             </button>
             
             <button 
@@ -371,6 +371,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           display: flex;
           gap: 8px;
           border-bottom: 1px solid #2d2d2d;
+          flex-shrink: 0;
         }
 
         .new-chat-btn {
@@ -387,7 +388,18 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           align-items: center;
           justify-content: center;
           gap: 8px;
-          transition: background-color 0.2s;
+          transition: all 0.2s;
+          min-width: 0;
+          overflow: hidden;
+        }
+
+        .chatgpt-sidebar.collapsed .new-chat-btn {
+          padding: 0;
+          width: 44px;
+        }
+
+        .chatgpt-sidebar.collapsed .new-chat-btn span {
+          display: none;
         }
 
         .new-chat-btn:hover {
@@ -405,12 +417,23 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: background-color 0.2s;
+          transition: all 0.2s;
+          flex-shrink: 0;
+          position: relative;
+          z-index: 10;
         }
 
         .sidebar-toggle:hover {
           background: #2d2d2d;
           color: #fff;
+        }
+
+        .chatgpt-sidebar.collapsed .sidebar-toggle {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          background: #2d2d2d;
+          border: 1px solid #565869;
         }
 
         .chat-history {
