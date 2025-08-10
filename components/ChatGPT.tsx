@@ -1286,24 +1286,34 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           transform: scale(1.1);
         }
 
+        .typing-message {
+          animation: fadeInUp 0.3s ease;
+        }
+
         .typing-indicator {
           display: flex;
           align-items: center;
-          color: #6b7280;
-          padding: 8px 0;
+          gap: 12px;
         }
 
         .typing-dots {
           display: flex;
-          gap: 4px;
+          gap: 6px;
           align-items: center;
+          padding: 8px 12px;
+          background: rgba(0, 0, 0, 0.05);
+          border-radius: 12px;
+        }
+
+        .chatgpt-overlay.dark .typing-dots {
+          background: rgba(255, 255, 255, 0.05);
         }
 
         .typing-dots span {
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background: #9ca3af;
+          background: #3b82f6;
           animation: typing 1.4s ease-in-out infinite;
         }
 
@@ -1311,41 +1321,79 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
         .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
 
+        .typing-text {
+          font-size: 13px;
+          color: #64748b;
+          font-style: italic;
+        }
+
+        .chatgpt-overlay.dark .typing-text {
+          color: #94a3b8;
+        }
+
         @keyframes typing {
           0%, 60%, 100% {
-            transform: translateY(0);
+            transform: scale(0.8);
             opacity: 0.4;
           }
           30% {
-            transform: translateY(-6px);
+            transform: scale(1.2);
             opacity: 1;
           }
         }
 
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
         .chat-input-area {
-          padding: 32px 24px 24px 24px;
-          background: #fff;
-          border-top: 1px solid #e5e5e5;
+          padding: 24px;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(20px);
+          border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .chatgpt-overlay.dark .chat-input-area {
+          background: rgba(15, 23, 42, 0.95);
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .input-wrapper {
-          max-width: 768px;
+          max-width: 800px;
           margin: 0 auto;
           position: relative;
-          display: flex;
-          align-items: flex-end;
-          gap: 8px;
-          background: #fff;
-          border: 1px solid #d1d5db;
-          border-radius: 12px;
-          padding: 12px;
-          transition: all 0.2s;
-          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
 
-        .input-wrapper:focus-within {
-          border-color: #10a37f;
-          box-shadow: 0 0 0 1px #10a37f, 0 0 15px rgba(0, 0, 0, 0.1);
+        .input-container {
+          display: flex;
+          align-items: flex-end;
+          gap: 12px;
+          background: rgba(255, 255, 255, 0.9);
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          border-radius: 16px;
+          padding: 16px 20px;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+          backdrop-filter: blur(20px);
+        }
+
+        .chatgpt-overlay.dark .input-container {
+          background: rgba(51, 65, 85, 0.6);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .input-container:focus-within {
+          border-color: #3b82f6;
+          box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+          transform: translateY(-2px);
         }
 
         .chat-input {
@@ -1354,41 +1402,92 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           background: transparent;
           resize: none;
           outline: none;
-          font-size: 16px;
+          font-size: 15px;
           line-height: 1.5;
-          color: #374151;
+          color: #1e293b;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           min-height: 24px;
-          max-height: 200px;
+          max-height: 120px;
           padding: 0;
         }
 
+        .chatgpt-overlay.dark .chat-input {
+          color: #e2e8f0;
+        }
+
         .chat-input::placeholder {
-          color: #8e8ea0;
+          color: #94a3b8;
+        }
+
+        .chatgpt-overlay.dark .chat-input::placeholder {
+          color: #64748b;
+        }
+
+        .input-actions {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .attachment-btn {
+          width: 36px;
+          height: 36px;
+          background: rgba(0, 0, 0, 0.04);
+          border: none;
+          color: #64748b;
+          cursor: pointer;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+
+        .chatgpt-overlay.dark .attachment-btn {
+          background: rgba(255, 255, 255, 0.04);
+          color: #94a3b8;
+        }
+
+        .attachment-btn:hover {
+          background: rgba(59, 130, 246, 0.1);
+          color: #3b82f6;
+          transform: scale(1.05);
         }
 
         .send-btn {
-          width: 32px;
-          height: 32px;
-          background: #19c37d;
+          width: 36px;
+          height: 36px;
+          background: linear-gradient(135deg, #3b82f6, #1d4ed8);
           border: none;
-          border-radius: 6px;
+          border-radius: 10px;
           color: white;
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.2s;
+          transition: all 0.2s ease;
           flex-shrink: 0;
+          box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
         }
 
         .send-btn:hover:not(:disabled) {
-          background: #16a56b;
+          background: linear-gradient(135deg, #1d4ed8, #1e40af);
+          transform: scale(1.05);
+          box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
         }
 
         .send-btn:disabled {
-          background: #d1d5db;
+          background: #e2e8f0;
+          color: #94a3b8;
           cursor: not-allowed;
+          transform: none;
+          box-shadow: none;
+        }
+
+        .chatgpt-overlay.dark .send-btn:disabled {
+          background: #334155;
+          color: #64748b;
         }
 
         @media (max-width: 768px) {
