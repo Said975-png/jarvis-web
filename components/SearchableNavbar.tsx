@@ -11,17 +11,17 @@ import { useRouter } from 'next/router'
 // Данные для поиска
 const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
-  { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
-  { title: 'Созда��м веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
+  { title: 'Админ панель', description: 'Панель администратора для управления заказами', url: '/admin', section: 'Страницы' },
+  { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
-  { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов �� помощью машинного обучения', url: '/', section: 'Возможности' },
+  { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
   { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
-  { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
+  { title: 'Аналитика', description: 'Глубокий анализ пользовательского поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
   { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
-  { title: 'Современный дизайн', description: 'Создание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
+  { title: 'Современный дизайн', description: 'Соз��ание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
   { title: 'Высокая производительность', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
   { title: 'ИИ интеграция', description: 'Интеграция искусственного интеллекта в ваши проекты', url: '/', section: 'Функции' },
   { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24/7', url: '/', section: 'Услуги' },
@@ -241,9 +241,10 @@ export default function SearchableNavbar() {
             {/* Theme Toggle */}
             <div className="theme-toggle-container-chatgpt">
               <button
-                className="theme-toggle-button-chatgpt"
-                onClick={toggleTheme}
-                aria-label="Переключить тему"
+                className="theme-toggle-button-chatgpt disabled"
+                onClick={() => {}}
+                aria-label="Функция в разработке"
+                title="Функция смены темы находится в разработке"
               >
                 {isDarkTheme ? (
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="theme-icon-chatgpt">
@@ -573,8 +574,8 @@ export default function SearchableNavbar() {
 
         .navbar-chatgpt.dark-theme .search-wrapper-chatgpt.focused {
           background: #444444;
-          border-color: #ffffff;
-          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+          border-color: #666666;
+          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
         }
 
         .search-icon-chatgpt {
@@ -596,6 +597,7 @@ export default function SearchableNavbar() {
           color: #000000;
           placeholder-color: #999999;
           transition: color 0.3s ease;
+          box-shadow: none;
         }
 
         .search-input-chatgpt::placeholder {
@@ -605,6 +607,34 @@ export default function SearchableNavbar() {
 
         .navbar-chatgpt.dark-theme .search-input-chatgpt {
           color: #ffffff;
+          background: transparent;
+          border: none;
+          outline: none;
+          box-shadow: none;
+        }
+
+        .navbar-chatgpt.dark-theme .search-input-chatgpt:focus {
+          border: none !important;
+          outline: none !important;
+          box-shadow: none !important;
+          -webkit-appearance: none !important;
+          -moz-appearance: none !important;
+          appearance: none !important;
+        }
+
+        /* Дополнительные стили для убирания всех возможных рамок в темной теме */
+        body.dark-theme .navbar-chatgpt .search-input-chatgpt {
+          background: transparent !important;
+          border: none !important;
+          outline: none !important;
+          box-shadow: none !important;
+          color: #ffffff !important;
+        }
+
+        body.dark-theme .navbar-chatgpt .search-input-chatgpt:focus {
+          border: none !important;
+          outline: none !important;
+          box-shadow: none !important;
         }
 
         .navbar-chatgpt.dark-theme .search-input-chatgpt::placeholder {
@@ -787,6 +817,21 @@ export default function SearchableNavbar() {
 
         .navbar-chatgpt.dark-theme .theme-toggle-button-chatgpt:hover {
           background: #333333;
+        }
+
+        .theme-toggle-button-chatgpt.disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+
+        .theme-toggle-button-chatgpt.disabled:hover {
+          background: none;
+          opacity: 0.7;
+        }
+
+        .navbar-chatgpt.dark-theme .theme-toggle-button-chatgpt.disabled:hover {
+          background: none;
+          opacity: 0.7;
         }
 
         .theme-icon-chatgpt {

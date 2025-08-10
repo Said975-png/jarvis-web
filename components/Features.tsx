@@ -4,7 +4,7 @@ const features = [
   {
     id: 'ai-design',
     title: 'ИИ дизайн',
-    description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения',
+    description: 'Ав��оматическое создание современных интерфейсов с помощью машинного обучения',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2"/>
@@ -15,7 +15,7 @@ const features = [
   {
     id: 'ai-assistant',
     title: 'ДЖАРВИС ИИ ассистент',
-    description: 'Умный помощник для разработки, который понимает контекст и пом��гает решать задачи',
+    description: 'Умный помощник для разработки, который понимает контекст и помогает решать задачи',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2"/>
@@ -114,51 +114,6 @@ export default function Features() {
           </div>
         </div>
 
-        {/* Demo Section */}
-        <div className="demo-section-chatgpt">
-          <div className="demo-container-chatgpt">
-            <div className="demo-content-chatgpt">
-              <h3 className="demo-title-chatgpt">Попробуйте ДЖАРВИС ИИ</h3>
-              <p className="demo-description-chatgpt">
-                Задайте вопрос нашему ИИ ассистенту и получите мгновенный ответ
-              </p>
-              
-              <div className="demo-input-chatgpt">
-                <input 
-                  type="text" 
-                  placeholder="Напишите ваш вопрос..."
-                  className="demo-input-field-chatgpt"
-                />
-                <button className="demo-send-button-chatgpt">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            
-            <div className="demo-preview-chatgpt">
-              <div className="demo-messages-chatgpt">
-                <div className="demo-message-chatgpt user-message">
-                  <div className="message-bubble-chatgpt">
-                    Как создать современный веб-сайт?
-                  </div>
-                </div>
-                <div className="demo-message-chatgpt ai-message">
-                  <div className="ai-avatar-demo-chatgpt">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/>
-                    </svg>
-                  </div>
-                  <div className="message-bubble-chatgpt">
-                    Я помогу вам создать современный веб-сайт используя последние технологии: React, Next.js, и ИИ интеграции. Начнем с анализа ваших потребностей.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <style jsx>{`
@@ -286,127 +241,6 @@ export default function Features() {
           font-size: 14px;
         }
 
-        .demo-section-chatgpt {
-          background: #f8f8f8;
-          border-radius: 16px;
-          padding: 48px;
-        }
-
-        .demo-container-chatgpt {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 48px;
-          align-items: center;
-        }
-
-        .demo-title-chatgpt {
-          font-size: 24px;
-          font-weight: 600;
-          color: #000000;
-          margin-bottom: 12px;
-        }
-
-        .demo-description-chatgpt {
-          color: #666666;
-          font-size: 16px;
-          line-height: 1.5;
-          margin-bottom: 24px;
-        }
-
-        .demo-input-chatgpt {
-          display: flex;
-          gap: 8px;
-          align-items: center;
-        }
-
-        .demo-input-field-chatgpt {
-          flex: 1;
-          padding: 14px 16px;
-          border: 1px solid #e5e5e5;
-          border-radius: 8px;
-          font-size: 14px;
-          outline: none;
-          transition: border-color 0.2s ease;
-        }
-
-        .demo-input-field-chatgpt:focus {
-          border-color: #000000;
-        }
-
-        .demo-send-button-chatgpt {
-          padding: 14px;
-          background: #000000;
-          color: #ffffff;
-          border: none;
-          border-radius: 8px;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: background-color 0.2s ease;
-        }
-
-        .demo-send-button-chatgpt:hover {
-          background: #333333;
-        }
-
-        .demo-preview-chatgpt {
-          background: #ffffff;
-          border: 1px solid #e5e5e5;
-          border-radius: 12px;
-          padding: 20px;
-        }
-
-        .demo-messages-chatgpt {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-        }
-
-        .demo-message-chatgpt {
-          display: flex;
-          gap: 8px;
-          align-items: flex-start;
-        }
-
-        .user-message {
-          justify-content: flex-end;
-        }
-
-        .user-message .message-bubble-chatgpt {
-          background: #000000;
-          color: #ffffff;
-          max-width: 80%;
-        }
-
-        .ai-message {
-          justify-content: flex-start;
-        }
-
-        .ai-message .message-bubble-chatgpt {
-          background: #f5f5f5;
-          color: #000000;
-          max-width: 80%;
-        }
-
-        .ai-avatar-demo-chatgpt {
-          width: 24px;
-          height: 24px;
-          background: #000000;
-          color: #ffffff;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-
-        .message-bubble-chatgpt {
-          padding: 12px 16px;
-          border-radius: 18px;
-          font-size: 14px;
-          line-height: 1.4;
-        }
 
         @media (max-width: 768px) {
           .features-section-chatgpt {
@@ -436,24 +270,6 @@ export default function Features() {
             gap: 24px;
           }
 
-          .demo-section-chatgpt {
-            padding: 32px 24px;
-          }
-
-          .demo-container-chatgpt {
-            grid-template-columns: 1fr;
-            gap: 32px;
-          }
-
-          .demo-input-chatgpt {
-            flex-direction: column;
-            align-items: stretch;
-          }
-
-          .demo-send-button-chatgpt {
-            align-self: flex-end;
-            width: auto;
-          }
         }
       `}</style>
     </section>

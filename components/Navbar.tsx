@@ -279,7 +279,7 @@ export default function Navbar() {
         <Checkout
           onClose={() => setShowCheckout(false)}
           onSuccess={() => {
-            alert('Заказ успешно оформлен! Вы можете отсл��живать его статус в личном кабинете.')
+            alert('Заказ успешно оформлен! Вы можете отслеживать его статус в личном кабинете.')
           }}
         />
       )}

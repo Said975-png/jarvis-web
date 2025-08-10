@@ -594,7 +594,7 @@ body.dark-theme .border-gray {
   border-color: #333333 !important;
 }
 
-/* Убеждаемся что все кнопки и интеракти��ные элементы видны */
+/* Убеждаемся что все кнопки и интерактивные элементы видны */
 body.dark-theme button,
 body.dark-theme input,
 body.dark-theme textarea,
@@ -602,18 +602,75 @@ body.dark-theme select {
   color: inherit !important;
 }
 
-body.dark-theme button:not([style*="background"]):not([class*="primary"]):not([class*="secondary"]) {
+body.dark-theme button:not([style*="background"]):not([class*="primary"]):not([class*="secondary"]):not([class*="theme-toggle"]):not([class*="cart-button"]):not([class*="search-clear"]) {
   background-color: #222222 !important;
   color: #ffffff !important;
   border: 1px solid #444444 !important;
 }
 
-body.dark-theme input:not([type="submit"]):not([type="button"]):not([style*="background"]),
+/* Убираем фоны у кнопок навигации в темной теме */
+body.dark-theme .theme-toggle-button-chatgpt {
+  background: none !important;
+}
+
+body.dark-theme .cart-button-chatgpt {
+  background: none !important;
+}
+
+body.dark-theme .search-clear-chatgpt {
+  background: none !important;
+}
+
+/* Убираем фоны у иконок функций в Hero секции */
+body.dark-theme .feature-icon-chatgpt {
+  background: none !important;
+}
+
+/* Исправляем поисковую строку в темной теме */
+body.dark-theme .search-wrapper-chatgpt {
+  background: #333333 !important;
+  border: 1px solid #555555 !important;
+}
+
+body.dark-theme .search-wrapper-chatgpt.focused {
+  background: #444444 !important;
+  border: 1px solid #666666 !important;
+  box-shadow: none !important;
+}
+
+/* Полностью убираем все рамки и outline у input в темной теме */
+body.dark-theme .search-input-chatgpt {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .search-input-chatgpt:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+body.dark-theme input:not([type="submit"]):not([type="button"]):not([style*="background"]):not(.search-input-chatgpt),
 body.dark-theme textarea:not([style*="background"]),
 body.dark-theme select:not([style*="background"]) {
   background-color: #333333 !important;
   color: #ffffff !important;
   border: 1px solid #555555 !important;
+}
+
+/* Специальные стили для поискового input - полностью прозрачный */
+body.dark-theme .search-input-chatgpt {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
 }
 
 /* Placeholder для всех инпутов */

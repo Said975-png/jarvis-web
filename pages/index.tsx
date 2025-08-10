@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import SearchableNavbar from '../components/SearchableNavbar'
 import Hero from '../components/Hero'
@@ -6,8 +7,29 @@ import Features from '../components/Features'
 import Benefits from '../components/Benefits'
 import ChatManager from '../components/ChatManager'
 import Footer from '../components/Footer'
+import ShineEffect from '../components/ShineEffect'
+import LoadingAnimation from '../components/LoadingAnimation'
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    // Минимальное время загрузки для красивой анимации
+    const minLoadingTime = setTimeout(() => {
+      setIsLoading(false)
+    }, 2000)
+
+    return () => clearTimeout(minLoadingTime)
+  }, [])
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false)
+  }
+
+  if (isLoading) {
+    return <LoadingAnimation onLoadingComplete={handleLoadingComplete} />
+  }
+
   return (
     <>
       <Head>
@@ -23,6 +45,9 @@ export default function Home() {
         <div className="global-orb global-orb-1"></div>
         <div className="global-orb global-orb-2"></div>
       </div>
+
+      {/* Эффект сияния как ChatGPT */}
+      <ShineEffect />
 
       <SearchableNavbar />
 

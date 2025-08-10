@@ -14,7 +14,7 @@ export default function Hero() {
             </h1>
 
             <p className="hero-description-chatgpt">
-              Мы объединяем креативность дизайна с мощью искусственного интеллекта для создания веб-сайтов и приложений нового уровня.
+              Революционный ИИ-ассистент, который понимает ваши потребности и превращает идеи в реальность. Будущее взаимодействия с технологиями уже здесь.
             </p>
 
             <div className="hero-cta-chatgpt">
@@ -139,7 +139,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">3</div>
                 <div className="step-content-chatgpt">
                   <h3>Разработка проекта</h3>
-                  <p>Приступаем к программированию и созданию вашего проекта. Макет корректируется и дорабатывается в процессе работы для достижения наилучшего результата. Мы не меняем макет по несколько раз без весомых оснований.</p>
+                  <p>Приступаем к программированию и созданию вашего проекта. Макет корректируется и дорабатывается в процессе работы для достижения наилучшего результата. Мы не мен��ем макет по несколько раз без весомых оснований.</p>
                 </div>
               </div>
 
@@ -155,7 +155,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">5</div>
                 <div className="step-content-chatgpt">
                   <h3>Сдача проекта</h3>
-                  <p>После завершения разработки и получения окончательного платежа мы передаем вам готовый проект. Предоставляем инструкции по использованию, помогаем с размещением на хостинге и даем гарантию на исправление ошибок.</p>
+                  <p>После завершения разработки и получения окончательного платежа мы передаем вам готовый проект. Предоставляем инструкции по использованию, помогаем с размещением на хостинге и даем гара��тию на исправление ошибо��.</p>
                 </div>
               </div>
 
@@ -207,6 +207,7 @@ export default function Hero() {
           line-height: 1.1;
           color: #000000;
           margin-bottom: 24px;
+          position: relative;
         }
 
         .hero-description-chatgpt {
@@ -272,6 +273,121 @@ export default function Hero() {
           width: 20px;
           height: 20px;
           color: #000000;
+        }
+
+        /* Темная тема для Hero секции */
+        body.dark-theme .hero-section-chatgpt {
+          background: #000000;
+        }
+
+        body.dark-theme .hero-title-chatgpt {
+          color: #ffffff;
+        }
+
+        body.dark-theme .hero-description-chatgpt {
+          color: #cccccc;
+        }
+
+        body.dark-theme .feature-item-chatgpt {
+          color: #cccccc;
+        }
+
+        body.dark-theme .feature-icon-chatgpt {
+          color: #ffffff;
+        }
+
+        body.dark-theme .primary-button-chatgpt {
+          background: #ffffff;
+          color: #000000;
+        }
+
+        body.dark-theme .primary-button-chatgpt:hover {
+          background: #f0f0f0;
+        }
+
+        body.dark-theme .secondary-button-chatgpt {
+          background: none;
+          color: #ffffff;
+          border-color: #555555;
+        }
+
+        body.dark-theme .secondary-button-chatgpt:hover {
+          background: #333333;
+        }
+
+        body.dark-theme .chat-interface-chatgpt {
+          background: #111111;
+          border-color: #333333;
+        }
+
+        body.dark-theme .chat-header-chatgpt {
+          border-bottom: 1px solid #333333;
+        }
+
+        body.dark-theme .chat-title-chatgpt {
+          color: #ffffff;
+        }
+
+        body.dark-theme .chat-status-chatgpt {
+          color: #cccccc;
+        }
+
+        body.dark-theme .user-message-chatgpt .message-bubble-chatgpt {
+          background: #ffffff;
+          color: #000000;
+        }
+
+        body.dark-theme .ai-message-chatgpt .message-bubble-chatgpt {
+          background: #333333;
+          color: #ffffff;
+        }
+
+        body.dark-theme .ai-avatar-chatgpt {
+          background: #ffffff;
+          color: #000000;
+        }
+
+        body.dark-theme .typing-dots-chatgpt {
+          background: #333333;
+        }
+
+        body.dark-theme .typing-dots-chatgpt span {
+          background: #ffffff;
+        }
+
+        body.dark-theme .modal-content-chatgpt {
+          background: #111111;
+          color: #ffffff;
+        }
+
+        body.dark-theme .modal-header-chatgpt {
+          border-bottom: 1px solid #333333;
+        }
+
+        body.dark-theme .modal-header-chatgpt h2 {
+          color: #ffffff;
+        }
+
+        body.dark-theme .modal-close-chatgpt {
+          color: #cccccc;
+        }
+
+        body.dark-theme .modal-close-chatgpt:hover {
+          background: #333333;
+          color: #ffffff;
+        }
+
+        body.dark-theme .step-number-chatgpt {
+          background: #ffffff;
+          color: #000000;
+        }
+
+        body.dark-theme .step-content-chatgpt h3 {
+          color: #ffffff;
+        }
+
+        body.dark-theme .step-content-chatgpt p {
+          color: #cccccc;
         }
 
         .hero-visual-chatgpt {
