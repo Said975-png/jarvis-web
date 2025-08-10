@@ -92,23 +92,6 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="footer-column-chatgpt">
-              <h3 className="footer-heading-chatgpt">Технологии</h3>
-              <ul className="footer-links-chatgpt">
-                <li>
-                  <span className="footer-tech-chatgpt">React & Next.js</span>
-                </li>
-                <li>
-                  <span className="footer-tech-chatgpt">TypeScript</span>
-                </li>
-                <li>
-                  <span className="footer-tech-chatgpt">AI Integration</span>
-                </li>
-                <li>
-                  <span className="footer-tech-chatgpt">OpenAI GPT</span>
-                </li>
-              </ul>
-            </div>
 
             <div className="footer-column-chatgpt">
               <h3 className="footer-heading-chatgpt">Компания</h3>
@@ -157,7 +140,7 @@ export default function Footer() {
         <div className="footer-bottom-chatgpt">
           <div className="footer-bottom-left-chatgpt">
             <p className="footer-copyright-chatgpt">
-              © 2024 JARVIS AI. Все права защищены.
+              © 2025 JARVIS AI. Все права защищены.
             </p>
           </div>
 
@@ -223,7 +206,7 @@ export default function Footer() {
 
         .footer-nav-chatgpt {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 40px;
         }
 
