@@ -14,7 +14,7 @@ interface ChatResponse {
   error?: string
 }
 
-// Система лимитов запросов
+// Система лимит��в запросов
 interface UserLimit {
   count: number
   resetTime: number
@@ -124,7 +124,7 @@ export default async function handler(
 🚀 Pro - 4,000,000 сум
 💎 Max - 5,000,000 сум
 
-🎁 При заказе сайта ДЖАРВИС станет вашим персональным AI-помощни��ом без ограничений!`
+🎁 При заказе сайта ДЖАРВИС станет ��ашим персональным AI-помощником без ограничений!`
     })
   }
 
@@ -151,7 +151,7 @@ export default async function handler(
       let response = ''
 
       // Greeting responses
-      if (lastMessage.includes('привет') || lastMessage.includes('здравствуй') || lastMessage.includes('добро пожаловать') || messages.length === 1) {
+      if (lastMessage.includes('привет') || lastMessage.includes('здравствуй') || lastMessage.includes('добро пожало��ать') || messages.length === 1) {
         response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀
 
 Я помогу вам с:
@@ -248,7 +248,7 @@ export default async function handler(
         response = `🤖 AI интеграция - моя специализация!
 
 **Что я могу интегрировать:**
-• Умные чат-боты для сайтов
+• У��ные чат-боты для сайтов
 • Системы рекомендаций
 • Автоматическая обработка данн��х
 • Анализ пользовательского поведения
@@ -319,7 +319,7 @@ export default async function handler(
     // Доба��ляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробн��е, практичные и умные ответы.
+      content: `Ты ДЖАРВИС - прод��инутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробн��е, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
@@ -418,7 +418,7 @@ export default async function handler(
       } else if (response.status === 401) {
         console.log(`[${timestamp}] Authentication error`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС. Сейчас у меня технические про��лемы с п��дключением к AI-сервису, но я все��да готов помочь! 🤖\n\nОбратитесь ко мне  - там я отвечу на любые вопросы по веб-разработке и AI!'
+          message: 'П��ивет! Я ДЖАРВИС. Сейчас у меня технические про��лемы с п��дключением к AI-сервису, но я все��да готов помочь! 🤖\n\nОбратитесь ко мне  - там я отвечу на любые вопросы по веб-разработке и AI!'
         })
       } else if (response.status === 429) {
         console.log(`[${timestamp}] Rate limit exceeded`)
