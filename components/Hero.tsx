@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import Model3DViewer from './Model3DViewer'
+// import Model3DViewer from './Model3DViewer'
 
 export default function Hero() {
   const [isProcessModalOpen, setIsProcessModalOpen] = useState(false)
   // You can set your .glb model URL here when you provide it
-  const modelUrl = undefined // Replace with your .glb file URL
+  // const modelUrl = undefined // Replace with your .glb file URL
 
   return (
     <section className="hero-section-chatgpt">
