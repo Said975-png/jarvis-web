@@ -12,7 +12,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?',
+      text: 'Привет! Я ДЖАРВИС, ваш AI-помощн��к в мире веб-разработки. Чем могу помочь?',
       isUser: false,
       timestamp: new Date()
     }
@@ -635,9 +635,9 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .chatgpt-sidebar.collapsed .new-chat-btn {
+          width: 48px;
           padding: 0;
-          width: 44px;
-          justify-content: center;
+          margin: 0 auto;
         }
 
         .chatgpt-sidebar.collapsed .new-chat-btn span {
@@ -645,8 +645,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .new-chat-btn:hover {
-          background: #40414f;
-          border-color: #565869;
+          transform: translateY(-1px);
+          box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
         }
 
         .new-chat-btn svg {
@@ -654,33 +654,43 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .sidebar-toggle {
-          width: 44px;
-          height: 44px;
-          background: transparent;
+          width: 40px;
+          height: 40px;
+          background: rgba(0, 0, 0, 0.05);
           border: none;
-          color: #c5c5d2;
+          color: #64748b;
           cursor: pointer;
-          border-radius: 6px;
+          border-radius: 10px;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.15s ease;
+          transition: all 0.2s ease;
           flex-shrink: 0;
-          position: relative;
-          z-index: 10;
+          align-self: flex-end;
+        }
+
+        .chatgpt-overlay.dark .sidebar-toggle {
+          background: rgba(255, 255, 255, 0.05);
+          color: #94a3b8;
         }
 
         .sidebar-toggle:hover {
-          background: #40414f;
-          color: #fff;
+          background: rgba(0, 0, 0, 0.1);
+          color: #1e293b;
+          transform: scale(1.05);
+        }
+
+        .chatgpt-overlay.dark .sidebar-toggle:hover {
+          background: rgba(255, 255, 255, 0.1);
+          color: #f1f5f9;
         }
 
         .chatgpt-sidebar.collapsed .sidebar-toggle {
           position: absolute;
-          top: 8px;
-          right: 8px;
-          background: #40414f;
-          border: 1px solid #4d4d4f;
+          top: 20px;
+          right: 15px;
+          background: rgba(59, 130, 246, 0.1);
+          color: #3b82f6;
         }
 
         .chat-history {
