@@ -819,6 +819,21 @@ export default function SearchableNavbar() {
           background: #333333;
         }
 
+        .theme-toggle-button-chatgpt.disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+
+        .theme-toggle-button-chatgpt.disabled:hover {
+          background: none;
+          opacity: 0.7;
+        }
+
+        .navbar-chatgpt.dark-theme .theme-toggle-button-chatgpt.disabled:hover {
+          background: none;
+          opacity: 0.7;
+        }
+
         .theme-icon-chatgpt {
           color: #000000;
           transition: color 0.3s ease;
