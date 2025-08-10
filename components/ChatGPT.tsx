@@ -296,7 +296,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
                   </svg>
                 </div>
                 <div className="user-details">
-                  <div className="user-name">Пользователь</div>
+                  <div className="user-name">Поль��ователь</div>
                   <div className="user-status">В сети</div>
                 </div>
               </div>
@@ -459,18 +459,79 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           left: 0;
           right: 0;
           bottom: 0;
-          background: rgba(0, 0, 0, 0.4);
+          background: rgba(0, 0, 0, 0.6);
           z-index: 1000;
-          backdrop-filter: blur(4px);
+          backdrop-filter: blur(8px);
           overflow: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .chatgpt-overlay.dark {
+          background: rgba(0, 0, 0, 0.8);
         }
 
         .chatgpt-container {
           width: 100%;
           height: 100vh;
           display: flex;
-          background: #f7f7f8;
+          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
           overflow: hidden;
+          position: relative;
+        }
+
+        .chatgpt-overlay.dark .chatgpt-container {
+          background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .chat-bg-gradient {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          pointer-events: none;
+          overflow: hidden;
+        }
+
+        .gradient-orb {
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.1;
+          animation: float 6s ease-in-out infinite;
+        }
+
+        .gradient-orb-1 {
+          width: 300px;
+          height: 300px;
+          background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+          top: -150px;
+          right: -150px;
+          animation-delay: 0s;
+        }
+
+        .gradient-orb-2 {
+          width: 200px;
+          height: 200px;
+          background: linear-gradient(45deg, #06b6d4, #3b82f6);
+          bottom: -100px;
+          left: -100px;
+          animation-delay: 2s;
+        }
+
+        .gradient-orb-3 {
+          width: 150px;
+          height: 150px;
+          background: linear-gradient(45deg, #8b5cf6, #ec4899);
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          animation-delay: 4s;
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(20px, -20px) rotate(120deg); }
+          66% { transform: translate(-10px, 10px) rotate(240deg); }
         }
 
         /* Sidebar */
