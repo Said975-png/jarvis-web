@@ -103,21 +103,37 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
       timestamp: new Date()
     }
 
+    const currentInput = inputText
     setMessages(prev => [...prev, userMessage])
     setInputText('')
     setIsTyping(true)
 
-    // Симуляция обработки AI
-    setTimeout(() => {
+    try {
+      // Получаем ответ от AI
+      const aiText = await generateJarvisResponse(currentInput, [...messages, userMessage])
+
       const aiResponse: Message = {
         id: (Date.now() + 1).toString(),
-        text: generateJarvisResponse(inputText),
+        text: aiText,
         isUser: false,
         timestamp: new Date()
       }
+
       setMessages(prev => [...prev, aiResponse])
+    } catch (error) {
+      console.error('Error generating AI response:', error)
+
+      const errorResponse: Message = {
+        id: (Date.now() + 1).toString(),
+        text: 'Извините, произошла ошибка. Попробуйте еще раз или напишите мне в Telegram @jarvis_ai_dev',
+        isUser: false,
+        timestamp: new Date()
+      }
+
+      setMessages(prev => [...prev, errorResponse])
+    } finally {
       setIsTyping(false)
-    }, 1500)
+    }
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
