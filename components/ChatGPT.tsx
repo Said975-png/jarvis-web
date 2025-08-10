@@ -255,7 +255,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
               </div>
               <div className="chat-details">
                 <h3>ДЖАРВИС</h3>
-                <span>AI-помощник по веб-разработке</span>
+                <span>AI-пом��щник по веб-разработке</span>
               </div>
             </div>
             <button className="close-btn" onClick={onClose}>
@@ -568,24 +568,36 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .chat-messages {
           flex: 1;
           overflow-y: auto;
-          padding: 24px;
           background: #fff;
+          padding: 0;
         }
 
         .message {
+          border-bottom: 1px solid #f7f7f8;
+          padding: 24px;
           display: flex;
           gap: 16px;
-          margin-bottom: 24px;
-          max-width: 100%;
+          max-width: none;
           width: 100%;
         }
 
+        .message.user-message {
+          background: #f7f7f8;
+        }
+
+        .message.ai-message {
+          background: #fff;
+        }
+
         .message-avatar {
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          border-radius: 2px;
           overflow: hidden;
           flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .message-avatar img {
@@ -595,11 +607,11 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .user-avatar {
-          width: 32px;
-          height: 32px;
-          background: #10a37f;
+          width: 30px;
+          height: 30px;
+          background: #19c37d;
           color: white;
-          border-radius: 50%;
+          border-radius: 2px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -610,19 +622,42 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .message-content {
           flex: 1;
           min-width: 0;
+          max-width: calc(100% - 46px);
         }
 
         .message-text {
           color: #374151;
-          line-height: 1.6;
+          line-height: 1.75;
+          font-size: 16px;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         .message-text p {
-          margin: 0 0 12px 0;
+          margin: 0 0 16px 0;
+          word-wrap: break-word;
         }
 
         .message-text p:last-child {
           margin-bottom: 0;
+        }
+
+        .message-text pre {
+          background: #f6f8fa;
+          border: 1px solid #e1e4e8;
+          border-radius: 6px;
+          padding: 16px;
+          overflow-x: auto;
+          font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+          font-size: 14px;
+          line-height: 1.45;
+        }
+
+        .message-text code {
+          background: #f6f8fa;
+          padding: 2px 4px;
+          border-radius: 3px;
+          font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+          font-size: 14px;
         }
 
         .typing-indicator {
