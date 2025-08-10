@@ -548,7 +548,7 @@ body.dark-theme *[class*="-chatgpt"] {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
 }
 
-/* В��е элементы с фоном белого цвета */
+/* Все элементы с фоном белого цвета */
 body.dark-theme *[style*="background: #ffffff"],
 body.dark-theme *[style*="background-color: #ffffff"],
 body.dark-theme *[style*="background: white"],
@@ -594,7 +594,7 @@ body.dark-theme .border-gray {
   border-color: #333333 !important;
 }
 
-/* Убеждаемся что все кнопки и интеракти��ные элем��нты видны */
+/* Убеждаемся что все кнопки и интеракти��ные элементы видны */
 body.dark-theme button,
 body.dark-theme input,
 body.dark-theme textarea,
@@ -629,13 +629,28 @@ body.dark-theme .feature-icon-chatgpt {
 /* Исправляем поисковую строку в темной теме */
 body.dark-theme .search-wrapper-chatgpt {
   background: #333333 !important;
-  border-color: #555555 !important;
+  border: 1px solid #555555 !important;
 }
 
 body.dark-theme .search-wrapper-chatgpt.focused {
   background: #444444 !important;
-  border-color: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid #666666 !important;
+  box-shadow: none !important;
+}
+
+/* Полностью убираем все рамки и outline у input в темной теме */
+body.dark-theme .search-input-chatgpt {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .search-input-chatgpt:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 body.dark-theme input:not([type="submit"]):not([type="button"]):not([style*="background"]),
