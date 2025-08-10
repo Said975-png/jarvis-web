@@ -23,7 +23,7 @@ export default function Home() {
         <div className="global-orb global-orb-2"></div>
       </div>
 
-      <Navbar />
+      <SearchableNavbar />
 
       <main>
         <Hero />
