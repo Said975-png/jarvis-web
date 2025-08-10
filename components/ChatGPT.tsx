@@ -296,7 +296,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
                   </svg>
                 </div>
                 <div className="user-details">
-                  <div className="user-name">Поль��ователь</div>
+                  <div className="user-name">Пользователь</div>
                   <div className="user-status">В сети</div>
                 </div>
               </div>
@@ -534,25 +534,69 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           66% { transform: translate(-10px, 10px) rotate(240deg); }
         }
 
-        /* Sidebar */
+        /* Enhanced Sidebar */
         .chatgpt-sidebar {
-          width: 260px;
-          background: #202123;
+          width: 280px;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(20px);
           display: flex;
           flex-direction: column;
-          transition: width 0.3s ease;
-          border-right: 1px solid #4d4d4f;
+          transition: all 0.3s ease;
+          border-right: 1px solid rgba(0, 0, 0, 0.1);
+          position: relative;
+          z-index: 10;
+        }
+
+        .chatgpt-overlay.dark .chatgpt-sidebar {
+          background: rgba(15, 23, 42, 0.95);
+          border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .chatgpt-sidebar.collapsed {
-          width: 60px;
+          width: 70px;
         }
 
         .sidebar-header {
-          padding: 8px;
+          padding: 20px;
           display: flex;
-          gap: 8px;
+          flex-direction: column;
+          gap: 16px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           flex-shrink: 0;
+        }
+
+        .chatgpt-overlay.dark .sidebar-header {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .jarvis-brand {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 8px;
+        }
+
+        .brand-icon {
+          width: 32px;
+          height: 32px;
+          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          flex-shrink: 0;
+        }
+
+        .brand-text {
+          font-size: 18px;
+          font-weight: 700;
+          color: #1e293b;
+          letter-spacing: -0.025em;
+        }
+
+        .chatgpt-overlay.dark .brand-text {
+          color: #f1f5f9;
         }
 
         .new-chat-btn {
