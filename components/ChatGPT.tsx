@@ -660,12 +660,16 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           height: 32px;
           border-radius: 50%;
           overflow: hidden;
+          background: transparent;
         }
 
         .chat-avatar img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          background: transparent;
+          mix-blend-mode: multiply;
+          filter: contrast(1.1) brightness(1.1);
         }
 
         .chat-details h3 {
