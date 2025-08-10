@@ -268,7 +268,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           <div className="chat-header">
             <div className="chat-info">
               <div className="chat-avatar">
-                <img src="https://cdn.builder.io/api/v1/image/assets%2Ff21efa9d331c44c6b55bad01cab8169b%2F342e3ad8cb1542ae9b5155023da06c0d?format=webp&width=800" alt="JARVIS" />
+                <div className="jarvis-icon">J</div>
               </div>
               <div className="chat-details">
                 <h3>ДЖАРВИС</h3>
