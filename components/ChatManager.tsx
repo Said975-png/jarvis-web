@@ -11,7 +11,7 @@ export default function ChatManager() {
   return (
     <>
       <ChatButton onClick={openChat} />
-      <JarvisChat isOpen={isChatOpen} onClose={closeChat} />
+      <JarvisChatEnhanced isOpen={isChatOpen} onClose={closeChat} />
     </>
   )
 }
