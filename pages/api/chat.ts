@@ -14,6 +14,58 @@ interface ChatResponse {
   error?: string
 }
 
+// Система лимитов запросов
+interface UserLimit {
+  count: number
+  resetTime: number
+}
+
+// Хранилище лимитов в памяти (в production лучше использовать Redis)
+const userLimits = new Map<string, UserLimit>()
+const REQUESTS_LIMIT = 10
+const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
+
+// Функция для получения IP адреса
+function getClientIP(req: NextApiRequest): string {
+  const forwarded = req.headers['x-forwarded-for']
+  const real = req.headers['x-real-ip']
+  const remoteAddress = req.socket.remoteAddress
+
+  if (typeof forwarded === 'string') {
+    return forwarded.split(',')[0].trim()
+  }
+  if (typeof real === 'string') {
+    return real
+  }
+  return remoteAddress || 'unknown'
+}
+
+// Функция для проверки и обновления лимита
+function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number } {
+  const now = Date.now()
+  const userLimit = userLimits.get(ip)
+
+  // Если пользователь не найден или время сброса прошло
+  if (!userLimit || now > userLimit.resetTime) {
+    userLimits.set(ip, {
+      count: 1,
+      resetTime: now + RESET_PERIOD
+    })
+    return { allowed: true, remaining: REQUESTS_LIMIT - 1 }
+  }
+
+  // Если лимит превышен
+  if (userLimit.count >= REQUESTS_LIMIT) {
+    return { allowed: false, remaining: 0 }
+  }
+
+  // Увеличиваем счетчик
+  userLimit.count++
+  userLimits.set(ip, userLimit)
+
+  return { allowed: true, remaining: REQUESTS_LIMIT - userLimit.count }
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ChatResponse>
@@ -77,11 +129,11 @@ export default async function handler(
 🚀 **Pro** - 4,000,000 сум (Популярный!)
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
-• Продвинутая а��алитика
+• Продвинутая аналитика
 • Приоритетная поддержка
 
 💎 **Max** - 5,000,000 сум
-• Безлимитные страницы
+• Безлимитные ��траницы
 • ДЖАРВИС ИИ полная версия
 • Индивидуальные решения
 • VIP поддержка 24/7
@@ -107,7 +159,7 @@ export default async function handler(
 🌐 **Веб-разработка:**
 • Landing pages и корпоративные сайты
 • Интернет-магазины и каталоги
-• В��б-приложения и порталы
+• Веб-приложения и порталы
 
 🤖 **AI интеграция:**
 • Чат-боты и виртуальные ассистенты
@@ -191,7 +243,7 @@ export default async function handler(
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
-      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на ч��м ты написан')) {
+      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
         response = `Это секретная информация 🤐🔒`
       }
       // Default response for other questions
@@ -225,7 +277,7 @@ export default async function handler(
 • AI и машинное обучение
 • UI/UX дизайн и архитектура
 • DevOps и облачные технологии
-• Базы данных и оптимизация
+�� Базы данных и оптимизация
 • Бизнес-анализ и консультирование
 • Современные фреймворки и инструменты
 
