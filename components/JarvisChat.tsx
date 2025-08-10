@@ -42,65 +42,55 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
     }
   }, [inputText])
 
-  const generateJarvisResponse = (userMessage: string): string => {
-    const message = userMessage.toLowerCase()
+  const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
+    try {
+      // Подготавливаем историю сообщений для API
+      const apiMessages = conversationHistory
+        .filter(msg => msg.text !== 'Привет Я ДЖАРВИС ваш AI-помощник в мире веб-разработки Чем могу помочь') // Исключаем начальное сообщение
+        .map(msg => ({
+          role: msg.isUser ? 'user' as const : 'assistant' as const,
+          content: msg.text
+        }))
 
-    // Приветствие
-    if (message.includes('привет') || message.includes('здравствуй') || message.includes('добрый')) {
-      return 'Привет! Меня зовут ДЖАРВИС, и я ваш персональный AI-помощник в мире веб-разработки. Готов создать что-то удивительное вместе'
+      // Добавляем текущее сообщение пользователя
+      apiMessages.push({
+        role: 'user',
+        content: userMessage
+      })
+
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messages: apiMessages
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const data = await response.json()
+
+      if (data.error) {
+        throw new Error(data.error)
+      }
+
+      return data.message
+    } catch (error) {
+      console.error('Error calling AI API:', error)
+
+      // Резервные ответы в случае ошибки
+      const fallbackResponses = [
+        'Извините, у меня временные проблемы с подключением к AI-серверу. Попробуйте еще раз через несколько секунд.',
+        'Сейчас испытываю технические трудности, но я ДЖАРВИС и готов помочь! Попробуйте переформулировать вопрос.',
+        'Произошла ошибка связи, но не волнуйтесь - я здесь. Напишите мне в Telegram @jarvis_ai_dev для прямой связи.',
+      ]
+
+      return fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)]
     }
-
-    // Веб-разработка
-    if (message.includes('сайт') || message.includes('веб') || message.includes('интернет-магазин')) {
-      return 'Превосходно Я специализируюсь на создании современных веб-решений\n\nКорпоративные сайты\nИнтернет-магазины\nВеб-приложения\nLanding pages\n\nКакой тип проекта вас интересует Расскажите о ваших целях'
-    }
-
-    // Дизайн
-    if (message.includes('дизайн') || message.includes('ui') || message.includes('ux')) {
-      return 'Дизайн это искусство которое я освоил в совершенстве Создаю\n\nСовременные адаптивные интерфейсы\nУникальные пользовательские решения\nAI-генерированные элементы\nАнимации и интерактивность\n\nКакой стиль вам ближе минимализм футуризм или что-то особенное'
-    }
-
-    // Цены и тарифы
-    if (message.includes('цена') || message.includes('стоимость') || message.includes('тариф') || message.includes('план')) {
-      return 'Наши тарифные планы\n\nBasic - 2500000 сумм\nПростые сайты и лендинги\nБазовый дизайн\n1 месяц поддержки\n\nPro - 4000000 сумм\nСложные веб-приложения\nПродвинутый дизайн\nAI-интеграция\n3 месяца поддержки\n\nMax - 5000000 сумм\nКорпоративные решения\nИндивидуальный дизайн\nПолная AI-интеграция\n6 месяцев поддержки\n\nКакие задачи планируете решать'
-    }
-
-    // AI и технологии
-    if (message.includes('ai') || message.includes('искусственный') || message.includes('технолог')) {
-      return 'AI это будущее которое уже здесь Интегрирую\n\nЧат-боты и виртуальные помощники\nСистемы рекомендаций\nАвтоматизация процессов\nМашинное обучение\nОбработка естественного языка\n\nКакую AI-магию хотите добавить в свой проект'
-    }
-
-    // Контакты
-    if (message.includes('контакт') || message.includes('связаться') || message.includes('заказать')) {
-      return 'Готов приступить к работе\n\nСпособы связи\nTelegram @jarvis_ai_dev\nEmail hello@jarvis-ai.uz\nТелефон +998 90 123 45 67\n\nИли просто продолжите общение здесь я всегда на связи Когда можем начать ваш проект'
-    }
-
-    // Портфолио
-    if (message.includes('портфолио') || message.includes('примеры') || message.includes('работы')) {
-      return 'Мои работы говорят сами за себя\n\n200+ успешных проектов\n99.9% время работы серверов\n24/7 техническая поддержка\nМеждународные клиенты\n\nПримеры рабо�� можно посмотреть в разделе портфолио Хотите увидеть что-то конкретное'
-    }
-
-    // Сроки
-    if (message.includes('срок') || message.includes('когда') || message.includes('время')) {
-      return 'Сроки выполнения\n\nLanding page 3-5 дней\nКорпоративный сайт 1-2 недели\nИнтернет-магазин 2-3 недели\nВеб-приложение 3-6 недель\n\nТочные сроки зависят от сложности Расскажите о вашем проекте для точной оценки'
-    }
-
-    // Благодарность
-    if (message.includes('спасибо') || message.includes('благодар')) {
-      return 'Всегда пожалуйста Помогать вам создавать цифровое будущее это мое предназначение Есть еще вопросы'
-    }
-
-    // Общие ответы
-    const generalResponses = [
-      'Интересный вопрос Давайте разберем его детально Можете рассказать больше подробностей',
-      'Отличная идея Я анализирую возможности реализации Какие у вас есть требования',
-      'Как ваш AI-помощник готов предложить несколько вариантов решения Что именно вас интересует',
-      'Обрабатываю ваш запрос с помощью продвинутых алгоритмов Нужна дополнительная информация',
-      'Я готов воплотить самые смелые идеи в реальность Расскажите о ваших планах',
-      'Давайте создадим что-то революционное Какие задачи стоят перед вами'
-    ]
-
-    return generalResponses[Math.floor(Math.random() * generalResponses.length)]
   }
 
   const handleSendMessage = async () => {
