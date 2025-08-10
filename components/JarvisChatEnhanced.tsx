@@ -780,25 +780,28 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
         }
 
         .jarvis-input-area {
-          padding: 20px;
+          padding: 24px;
           background: #ffffff;
-          border-top: 1px solid #e5e5e5;
+          border-top: 1px solid #e5e7eb;
+          flex-shrink: 0;
         }
 
         .jarvis-input-container {
           display: flex;
           align-items: flex-end;
-          gap: 8px;
-          background: #ffffff;
-          border: 1px solid #e5e5e5;
-          border-radius: 24px;
+          gap: 12px;
+          background: #f9fafb;
+          border: 1px solid #d1d5db;
+          border-radius: 12px;
           padding: 12px 16px;
           transition: all 0.2s ease;
+          max-width: none;
         }
 
         .jarvis-input-container:focus-within {
-          border-color: #000000;
-          box-shadow: 0 0 0 1px #000000;
+          border-color: #374151;
+          box-shadow: 0 0 0 1px #374151;
+          background: #ffffff;
         }
 
         .jarvis-textarea {
