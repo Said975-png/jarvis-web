@@ -573,7 +573,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           min-width: 0;
           display: flex;
           flex-direction: column;
-          gap: 4px;
+          gap: 2px;
         }
 
         .chatgpt-sidebar.collapsed .chat-content {
@@ -582,35 +582,24 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
         .chat-title {
           font-size: 14px;
-          font-weight: 500;
+          font-weight: 400;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
           line-height: 1.3;
-          color: inherit;
+          color: #ececf1;
           margin: 0;
-        }
-
-        .chat-date {
-          font-size: 12px;
-          color: #94a3b8;
-          line-height: 1;
-          margin: 0;
-        }
-
-        .chatgpt-overlay.dark .chat-date {
-          color: #64748b;
         }
 
         .delete-chat-btn {
           background: none;
           border: none;
-          color: #94a3b8;
+          color: #8e8ea0;
           cursor: pointer;
           padding: 6px;
-          border-radius: 8px;
+          border-radius: 6px;
           opacity: 0;
-          transition: all 0.2s ease;
+          transition: all 0.15s ease;
           position: absolute;
           right: 8px;
           top: 50%;
@@ -627,8 +616,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .delete-chat-btn:hover {
-          background: rgba(239, 68, 68, 0.1);
-          color: #ef4444;
+          background: #565869;
+          color: #fff;
         }
 
         .chatgpt-sidebar.collapsed .delete-chat-btn {
