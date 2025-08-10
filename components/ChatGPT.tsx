@@ -21,7 +21,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   const [sessions, setSessions] = useState<ChatSession[]>([])
   const [currentSessionId, setCurrentSessionId] = useState<string>('')
 
-  const chatManager = useRef(new ChatHistoryManager()).current
+  const chatManager = ChatHistoryManager.getInstance()
   
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -77,7 +77,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
     setCurrentSessionId(newSession.id)
     setMessages([{
       id: '1',
-      text: 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?',
+      text: 'Пр��вет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?',
       isUser: false,
       timestamp: new Date()
     }])
