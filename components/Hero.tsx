@@ -81,7 +81,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div className="message-bubble-chatgpt">
-                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
+                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Н��чнем с анализа ваших требований и создания концепции дизайна.
                   </div>
                 </div>
                 <div className="typing-indicator-chatgpt">
@@ -146,7 +146,7 @@ export default function Hero() {
               <div className="process-step-chatgpt">
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
-                  <h3>Тестирование и доработки</h3>
+                  <h3>Тестиров��ние и доработки</h3>
                   <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загрузки. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
@@ -167,17 +167,6 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div className="contact-info-chatgpt">
-                <p>Готовы начать работу над вашим проектом? Свяжитесь с нами для обсуждения деталей и получения персонального предложения.</p>
-                <div className="contact-buttons-chatgpt">
-                  <a href="https://t.me/jarvis_ai_dev" target="_blank" rel="noopener noreferrer">
-                    Telegram
-                  </a>
-                  <a href="mailto:hello@jarvis-ai.uz">
-                    Email
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
