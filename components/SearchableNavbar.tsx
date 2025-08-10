@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
-  { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
+  { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативнос��ь дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
   { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
@@ -242,7 +242,7 @@ export default function SearchableNavbar() {
               <button
                 className="theme-toggle-button-chatgpt"
                 onClick={() => setIsDarkTheme(!isDarkTheme)}
-                aria-label="Переключит�� тему"
+                aria-label="Переключить тему"
               >
                 {isDarkTheme ? (
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="theme-icon-chatgpt">
@@ -594,10 +594,20 @@ export default function SearchableNavbar() {
           font-size: 14px;
           color: #000000;
           placeholder-color: #999999;
+          transition: color 0.3s ease;
         }
 
         .search-input-chatgpt::placeholder {
           color: #999999;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .search-input-chatgpt {
+          color: #ffffff;
+        }
+
+        .navbar-chatgpt.dark-theme .search-input-chatgpt::placeholder {
+          color: #888888;
         }
 
         .search-clear-chatgpt {
