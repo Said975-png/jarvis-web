@@ -653,12 +653,24 @@ body.dark-theme .search-input-chatgpt:focus {
   box-shadow: none !important;
 }
 
-body.dark-theme input:not([type="submit"]):not([type="button"]):not([style*="background"]),
+body.dark-theme input:not([type="submit"]):not([type="button"]):not([style*="background"]):not(.search-input-chatgpt),
 body.dark-theme textarea:not([style*="background"]),
 body.dark-theme select:not([style*="background"]) {
   background-color: #333333 !important;
   color: #ffffff !important;
   border: 1px solid #555555 !important;
+}
+
+/* Специальные стили для поискового input - полностью прозрачный */
+body.dark-theme .search-input-chatgpt {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
 }
 
 /* Placeholder для всех инпутов */
