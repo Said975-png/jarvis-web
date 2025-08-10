@@ -60,9 +60,7 @@ export default function Hero() {
           </div>
 
           <div className="hero-visual-chatgpt">
-            <div className="model-viewer-chatgpt">
-              <LiquidSphere className="hero-liquid-sphere" />
-            </div>
+            {/* Сфера теперь перемещается глобально при скролле */}
           </div>
         </div>
       </div>
@@ -96,7 +94,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
                   <h3>Согласование и предоплата</h3>
-                  <p>Если макет и техническое решение вас устраивает, мы заключаем дог��вор и получаем предоплату 50 процентов от стоимости проекта. Это позвол��ет нам приступить к разработке с полной уверенностью.</p>
+                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это ��озвол��ет нам приступить к разработке с полной уверенностью.</p>
                 </div>
               </div>
 
