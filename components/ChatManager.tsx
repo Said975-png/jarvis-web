@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ChatButton from './ChatButton'
-import JarvisChat from './JarvisChat'
+import JarvisChatEnhanced from './JarvisChatEnhanced'
 
 export default function ChatManager() {
   const [isChatOpen, setIsChatOpen] = useState(false)
