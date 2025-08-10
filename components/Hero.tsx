@@ -71,7 +71,7 @@ export default function Hero() {
               <div className="chat-messages-chatgpt">
                 <div className="message-chatgpt user-message-chatgpt">
                   <div className="message-bubble-chatgpt">
-                    Как оптимизировать загрузку сайта для мобильных устройств?
+                    Как оптимизировать загрузку сайта для мобильных устр��йств?
                   </div>
                 </div>
                 <div className="message-chatgpt ai-message-chatgpt">
@@ -272,6 +272,121 @@ export default function Hero() {
           width: 20px;
           height: 20px;
           color: #000000;
+        }
+
+        /* Темная тема для Hero секции */
+        body.dark-theme .hero-section-chatgpt {
+          background: #000000;
+        }
+
+        body.dark-theme .hero-title-chatgpt {
+          color: #ffffff;
+        }
+
+        body.dark-theme .hero-description-chatgpt {
+          color: #cccccc;
+        }
+
+        body.dark-theme .feature-item-chatgpt {
+          color: #cccccc;
+        }
+
+        body.dark-theme .feature-icon-chatgpt {
+          color: #ffffff;
+        }
+
+        body.dark-theme .primary-button-chatgpt {
+          background: #ffffff;
+          color: #000000;
+        }
+
+        body.dark-theme .primary-button-chatgpt:hover {
+          background: #f0f0f0;
+        }
+
+        body.dark-theme .secondary-button-chatgpt {
+          background: none;
+          color: #ffffff;
+          border-color: #555555;
+        }
+
+        body.dark-theme .secondary-button-chatgpt:hover {
+          background: #333333;
+        }
+
+        body.dark-theme .chat-interface-chatgpt {
+          background: #111111;
+          border-color: #333333;
+        }
+
+        body.dark-theme .chat-header-chatgpt {
+          border-bottom: 1px solid #333333;
+        }
+
+        body.dark-theme .chat-title-chatgpt {
+          color: #ffffff;
+        }
+
+        body.dark-theme .chat-status-chatgpt {
+          color: #cccccc;
+        }
+
+        body.dark-theme .user-message-chatgpt .message-bubble-chatgpt {
+          background: #ffffff;
+          color: #000000;
+        }
+
+        body.dark-theme .ai-message-chatgpt .message-bubble-chatgpt {
+          background: #333333;
+          color: #ffffff;
+        }
+
+        body.dark-theme .ai-avatar-chatgpt {
+          background: #ffffff;
+          color: #000000;
+        }
+
+        body.dark-theme .typing-dots-chatgpt {
+          background: #333333;
+        }
+
+        body.dark-theme .typing-dots-chatgpt span {
+          background: #ffffff;
+        }
+
+        body.dark-theme .modal-content-chatgpt {
+          background: #111111;
+          color: #ffffff;
+        }
+
+        body.dark-theme .modal-header-chatgpt {
+          border-bottom: 1px solid #333333;
+        }
+
+        body.dark-theme .modal-header-chatgpt h2 {
+          color: #ffffff;
+        }
+
+        body.dark-theme .modal-close-chatgpt {
+          color: #cccccc;
+        }
+
+        body.dark-theme .modal-close-chatgpt:hover {
+          background: #333333;
+          color: #ffffff;
+        }
+
+        body.dark-theme .step-number-chatgpt {
+          background: #ffffff;
+          color: #000000;
+        }
+
+        body.dark-theme .step-content-chatgpt h3 {
+          color: #ffffff;
+        }
+
+        body.dark-theme .step-content-chatgpt p {
+          color: #cccccc;
         }
 
         .hero-visual-chatgpt {
