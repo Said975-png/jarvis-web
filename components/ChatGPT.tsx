@@ -19,11 +19,6 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   ])
   const [inputText, setInputText] = useState('')
   const [isTyping, setIsTyping] = useState(false)
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
-  const [sessions, setSessions] = useState<ChatSession[]>([])
-  const [currentSessionId, setCurrentSessionId] = useState<string>('')
-
-  const chatManager = ChatHistoryManager.getInstance()
   
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -45,7 +40,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
   useEffect(() => {
     if (isOpen) {
-      // Блокируем скролл страницы когда чат открыт
+      // Блокируем скролл страницы ��огда чат открыт
       document.body.style.overflow = 'hidden'
     } else {
       // Возвращаем скролл страницы когда чат закрыт
@@ -230,7 +225,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
               </div>
               <div className="chat-title">ДЖАРВИС AI</div>
             </div>
-            <button className="close-btn" onClick={onClose} title="З��крыть">
+            <button className="close-btn" onClick={onClose} title="Закрыть">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round"/>
               </svg>
