@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import Model3DViewer from './Model3DViewer'
+import Simple3DViewer from './Simple3DViewer'
 
 export default function Hero() {
   const [isProcessModalOpen, setIsProcessModalOpen] = useState(false)
-  // You can set your .glb model URL here when you provide it
-  const modelUrl = undefined // Replace with your .glb file URL
 
   return (
     <section className="hero-section-chatgpt">
@@ -101,7 +99,7 @@ export default function Hero() {
               <div className="process-step-chatgpt">
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
-                  <h3>Согласование и предоплата</h3>
+                  <h3>Согласов��ние и предоплата</h3>
                   <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам приступить к разработке с полной уверенностью.</p>
                 </div>
               </div>
@@ -118,7 +116,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
                   <h3>Тестирование и доработки</h3>
-                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загруз��и. Исправляем выявленные ошибки и дорабатываем детал�� по вашим пожеланиям.</p>
+                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загруз��и. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
 
@@ -465,7 +463,7 @@ export default function Hero() {
           background: rgba(255, 255, 255, 0.2);
         }
 
-        /* Модальное ��кно */
+        /* Модальное окно */
         .modal-overlay-chatgpt {
           position: fixed;
           top: 0;
