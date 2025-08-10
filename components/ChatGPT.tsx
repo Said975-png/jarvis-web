@@ -1496,9 +1496,11 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
             left: 0;
             top: 0;
             height: 100%;
-            z-index: 10;
+            z-index: 20;
+            width: 300px;
             transform: translateX(-100%);
             transition: transform 0.3s ease;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
           }
 
           .chatgpt-sidebar.open {
@@ -1509,12 +1511,94 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
             width: 100%;
           }
 
+          .chat-header {
+            padding: 0 20px;
+            height: 60px;
+          }
+
+          .chat-info {
+            gap: 12px;
+          }
+
+          .chat-avatar {
+            width: 36px;
+            height: 36px;
+          }
+
+          .chat-details h3 {
+            font-size: 16px;
+          }
+
+          .message {
+            max-width: 100%;
+            padding: 16px 0;
+            margin-bottom: 16px;
+          }
+
+          .message-content {
+            padding: 12px 16px;
+          }
+
+          .message-text {
+            font-size: 14px;
+            line-height: 1.5;
+          }
+
           .chat-messages {
             padding: 16px;
           }
 
           .chat-input-area {
             padding: 16px;
+          }
+
+          .input-container {
+            padding: 12px 16px;
+            border-radius: 14px;
+          }
+
+          .chat-input {
+            font-size: 16px; /* Prevent zoom on iOS */
+          }
+
+          .send-btn, .attachment-btn {
+            width: 32px;
+            height: 32px;
+          }
+
+          .gradient-orb {
+            display: none; /* Hide decorative elements on mobile */
+          }
+        }
+
+        @media (max-width: 480px) {
+          .chatgpt-sidebar {
+            width: 280px;
+          }
+
+          .sidebar-header {
+            padding: 16px;
+          }
+
+          .chat-messages {
+            padding: 12px;
+          }
+
+          .chat-input-area {
+            padding: 12px;
+          }
+
+          .message {
+            gap: 12px;
+          }
+
+          .message-avatar {
+            width: 32px;
+            height: 32px;
+          }
+
+          .message-content {
+            padding: 10px 14px;
           }
         }
       `}</style>
