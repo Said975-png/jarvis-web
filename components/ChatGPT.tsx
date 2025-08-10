@@ -1068,12 +1068,12 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .chat-messages {
           flex: 1;
           overflow-y: auto;
-          background: #fff;
-          padding: 0;
+          background: transparent;
+          padding: 20px;
         }
 
         .chat-messages::-webkit-scrollbar {
-          width: 6px;
+          width: 4px;
         }
 
         .chat-messages::-webkit-scrollbar-track {
@@ -1081,93 +1081,137 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .chat-messages::-webkit-scrollbar-thumb {
-          background: #d1d5db;
-          border-radius: 3px;
+          background: rgba(0, 0, 0, 0.2);
+          border-radius: 2px;
+        }
+
+        .chatgpt-overlay.dark .chat-messages::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.2);
         }
 
         .chat-messages::-webkit-scrollbar-thumb:hover {
-          background: #9ca3af;
+          background: rgba(0, 0, 0, 0.3);
+        }
+
+        .chatgpt-overlay.dark .chat-messages::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 255, 255, 0.3);
         }
 
         .message {
-          border-bottom: 1px solid #f7f7f8;
-          padding: 24px;
+          padding: 20px 0;
           display: flex;
           gap: 16px;
-          max-width: none;
-          width: 100%;
+          max-width: 800px;
+          margin: 0 auto 24px auto;
+          position: relative;
+        }
+
+        .message:last-child {
+          margin-bottom: 0;
         }
 
         .message.user-message {
-          background: #f7f7f8;
+          flex-direction: row-reverse;
         }
 
-        .message.ai-message {
-          background: #fff;
+        .message.user-message .message-content {
+          background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+          color: white;
+          border-radius: 18px 18px 4px 18px;
+        }
+
+        .message.ai-message .message-content {
+          background: rgba(255, 255, 255, 0.9);
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          border-radius: 18px 18px 18px 4px;
+        }
+
+        .chatgpt-overlay.dark .message.ai-message .message-content {
+          background: rgba(51, 65, 85, 0.6);
+          border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .message-avatar {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
+          width: 36px;
+          height: 36px;
+          border-radius: 12px;
           overflow: hidden;
           flex-shrink: 0;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: transparent;
-        }
-
-        .message-avatar img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          background: transparent;
-          mix-blend-mode: multiply;
-          filter: contrast(1.1) brightness(1.1);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .user-avatar {
-          width: 30px;
-          height: 30px;
-          background: #19c37d;
+          background: linear-gradient(135deg, #10b981, #059669);
           color: white;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 600;
-          font-size: 14px;
         }
 
         .jarvis-avatar {
-          width: 30px;
-          height: 30px;
-          background: #ab68ff;
+          background: linear-gradient(135deg, #8b5cf6, #7c3aed);
           color: white;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 600;
-          font-size: 14px;
         }
 
         .message-content {
           flex: 1;
           min-width: 0;
-          max-width: calc(100% - 46px);
+          padding: 16px 20px;
+          backdrop-filter: blur(20px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 8px;
+        }
+
+        .message-sender {
+          font-size: 13px;
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.9);
+        }
+
+        .message.ai-message .message-sender {
+          color: #64748b;
+        }
+
+        .chatgpt-overlay.dark .message.ai-message .message-sender {
+          color: #94a3b8;
+        }
+
+        .message-time {
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        .message.ai-message .message-time {
+          color: #94a3b8;
+        }
+
+        .chatgpt-overlay.dark .message.ai-message .message-time {
+          color: #64748b;
         }
 
         .message-text {
-          color: #374151;
-          line-height: 1.75;
-          font-size: 16px;
+          color: inherit;
+          line-height: 1.6;
+          font-size: 15px;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
+        .message.ai-message .message-text {
+          color: #1e293b;
+        }
+
+        .chatgpt-overlay.dark .message.ai-message .message-text {
+          color: #e2e8f0;
+        }
+
         .message-text p {
-          margin: 0 0 16px 0;
+          margin: 0 0 12px 0;
           word-wrap: break-word;
         }
 
@@ -1176,22 +1220,70 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .message-text pre {
-          background: #f6f8fa;
-          border: 1px solid #e1e4e8;
-          border-radius: 6px;
-          padding: 16px;
+          background: rgba(0, 0, 0, 0.05);
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+          padding: 12px;
           overflow-x: auto;
-          font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+          font-family: 'JetBrains Mono', 'Fira Code', monospace;
           font-size: 14px;
-          line-height: 1.45;
+          line-height: 1.5;
+          margin: 12px 0;
+        }
+
+        .chatgpt-overlay.dark .message-text pre {
+          background: rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .message-text code {
-          background: #f6f8fa;
-          padding: 2px 4px;
-          border-radius: 3px;
-          font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-          font-size: 14px;
+          background: rgba(0, 0, 0, 0.08);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-family: 'JetBrains Mono', 'Fira Code', monospace;
+          font-size: 13px;
+        }
+
+        .chatgpt-overlay.dark .message-text code {
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        .message-actions {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-top: 12px;
+          opacity: 0;
+          transition: opacity 0.2s ease;
+        }
+
+        .message:hover .message-actions {
+          opacity: 1;
+        }
+
+        .message-actions .action-btn {
+          width: 32px;
+          height: 32px;
+          background: rgba(0, 0, 0, 0.05);
+          border: none;
+          color: #64748b;
+          cursor: pointer;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+        }
+
+        .chatgpt-overlay.dark .message-actions .action-btn {
+          background: rgba(255, 255, 255, 0.05);
+          color: #94a3b8;
+        }
+
+        .message-actions .action-btn:hover {
+          background: rgba(59, 130, 246, 0.1);
+          color: #3b82f6;
+          transform: scale(1.1);
         }
 
         .typing-indicator {
