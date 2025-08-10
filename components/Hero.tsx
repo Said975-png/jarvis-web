@@ -81,7 +81,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div className="message-bubble-chatgpt">
-                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
+                    Отлично! Я соз��ам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
                   </div>
                 </div>
                 <div className="typing-indicator-chatgpt">
@@ -558,9 +558,6 @@ export default function Hero() {
             font-size: 14px;
           }
 
-          .contact-buttons-chatgpt {
-            flex-direction: column;
-          }
         }
       `}</style>
     </section>
