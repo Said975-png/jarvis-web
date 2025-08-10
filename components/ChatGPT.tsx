@@ -356,10 +356,11 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         /* Sidebar */
         .chatgpt-sidebar {
           width: 260px;
-          background: #171717;
+          background: #202123;
           display: flex;
           flex-direction: column;
           transition: width 0.3s ease;
+          border-right: 1px solid #4d4d4f;
         }
 
         .chatgpt-sidebar.collapsed {
@@ -370,7 +371,6 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           padding: 8px;
           display: flex;
           gap: 8px;
-          border-bottom: 1px solid #2d2d2d;
           flex-shrink: 0;
         }
 
@@ -380,22 +380,25 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           padding: 0 12px;
           background: transparent;
           color: #fff;
-          border: 1px solid #565869;
+          border: 1px solid #4d4d4f;
           border-radius: 6px;
           font-size: 14px;
+          font-weight: 500;
           cursor: pointer;
           display: flex;
           align-items: center;
-          justify-content: center;
-          gap: 8px;
-          transition: all 0.2s;
+          justify-content: flex-start;
+          gap: 12px;
+          transition: all 0.15s ease;
           min-width: 0;
           overflow: hidden;
+          text-align: left;
         }
 
         .chatgpt-sidebar.collapsed .new-chat-btn {
           padding: 0;
           width: 44px;
+          justify-content: center;
         }
 
         .chatgpt-sidebar.collapsed .new-chat-btn span {
@@ -403,7 +406,12 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .new-chat-btn:hover {
-          background: #2d2d2d;
+          background: #40414f;
+          border-color: #565869;
+        }
+
+        .new-chat-btn svg {
+          flex-shrink: 0;
         }
 
         .sidebar-toggle {
@@ -411,20 +419,20 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           height: 44px;
           background: transparent;
           border: none;
-          color: #8e8ea0;
+          color: #c5c5d2;
           cursor: pointer;
           border-radius: 6px;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.2s;
+          transition: all 0.15s ease;
           flex-shrink: 0;
           position: relative;
           z-index: 10;
         }
 
         .sidebar-toggle:hover {
-          background: #2d2d2d;
+          background: #40414f;
           color: #fff;
         }
 
@@ -432,53 +440,90 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           position: absolute;
           top: 8px;
           right: 8px;
-          background: #2d2d2d;
-          border: 1px solid #565869;
+          background: #40414f;
+          border: 1px solid #4d4d4f;
         }
 
         .chat-history {
           flex: 1;
           overflow-y: auto;
           padding: 8px;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+
+        .chat-history::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        .chat-history::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        .chat-history::-webkit-scrollbar-thumb {
+          background: #4d4d4f;
+          border-radius: 4px;
+        }
+
+        .chat-history::-webkit-scrollbar-thumb:hover {
+          background: #565869;
         }
 
         .chat-item {
           display: flex;
           align-items: center;
           padding: 12px;
-          margin-bottom: 2px;
+          margin-bottom: 0;
           border-radius: 6px;
           cursor: pointer;
-          transition: background-color 0.2s;
+          transition: background-color 0.15s ease;
           color: #ececf1;
           position: relative;
+          min-height: 44px;
         }
 
         .chat-item:hover {
-          background: #2d2d2d;
+          background: #40414f;
         }
 
         .chat-item.active {
           background: #343541;
         }
 
+        .chatgpt-sidebar.collapsed .chat-item {
+          justify-content: center;
+          padding: 8px;
+        }
+
         .chat-content {
           flex: 1;
           min-width: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+
+        .chatgpt-sidebar.collapsed .chat-content {
+          display: none;
         }
 
         .chat-title {
           font-size: 14px;
+          font-weight: 400;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          line-height: 1.4;
+          line-height: 1.3;
+          color: #ececf1;
+          margin: 0;
         }
 
         .chat-date {
           font-size: 12px;
           color: #8e8ea0;
-          margin-top: 2px;
+          line-height: 1;
+          margin: 0;
         }
 
         .delete-chat-btn {
@@ -486,10 +531,19 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           border: none;
           color: #8e8ea0;
           cursor: pointer;
-          padding: 4px;
-          border-radius: 4px;
+          padding: 6px;
+          border-radius: 6px;
           opacity: 0;
-          transition: all 0.2s;
+          transition: all 0.15s ease;
+          position: absolute;
+          right: 8px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 28px;
+          height: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .chat-item:hover .delete-chat-btn {
@@ -499,6 +553,10 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .delete-chat-btn:hover {
           background: #565869;
           color: #fff;
+        }
+
+        .chatgpt-sidebar.collapsed .delete-chat-btn {
+          display: none;
         }
 
         /* Main Chat */
