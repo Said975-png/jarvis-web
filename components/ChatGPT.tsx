@@ -819,22 +819,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         @media (max-width: 768px) {
-          .chatgpt-sidebar {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            z-index: 10;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-          }
-
-          .chatgpt-sidebar.open {
-            transform: translateX(0);
-          }
-
-          .chatgpt-main {
-            width: 100%;
+          .chat-header {
+            padding: 0 16px;
           }
 
           .message {
@@ -843,6 +829,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
           .message-wrapper {
             max-width: 100%;
+            padding-left: 16px;
           }
 
           .chat-input-area {
