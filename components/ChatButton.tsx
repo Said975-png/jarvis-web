@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTheme } from '../contexts/ThemeContext'
 
 interface ChatButtonProps {
   onClick: () => void
