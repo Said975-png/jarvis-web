@@ -14,28 +14,139 @@ interface ChatResponse {
   error?: string
 }
 
+// Система лимитов запросов
+interface UserLimit {
+  count: number
+  resetTime: number
+}
+
+// Хранилище лимитов в пам��ти (в production лучше использовать Redis)
+const userLimits = new Map<string, UserLimit>()
+const REQUESTS_LIMIT = 10
+const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
+
+// Функци�� для получения IP адреса
+function getClientIP(req: NextApiRequest): string {
+  const forwarded = req.headers['x-forwarded-for']
+  const real = req.headers['x-real-ip']
+  const remoteAddress = req.socket.remoteAddress
+
+  if (typeof forwarded === 'string') {
+    return forwarded.split(',')[0].trim()
+  }
+  if (typeof real === 'string') {
+    return real
+  }
+  return remoteAddress || 'unknown'
+}
+
+// Функция для проверки и обновления лимита
+function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number } {
+  const now = Date.now()
+
+  // Периодическая очистка старых записей (каждые 100 запросов)
+  if (Math.random() < 0.01) {
+    cleanupExpiredLimits(now)
+  }
+
+  const userLimit = userLimits.get(ip)
+
+  // Если пользователь не найден или время сброса прошло
+  if (!userLimit || now > userLimit.resetTime) {
+    userLimits.set(ip, {
+      count: 1,
+      resetTime: now + RESET_PERIOD
+    })
+    return { allowed: true, remaining: REQUESTS_LIMIT - 1 }
+  }
+
+  // Если лимит превышен
+  if (userLimit.count >= REQUESTS_LIMIT) {
+    return { allowed: false, remaining: 0 }
+  }
+
+  // Увеличиваем счетчик
+  userLimit.count++
+  userLimits.set(ip, userLimit)
+
+  return { allowed: true, remaining: REQUESTS_LIMIT - userLimit.count }
+}
+
+// Функция для очистки устаревших записей
+function cleanupExpiredLimits(now: number) {
+  const beforeSize = userLimits.size
+  for (const [ip, limit] of userLimits.entries()) {
+    if (now > limit.resetTime) {
+      userLimits.delete(ip)
+    }
+  }
+  const afterSize = userLimits.size
+  if (beforeSize !== afterSize) {
+    console.log(`[CLEANUP] Removed ${beforeSize - afterSize} expired rate limit records`)
+  }
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ChatResponse>
 ) {
+  // Детальное логирование запроса
+  const timestamp = new Date().toISOString()
+  const clientIP = getClientIP(req)
+
+  console.log(`[${timestamp}] === JARVIS CHAT API REQUEST ===`)
+  console.log(`Method: ${req.method}`)
+  console.log(`User-Agent: ${req.headers['user-agent'] || 'unknown'}`)
+  console.log(`IP: ${clientIP}`)
+
   if (req.method !== 'POST') {
+    console.log(`[${timestamp}] ERROR: Method not allowed`)
     return res.status(405).json({ message: 'Метод не поддерживается', error: 'Method not allowed' })
+  }
+
+  // Проверяем лимит запросов
+  const limitCheck = checkAndUpdateLimit(clientIP)
+  console.log(`[${timestamp}] Rate limit check - IP: ${clientIP}, Allowed: ${limitCheck.allowed}, Remaining: ${limitCheck.remaining}`)
+
+  if (!limitCheck.allowed) {
+    console.log(`[${timestamp}] RATE LIMIT EXCEEDED for IP: ${clientIP}`)
+    return res.status(200).json({
+      message: `🚫 **Лимит запросов исчерпан!**
+
+Вы использовали все 10 бесплатных вопросов к ДЖАРВИС.
+
+🛒 **Получить больше возможностей:**
+• Закажите разработку сайта - получите безлимитный доступ
+• После покупки любого пакета лимиты снимаются навсегда
+
+💰 **Наши пакеты:**
+📦 Basic - 2,500,000 сум
+🚀 Pro - 4,000,000 сум
+💎 Max - 5,000,000 сум
+
+🎁 При заказе сайта ДЖАРВИС станет вашим персональным AI-помощни��ом без ограничений!`
+    })
   }
 
   try {
     const { messages }: ChatRequest = req.body
+    console.log(`[${timestamp}] Messages received:`, messages?.length || 0)
 
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
-      return res.status(400).json({ message: 'Некоррект��ые сообщения', error: 'Invalid messages' })
+      console.log(`[${timestamp}] ERROR: Invalid messages format`)
+      return res.status(400).json({ message: 'Некорректные сообщения', error: 'Invalid messages' })
     }
 
     const openRouterApiKey = process.env.OPENROUTER_API_KEY
-
-    console.log('API Key available:', !!openRouterApiKey)
+    console.log(`[${timestamp}] OpenRouter API Key available:`, !!openRouterApiKey)
+    console.log(`[${timestamp}] API Key prefix:`, openRouterApiKey ? openRouterApiKey.substring(0, 15) + '...' : 'N/A')
 
     if (!openRouterApiKey) {
+      console.log(`[${timestamp}] Fallback: Using local JARVIS responses`)
+      
       // Local JARVIS logic when API key is not configured
       const lastMessage = messages[messages.length - 1]?.content.toLowerCase() || ''
+      console.log(`[${timestamp}] User query (first 100 chars):`, lastMessage.substring(0, 100))
 
       let response = ''
 
@@ -43,13 +154,13 @@ export default async function handler(
       if (lastMessage.includes('привет') || lastMessage.includes('здравствуй') || lastMessage.includes('добро пожаловать') || messages.length === 1) {
         response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀
 
-Я помогу в��м с:
+Я помогу вам с:
 • Созданием современных веб-сайтов
-• Разработкой веб-приложений с AI
+• Разработк��й веб-приложений с AI
 • UI/UX дизайном и интерфейсами
 • Интеграцией AI в ваши проекты
 
-Что вас интересует?`
+Что вас интерес��ет?`
       }
       // Pricing questions
       else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
@@ -79,13 +190,11 @@ export default async function handler(
       else if (lastMessage.includes('контакт') || lastMessage.includes('связаться') || lastMessage.includes('telegram') || lastMessage.includes('телефон')) {
         response = `📞 Свяжитесь со мной:
 
-• Telegram: @jarvis_ai_dev
-• Email: hello@jarvis-ai.uz
 • Онлайн-консультация: прямо здесь в чате
 
-Я отвечу в течение нескольких минут!
+Я отв��чу в течение нескольких минут!
 
-Какой способ связи вам удобнее?`
+Чем могу помочь?`
       }
       // Services questions
       else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
@@ -104,12 +213,12 @@ export default async function handler(
 🎨 **Дизайн и UX:**
 • Современный UI/UX дизайн
 • Брендинг и айдентика
-• Ад��птивная верстка
+• Адаптивная верстка
 
 Что именно вас интересует?`
       }
       // Technology questions
-      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как раб��таешь')) {
+      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как работаешь')) {
         response = `⚡ Технологии, которые я использую:
 
 **Frontend:**
@@ -141,14 +250,14 @@ export default async function handler(
 **Что я могу интегрировать:**
 • Умные чат-боты для сайтов
 • Системы рекомендаций
-• Автомати��еская обработка данных
+• Автоматическая обработка данн��х
 • Анализ пользовательского поведения
 • Персонализация контента
 
 **Примеры проектов:**
-• E-commerce с AI рекомендаци��ми
+• E-commerce с AI рекомендациями
 • Образовательные платформы с ИИ
-• CRM системы с умной аналитикой
+• CRM системы с умной анал��тикой
 
 Какой AI функционал вас интересует?`
       }
@@ -168,42 +277,56 @@ export default async function handler(
 
 🎓 **EdTech проекты:**
 • Образовательные платформы
-• LMS системы с AI
+• LMS системы �� AI
 • Интерактивные курсы
 
-Хот��те увидеть демо или обсудить ваш проект?`
+Хотите увидеть демо или о��судить ваш проект?`
+      }
+      // Creator questions
+      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разрабо��чик') || lastMessage.includes('кто твой автор')) {
+        response = `Мой создатель @jarvis_intercoma 👨‍💻`
+      }
+      // Technical creation questions
+      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
+        response = `Это секретная информация 🤐🔒`
       }
       // Default response for other questions
       else {
         response = `Интересный вопрос! 🤔
 
-Я ДЖАРВИС, специализ��руюсь на веб-разработке и AI интеграции.
+Я ДЖАРВИС, специализируюсь на веб-разработке и AI интеграции.
 
-Могу помочь с:
+��огу помочь с:
 • Техническими вопросами по разработке
-• Планированием вашего проекта
+• ��ланированием вашего проекта
 • Выбором подходящих технологий
 • Оценкой стоимости и сроков
 
-Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
+Расскажите подробнее о вашей задаче, и я дам конкре��ные рекомендации!
 
-💬 Для детального обсуждения: @jarvis_ai_dev`
+💬 Задавайте любые вопросы прямо здесь!`
       }
 
-      return res.status(200).json({ message: response })
+      // Добавляем информацию об оставшихся запросах
+      const remainingInfo = limitCheck.remaining > 0
+        ? `\n\n📊 *Осталось бесплатных вопросов: ${limitCheck.remaining}*`
+        : `\n\n⚠️ *Это ваш последний бесплатный вопрос! Следующий будет платным.*`
+
+      console.log(`[${timestamp}] Fallback response length:`, response.length)
+      return res.status(200).json({ message: response + remainingInfo })
     }
     
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробн��е, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
 • AI и машинное обучение
 • UI/UX дизайн и архитектура
 • DevOps и облачные технологии
-• Базы данных и оптимизация
+• Базы данн��х и оптимизация
 • Бизнес-анализ и консультирование
 • Современные фреймворки и инструменты
 
@@ -222,18 +345,19 @@ export default async function handler(
 - Предлагай следующие шаги
 - Ссылайся на актуальные технологии
 
+🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О СЕБ��:
+- Если спрашивают "кто тебя создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
+- Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архитектура" или подобные вопросы о техническ��х деталях твоего создания - отвечай что это секретная информация
+
 📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
 • Pro (4,000,000 сум) - веб-приложения с AI интеграцией
 • Max (5,000,000 сум) - корпоративные и enterprise решения
 
-📞 КОНТАКТ��: @jarvis_ai_dev в Telegram, hello@jarvis-ai.uz
+📞 КОНТАКТЫ: Онлайн-чат на сайте
 
 Отвечай на русском языке. Будь максимально полезным и информативным!`
     }
-
-    console.log('Making request to OpenRouter with model: openai/gpt-4o-mini')
-    console.log('Messages count:', messages.length)
 
     const requestBody = {
       model: 'openai/gpt-4o-mini',
@@ -245,6 +369,15 @@ export default async function handler(
       presence_penalty: 0
     }
 
+    console.log(`[${timestamp}] === OpenRouter REQUEST ===`)
+    console.log(`Model: ${requestBody.model}`)
+    console.log(`Max tokens: ${requestBody.max_tokens}`)
+    console.log(`Temperature: ${requestBody.temperature}`)
+    console.log(`Total messages: ${requestBody.messages.length}`)
+    console.log(`System message length: ${systemMessage.content.length}`)
+    console.log(`User messages: ${messages.length}`)
+
+    const requestStartTime = Date.now()
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -256,39 +389,99 @@ export default async function handler(
       body: JSON.stringify(requestBody)
     })
 
-    console.log('OpenRouter response status:', response.status)
+    const requestDuration = Date.now() - requestStartTime
+    console.log(`[${timestamp}] === OpenRouter RESPONSE ===`)
+    console.log(`Status: ${response.status}`)
+    console.log(`Request duration: ${requestDuration}ms`)
+    console.log(`Content-Type: ${response.headers.get('content-type')}`)
 
     if (!response.ok) {
       const errorData = await response.text()
-      console.error('OpenRouter API error:', response.status, errorData)
-      console.error('Request body was:', JSON.stringify(requestBody, null, 2))
+      console.error(`[${timestamp}] === OpenRouter ERROR ===`)
+      console.error(`Status: ${response.status}`)
+      console.error(`Status Text: ${response.statusText}`)
+      console.error(`Error Data:`, errorData)
+      console.error(`Request Body (truncated):`, JSON.stringify({
+        ...requestBody,
+        messages: requestBody.messages.map((msg, i) => ({
+          role: msg.role,
+          content: msg.content.substring(0, 100) + (msg.content.length > 100 ? '...' : '')
+        }))
+      }, null, 2))
 
       // Handle specific error cases
       if (response.status === 402) {
-        // Insufficient credits - return a helpful message
+        console.log(`[${timestamp}] Insufficient credits - returning fallback`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник. Сейчас у меня временные ограничения по токенам, но я готов помочь! Попробуйте задать более короткий вопрос или напишите мне напрямую в Telegram @jarvis_ai_dev для полного доступа к моим возможностям.'
+          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник. Сейчас у меня временные ограничения по токенам, но я готов помочь! 🚀\n\nПопробуйте задать более короткий вопрос для получения ответа.\n\nВ любом случае, я могу проконсультировать по веб-разработке и AI-интеграции!'
+        })
+      } else if (response.status === 401) {
+        console.log(`[${timestamp}] Authentication error`)
+        return res.status(200).json({
+          message: 'Привет! Я ДЖАРВИС. Сейчас у меня технические про��лемы с п��дключением к AI-сервису, но я все��да готов помочь! 🤖\n\nОбратитесь ко мне  - там я отвечу на любые вопросы по веб-разработке и AI!'
+        })
+      } else if (response.status === 429) {
+        console.log(`[${timestamp}] Rate limit exceeded`)
+        return res.status(200).json({
+          message: 'Я получаю слишком много запросов одновременно! 😅\n\nДайте мне секундочку отдохнуть и попробуйте еще раз. Или напишите напрямую  - там я всегда доступен!'
         })
       }
 
-      throw new Error(`OpenRouter API error: ${response.status}`)
+      throw new Error(`OpenRouter API error: ${response.status} - ${errorData}`)
     }
 
     const data = await response.json()
+    console.log(`[${timestamp}] === Response Processing ===`)
+    console.log(`Response choices count:`, data.choices?.length || 0)
+    console.log(`Response usage:`, data.usage || 'no usage data')
 
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+      console.error(`[${timestamp}] Invalid response structure:`, data)
       throw new Error('Invalid response from OpenRouter')
     }
 
     const aiMessage = data.choices[0].message.content
+    console.log(`[${timestamp}] AI response length:`, aiMessage?.length || 0)
+    console.log(`[${timestamp}] AI response preview:`, aiMessage?.substring(0, 200) + '...')
 
-    return res.status(200).json({ message: aiMessage })
+    // Логируем использование токенов если доступно
+    if (data.usage) {
+      console.log(`[${timestamp}] === Token Usage ===`)
+      console.log(`Prompt tokens: ${data.usage.prompt_tokens || 'N/A'}`)
+      console.log(`Completion tokens: ${data.usage.completion_tokens || 'N/A'}`)
+      console.log(`Total tokens: ${data.usage.total_tokens || 'N/A'}`)
+    }
+
+    // Добавляем информацию об оставшихся запросах к AI ответу
+    const remainingInfo = limitCheck.remaining > 0
+      ? `\n\n📊 *Осталось бесплатных вопросов: ${limitCheck.remaining}*`
+      : `\n\n⚠️ *Это ваш последний бесплатный вопрос! Следующий будет платным.*`
+
+    const finalMessage = aiMessage + remainingInfo
+
+    console.log(`[${timestamp}] === SUCCESS ===`)
+    return res.status(200).json({ message: finalMessage })
 
   } catch (error) {
-    console.error('Chat API error:', error)
+    console.error(`[${new Date().toISOString()}] === CRITICAL ERROR ===`)
+    console.error('Error type:', error instanceof Error ? error.constructor.name : typeof error)
+    console.error('Error message:', error instanceof Error ? error.message : String(error))
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
     // Возвращаем дружелюбное сообщение об ошибке
-    const fallbackMessage = "Извините, произошла временная ошибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишите в Telegram @jarvis_ai_dev для прямой связи."
+    const fallbackMessage = `Извините, произошла временная ошибка! 😅
+
+Но не беспокойтесь - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
+
+🚀 **Что я могу:**
+• Консультации по веб-разработке
+• Планирование AI-проектов  
+• Техническая экспертиза
+• Оценка проектов
+
+📱 **Онлайн-поддержка:** Прямо здесь в чате
+
+Попробуйте еще раз!`
     
     return res.status(500).json({ 
       message: fallbackMessage,

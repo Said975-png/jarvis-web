@@ -1,10 +1,11 @@
 import Head from 'next/head'
-import Navbar from '../components/Navbar'
+import SearchableNavbar from '../components/SearchableNavbar'
 import Hero from '../components/Hero'
 import Pricing from '../components/Pricing'
 import Features from '../components/Features'
 import Benefits from '../components/Benefits'
 import ChatManager from '../components/ChatManager'
+import Footer from '../components/Footer'
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
         <div className="global-orb global-orb-2"></div>
       </div>
 
-      <Navbar />
+      <SearchableNavbar />
 
       <main>
         <Hero />
@@ -32,6 +33,7 @@ export default function Home() {
         <Benefits />
       </main>
 
+      <Footer />
       <ChatManager />
     </>
   )

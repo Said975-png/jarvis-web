@@ -71,7 +71,7 @@ export default function Hero() {
               <div className="chat-messages-chatgpt">
                 <div className="message-chatgpt user-message-chatgpt">
                   <div className="message-bubble-chatgpt">
-                    Создай современный веб-сайт с ИИ функциями
+                    Как оптимизировать загрузку сайта для мобильных устройств?
                   </div>
                 </div>
                 <div className="message-chatgpt ai-message-chatgpt">
@@ -81,7 +81,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div className="message-bubble-chatgpt">
-                    Отлично! Я соз��ам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
+                    Отличный вопрос! Используйте lazy loading для изображений, минифицируйте CSS и JS, включите gzip сжатие и оптимизируйте изображения в формате WebP. Также важно использовать CDN и кэширование.
                   </div>
                 </div>
                 <div className="typing-indicator-chatgpt">
