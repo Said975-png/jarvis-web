@@ -9,13 +9,13 @@ import { useRouter } from 'next/router'
 
 // Данные для поиска
 const searchData = [
-  { title: 'Главна��', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
+  { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
   { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
   { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
-  { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
-  { title: 'Автоматизация', description: 'Автомати��еские процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
+  { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возмож��ости' },
+  { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
   { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
   { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
@@ -156,7 +156,7 @@ export default function SearchableNavbar() {
 
   return (
     <>
-      <nav className={`navbar-chatgpt ${isScrolled ? 'scrolled' : ''}`}>
+      <nav className={`navbar-chatgpt ${isScrolled ? 'scrolled' : ''} ${isDarkTheme ? 'dark-theme' : ''}`}>
         <div className="navbar-container-chatgpt">
           <div className="logo-chatgpt">
             <div className="logo-icon-chatgpt">
