@@ -12,7 +12,7 @@ const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
   { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
-  { title: 'Процесс договора', description: 'Подробная информация о проц��ссе работы с нами', url: '/', section: 'Услуги' },
+  { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
   { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
   { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
@@ -111,7 +111,7 @@ export default function SearchableNavbar() {
             setCartOpen(true)
             break
           case 'Аккаунт':
-            if (item.title === 'Вой��и' || item.title === 'Регистрация') {
+            if (item.title === 'Войти' || item.title === 'Регистрация') {
               setShowAuthForms(true)
             } else if (item.title === 'Профиль' && user) {
               setShowProfile(true)
@@ -534,6 +534,11 @@ export default function SearchableNavbar() {
           font-size: 20px;
           font-weight: 600;
           color: #000000;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .logo-text-chatgpt {
+          color: #ffffff;
         }
 
         .search-container-chatgpt {
