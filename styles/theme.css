@@ -1,0 +1,129 @@
+/* Глобальные стили для темной темы */
+body.dark-theme {
+  background-color: #000000;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Заголовки */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6 {
+  color: #ffffff;
+}
+
+/* Основной текст */
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme div {
+  color: #ffffff;
+}
+
+/* Секции */
+body.dark-theme .hero-section-chatgpt,
+body.dark-theme .features-section-chatgpt,
+body.dark-theme .pricing-section-chatgpt,
+body.dark-theme .hero-features-chatgpt {
+  background-color: #111111;
+}
+
+/* Карточки */
+body.dark-theme .pricing-card-chatgpt,
+body.dark-theme .feature-card-chatgpt {
+  background-color: #222222;
+  border: 1px solid #444444;
+  color: #ffffff;
+}
+
+body.dark-theme .pricing-card-chatgpt h3,
+body.dark-theme .feature-card-chatgpt h3 {
+  color: #ffffff;
+}
+
+/* Кнопки */
+body.dark-theme .primary-button-chatgpt {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-theme .primary-button-chatgpt:hover {
+  background-color: #f0f0f0;
+}
+
+body.dark-theme .secondary-button-chatgpt {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+body.dark-theme .secondary-button-chatgpt:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Модальные окна */
+body.dark-theme .modal-overlay-chatgpt {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-theme .modal-content-chatgpt {
+  background-color: #222222;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+
+/* Формы */
+body.dark-theme .form-input-chatgpt,
+body.dark-theme .form-textarea-chatgpt,
+body.dark-theme .form-select-chatgpt {
+  background-color: #333333;
+  border: 1px solid #555555;
+  color: #ffffff;
+}
+
+body.dark-theme .form-input-chatgpt:focus,
+body.dark-theme .form-textarea-chatgpt:focus,
+body.dark-theme .form-select-chatgpt:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-theme .form-input-chatgpt::placeholder,
+body.dark-theme .form-textarea-chatgpt::placeholder {
+  color: #999999;
+}
+
+/* Чат */
+body.dark-theme .chat-container-chatgpt {
+  background-color: #222222;
+  border: 1px solid #444444;
+}
+
+body.dark-theme .chat-message-chatgpt {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.dark-theme .chat-input-chatgpt {
+  background-color: #333333;
+  border: 1px solid #555555;
+  color: #ffffff;
+}
+
+/* Прочие элементы */
+body.dark-theme .divider-chatgpt {
+  background-color: #444444;
+}
+
+body.dark-theme .badge-chatgpt {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* Анимации и переходы */
+body.dark-theme * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
