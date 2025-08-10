@@ -368,6 +368,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           height: 100vh;
           display: flex;
           background: #f7f7f8;
+          overflow: hidden;
         }
 
         /* Sidebar */
