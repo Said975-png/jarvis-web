@@ -256,7 +256,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
                 </div>
                 <div className="user-details">
                   <div className="user-name">ДЖАРВИС Пользователь</div>
-                  <div className="user-plan">Базовый план</div>
+                  <div className="user-plan">Базовый пл��н</div>
                 </div>
               </div>
             </div>
@@ -718,6 +718,23 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           overflow-y: auto;
           background: #fff;
           padding: 0;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+          background: #d1d5db;
+          border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+          background: #9ca3af;
         }
 
         .message {
