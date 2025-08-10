@@ -677,6 +677,14 @@ export default function SearchableNavbar() {
           background: #f8f8f8;
         }
 
+        .navbar-chatgpt.dark-theme .search-result-item-chatgpt {
+          border-bottom: 1px solid #333333;
+        }
+
+        .navbar-chatgpt.dark-theme .search-result-item-chatgpt:hover {
+          background: #333333;
+        }
+
         .search-result-content-chatgpt {
           flex: 1;
           min-width: 0;
