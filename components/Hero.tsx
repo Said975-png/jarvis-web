@@ -62,10 +62,7 @@ export default function Hero() {
 
           <div className="hero-visual-chatgpt">
             <div className="model-viewer-chatgpt">
-              <Model3DViewer
-                modelUrl={modelUrl}
-                className="hero-3d-model"
-              />
+              <Simple3DViewer className="hero-3d-model" />
             </div>
           </div>
         </div>
@@ -99,7 +96,7 @@ export default function Hero() {
               <div className="process-step-chatgpt">
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
-                  <h3>Согласов��ние и предоплата</h3>
+                  <h3>Согласование и предоплата</h3>
                   <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам приступить к разработке с полной уверенностью.</p>
                 </div>
               </div>
