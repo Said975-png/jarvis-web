@@ -14,7 +14,7 @@ export default function Hero() {
             </h1>
 
             <p className="hero-description-chatgpt">
-              Революционный ИИ-ассистент, который понимает ваши потребност�� и превращает идеи в реальность. Будущее взаимодействия с технологиями уже здесь.
+              Ре��олюционный ИИ-ассистент, который понимает ваши потребности и превращает идеи в реальность. Будущее взаимодействия с технологиями уже здесь.
             </p>
 
             <div className="hero-cta-chatgpt">
@@ -120,7 +120,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">3</div>
                 <div className="step-content-chatgpt">
                   <h3>Разработка проекта</h3>
-                  <p>Приступаем к программированию и созданию вашего проекта. Макет корректируется и дорабатывается в процессе работы для достижения наилучшего результата. Мы не мен��ем макет по несколько раз без весомых оснований.</p>
+                  <p>Приступаем к программированию и созданию вашего проекта. Макет корректируется и дорабатывается в процессе работы для достижения наилучшего результата. Мы не мен��ем м��кет по несколько раз без весомых оснований.</p>
                 </div>
               </div>
 
@@ -296,36 +296,20 @@ export default function Hero() {
           background: #333333;
         }
 
-        body.dark-theme .partnerships-slider-chatgpt {
+        body.dark-theme .model-viewer-chatgpt {
           background: #111111;
           border-color: #333333;
         }
 
-        body.dark-theme .slider-title-chatgpt {
+        body.dark-theme .placeholder-text-chatgpt {
           color: #ffffff;
         }
 
-        body.dark-theme .project-name-chatgpt {
+        body.dark-theme .placeholder-icon-chatgpt {
           color: #ffffff;
         }
 
-        body.dark-theme .project-description-chatgpt {
-          color: rgba(255, 255, 255, 0.9);
-        }
-
-        body.dark-theme .project-tech-chatgpt {
-          color: rgba(255, 255, 255, 0.8);
-        }
-
-        body.dark-theme .indicator-dot-chatgpt {
-          background: #555555;
-        }
-
-        body.dark-theme .indicator-dot-chatgpt.active {
-          background: #ffffff;
-        }
-
-        body.dark-theme .progress-bar-chatgpt {
+        body.dark-theme .loading-dots-chatgpt span {
           background: #ffffff;
         }
 
