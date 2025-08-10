@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import LiquidSphere from './LiquidSphere'
 
 export default function Hero() {
   const [isProcessModalOpen, setIsProcessModalOpen] = useState(false)
@@ -26,7 +25,7 @@ export default function Hero() {
                 Процесс договора
               </button>
               <button className="secondary-button-chatgpt">
-                Узнать боль��е
+                Узнать больше
               </button>
             </div>
 
@@ -97,7 +96,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
                   <h3>Согласование и предоплата</h3>
-                  <p>��сли макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позвол��ет нам приступить к разработке с полной уверенностью.</p>
+                  <p>Если макет и техническое решение вас устраивает, мы заключаем дог��вор и получаем предоплату 50 процентов от стоимости проекта. Это позвол��ет нам приступить к разработке с полной уверенностью.</p>
                 </div>
               </div>
 
@@ -112,7 +111,7 @@ export default function Hero() {
               <div className="process-step-chatgpt">
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
-                  <h3>Тестирование и ��оработки</h3>
+                  <h3>Тестирование и доработки</h3>
                   <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость заг��уз��и. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
