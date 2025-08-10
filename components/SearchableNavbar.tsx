@@ -12,7 +12,7 @@ const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
   { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
-  { title: 'Процесс договора', description: 'Подробная информация о процессе рабо��ы с нами', url: '/', section: 'Услуги' },
+  { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
   { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
   { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
@@ -242,7 +242,7 @@ export default function SearchableNavbar() {
               <button
                 className="theme-toggle-button-chatgpt"
                 onClick={() => setIsDarkTheme(!isDarkTheme)}
-                aria-label="Переключить тему"
+                aria-label="Переключит�� тему"
               >
                 {isDarkTheme ? (
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="theme-icon-chatgpt">
@@ -579,6 +579,11 @@ export default function SearchableNavbar() {
         .search-icon-chatgpt {
           color: #666666;
           margin-right: 12px;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .search-icon-chatgpt {
+          color: #cccccc;
         }
 
         .search-input-chatgpt {
