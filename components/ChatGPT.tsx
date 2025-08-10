@@ -600,24 +600,38 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .new-chat-btn {
-          flex: 1;
-          height: 44px;
-          padding: 0 12px;
-          background: transparent;
-          color: #fff;
-          border: 1px solid #4d4d4f;
-          border-radius: 6px;
+          height: 48px;
+          padding: 0 16px;
+          background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+          color: white;
+          border: none;
+          border-radius: 12px;
           font-size: 14px;
-          font-weight: 500;
+          font-weight: 600;
           cursor: pointer;
           display: flex;
           align-items: center;
-          justify-content: flex-start;
-          gap: 12px;
-          transition: all 0.15s ease;
-          min-width: 0;
+          justify-content: center;
+          gap: 10px;
+          transition: all 0.2s ease;
+          box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+          position: relative;
           overflow: hidden;
-          text-align: left;
+        }
+
+        .new-chat-btn::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          transition: left 0.5s ease;
+        }
+
+        .new-chat-btn:hover::before {
+          left: 100%;
         }
 
         .chatgpt-sidebar.collapsed .new-chat-btn {
