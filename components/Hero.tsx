@@ -13,7 +13,7 @@ export default function Hero() {
     },
     {
       name: 'Ghon bot web',
-      description: 'ИИ-бот платформа',
+      description: 'ИИ-бот ��латформа',
       tech: 'Node.js • AI Integration • WebSocket',
       gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
     },
@@ -171,7 +171,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">1</div>
                 <div className="step-content-chatgpt">
                   <h3>Создание макета</h3>
-                  <p>Сначала мы создаем детальный макет вашего проекта. Это включает в себя дизайн всех страниц, структуру сайта и техническое задание. На этом этапе вы видите как будет выглядеть конечный результат.</p>
+                  <p>Сначала мы создаем детальный макет вашего проекта. Это включает в себя дизайн всех страниц, структуру сайта и техническое задание. На этом этапе вы видите ка�� будет выглядеть конечный результат.</p>
                 </div>
               </div>
 
@@ -437,135 +437,156 @@ export default function Hero() {
           align-items: center;
         }
 
-        .chat-interface-chatgpt {
+        .partnerships-slider-chatgpt {
           background: #ffffff;
           border: 1px solid #e5e5e5;
-          border-radius: 12px;
+          border-radius: 16px;
           width: 100%;
-          max-width: 400px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          max-width: 450px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
         }
 
-        .chat-header-chatgpt {
+        .slider-header-chatgpt {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 16px 20px;
-          border-bottom: 1px solid #e5e5e5;
+          padding: 20px 24px;
+          border-bottom: 1px solid #f0f0f0;
         }
 
-        .chat-title-chatgpt {
+        .slider-title-chatgpt {
+          font-size: 18px;
           font-weight: 600;
           color: #000000;
+          margin: 0;
         }
 
-        .chat-status-chatgpt {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          font-size: 12px;
-          color: #666666;
-        }
-
-        .status-dot-chatgpt {
-          width: 8px;
-          height: 8px;
-          background: #10b981;
-          border-radius: 50%;
-        }
-
-        .chat-messages-chatgpt {
-          padding: 20px;
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          max-height: 300px;
-        }
-
-        .message-chatgpt {
+        .slider-indicators-chatgpt {
           display: flex;
           gap: 8px;
-          align-items: flex-start;
         }
 
-        .user-message-chatgpt {
-          justify-content: flex-end;
-        }
-
-        .user-message-chatgpt .message-bubble-chatgpt {
-          background: #000000;
-          color: #ffffff;
-          max-width: 80%;
-        }
-
-        .ai-message-chatgpt {
-          justify-content: flex-start;
-        }
-
-        .ai-message-chatgpt .message-bubble-chatgpt {
-          background: #f5f5f5;
-          color: #000000;
-          max-width: 80%;
-        }
-
-        .ai-avatar-chatgpt {
-          width: 24px;
-          height: 24px;
-          background: #000000;
-          color: #ffffff;
+        .indicator-dot-chatgpt {
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
+          border: none;
+          background: #e5e5e5;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .indicator-dot-chatgpt.active {
+          background: #000000;
+          transform: scale(1.2);
+        }
+
+        .slider-content-chatgpt {
+          height: 280px;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .slides-container-chatgpt {
+          display: flex;
+          width: 400%;
+          height: 100%;
+          transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide-chatgpt {
+          width: 25%;
+          padding: 24px;
           display: flex;
           align-items: center;
           justify-content: center;
-          flex-shrink: 0;
         }
 
-        .message-bubble-chatgpt {
-          padding: 12px 16px;
-          border-radius: 18px;
+        .project-card-chatgpt {
+          width: 100%;
+          height: 200px;
+          border-radius: 16px;
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          color: white;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .project-card-chatgpt::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.1);
+          z-index: 1;
+        }
+
+        .project-info-chatgpt {
+          position: relative;
+          z-index: 2;
+        }
+
+        .project-name-chatgpt {
+          font-size: 20px;
+          font-weight: 700;
+          margin: 0 0 8px 0;
+          color: white;
+        }
+
+        .project-description-chatgpt {
           font-size: 14px;
+          color: rgba(255, 255, 255, 0.9);
+          margin: 0 0 12px 0;
           line-height: 1.4;
         }
 
-        .typing-indicator-chatgpt {
-          display: flex;
-          gap: 8px;
-          align-items: center;
+        .project-tech-chatgpt {
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.8);
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
         }
 
-        .typing-dots-chatgpt {
-          display: flex;
-          gap: 4px;
-          padding: 12px 16px;
-          background: #f5f5f5;
-          border-radius: 18px;
+        .project-icon-chatgpt {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          color: rgba(255, 255, 255, 0.6);
+          z-index: 2;
         }
 
-        .typing-dots-chatgpt span {
-          width: 6px;
-          height: 6px;
-          background: #999999;
-          border-radius: 50%;
-          animation: typing 1.4s infinite;
+        .slider-progress-chatgpt {
+          height: 4px;
+          background: #f0f0f0;
+          position: relative;
         }
 
-        .typing-dots-chatgpt span:nth-child(2) {
-          animation-delay: 0.2s;
+        .progress-bar-chatgpt {
+          height: 100%;
+          background: #000000;
+          transition: width 0.6s ease;
         }
 
-        .typing-dots-chatgpt span:nth-child(3) {
-          animation-delay: 0.4s;
-        }
-
-        @keyframes typing {
-          0%, 60%, 100% {
-            transform: translateY(0);
-            opacity: 0.5;
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
           }
-          30% {
-            transform: translateY(-10px);
+          to {
             opacity: 1;
+            transform: translateX(0);
           }
+        }
+
+        .project-card-chatgpt {
+          animation: slideIn 0.6s ease;
         }
 
         /* Модальное окно */
