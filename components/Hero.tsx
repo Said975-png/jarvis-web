@@ -81,7 +81,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div className="message-bubble-chatgpt">
-                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Н��чнем с анализа ваших требований и создания концепции дизайна.
+                    Отлично! Я создам для вас современный веб-сайт с интегрированными ИИ решениями. Начнем с анализа ваших требований и создания концепции дизайна.
                   </div>
                 </div>
                 <div className="typing-indicator-chatgpt">
@@ -146,7 +146,7 @@ export default function Hero() {
               <div className="process-step-chatgpt">
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
-                  <h3>Тестиров��ние и доработки</h3>
+                  <h3>Тестирование и доработки</h3>
                   <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загрузки. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
@@ -510,39 +510,6 @@ export default function Hero() {
           color: #666666;
         }
 
-        .contact-info-chatgpt {
-          background: #f8f9fa;
-          border-radius: 8px;
-          padding: 24px;
-          margin-top: 32px;
-          text-align: center;
-        }
-
-        .contact-info-chatgpt p {
-          margin: 0 0 20px 0;
-          font-size: 16px;
-          color: #333333;
-        }
-
-        .contact-buttons-chatgpt {
-          display: flex;
-          gap: 12px;
-          justify-content: center;
-        }
-
-        .contact-buttons-chatgpt a {
-          background: #000000;
-          color: white;
-          text-decoration: none;
-          padding: 12px 24px;
-          border-radius: 6px;
-          font-weight: 500;
-          transition: all 0.2s ease;
-        }
-
-        .contact-buttons-chatgpt a:hover {
-          background: #333333;
-        }
 
         @media (max-width: 768px) {
           .hero-section-chatgpt {
