@@ -548,7 +548,7 @@ body.dark-theme *[class*="-chatgpt"] {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
 }
 
-/* Все элементы с фоном белого цвета */
+/* В��е элементы с фоном белого цвета */
 body.dark-theme *[style*="background: #ffffff"],
 body.dark-theme *[style*="background-color: #ffffff"],
 body.dark-theme *[style*="background: white"],
@@ -594,7 +594,7 @@ body.dark-theme .border-gray {
   border-color: #333333 !important;
 }
 
-/* Убеждаемся что все кнопки и интеракти��ные элементы видны */
+/* Убеждаемся что все кнопки и интеракти��ные элем��нты видны */
 body.dark-theme button,
 body.dark-theme input,
 body.dark-theme textarea,
@@ -602,10 +602,40 @@ body.dark-theme select {
   color: inherit !important;
 }
 
-body.dark-theme button:not([style*="background"]):not([class*="primary"]):not([class*="secondary"]) {
+body.dark-theme button:not([style*="background"]):not([class*="primary"]):not([class*="secondary"]):not([class*="theme-toggle"]):not([class*="cart-button"]):not([class*="search-clear"]) {
   background-color: #222222 !important;
   color: #ffffff !important;
   border: 1px solid #444444 !important;
+}
+
+/* Убираем фоны у кнопок навигации в темной теме */
+body.dark-theme .theme-toggle-button-chatgpt {
+  background: none !important;
+}
+
+body.dark-theme .cart-button-chatgpt {
+  background: none !important;
+}
+
+body.dark-theme .search-clear-chatgpt {
+  background: none !important;
+}
+
+/* Убираем фоны у иконок функций в Hero секции */
+body.dark-theme .feature-icon-chatgpt {
+  background: none !important;
+}
+
+/* Исправляем поисковую строку в темной теме */
+body.dark-theme .search-wrapper-chatgpt {
+  background: #333333 !important;
+  border-color: #555555 !important;
+}
+
+body.dark-theme .search-wrapper-chatgpt.focused {
+  background: #444444 !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1) !important;
 }
 
 body.dark-theme input:not([type="submit"]):not([type="button"]):not([style*="background"]),
