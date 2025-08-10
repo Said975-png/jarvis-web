@@ -29,7 +29,9 @@ export default function Footer() {
   }
 
   return (
-    <footer className="footer-chatgpt">
+    <>
+      <div className="footer-overlay-chatgpt"></div>
+      <footer className="footer-chatgpt">
       <div className="footer-container-chatgpt">
         {/* Main Footer Content */}
         <div className="footer-main-chatgpt">
@@ -339,5 +341,6 @@ export default function Footer() {
         }
       `}</style>
     </footer>
+    </>
   )
 }
