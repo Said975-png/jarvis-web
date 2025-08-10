@@ -48,7 +48,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       // Блокируем скролл страницы когда чат открыт
       document.body.style.overflow = 'hidden'
     } else {
-      // Возвращаем скролл страницы когда чат закрыт
+      // Возвращаем скролл страницы когда ча�� закрыт
       document.body.style.overflow = 'unset'
     }
 
@@ -447,62 +447,55 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .chatgpt-sidebar.collapsed .new-chat-btn {
-          width: 48px;
+          width: 44px;
           padding: 0;
-          margin: 0 auto;
+          justify-content: center;
         }
 
         .chatgpt-sidebar.collapsed .new-chat-btn span {
           display: none;
         }
 
-        .new-chat-btn:hover {
-          transform: translateY(-1px);
-          box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-        }
-
         .new-chat-btn svg {
           flex-shrink: 0;
         }
 
+        .sidebar-toggle-wrapper {
+          position: absolute;
+          bottom: 8px;
+          left: 8px;
+          right: 8px;
+        }
+
         .sidebar-toggle {
-          width: 40px;
-          height: 40px;
-          background: rgba(0, 0, 0, 0.05);
-          border: none;
-          color: #64748b;
+          width: 100%;
+          height: 44px;
+          background: transparent;
+          border: 1px solid #4d4d4f;
+          color: #c5c5d2;
           cursor: pointer;
-          border-radius: 10px;
+          border-radius: 6px;
           display: flex;
           align-items: center;
           justify-content: center;
           transition: all 0.2s ease;
-          flex-shrink: 0;
-          align-self: flex-end;
-        }
-
-        .chatgpt-overlay.dark .sidebar-toggle {
-          background: rgba(255, 255, 255, 0.05);
-          color: #94a3b8;
         }
 
         .sidebar-toggle:hover {
-          background: rgba(0, 0, 0, 0.1);
-          color: #1e293b;
-          transform: scale(1.05);
+          background: #40414f;
+          color: #fff;
         }
 
-        .chatgpt-overlay.dark .sidebar-toggle:hover {
-          background: rgba(255, 255, 255, 0.1);
-          color: #f1f5f9;
+        .chatgpt-sidebar.collapsed .sidebar-toggle-wrapper {
+          position: absolute;
+          bottom: 8px;
+          left: 8px;
+          right: 8px;
         }
 
         .chatgpt-sidebar.collapsed .sidebar-toggle {
-          position: absolute;
-          top: 20px;
-          right: 15px;
-          background: rgba(59, 130, 246, 0.1);
-          color: #3b82f6;
+          width: 44px;
+          height: 44px;
         }
 
         .chat-history {
