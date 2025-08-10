@@ -99,7 +99,7 @@ export default async function handler(
 🤖 **AI интеграция:**
 • Чат-боты и виртуальные ассистенты
 • Анализ данных и автоматизация
-• Персонализация п��льзовательского опыта
+• Персонализация пользовательского опыта
 
 🎨 **Дизайн и UX:**
 • Современный UI/UX дизайн
@@ -109,7 +109,7 @@ export default async function handler(
 Что именно вас интересует?`
       }
       // Technology questions
-      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как работаешь')) {
+      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как раб��таешь')) {
         response = `⚡ Технологии, которые я использую:
 
 **Frontend:**
@@ -136,7 +136,7 @@ export default async function handler(
       }
       // AI questions
       else if (lastMessage.includes('искусственный интеллект') || lastMessage.includes('машинное обучение') || lastMessage.includes('ai') || lastMessage.includes('ии')) {
-        response = `🤖 AI интеграция - моя специализа��ия!
+        response = `🤖 AI интеграция - моя специализация!
 
 **Что я могу интегрировать:**
 • Умные чат-боты для сайтов
@@ -146,7 +146,7 @@ export default async function handler(
 • Персонализация контента
 
 **Примеры проектов:**
-• E-commerce с AI рекомендациями
+• E-commerce с AI рекомендаци��ми
 • Образовательные платформы с ИИ
 • CRM системы с умной аналитикой
 
@@ -177,7 +177,7 @@ export default async function handler(
       else {
         response = `Интересный вопрос! 🤔
 
-Я ДЖАРВИС, специализируюсь на веб-разработке и AI интеграции.
+Я ДЖАРВИС, специализ��руюсь на веб-разработке и AI интеграции.
 
 Могу помочь с:
 • Техническими вопросами по разработке
@@ -196,7 +196,7 @@ export default async function handler(
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-ра��работке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
@@ -227,12 +227,12 @@ export default async function handler(
 • Pro (4,000,000 сум) - веб-приложения с AI интеграцией
 • Max (5,000,000 сум) - корпоративные и enterprise решения
 
-📞 КОНТАКТЫ: @jarvis_ai_dev в Telegram, hello@jarvis-ai.uz
+📞 КОНТАКТ��: @jarvis_ai_dev в Telegram, hello@jarvis-ai.uz
 
 Отвечай на русском языке. Будь максимально полезным и информативным!`
     }
 
-    console.log('Making request to OpenRouter with model: anthropic/claude-3.5-sonnet')
+    console.log('Making request to OpenRouter with model: openai/gpt-4o-mini')
     console.log('Messages count:', messages.length)
 
     const requestBody = {
