@@ -45,7 +45,7 @@ export default async function handler(
 
 Я помогу в��м с:
 • Созданием современных веб-сайтов
-• Раз��аботкой веб-приложений с AI
+• Разработкой веб-приложений с AI
 • UI/UX дизайном и интерфейсами
 • Интеграцией AI в ваши проекты
 
@@ -99,7 +99,7 @@ export default async function handler(
 🤖 **AI интеграция:**
 • Чат-боты и виртуальные ассистенты
 • Анализ данных и автоматизация
-• Персонализация пользовательского опыта
+• Персонализация п��льзовательского опыта
 
 🎨 **Дизайн и UX:**
 • Современный UI/UX дизайн
@@ -136,13 +136,13 @@ export default async function handler(
       }
       // AI questions
       else if (lastMessage.includes('искусственный интеллект') || lastMessage.includes('машинное обучение') || lastMessage.includes('ai') || lastMessage.includes('ии')) {
-        response = `🤖 AI интеграция - моя специализация!
+        response = `🤖 AI интеграция - моя специализа��ия!
 
 **Что я могу интегрировать:**
 • Умные чат-боты для сайтов
 • Системы рекомендаций
 • Автомати��еская обработка данных
-• Анализ пользова��ельского поведения
+• Анализ пользовательского поведения
 • Персонализация контента
 
 **Примеры проектов:**
@@ -196,7 +196,7 @@ export default async function handler(
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-ра��работке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
@@ -224,7 +224,7 @@ export default async function handler(
 
 📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
-• Pro (4,000,000 с��м) - веб-приложения с AI интеграцией
+• Pro (4,000,000 сум) - веб-приложения с AI интеграцией
 • Max (5,000,000 сум) - корпоративные и enterprise решения
 
 📞 КОНТАКТЫ: @jarvis_ai_dev в Telegram, hello@jarvis-ai.uz
@@ -236,10 +236,10 @@ export default async function handler(
     console.log('Messages count:', messages.length)
 
     const requestBody = {
-      model: 'anthropic/claude-3.5-sonnet',
+      model: 'openai/gpt-4o-mini',
       messages: [systemMessage, ...messages],
       temperature: 0.7,
-      max_tokens: 2000,
+      max_tokens: 1500,
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0
@@ -288,7 +288,7 @@ export default async function handler(
     console.error('Chat API error:', error)
     
     // Возвращаем дружелюбное сообщение об ошибке
-    const fallbackMessage = "Извините, произошла временная о��ибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишите в Telegram @jarvis_ai_dev для прямой связи."
+    const fallbackMessage = "Извините, произошла временная ошибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишите в Telegram @jarvis_ai_dev для прямой связи."
     
     return res.status(500).json({ 
       message: fallbackMessage,
