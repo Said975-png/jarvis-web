@@ -38,7 +38,7 @@ export default async function handler(
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник для веб-разработки. Ты специализируешься на:
+      content: `Ты ДЖАРВИС - продвинутый AI-помощник для веб-разработки. Ты спе��иализируешься на:
 
 🔥 Веб-разработке и программировании
 🎨 UI/UX дизайне и создании интерфейсов  
@@ -70,10 +70,10 @@ export default async function handler(
         'X-Title': 'JARVIS AI Web Development'
       },
       body: JSON.stringify({
-        model: 'anthropic/claude-3.5-sonnet',
+        model: 'anthropic/claude-3-haiku',
         messages: [systemMessage, ...messages],
         temperature: 0.7,
-        max_tokens: 1000,
+        max_tokens: 500,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0
