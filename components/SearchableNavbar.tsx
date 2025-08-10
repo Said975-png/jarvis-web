@@ -11,19 +11,19 @@ import { useRouter } from 'next/router'
 const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
-  { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'М�� объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
+  { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
   { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
   { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
   { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
-  { title: 'Basic план', description: 'Стар��овое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
+  { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Современный дизайн', description: 'Создание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
   { title: 'Высокая производительность', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
   { title: 'ИИ интеграция', description: 'Интеграция искусственного интеллекта в ваши проекты', url: '/', section: 'Функции' },
-  { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24/7', url: '/', section: 'Услуги' },
+  { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24/7', url: '/', section: 'У��луги' },
   { title: 'SEO оптимизация', description: 'Оптимизация сайта для поисковых систем', url: '/', section: 'Услуги' },
   { title: 'Адаптивная верстка', description: 'Создание сайтов, работающих на всех устройствах', url: '/', section: 'Услуги' },
   { title: 'Корзина', description: 'Просмотр добавленных товаров и оформление заказа', url: '/', section: 'Покупки' },
@@ -762,6 +762,39 @@ export default function SearchableNavbar() {
         .nav-links-wrapper-chatgpt {
           display: flex;
           align-items: center;
+        }
+
+        .theme-toggle-container-chatgpt {
+          margin-right: 8px;
+        }
+
+        .theme-toggle-button-chatgpt {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 8px;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .theme-toggle-button-chatgpt:hover {
+          background: #f5f5f5;
+        }
+
+        .navbar-chatgpt.dark-theme .theme-toggle-button-chatgpt:hover {
+          background: #333333;
+        }
+
+        .theme-icon-chatgpt {
+          color: #000000;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-chatgpt.dark-theme .theme-icon-chatgpt {
+          color: #ffffff;
         }
 
         .cart-container-chatgpt {
