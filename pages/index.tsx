@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import SearchableNavbar from '../components/SearchableNavbar'
 import Hero from '../components/Hero'
@@ -7,6 +8,7 @@ import Benefits from '../components/Benefits'
 import ChatManager from '../components/ChatManager'
 import Footer from '../components/Footer'
 import ShineEffect from '../components/ShineEffect'
+import LoadingAnimation from '../components/LoadingAnimation'
 
 export default function Home() {
   return (
