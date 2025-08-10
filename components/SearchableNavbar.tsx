@@ -14,7 +14,7 @@ const searchData = [
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
   { title: 'Созда��м веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
-  { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
+  { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов �� помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
   { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
   { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
@@ -242,7 +242,7 @@ export default function SearchableNavbar() {
             <div className="theme-toggle-container-chatgpt">
               <button
                 className="theme-toggle-button-chatgpt"
-                onClick={() => setIsDarkTheme(!isDarkTheme)}
+                onClick={toggleTheme}
                 aria-label="Переключить тему"
               >
                 {isDarkTheme ? (
