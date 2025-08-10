@@ -13,14 +13,14 @@ const searchData = [
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
   { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
-  { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
+  { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучен��я', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
   { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
   { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
   { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
-  { title: 'Современный дизайн', description: 'Соз��ание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
+  { title: 'Современн��й дизайн', description: 'Создание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
   { title: 'Высокая производительность', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
   { title: 'ИИ интеграция', description: 'Интеграция искусственного интеллекта в ваши проекты', url: '/', section: 'Функции' },
   { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24/7', url: '/', section: 'Услуги' },
@@ -242,7 +242,7 @@ export default function SearchableNavbar() {
               <button
                 className="theme-toggle-button-chatgpt"
                 onClick={() => setIsDarkTheme(!isDarkTheme)}
-                aria-label="Пере��лючить тему"
+                aria-label="Переключить тему"
               >
                 {isDarkTheme ? (
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="theme-icon-chatgpt">
@@ -1106,6 +1106,15 @@ export default function SearchableNavbar() {
 
         .auth-button-chatgpt:hover {
           background: #333333;
+        }
+
+        .navbar-chatgpt.dark-theme .auth-button-chatgpt {
+          background: #ffffff;
+          color: #000000;
+        }
+
+        .navbar-chatgpt.dark-theme .auth-button-chatgpt:hover {
+          background: #f0f0f0;
         }
 
         .user-menu-chatgpt {
