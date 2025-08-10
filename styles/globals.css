@@ -1510,68 +1510,6 @@ body::after {
   background: var(--color-primary);
 }
 
-/* Улучшение читаемости текста при яркой перемещающейся сфере */
-h1, h2, h3, h4, h5, h6 {
-  text-shadow:
-    0 0 10px rgba(0, 0, 0, 0.9),
-    0 0 20px rgba(0, 0, 0, 0.7),
-    0 0 30px rgba(0, 0, 0, 0.5) !important;
-  font-weight: 600 !important;
-}
-
-p, span, div, button, a {
-  text-shadow:
-    0 0 8px rgba(0, 0, 0, 0.8),
-    0 0 16px rgba(0, 0, 0, 0.6),
-    0 0 24px rgba(0, 0, 0, 0.4) !important;
-}
-
-/* Дополнительная защита для основных контейнеров */
-.hero-content-chatgpt,
-.pricing-card-chatgpt,
-.feature-card-chatgpt,
-.benefits-section-chatgpt,
-.features-section-chatgpt {
-  backdrop-filter: blur(3px) !important;
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-radius: 16px !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Для темной темы */
-body.dark-theme .hero-content-chatgpt,
-body.dark-theme .pricing-card-chatgpt,
-body.dark-theme .feature-card-chatgpt,
-body.dark-theme .benefits-section-chatgpt,
-body.dark-theme .features-section-chatgpt {
-  background: rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Особая защита для заголовков */
-.hero-title-chatgpt,
-.pricing-title-chatgpt,
-.features-title-chatgpt,
-.benefits-title-chatgpt {
-  text-shadow:
-    0 0 15px rgba(0, 0, 0, 1),
-    0 0 30px rgba(0, 0, 0, 0.8),
-    0 0 45px rgba(0, 0, 0, 0.6) !important;
-  font-weight: 700 !important;
-}
-
-/* Кнопки должны быть хорошо видны */
-.primary-button-chatgpt,
-.secondary-button-chatgpt,
-.plan-button-chatgpt {
-  box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(0, 0, 0, 0.3) !important;
-  border: 2px solid rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(4px) !important;
-}
-
 
 /* Section Dividers */
 .section-divider {
