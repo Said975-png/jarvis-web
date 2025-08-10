@@ -411,7 +411,7 @@ export default function SearchableNavbar() {
                           <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
                         </svg>
-                        Личный кабинет
+                        Личный ��абинет
                       </button>
                       <div className="dropdown-divider-chatgpt"></div>
                       <button
@@ -573,8 +573,8 @@ export default function SearchableNavbar() {
 
         .navbar-chatgpt.dark-theme .search-wrapper-chatgpt.focused {
           background: #444444;
-          border-color: #ffffff;
-          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+          border-color: #666666;
+          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
         }
 
         .search-icon-chatgpt {
