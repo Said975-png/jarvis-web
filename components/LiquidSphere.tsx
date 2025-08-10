@@ -28,23 +28,6 @@ export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
 
     // Animation variables
     let time = 0
-    
-    // Droplets system
-    const droplets = []
-    const maxDroplets = 6
-    
-    // Initialize droplets
-    for (let i = 0; i < maxDroplets; i++) {
-      droplets.push({
-        angle: (i / maxDroplets) * Math.PI * 2,
-        distance: 0,
-        size: 0,
-        phase: Math.random() * Math.PI * 2,
-        speed: 0.02 + Math.random() * 0.01,
-        maxDistance: 80 + Math.random() * 40,
-        opacity: 0
-      })
-    }
 
     const animate = () => {
       const width = canvas.clientWidth
