@@ -624,89 +624,12 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           display: none;
         }
 
-        .sidebar-footer {
-          border-top: 1px solid rgba(0, 0, 0, 0.08);
-          padding: 16px;
-          flex-shrink: 0;
-        }
-
-        .chatgpt-overlay.dark .sidebar-footer {
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .user-info {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding: 12px;
-          border-radius: 12px;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          background: rgba(0, 0, 0, 0.03);
-          border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .chatgpt-overlay.dark .user-info {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .user-info:hover {
-          background: rgba(59, 130, 246, 0.1);
-          border-color: rgba(59, 130, 246, 0.2);
-        }
-
-        .user-avatar-footer {
-          width: 36px;
-          height: 36px;
-          background: linear-gradient(135deg, #64748b, #475569);
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          flex-shrink: 0;
-        }
-
-        .user-details {
-          flex: 1;
-          min-width: 0;
-        }
-
-        .user-name {
-          font-size: 14px;
-          font-weight: 600;
-          color: #1e293b;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          margin: 0;
-          line-height: 1.3;
-        }
-
-        .chatgpt-overlay.dark .user-name {
-          color: #f1f5f9;
-        }
-
-        .user-status {
-          font-size: 12px;
-          color: #10b981;
-          margin: 0;
-          line-height: 1.2;
-          font-weight: 500;
-        }
-
-        /* Enhanced Main Chat */
+        /* ChatGPT Main Chat */
         .chatgpt-main {
           flex: 1;
           display: flex;
           flex-direction: column;
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(20px);
-        }
-
-        .chatgpt-overlay.dark .chatgpt-main {
-          background: rgba(30, 41, 59, 0.9);
+          background: #ffffff;
         }
 
         .chat-header {
