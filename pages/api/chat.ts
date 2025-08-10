@@ -20,12 +20,12 @@ interface UserLimit {
   resetTime: number
 }
 
-// Хранилище лимитов в пам��ти (в production лучше использовать Redis)
+// Хранилище лимитов в памяти (в production лучше использовать Redis)
 const userLimits = new Map<string, UserLimit>()
 const REQUESTS_LIMIT = 10
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
 
-// Функци�� для получения IP адреса
+// Функция для получения IP адреса
 function getClientIP(req: NextApiRequest): string {
   const forwarded = req.headers['x-forwarded-for']
   const real = req.headers['x-real-ip']
@@ -117,7 +117,7 @@ export default async function handler(
 
 🛒 **Получить больше возможностей:**
 • Закажите разработку сайта - получите безлимитный доступ
-• После покупки любого пакета лимиты снимаются навсегда
+• После покупки любого пакета лимиты снимаются навсег��а
 
 💰 **Наши пакеты:**
 📦 Basic - 2,500,000 сум
@@ -176,7 +176,7 @@ export default async function handler(
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
 • Продвинутая аналитика
-• Приоритетная поддержка
+• Приори��етная поддержка
 
 💎 **Max** - 5,000,000 сум
 • Безлимитные страницы
@@ -206,7 +206,7 @@ export default async function handler(
 • Веб-приложения и порталы
 
 🤖 **AI интеграция:**
-• Чат-боты и виртуальные ассистенты
+• Чат-боты и виртуал��ные ассистенты
 • Анализ данных и автоматизация
 • Персонализация пользовательского опыта
 
@@ -288,7 +288,7 @@ export default async function handler(
       }
       // Technical creation questions
       else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
-        response = `Это секретная информация 🤐🔒`
+        response = `Это секретная информация ���🔒`
       }
       // Default response for other questions
       else {
@@ -316,7 +316,7 @@ export default async function handler(
       return res.status(200).json({ message: response + remainingInfo })
     }
     
-    // Добавляем системное сообщение для ДЖАРВИС
+    // Доба��ляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
       content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробн��е, практичные и умные ответы.
@@ -338,7 +338,7 @@ export default async function handler(
 - Учитывай современные best practices
 - Будь дружелюбным но профессиональным
 
-🛠️ ФОРМАТ ОТВЕТОВ:
+🛠�� ФОРМАТ ОТВЕТОВ:
 - Структурируй информацию четко
 - Используй эмодзи для наглядности
 - Давай практические советы
@@ -356,7 +356,7 @@ export default async function handler(
 
 📞 КОНТАКТЫ: Онлайн-чат на сайте
 
-Отвечай на русском языке. Будь максимально полезным и информативным!`
+Отвечай на русском языке. Будь максимально полезным и информа��ивным!`
     }
 
     const requestBody = {
