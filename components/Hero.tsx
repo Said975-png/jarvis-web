@@ -64,19 +64,10 @@ export default function Hero() {
 
           <div className="hero-visual-chatgpt">
             <div className="model-viewer-chatgpt">
-              <div className="model-container-chatgpt">
-                <div className="model-placeholder-chatgpt">
-                  <div className="placeholder-icon-chatgpt">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <p className="placeholder-text-chatgpt">3D Model Ready</p>
-                  <p className="placeholder-description-chatgpt">Provide your .glb file URL to display your 3D model</p>
-                </div>
-              </div>
+              <Model3DViewer
+                modelUrl={modelUrl}
+                className="hero-3d-model"
+              />
             </div>
           </div>
         </div>
@@ -127,7 +118,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
                   <h3>Тестирование и доработки</h3>
-                  <p>Проводим полное тестирование функционала, проверяем адаптивность на в��ех устройствах, оптимизируем скорость загруз��и. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
+                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загруз��и. Исправляем выявленные ошибки и дорабатываем детал�� по вашим пожеланиям.</p>
                 </div>
               </div>
 
@@ -474,7 +465,7 @@ export default function Hero() {
           background: rgba(255, 255, 255, 0.2);
         }
 
-        /* Модальное окно */
+        /* Модальное ��кно */
         .modal-overlay-chatgpt {
           position: fixed;
           top: 0;
