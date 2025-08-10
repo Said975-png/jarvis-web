@@ -47,7 +47,7 @@ export default function Footer() {
               <span className="footer-logo-text-chatgpt">JARVIS</span>
             </div>
             <p className="footer-description-chatgpt">
-              Создаем веб-��ешения будущего с помощью искусственного интеллекта. 
+              Создаем веб-решения будущего с помощью искусственного интеллекта. 
               Современные технологии для вашего бизнеса.
             </p>
           </div>
