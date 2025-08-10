@@ -542,3 +542,82 @@ body.dark-theme .chat-close-button-chatgpt:hover {
   color: #ffffff !important;
   background-color: #333333 !important;
 }
+
+/* Универсальные стили для всех остальных элементов */
+body.dark-theme *[class*="-chatgpt"] {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* Все элементы с фоном белого цвета */
+body.dark-theme *[style*="background: #ffffff"],
+body.dark-theme *[style*="background-color: #ffffff"],
+body.dark-theme *[style*="background: white"],
+body.dark-theme *[style*="background-color: white"] {
+  background-color: #111111 !important;
+}
+
+/* Все элементы с черным текстом */
+body.dark-theme *[style*="color: #000000"],
+body.dark-theme *[style*="color: black"] {
+  color: #ffffff !important;
+}
+
+/* Все элементы с серым текстом */
+body.dark-theme *[style*="color: #666666"],
+body.dark-theme *[style*="color: #999999"] {
+  color: #cccccc !important;
+}
+
+/* Все границы */
+body.dark-theme *[style*="border"] {
+  border-color: #333333 !important;
+}
+
+/* Дополнительные универсальные классы */
+body.dark-theme .text-black {
+  color: #ffffff !important;
+}
+
+body.dark-theme .text-gray {
+  color: #cccccc !important;
+}
+
+body.dark-theme .bg-white {
+  background-color: #111111 !important;
+}
+
+body.dark-theme .bg-gray {
+  background-color: #222222 !important;
+}
+
+body.dark-theme .border-gray {
+  border-color: #333333 !important;
+}
+
+/* Убеждаемся что все кнопки и интеракти��ные элементы видны */
+body.dark-theme button,
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+  color: inherit !important;
+}
+
+body.dark-theme button:not([style*="background"]):not([class*="primary"]):not([class*="secondary"]) {
+  background-color: #222222 !important;
+  color: #ffffff !important;
+  border: 1px solid #444444 !important;
+}
+
+body.dark-theme input:not([type="submit"]):not([type="button"]):not([style*="background"]),
+body.dark-theme textarea:not([style*="background"]),
+body.dark-theme select:not([style*="background"]) {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border: 1px solid #555555 !important;
+}
+
+/* Placeholder для всех инпутов */
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+  color: #888888 !important;
+}
