@@ -810,28 +810,29 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
           background: transparent;
           resize: none;
           outline: none;
-          font-size: 14px;
+          font-size: 15px;
           line-height: 1.5;
           max-height: 120px;
-          min-height: 20px;
-          color: #000000;
+          min-height: 24px;
+          color: #374151;
           font-family: inherit;
+          font-weight: 400;
         }
 
         .jarvis-textarea::placeholder {
-          color: #999999;
+          color: #9ca3af;
         }
 
         .jarvis-textarea:disabled {
-          color: #999999;
+          color: #9ca3af;
         }
 
         .jarvis-send-btn {
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
+          width: 36px;
+          height: 36px;
+          border-radius: 8px;
           border: none;
-          background: #000000;
+          background: #374151;
           color: #ffffff;
           display: flex;
           align-items: center;
@@ -842,12 +843,12 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
         }
 
         .jarvis-send-btn:hover:not(:disabled) {
-          background: #333333;
+          background: #1f2937;
         }
 
         .jarvis-send-btn:disabled {
-          background: #e5e5e5;
-          color: #999999;
+          background: #e5e7eb;
+          color: #9ca3af;
           cursor: not-allowed;
         }
 
