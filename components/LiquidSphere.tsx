@@ -26,19 +26,23 @@ export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
     updateSize()
     window.addEventListener('resize', updateSize)
 
-    // Liquid sphere animation variables
+    // Animation variables
     let time = 0
-    const points = []
-    const numPoints = 12
-
-    // Initialize points around a circle
-    for (let i = 0; i < numPoints; i++) {
-      const angle = (i / numPoints) * Math.PI * 2
-      points.push({
-        baseAngle: angle,
-        radius: 0,
-        x: 0,
-        y: 0
+    
+    // Droplets system
+    const droplets = []
+    const maxDroplets = 6
+    
+    // Initialize droplets
+    for (let i = 0; i < maxDroplets; i++) {
+      droplets.push({
+        angle: (i / maxDroplets) * Math.PI * 2,
+        distance: 0,
+        size: 0,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.02 + Math.random() * 0.01,
+        maxDistance: 80 + Math.random() * 40,
+        opacity: 0
       })
     }
 
@@ -47,121 +51,160 @@ export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
       const height = canvas.clientHeight
       const centerX = width / 2
       const centerY = height / 2
-      const baseRadius = Math.min(width, height) / 4
+      const sphereRadius = Math.min(width, height) / 5
 
-      // Clear canvas
+      // Clear canvas with transparent background
       ctx.clearRect(0, 0, width, height)
 
-      // Create animated gradient background
-      const bgGradient = ctx.createRadialGradient(
-        centerX, centerY, 0,
-        centerX, centerY, Math.max(width, height)
+      // Create main liquid sphere (more circular)
+      const sphereWave = Math.sin(time * 2) * 8 + Math.cos(time * 1.5) * 5
+      const actualRadius = sphereRadius + sphereWave
+
+      // Draw main sphere with liquid gradient
+      const sphereGradient = ctx.createRadialGradient(
+        centerX - sphereRadius * 0.3, 
+        centerY - sphereRadius * 0.3, 
+        0,
+        centerX, 
+        centerY, 
+        actualRadius * 1.2
       )
-      const colorShift = Math.sin(time * 0.5) * 0.1 + 0.9
-      bgGradient.addColorStop(0, `rgba(99, 102, 241, ${0.05 * colorShift})`)
-      bgGradient.addColorStop(0.5, `rgba(139, 92, 246, ${0.03 * colorShift})`)
-      bgGradient.addColorStop(1, `rgba(6, 182, 212, ${0.02 * colorShift})`)
-      ctx.fillStyle = bgGradient
-      ctx.fillRect(0, 0, width, height)
+      
+      const hueShift = time * 20
+      sphereGradient.addColorStop(0, `hsl(${220 + hueShift}, 85%, 75%)`)
+      sphereGradient.addColorStop(0.4, `hsl(${240 + hueShift}, 75%, 65%)`)
+      sphereGradient.addColorStop(0.8, `hsl(${260 + hueShift}, 65%, 55%)`)
+      sphereGradient.addColorStop(1, `hsl(${280 + hueShift}, 55%, 45%)`)
 
-      // Update points with liquid motion
-      points.forEach((point, i) => {
-        const waveOffset = Math.sin(time * 2 + i * 0.5) * 20
-        const secondaryWave = Math.cos(time * 3 + i * 0.3) * 10
-        const tertiaryWave = Math.sin(time * 1.5 + i * 0.8) * 15
-        
-        point.radius = baseRadius + waveOffset + secondaryWave + tertiaryWave
-        
-        const dynamicAngle = point.baseAngle + Math.sin(time + i * 0.2) * 0.1
-        point.x = centerX + Math.cos(dynamicAngle) * point.radius
-        point.y = centerY + Math.sin(dynamicAngle) * point.radius
-      })
-
-      // Create liquid sphere shape
+      // Draw sphere with subtle distortion for liquid effect
       ctx.beginPath()
-      if (points.length > 0) {
-        // Start from first point
-        ctx.moveTo(points[0].x, points[0].y)
+      for (let i = 0; i <= 360; i += 5) {
+        const angle = (i * Math.PI) / 180
+        const distortion = Math.sin(angle * 4 + time * 3) * 3 + Math.cos(angle * 6 + time * 2) * 2
+        const radius = actualRadius + distortion
+        const x = centerX + Math.cos(angle) * radius
+        const y = centerY + Math.sin(angle) * radius
         
-        // Create smooth curves between points
-        for (let i = 0; i < points.length; i++) {
-          const currentPoint = points[i]
-          const nextPoint = points[(i + 1) % points.length]
-          
-          // Calculate control points for smooth curves
-          const controlDistance = 40
-          const angle1 = Math.atan2(nextPoint.y - currentPoint.y, nextPoint.x - currentPoint.x)
-          const angle2 = angle1 + Math.PI
-          
-          const cp1x = currentPoint.x + Math.cos(angle1) * controlDistance
-          const cp1y = currentPoint.y + Math.sin(angle1) * controlDistance
-          const cp2x = nextPoint.x + Math.cos(angle2) * controlDistance
-          const cp2y = nextPoint.y + Math.sin(angle2) * controlDistance
-          
-          ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, nextPoint.x, nextPoint.y)
+        if (i === 0) {
+          ctx.moveTo(x, y)
+        } else {
+          ctx.lineTo(x, y)
         }
       }
       ctx.closePath()
 
-      // Create liquid gradient
-      const liquidGradient = ctx.createRadialGradient(
-        centerX - baseRadius * 0.3, 
-        centerY - baseRadius * 0.3, 
-        0,
-        centerX, 
-        centerY, 
-        baseRadius * 1.5
-      )
-      
-      const hueShift = time * 30
-      liquidGradient.addColorStop(0, `hsl(${220 + hueShift}, 80%, 75%)`)
-      liquidGradient.addColorStop(0.3, `hsl(${240 + hueShift}, 70%, 65%)`)
-      liquidGradient.addColorStop(0.7, `hsl(${260 + hueShift}, 60%, 55%)`)
-      liquidGradient.addColorStop(1, `hsl(${280 + hueShift}, 50%, 45%)`)
-
       // Apply gradient and glow
-      ctx.fillStyle = liquidGradient
-      ctx.shadowBlur = 30
+      ctx.fillStyle = sphereGradient
+      ctx.shadowBlur = 25
       ctx.shadowColor = `hsl(${240 + hueShift}, 70%, 60%)`
       ctx.fill()
 
-      // Add inner highlights
+      // Add highlight on sphere
       ctx.shadowBlur = 0
       const highlightGradient = ctx.createRadialGradient(
-        centerX - baseRadius * 0.4,
-        centerY - baseRadius * 0.4,
+        centerX - sphereRadius * 0.4,
+        centerY - sphereRadius * 0.4,
         0,
-        centerX - baseRadius * 0.2,
-        centerY - baseRadius * 0.2,
-        baseRadius * 0.6
+        centerX - sphereRadius * 0.2,
+        centerY - sphereRadius * 0.2,
+        sphereRadius * 0.8
       )
-      highlightGradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)')
-      highlightGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.3)')
+      highlightGradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)')
+      highlightGradient.addColorStop(0.3, 'rgba(255, 255, 255, 0.4)')
       highlightGradient.addColorStop(1, 'rgba(255, 255, 255, 0)')
 
       ctx.fillStyle = highlightGradient
       ctx.fill()
 
-      // Add surface ripples
-      for (let i = 0; i < 3; i++) {
-        const rippleTime = time * 4 + i * Math.PI * 0.7
-        const rippleRadius = (Math.sin(rippleTime) * 0.5 + 0.5) * baseRadius * 0.3
-        const rippleOpacity = (Math.sin(rippleTime) * 0.5 + 0.5) * 0.3
+      // Update and draw droplets
+      droplets.forEach((droplet, index) => {
+        // Update droplet position and size
+        const cyclePhase = Math.sin(time * droplet.speed + droplet.phase)
         
-        ctx.beginPath()
-        ctx.arc(
-          centerX + Math.cos(rippleTime * 0.3) * baseRadius * 0.2,
-          centerY + Math.sin(rippleTime * 0.2) * baseRadius * 0.2,
-          rippleRadius,
-          0,
-          Math.PI * 2
-        )
-        ctx.strokeStyle = `rgba(255, 255, 255, ${rippleOpacity})`
-        ctx.lineWidth = 2
-        ctx.stroke()
-      }
+        if (cyclePhase > 0) {
+          // Droplet moving out
+          droplet.distance = (cyclePhase) * droplet.maxDistance
+          droplet.size = Math.min(cyclePhase * 8, 8) * (0.8 + Math.random() * 0.4)
+          droplet.opacity = Math.min(cyclePhase * 2, 1)
+        } else {
+          // Droplet moving back in
+          droplet.distance = (-cyclePhase) * droplet.maxDistance
+          droplet.size = Math.min((-cyclePhase) * 6, 6) * (0.8 + Math.random() * 0.4)
+          droplet.opacity = Math.min((-cyclePhase) * 2, 1)
+        }
 
-      time += 0.02
+        // Calculate droplet position
+        const dropletX = centerX + Math.cos(droplet.angle + time * 0.5) * (actualRadius + droplet.distance)
+        const dropletY = centerY + Math.sin(droplet.angle + time * 0.5) * (actualRadius + droplet.distance)
+
+        // Draw droplet
+        if (droplet.size > 0 && droplet.opacity > 0) {
+          const dropletGradient = ctx.createRadialGradient(
+            dropletX - droplet.size * 0.3,
+            dropletY - droplet.size * 0.3,
+            0,
+            dropletX,
+            dropletY,
+            droplet.size
+          )
+          
+          dropletGradient.addColorStop(0, `hsla(${220 + hueShift}, 85%, 75%, ${droplet.opacity})`)
+          dropletGradient.addColorStop(0.6, `hsla(${240 + hueShift}, 75%, 65%, ${droplet.opacity * 0.8})`)
+          dropletGradient.addColorStop(1, `hsla(${260 + hueShift}, 65%, 55%, ${droplet.opacity * 0.3})`)
+
+          ctx.beginPath()
+          ctx.arc(dropletX, dropletY, droplet.size, 0, Math.PI * 2)
+          ctx.fillStyle = dropletGradient
+          ctx.shadowBlur = 8
+          ctx.shadowColor = `hsla(${240 + hueShift}, 70%, 60%, ${droplet.opacity * 0.5})`
+          ctx.fill()
+
+          // Add highlight to droplet
+          ctx.shadowBlur = 0
+          const dropletHighlight = ctx.createRadialGradient(
+            dropletX - droplet.size * 0.4,
+            dropletY - droplet.size * 0.4,
+            0,
+            dropletX - droplet.size * 0.2,
+            dropletY - droplet.size * 0.2,
+            droplet.size * 0.6
+          )
+          dropletHighlight.addColorStop(0, `rgba(255, 255, 255, ${droplet.opacity * 0.8})`)
+          dropletHighlight.addColorStop(1, 'rgba(255, 255, 255, 0)')
+          
+          ctx.fillStyle = dropletHighlight
+          ctx.fill()
+        }
+
+        // Draw connection trail from sphere to droplet
+        if (droplet.distance > 5 && droplet.opacity > 0.3) {
+          const connectionStartX = centerX + Math.cos(droplet.angle + time * 0.5) * actualRadius
+          const connectionStartY = centerY + Math.sin(droplet.angle + time * 0.5) * actualRadius
+          
+          const trailGradient = ctx.createLinearGradient(
+            connectionStartX, connectionStartY,
+            dropletX, dropletY
+          )
+          trailGradient.addColorStop(0, `hsla(${240 + hueShift}, 70%, 60%, ${droplet.opacity * 0.6})`)
+          trailGradient.addColorStop(0.5, `hsla(${250 + hueShift}, 65%, 55%, ${droplet.opacity * 0.3})`)
+          trailGradient.addColorStop(1, `hsla(${260 + hueShift}, 60%, 50%, 0)`)
+
+          ctx.beginPath()
+          ctx.moveTo(connectionStartX, connectionStartY)
+          ctx.lineTo(dropletX, dropletY)
+          ctx.strokeStyle = trailGradient
+          ctx.lineWidth = Math.max(1, droplet.size * 0.3)
+          ctx.lineCap = 'round'
+          ctx.shadowBlur = 4
+          ctx.shadowColor = `hsla(${240 + hueShift}, 70%, 60%, ${droplet.opacity * 0.3})`
+          ctx.stroke()
+        }
+      })
+
+      // Reset shadow for next frame
+      ctx.shadowBlur = 0
+
+      time += 0.03
       requestAnimationFrame(animate)
     }
 
@@ -169,7 +212,7 @@ export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
     setTimeout(() => {
       setIsLoaded(true)
       animate()
-    }, 300)
+    }, 200)
 
     return () => {
       window.removeEventListener('resize', updateSize)
@@ -185,7 +228,7 @@ export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
           width: '100%', 
           height: '100%',
           opacity: isLoaded ? 1 : 0,
-          transition: 'opacity 0.8s ease'
+          transition: 'opacity 1s ease'
         }} 
       />
       
@@ -198,33 +241,19 @@ export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
         </div>
       )}
 
-      {/* Floating particles */}
-      <div className="floating-particles">
-        {[...Array(8)].map((_, i) => (
-          <div 
-            key={i} 
-            className="particle" 
-            style={{ 
-              animationDelay: `${i * 0.5}s`,
-              left: `${20 + i * 10}%`,
-              animationDuration: `${4 + i * 0.5}s`
-            }} 
-          />
-        ))}
-      </div>
-
       <style jsx>{`
         .liquid-sphere-container {
           position: relative;
           width: 100%;
           height: 100%;
-          border-radius: 20px;
-          overflow: hidden;
-          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+          background: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .liquid-sphere-canvas {
-          border-radius: 20px;
+          background: transparent;
         }
 
         .liquid-sphere-loading {
@@ -237,29 +266,28 @@ export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(4px);
+          background: transparent;
         }
 
         .loading-orb {
-          width: 60px;
-          height: 60px;
+          width: 50px;
+          height: 50px;
           border-radius: 50%;
           background: linear-gradient(45deg, #6366f1, #8b5cf6, #ec4899);
           background-size: 200% 200%;
           animation: liquidPulse 2s ease-in-out infinite, gradientShift 3s ease-in-out infinite;
-          margin-bottom: 16px;
+          margin-bottom: 12px;
           position: relative;
-          box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+          box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
         }
 
         .orb-inner {
           position: absolute;
-          top: 15%;
-          left: 20%;
-          width: 30%;
-          height: 30%;
-          background: rgba(255, 255, 255, 0.8);
+          top: 20%;
+          left: 25%;
+          width: 25%;
+          height: 25%;
+          background: rgba(255, 255, 255, 0.9);
           border-radius: 50%;
           filter: blur(1px);
         }
@@ -269,25 +297,7 @@ export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
           font-size: 14px;
           color: #666666;
           font-weight: 500;
-        }
-
-        .floating-particles {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          pointer-events: none;
-        }
-
-        .particle {
-          position: absolute;
-          width: 4px;
-          height: 4px;
-          background: linear-gradient(45deg, #6366f1, #8b5cf6);
-          border-radius: 50%;
-          animation: float 4s ease-in-out infinite;
-          opacity: 0.6;
+          text-align: center;
         }
 
         @keyframes liquidPulse {
@@ -295,7 +305,7 @@ export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
             transform: scale(1);
           }
           50% {
-            transform: scale(1.1);
+            transform: scale(1.15);
           }
         }
 
@@ -311,38 +321,9 @@ export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
           }
         }
 
-        @keyframes float {
-          0% {
-            transform: translateY(100vh) scale(0);
-            opacity: 0;
-          }
-          10% {
-            opacity: 1;
-          }
-          90% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(-20px) scale(1);
-            opacity: 0;
-          }
-        }
-
         /* Dark theme support */
-        :global(body.dark-theme) .liquid-sphere-container {
-          background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-        }
-
-        :global(body.dark-theme) .liquid-sphere-loading {
-          background: rgba(17, 17, 17, 0.95);
-        }
-
         :global(body.dark-theme) .liquid-sphere-loading p {
           color: #ffffff;
-        }
-
-        :global(body.dark-theme) .particle {
-          background: linear-gradient(45deg, #8b5cf6, #ec4899);
         }
       `}</style>
     </div>
