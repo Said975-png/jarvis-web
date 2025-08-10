@@ -107,7 +107,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
     try {
       const apiMessages = conversationHistory
-        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?')
+        .filter(msg => msg.text !== 'Приве��! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?')
         .map(msg => ({
           role: msg.isUser ? 'user' as const : 'assistant' as const,
           content: msg.text
@@ -861,34 +861,46 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .sidebar-footer {
-          border-top: 1px solid #4d4d4f;
-          padding: 12px;
+          border-top: 1px solid rgba(0, 0, 0, 0.08);
+          padding: 16px;
           flex-shrink: 0;
+        }
+
+        .chatgpt-overlay.dark .sidebar-footer {
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .user-info {
           display: flex;
           align-items: center;
           gap: 12px;
-          padding: 8px 12px;
-          border-radius: 6px;
+          padding: 12px;
+          border-radius: 12px;
           cursor: pointer;
-          transition: background-color 0.15s ease;
+          transition: all 0.2s ease;
+          background: rgba(0, 0, 0, 0.03);
+          border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .chatgpt-overlay.dark .user-info {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .user-info:hover {
-          background: #40414f;
+          background: rgba(59, 130, 246, 0.1);
+          border-color: rgba(59, 130, 246, 0.2);
         }
 
         .user-avatar-footer {
-          width: 32px;
-          height: 32px;
-          background: #40414f;
-          border-radius: 50%;
+          width: 36px;
+          height: 36px;
+          background: linear-gradient(135deg, #64748b, #475569);
+          border-radius: 10px;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #ececf1;
+          color: white;
           flex-shrink: 0;
         }
 
@@ -899,8 +911,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
         .user-name {
           font-size: 14px;
-          font-weight: 500;
-          color: #ececf1;
+          font-weight: 600;
+          color: #1e293b;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -908,19 +920,29 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           line-height: 1.3;
         }
 
-        .user-plan {
-          font-size: 12px;
-          color: #8e8ea0;
-          margin: 0;
-          line-height: 1.2;
+        .chatgpt-overlay.dark .user-name {
+          color: #f1f5f9;
         }
 
-        /* Main Chat */
+        .user-status {
+          font-size: 12px;
+          color: #10b981;
+          margin: 0;
+          line-height: 1.2;
+          font-weight: 500;
+        }
+
+        /* Enhanced Main Chat */
         .chatgpt-main {
           flex: 1;
           display: flex;
           flex-direction: column;
-          background: #fff;
+          background: rgba(255, 255, 255, 0.9);
+          backdrop-filter: blur(20px);
+        }
+
+        .chatgpt-overlay.dark .chatgpt-main {
+          background: rgba(30, 41, 59, 0.9);
         }
 
         .chat-header {
