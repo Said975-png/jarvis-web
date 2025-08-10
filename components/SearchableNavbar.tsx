@@ -19,14 +19,14 @@ const searchData = [
   { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
   { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
-  { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
+  { title: 'Max план', description: 'Премиум решение - максимум возможностей дл�� крупного бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Современный дизайн', description: 'Создание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
   { title: 'Высокая производительность', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
   { title: 'ИИ интеграция', description: 'Интеграция искусственного интеллекта в ваши проекты', url: '/', section: 'Функции' },
   { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24/7', url: '/', section: 'Услуги' },
   { title: 'SEO оптимизация', description: 'Оптимизация сайта для поисковых систем', url: '/', section: 'Услуги' },
   { title: 'Адаптивная верстка', description: 'Создание сайтов, работающих на всех устройствах', url: '/', section: 'Услуги' },
-  { title: 'Корзина', description: 'Просмотр добавленных товаров и оформление заказа', url: '/', section: 'Покупки' },
+  { title: 'Корзина', description: 'Просмотр добавленных товаров и оформление за��аза', url: '/', section: 'Покупки' },
   { title: 'Профиль', description: 'Личный кабинет пользователя', url: '/', section: 'Аккаунт' },
   { title: 'Войти', description: 'Авторизация в системе', url: '/', section: 'Аккаунт' },
   { title: 'Регистрация', description: 'Создание нового аккаунта', url: '/', section: 'Аккаунт' }
@@ -47,6 +47,7 @@ export default function SearchableNavbar() {
   const [cartOpen, setCartOpen] = useState(false)
   const [showCheckout, setShowCheckout] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isDarkTheme, setIsDarkTheme] = useState(false)
 
   // Поиск по контенту
   const handleSearch = (query: string) => {
@@ -83,7 +84,7 @@ export default function SearchableNavbar() {
         
         // Определяем целевой элемент на основе секции
         switch (item.section) {
-          case 'Заголовки':
+          case 'Загол��вки':
             targetElement = document.querySelector('.hero-section-chatgpt')
             break
           case 'Возможности':
@@ -389,7 +390,7 @@ export default function SearchableNavbar() {
                           <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
                         </svg>
-                        Личный кабинет
+                        ��ичный кабинет
                       </button>
                       <div className="dropdown-divider-chatgpt"></div>
                       <button
