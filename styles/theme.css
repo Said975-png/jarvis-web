@@ -218,7 +218,7 @@ body.dark-theme .pricing-cta-chatgpt {
   border-top: 1px solid #333333 !important;
 }
 
-/* Глобальный фо�� */
+/* Глобальный фон */
 body.dark-theme .global-background {
   background: linear-gradient(135deg, #000000 0%, #111111 100%) !important;
 }
@@ -235,4 +235,202 @@ body.dark-theme .global-orb-1 {
 
 body.dark-theme .global-orb-2 {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%) !important;
+}
+
+/* Benefits Section */
+body.dark-theme .benefits-section-chatgpt {
+  background-color: #000000 !important;
+}
+
+body.dark-theme .benefits-title-chatgpt {
+  color: #ffffff !important;
+}
+
+body.dark-theme .benefits-description-chatgpt {
+  color: #cccccc !important;
+}
+
+body.dark-theme .benefit-item-chatgpt {
+  background-color: #111111 !important;
+  border: 1px solid #333333 !important;
+}
+
+body.dark-theme .benefit-item-chatgpt:hover {
+  border-color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-theme .benefit-icon-chatgpt {
+  background-color: #222222 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .benefit-item-chatgpt h4 {
+  color: #ffffff !important;
+}
+
+body.dark-theme .benefit-item-chatgpt p {
+  color: #cccccc !important;
+}
+
+body.dark-theme .benefits-stats-chatgpt {
+  border-top: 1px solid #333333 !important;
+}
+
+body.dark-theme .stat-number-chatgpt {
+  color: #ffffff !important;
+}
+
+body.dark-theme .stat-label-chatgpt {
+  color: #cccccc !important;
+}
+
+body.dark-theme .tab-button-chatgpt {
+  background-color: transparent !important;
+  border: 1px solid #444444 !important;
+  color: #cccccc !important;
+}
+
+body.dark-theme .tab-button-chatgpt.active {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+body.dark-theme .tab-button-chatgpt:hover:not(.active) {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .ai-conversation-chatgpt {
+  background-color: #111111 !important;
+  border: 1px solid #333333 !important;
+}
+
+body.dark-theme .conversation-header-chatgpt {
+  background-color: #222222 !important;
+  border-bottom: 1px solid #333333 !important;
+}
+
+body.dark-theme .user-avatar-chatgpt {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .user-name-chatgpt {
+  color: #ffffff !important;
+}
+
+body.dark-theme .online-status-chatgpt {
+  color: #cccccc !important;
+}
+
+body.dark-theme .jarvis-badge-chatgpt {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.dark-theme .jarvis-message .message-content-chatgpt {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .action-btn-chatgpt {
+  background-color: #222222 !important;
+  color: #ffffff !important;
+  border: 1px solid #444444 !important;
+}
+
+body.dark-theme .action-btn-chatgpt:hover {
+  border-color: #ffffff !important;
+}
+
+body.dark-theme .typing-content-chatgpt {
+  background-color: #333333 !important;
+}
+
+body.dark-theme .typing-text-chatgpt {
+  color: #cccccc !important;
+}
+
+body.dark-theme .savings-calculator-chatgpt {
+  background-color: #111111 !important;
+  border: 1px solid #333333 !important;
+}
+
+body.dark-theme .calculator-header-chatgpt {
+  background-color: #222222 !important;
+  border-bottom: 1px solid #333333 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .calculator-icon-chatgpt {
+  color: #ffffff !important;
+}
+
+body.dark-theme .calc-label-chatgpt {
+  color: #ffffff !important;
+}
+
+body.dark-theme .calculation-divider-chatgpt {
+  background-color: #333333 !important;
+}
+
+body.dark-theme .savings-percent-chatgpt {
+  background-color: #1a2b3d !important;
+  color: #60a5fa !important;
+}
+
+/* Footer */
+body.dark-theme .footer-chatgpt {
+  background-color: #000000 !important;
+  border-top: 1px solid #333333 !important;
+}
+
+body.dark-theme .footer-overlay-chatgpt {
+  background-color: #000000 !important;
+}
+
+body.dark-theme .footer-logo-text-chatgpt {
+  color: #ffffff !important;
+}
+
+body.dark-theme .footer-description-chatgpt {
+  color: #cccccc !important;
+}
+
+body.dark-theme .footer-heading-chatgpt {
+  color: #ffffff !important;
+}
+
+body.dark-theme .footer-link-chatgpt {
+  color: #cccccc !important;
+}
+
+body.dark-theme .footer-link-chatgpt:hover {
+  color: #ffffff !important;
+}
+
+body.dark-theme .footer-tech-chatgpt {
+  color: #cccccc !important;
+}
+
+body.dark-theme .footer-bottom-chatgpt {
+  border-top: 1px solid #333333 !important;
+}
+
+body.dark-theme .footer-copyright-chatgpt {
+  color: #888888 !important;
+}
+
+body.dark-theme .back-to-top-chatgpt {
+  background-color: transparent !important;
+  border: 1px solid #444444 !important;
+  color: #cccccc !important;
+}
+
+body.dark-theme .back-to-top-chatgpt:hover {
+  background-color: #222222 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
 }
