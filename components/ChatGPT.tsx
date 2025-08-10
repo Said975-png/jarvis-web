@@ -56,6 +56,57 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
     }
   }, [isOpen])
 
+  useEffect(() => {
+    // Initialize chat sessions on component mount
+    const initialSessions = chatManager.getAllSessions()
+    setSessions(initialSessions)
+
+    if (initialSessions.length === 0) {
+      // Create first session
+      const newSession = chatManager.createSession()
+      setCurrentSessionId(newSession.id)
+      setSessions([newSession])
+    } else {
+      setCurrentSessionId(initialSessions[0].id)
+      setMessages(initialSessions[0].messages)
+    }
+  }, [])
+
+  const createNewChat = () => {
+    const newSession = chatManager.createSession()
+    setCurrentSessionId(newSession.id)
+    setMessages([{
+      id: '1',
+      text: 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?',
+      isUser: false,
+      timestamp: new Date()
+    }])
+    setSessions(chatManager.getAllSessions())
+  }
+
+  const selectChat = (sessionId: string) => {
+    const session = chatManager.getSession(sessionId)
+    if (session) {
+      setCurrentSessionId(sessionId)
+      setMessages(session.messages)
+    }
+  }
+
+  const deleteChat = (sessionId: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    chatManager.deleteSession(sessionId)
+    const remainingSessions = chatManager.getAllSessions()
+    setSessions(remainingSessions)
+
+    if (sessionId === currentSessionId) {
+      if (remainingSessions.length > 0) {
+        selectChat(remainingSessions[0].id)
+      } else {
+        createNewChat()
+      }
+    }
+  }
+
   const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
     try {
       const apiMessages = conversationHistory
