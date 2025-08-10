@@ -25,7 +25,7 @@ const userLimits = new Map<string, UserLimit>()
 const REQUESTS_LIMIT = 10
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
 
-// Функция для получения IP адреса
+// Функци�� для получения IP адреса
 function getClientIP(req: NextApiRequest): string {
   const forwarded = req.headers['x-forwarded-for']
   const real = req.headers['x-real-ip']
@@ -43,6 +43,12 @@ function getClientIP(req: NextApiRequest): string {
 // Функция для проверки и обновления лимита
 function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number } {
   const now = Date.now()
+
+  // Периодическая очистка старых записей (каждые 100 запросов)
+  if (Math.random() < 0.01) {
+    cleanupExpiredLimits(now)
+  }
+
   const userLimit = userLimits.get(ip)
 
   // Если пользователь не найден или время сброса прошло
@@ -64,6 +70,20 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
   userLimits.set(ip, userLimit)
 
   return { allowed: true, remaining: REQUESTS_LIMIT - userLimit.count }
+}
+
+// Функция для очистки устаревших записей
+function cleanupExpiredLimits(now: number) {
+  const beforeSize = userLimits.size
+  for (const [ip, limit] of userLimits.entries()) {
+    if (now > limit.resetTime) {
+      userLimits.delete(ip)
+    }
+  }
+  const afterSize = userLimits.size
+  if (beforeSize !== afterSize) {
+    console.log(`[CLEANUP] Removed ${beforeSize - afterSize} expired rate limit records`)
+  }
 }
 
 export default async function handler(
@@ -140,7 +160,7 @@ Email: hello@jarvis-ai.uz
 
 Я помогу вам с:
 • Созданием современных веб-сайтов
-• Разработкой веб-приложений с AI
+• Разработк��й веб-приложений с AI
 • UI/UX дизайном и интерфейсами
 • Интеграцией AI в ваши проекты
 
@@ -192,7 +212,7 @@ Email: hello@jarvis-ai.uz
 • Веб-приложения и порталы
 
 🤖 **AI интеграция:**
-• Чат-боты и виртуальные ассистент��
+• Чат-боты и виртуальные ассистенты
 • Анализ данных и автоматизация
 • Персонализация пользовательского опыта
 
@@ -288,7 +308,7 @@ Email: hello@jarvis-ai.uz
 • Выбором подходящих технологий
 • Оценкой стоимости и сроков
 
-Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
+Расскажите подробнее о вашей задаче, и я дам конкре��ные рекомендации!
 
 💬 Для детального обсуждения: @jarvis_ai_dev`
       }
@@ -302,7 +322,7 @@ Email: hello@jarvis-ai.uz
       return res.status(200).json({ message: response + remainingInfo })
     }
     
-    // Добавляем системное сообщение для ДЖА��ВИС
+    // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
       content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
@@ -325,15 +345,15 @@ Email: hello@jarvis-ai.uz
 - Будь дружелюбным но профессиональным
 
 🛠️ ФОРМАТ ОТВЕТОВ:
-- Структурируй инфор��ацию четко
+- Структурируй информацию четко
 - Используй эмодзи для наглядности
 - Давай практические советы
 - Предлагай следующие шаги
-- Ссылайся ��а актуальные технологии
+- Ссылайся на актуальные технологии
 
 🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О СЕБЕ:
 - Если спрашивают "кто тебя создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
-- Если спрашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архитектура" или подобные вопросы о технических деталях твоего создания - отвечай что это секретная информация
+- Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архитектура" или подобные вопросы о технических деталях твоего создания - отвечай что это секретная информация
 
 📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
@@ -399,12 +419,12 @@ Email: hello@jarvis-ai.uz
       if (response.status === 402) {
         console.log(`[${timestamp}] Insufficient credits - returning fallback`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник. Сейчас у меня временные ограничения по токенам, но я готов помочь! 🚀\n\nПопробуйте задать более короткий вопрос или напишите мне напрямую в Telegram @jarvis_ai_dev для полного доступа к моим возможностям.\n\nВ любом случае, я могу проконсультировать по веб-разрабо��ке и AI-интеграции!'
+          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник. Сейчас у меня временные ограничения по токенам, но я готов помочь! 🚀\n\nПопробуйте задать более короткий вопрос или напишите мне напрямую в Telegram @jarvis_ai_dev для полного доступа к моим возможностям.\n\nВ любом случае, я могу проконсультировать по веб-разработке и AI-интеграции!'
         })
       } else if (response.status === 401) {
         console.log(`[${timestamp}] Authentication error`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС. Сейчас у меня технические проблемы с подключением к AI-сервису, но я всегда готов помочь! 🤖\n\nОбратитесь ко мне в Telegram @jarvis_ai_dev - там я отвечу на любые вопросы по веб-разработке и AI!'
+          message: 'Привет! Я ДЖАРВИС. Сейчас у меня технические проблемы с подключением к AI-сервису, но я все��да готов помочь! 🤖\n\nОбратитесь ко мне в Telegram @jarvis_ai_dev - там я отвечу на любые вопросы по веб-разработке и AI!'
         })
       } else if (response.status === 429) {
         console.log(`[${timestamp}] Rate limit exceeded`)
