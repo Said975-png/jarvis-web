@@ -12,9 +12,9 @@ const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
   { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
-  { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
+  { title: 'Процесс договора', description: 'Подробная информация о проц��ссе работы с нами', url: '/', section: 'Услуги' },
   { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
-  { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возмож��ости' },
+  { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
   { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
   { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
   { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
@@ -111,7 +111,7 @@ export default function SearchableNavbar() {
             setCartOpen(true)
             break
           case 'Аккаунт':
-            if (item.title === 'Войти' || item.title === 'Регистрация') {
+            if (item.title === 'Вой��и' || item.title === 'Регистрация') {
               setShowAuthForms(true)
             } else if (item.title === 'Профиль' && user) {
               setShowProfile(true)
@@ -489,6 +489,11 @@ export default function SearchableNavbar() {
           transition: all 0.3s ease;
           border-bottom: 1px solid #e5e5e5;
           padding: 20px 0;
+        }
+
+        .navbar-chatgpt.dark-theme {
+          background: #000000;
+          border-bottom: 1px solid #333333;
         }
 
         .navbar-chatgpt.scrolled {
