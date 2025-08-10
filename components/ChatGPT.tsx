@@ -12,7 +12,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: 'Привет! Я ДЖАРВИС, ваш AI-помощн��к в мире веб-разработки. Чем могу помочь?',
+      text: 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?',
       isUser: false,
       timestamp: new Date()
     }
@@ -52,7 +52,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       document.body.style.overflow = 'unset'
     }
 
-    // Cleanup при размонтировании
+    // Cleanup при ра��монтировании
     return () => {
       document.body.style.overflow = 'unset'
     }
@@ -696,14 +696,14 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .chat-history {
           flex: 1;
           overflow-y: auto;
-          padding: 8px;
+          padding: 12px 16px;
           display: flex;
           flex-direction: column;
-          gap: 0;
+          gap: 6px;
         }
 
         .chat-history::-webkit-scrollbar {
-          width: 8px;
+          width: 4px;
         }
 
         .chat-history::-webkit-scrollbar-track {
@@ -711,38 +711,86 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .chat-history::-webkit-scrollbar-thumb {
-          background: #4d4d4f;
-          border-radius: 4px;
+          background: rgba(0, 0, 0, 0.2);
+          border-radius: 2px;
+        }
+
+        .chatgpt-overlay.dark .chat-history::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.2);
         }
 
         .chat-history::-webkit-scrollbar-thumb:hover {
-          background: #565869;
+          background: rgba(0, 0, 0, 0.3);
+        }
+
+        .chatgpt-overlay.dark .chat-history::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 255, 255, 0.3);
         }
 
         .chat-item {
           display: flex;
           align-items: center;
           padding: 12px;
-          margin-bottom: 0;
-          border-radius: 6px;
+          margin-bottom: 2px;
+          border-radius: 12px;
           cursor: pointer;
-          transition: background-color 0.15s ease;
-          color: #ececf1;
+          transition: all 0.2s ease;
+          color: #475569;
           position: relative;
-          min-height: 44px;
+          min-height: 52px;
+          gap: 12px;
+          background: rgba(255, 255, 255, 0.5);
+          border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .chatgpt-overlay.dark .chat-item {
+          color: #cbd5e1;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .chat-item:hover {
-          background: #40414f;
+          background: rgba(59, 130, 246, 0.1);
+          border-color: rgba(59, 130, 246, 0.2);
+          transform: translateX(4px);
         }
 
         .chat-item.active {
-          background: #343541;
+          background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.1));
+          border-color: rgba(59, 130, 246, 0.3);
+          color: #3b82f6;
+        }
+
+        .chatgpt-overlay.dark .chat-item.active {
+          color: #60a5fa;
         }
 
         .chatgpt-sidebar.collapsed .chat-item {
           justify-content: center;
-          padding: 8px;
+          padding: 12px 8px;
+          gap: 0;
+        }
+
+        .chat-item-icon {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #64748b;
+          flex-shrink: 0;
+        }
+
+        .chatgpt-overlay.dark .chat-item-icon {
+          color: #94a3b8;
+        }
+
+        .chat-item.active .chat-item-icon {
+          color: #3b82f6;
+        }
+
+        .chatgpt-overlay.dark .chat-item.active .chat-item-icon {
+          color: #60a5fa;
         }
 
         .chat-content {
