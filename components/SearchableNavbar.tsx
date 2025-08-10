@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
-  { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативнос��ь дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
+  { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
   { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
@@ -627,6 +627,15 @@ export default function SearchableNavbar() {
         .search-clear-chatgpt:hover {
           background: #f0f0f0;
           color: #000000;
+        }
+
+        .navbar-chatgpt.dark-theme .search-clear-chatgpt {
+          color: #cccccc;
+        }
+
+        .navbar-chatgpt.dark-theme .search-clear-chatgpt:hover {
+          background: #555555;
+          color: #ffffff;
         }
 
         .search-results-chatgpt {
