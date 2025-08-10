@@ -122,7 +122,5 @@
     height: 250px;
   }
   
-  .global-grid-pattern {
-    background-size: 40px 40px;
-  }
+  /* Grid pattern styles removed */
 }
