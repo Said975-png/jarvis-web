@@ -12,118 +12,227 @@ body.dark-theme h3,
 body.dark-theme h4,
 body.dark-theme h5,
 body.dark-theme h6 {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 /* Основной текст */
 body.dark-theme p,
 body.dark-theme span,
 body.dark-theme div {
-  color: #ffffff;
+  color: #ffffff !important;
+}
+
+/* Цветной текст - сохраняем серый для вторичного текста */
+body.dark-theme .hero-description-chatgpt,
+body.dark-theme .pricing-description-chatgpt,
+body.dark-theme .features-description-chatgpt,
+body.dark-theme .plan-subtitle-chatgpt,
+body.dark-theme .price-period-chatgpt,
+body.dark-theme .price-description-chatgpt,
+body.dark-theme .feature-description-chatgpt,
+body.dark-theme .cta-text-chatgpt,
+body.dark-theme .chat-status-chatgpt,
+body.dark-theme .demo-description-chatgpt,
+body.dark-theme .stat-label-chatgpt {
+  color: #cccccc !important;
 }
 
 /* Секции */
 body.dark-theme .hero-section-chatgpt,
 body.dark-theme .features-section-chatgpt,
-body.dark-theme .pricing-section-chatgpt,
-body.dark-theme .hero-features-chatgpt {
-  background-color: #111111;
+body.dark-theme .pricing-section-chatgpt {
+  background-color: #000000 !important;
+}
+
+/* Hero section - специальные элементы */
+body.dark-theme .hero-title-chatgpt,
+body.dark-theme .pricing-title-chatgpt,
+body.dark-theme .features-title-chatgpt,
+body.dark-theme .plan-name-chatgpt,
+body.dark-theme .price-amount-chatgpt,
+body.dark-theme .feature-title-chatgpt,
+body.dark-theme .feature-text-chatgpt,
+body.dark-theme .stat-number-chatgpt,
+body.dark-theme .demo-title-chatgpt,
+body.dark-theme .chat-title-chatgpt {
+  color: #ffffff !important;
+}
+
+/* Feature items в Hero */
+body.dark-theme .feature-item-chatgpt span {
+  color: #cccccc !important;
+}
+
+body.dark-theme .feature-icon-chatgpt {
+  color: #ffffff !important;
 }
 
 /* Карточки */
 body.dark-theme .pricing-card-chatgpt,
 body.dark-theme .feature-card-chatgpt {
-  background-color: #222222;
-  border: 1px solid #444444;
-  color: #ffffff;
+  background-color: #111111 !important;
+  border: 1px solid #333333 !important;
 }
 
-body.dark-theme .pricing-card-chatgpt h3,
-body.dark-theme .feature-card-chatgpt h3 {
-  color: #ffffff;
+body.dark-theme .pricing-card-chatgpt:hover,
+body.dark-theme .feature-card-chatgpt:hover {
+  border-color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Feature stats */
+body.dark-theme .feature-stats-chatgpt {
+  color: #ffffff !important;
+}
+
+/* Demo section */
+body.dark-theme .demo-section-chatgpt {
+  background-color: #111111 !important;
+}
+
+body.dark-theme .demo-preview-chatgpt {
+  background-color: #222222 !important;
+  border: 1px solid #444444 !important;
+}
+
+/* Chat interface */
+body.dark-theme .chat-interface-chatgpt {
+  background-color: #111111 !important;
+  border: 1px solid #333333 !important;
+}
+
+body.dark-theme .chat-header-chatgpt {
+  border-bottom: 1px solid #333333 !important;
+}
+
+body.dark-theme .ai-message-chatgpt .message-bubble-chatgpt {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .typing-dots-chatgpt {
+  background-color: #333333 !important;
+}
+
+body.dark-theme .typing-dots-chatgpt span {
+  background-color: #cccccc !important;
 }
 
 /* Кнопки */
-body.dark-theme .primary-button-chatgpt {
-  background-color: #ffffff;
-  color: #000000;
+body.dark-theme .primary-button-chatgpt,
+body.dark-theme .plan-button-chatgpt,
+body.dark-theme .demo-send-button-chatgpt {
+  background-color: #ffffff !important;
+  color: #000000 !important;
 }
 
-body.dark-theme .primary-button-chatgpt:hover {
-  background-color: #f0f0f0;
+body.dark-theme .primary-button-chatgpt:hover,
+body.dark-theme .plan-button-chatgpt:hover,
+body.dark-theme .demo-send-button-chatgpt:hover {
+  background-color: #f0f0f0 !important;
 }
 
-body.dark-theme .secondary-button-chatgpt {
-  background-color: transparent;
-  color: #ffffff;
-  border: 1px solid #ffffff;
+body.dark-theme .secondary-button-chatgpt,
+body.dark-theme .cta-button-chatgpt {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
 }
 
-body.dark-theme .secondary-button-chatgpt:hover {
-  background-color: #ffffff;
-  color: #000000;
+body.dark-theme .secondary-button-chatgpt:hover,
+body.dark-theme .cta-button-chatgpt:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Формы и инпуты */
+body.dark-theme .demo-input-field-chatgpt {
+  background-color: #222222 !important;
+  border: 1px solid #444444 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .demo-input-field-chatgpt:focus {
+  border-color: #ffffff !important;
+}
+
+body.dark-theme .demo-input-field-chatgpt::placeholder {
+  color: #888888 !important;
 }
 
 /* Модальные окна */
 body.dark-theme .modal-overlay-chatgpt {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
 body.dark-theme .modal-content-chatgpt {
-  background-color: #222222;
-  color: #ffffff;
-  border: 1px solid #444444;
+  background-color: #111111 !important;
+  color: #ffffff !important;
 }
 
-/* Формы */
-body.dark-theme .form-input-chatgpt,
-body.dark-theme .form-textarea-chatgpt,
-body.dark-theme .form-select-chatgpt {
-  background-color: #333333;
-  border: 1px solid #555555;
-  color: #ffffff;
+body.dark-theme .modal-header-chatgpt {
+  border-bottom: 1px solid #333333 !important;
 }
 
-body.dark-theme .form-input-chatgpt:focus,
-body.dark-theme .form-textarea-chatgpt:focus,
-body.dark-theme .form-select-chatgpt:focus {
-  border-color: #ffffff;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+body.dark-theme .modal-header-chatgpt h2 {
+  color: #ffffff !important;
 }
 
-body.dark-theme .form-input-chatgpt::placeholder,
-body.dark-theme .form-textarea-chatgpt::placeholder {
-  color: #999999;
+body.dark-theme .modal-close-chatgpt {
+  color: #cccccc !important;
 }
 
-/* Чат */
-body.dark-theme .chat-container-chatgpt {
-  background-color: #222222;
-  border: 1px solid #444444;
+body.dark-theme .modal-close-chatgpt:hover {
+  background-color: #333333 !important;
+  color: #ffffff !important;
 }
 
-body.dark-theme .chat-message-chatgpt {
-  background-color: #333333;
-  color: #ffffff;
+body.dark-theme .step-content-chatgpt h3 {
+  color: #ffffff !important;
 }
 
-body.dark-theme .chat-input-chatgpt {
-  background-color: #333333;
-  border: 1px solid #555555;
-  color: #ffffff;
+body.dark-theme .step-content-chatgpt p {
+  color: #cccccc !important;
 }
 
-/* Прочие элементы */
-body.dark-theme .divider-chatgpt {
-  background-color: #444444;
+/* Иконки */
+body.dark-theme .feature-icon-chatgpt {
+  background-color: #222222 !important;
+  color: #ffffff !important;
 }
 
-body.dark-theme .badge-chatgpt {
-  background-color: #333333;
-  color: #ffffff;
+/* Badge */
+body.dark-theme .popular-badge-chatgpt {
+  background-color: #ffffff !important;
+  color: #000000 !important;
 }
 
-/* Анимации и переходы */
-body.dark-theme * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+/* Stats section */
+body.dark-theme .stats-section-chatgpt {
+  border-top: 1px solid #333333 !important;
+  border-bottom: 1px solid #333333 !important;
+}
+
+/* CTA section */
+body.dark-theme .pricing-cta-chatgpt {
+  border-top: 1px solid #333333 !important;
+}
+
+/* Глобальный фо�� */
+body.dark-theme .global-background {
+  background: linear-gradient(135deg, #000000 0%, #111111 100%) !important;
+}
+
+body.dark-theme .global-grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px) !important;
+}
+
+body.dark-theme .global-orb-1 {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%) !important;
+}
+
+body.dark-theme .global-orb-2 {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%) !important;
 }
