@@ -256,7 +256,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
                 </div>
                 <div className="user-details">
                   <div className="user-name">ДЖАРВИС Пользователь</div>
-                  <div className="user-plan">Ба��овый план</div>
+                  <div className="user-plan">Базовый план</div>
                 </div>
               </div>
             </div>
@@ -739,7 +739,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .message-avatar {
           width: 30px;
           height: 30px;
-          border-radius: 2px;
+          border-radius: 50%;
           overflow: hidden;
           flex-shrink: 0;
           display: flex;
