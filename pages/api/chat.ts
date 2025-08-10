@@ -18,24 +18,37 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ChatResponse>
 ) {
+  // Детальное логирование запроса
+  const timestamp = new Date().toISOString()
+  console.log(`[${timestamp}] === JARVIS CHAT API REQUEST ===`)
+  console.log(`Method: ${req.method}`)
+  console.log(`User-Agent: ${req.headers['user-agent'] || 'unknown'}`)
+  console.log(`IP: ${req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown'}`)
+
   if (req.method !== 'POST') {
+    console.log(`[${timestamp}] ERROR: Method not allowed`)
     return res.status(405).json({ message: 'Метод не поддерживается', error: 'Method not allowed' })
   }
 
   try {
     const { messages }: ChatRequest = req.body
+    console.log(`[${timestamp}] Messages received:`, messages?.length || 0)
 
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
-      return res.status(400).json({ message: 'Некоррект��ые сообщения', error: 'Invalid messages' })
+      console.log(`[${timestamp}] ERROR: Invalid messages format`)
+      return res.status(400).json({ message: 'Некорректные сообщения', error: 'Invalid messages' })
     }
 
     const openRouterApiKey = process.env.OPENROUTER_API_KEY
-
-    console.log('API Key available:', !!openRouterApiKey)
+    console.log(`[${timestamp}] OpenRouter API Key available:`, !!openRouterApiKey)
+    console.log(`[${timestamp}] API Key prefix:`, openRouterApiKey ? openRouterApiKey.substring(0, 15) + '...' : 'N/A')
 
     if (!openRouterApiKey) {
+      console.log(`[${timestamp}] Fallback: Using local JARVIS responses`)
+      
       // Local JARVIS logic when API key is not configured
       const lastMessage = messages[messages.length - 1]?.content.toLowerCase() || ''
+      console.log(`[${timestamp}] User query (first 100 chars):`, lastMessage.substring(0, 100))
 
       let response = ''
 
@@ -43,7 +56,7 @@ export default async function handler(
       if (lastMessage.includes('привет') || lastMessage.includes('здравствуй') || lastMessage.includes('добро пожаловать') || messages.length === 1) {
         response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀
 
-Я помогу в��м с:
+Я помогу вам с:
 • Созданием современных веб-сайтов
 • Разработкой веб-приложений с AI
 • UI/UX дизайном и интерфейсами
@@ -67,7 +80,7 @@ export default async function handler(
 • Продвинутая аналитика
 • Приоритетная поддержка
 
-💎 **Max** - 5,000,000 сум
+�� **Max** - 5,000,000 сум
 • Безлимитные страницы
 • ДЖАРВИС ИИ полная версия
 • Индивидуальные решения
@@ -96,7 +109,7 @@ export default async function handler(
 • Интернет-магазины и каталоги
 • Веб-приложения и порталы
 
-🤖 **AI интеграция:**
+🤖 **AI интегра��ия:**
 • Чат-боты и виртуальные ассистенты
 • Анализ данных и автоматизация
 • Персонализация пользовательского опыта
@@ -104,12 +117,12 @@ export default async function handler(
 🎨 **Дизайн и UX:**
 • Современный UI/UX дизайн
 • Брендинг и айдентика
-• Ад��птивная верстка
+• Адаптивная верстка
 
 Что именно вас интересует?`
       }
       // Technology questions
-      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как раб��таешь')) {
+      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как работаешь')) {
         response = `⚡ Технологии, которые я использую:
 
 **Frontend:**
@@ -141,12 +154,12 @@ export default async function handler(
 **Что я могу интегрировать:**
 • Умные чат-боты для сайтов
 • Системы рекомендаций
-• Автомати��еская обработка данных
+• Автоматическая обработка данных
 • Анализ пользовательского поведения
 • Персонализация контента
 
 **Примеры проектов:**
-• E-commerce с AI рекомендаци��ми
+• E-commerce с AI рекомендациями
 • Образовательные платформы с ИИ
 • CRM системы с умной аналитикой
 
@@ -161,7 +174,7 @@ export default async function handler(
 • Системы управления каталогом
 • Интеграция платежей и доставки
 
-🏢 **Корпоративные решения:**
+🏢 **Корпо��ативные решения:**
 • CRM системы с аналитикой
 • Порталы сотрудников
 • Системы документооборота
@@ -171,13 +184,13 @@ export default async function handler(
 • LMS системы с AI
 • Интерактивные курсы
 
-Хот��те увидеть демо или обсудить ваш проект?`
+Хотите увидеть демо или обсудить ваш проект?`
       }
       // Default response for other questions
       else {
         response = `Интересный вопрос! 🤔
 
-Я ДЖАРВИС, специализ��руюсь на веб-разработке и AI интеграции.
+Я ДЖАРВИС, специализируюсь на веб-разработке и AI интеграции.
 
 Могу помочь с:
 • Техническими вопросами по разработке
@@ -190,6 +203,7 @@ export default async function handler(
 💬 Для детального обсуждения: @jarvis_ai_dev`
       }
 
+      console.log(`[${timestamp}] Fallback response length:`, response.length)
       return res.status(200).json({ message: response })
     }
     
@@ -227,13 +241,10 @@ export default async function handler(
 • Pro (4,000,000 сум) - веб-приложения с AI интеграцией
 • Max (5,000,000 сум) - корпоративные и enterprise решения
 
-📞 КОНТАКТ��: @jarvis_ai_dev в Telegram, hello@jarvis-ai.uz
+📞 КОНТАКТЫ: @jarvis_ai_dev в Telegram, hello@jarvis-ai.uz
 
 Отвечай на русском языке. Будь максимально полезным и информативным!`
     }
-
-    console.log('Making request to OpenRouter with model: openai/gpt-4o-mini')
-    console.log('Messages count:', messages.length)
 
     const requestBody = {
       model: 'openai/gpt-4o-mini',
@@ -245,6 +256,15 @@ export default async function handler(
       presence_penalty: 0
     }
 
+    console.log(`[${timestamp}] === OpenRouter REQUEST ===`)
+    console.log(`Model: ${requestBody.model}`)
+    console.log(`Max tokens: ${requestBody.max_tokens}`)
+    console.log(`Temperature: ${requestBody.temperature}`)
+    console.log(`Total messages: ${requestBody.messages.length}`)
+    console.log(`System message length: ${systemMessage.content.length}`)
+    console.log(`User messages: ${messages.length}`)
+
+    const requestStartTime = Date.now()
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -256,39 +276,92 @@ export default async function handler(
       body: JSON.stringify(requestBody)
     })
 
-    console.log('OpenRouter response status:', response.status)
+    const requestDuration = Date.now() - requestStartTime
+    console.log(`[${timestamp}] === OpenRouter RESPONSE ===`)
+    console.log(`Status: ${response.status}`)
+    console.log(`Request duration: ${requestDuration}ms`)
+    console.log(`Content-Type: ${response.headers.get('content-type')}`)
 
     if (!response.ok) {
       const errorData = await response.text()
-      console.error('OpenRouter API error:', response.status, errorData)
-      console.error('Request body was:', JSON.stringify(requestBody, null, 2))
+      console.error(`[${timestamp}] === OpenRouter ERROR ===`)
+      console.error(`Status: ${response.status}`)
+      console.error(`Status Text: ${response.statusText}`)
+      console.error(`Error Data:`, errorData)
+      console.error(`Request Body (truncated):`, JSON.stringify({
+        ...requestBody,
+        messages: requestBody.messages.map((msg, i) => ({
+          role: msg.role,
+          content: msg.content.substring(0, 100) + (msg.content.length > 100 ? '...' : '')
+        }))
+      }, null, 2))
 
       // Handle specific error cases
       if (response.status === 402) {
-        // Insufficient credits - return a helpful message
+        console.log(`[${timestamp}] Insufficient credits - returning fallback`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник. Сейчас у меня временные ограничения по токенам, но я готов помочь! Попробуйте задать более короткий вопрос или напишите мне напрямую в Telegram @jarvis_ai_dev для полного доступа к моим возможностям.'
+          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник. Сейчас у меня временные ограничения по токенам, но я готов помочь! 🚀\n\nПопробуйте задать более короткий вопрос или напишите мне напрямую в Telegram @jarvis_ai_dev для полного доступа к моим возможностям.\n\nВ любом случае, я могу проконсультировать по веб-разработке и AI-интеграции!'
+        })
+      } else if (response.status === 401) {
+        console.log(`[${timestamp}] Authentication error`)
+        return res.status(200).json({
+          message: 'Привет! Я ДЖАРВИС. Сейчас у меня технические проблемы с подключением к AI-сервису, но я всегда готов помочь! 🤖\n\nОбрати��есь ко мне в Telegram @jarvis_ai_dev - там я отвечу на любые вопросы по веб-разработке и AI!'
+        })
+      } else if (response.status === 429) {
+        console.log(`[${timestamp}] Rate limit exceeded`)
+        return res.status(200).json({
+          message: 'Я получаю слишком много запросов одновременно! 😅\n\nДайте мне секундочку отдохнуть и попробуйте еще раз. Или напишите напрямую в Telegram @jarvis_ai_dev - там я всегда доступен!'
         })
       }
 
-      throw new Error(`OpenRouter API error: ${response.status}`)
+      throw new Error(`OpenRouter API error: ${response.status} - ${errorData}`)
     }
 
     const data = await response.json()
+    console.log(`[${timestamp}] === Response Processing ===`)
+    console.log(`Response choices count:`, data.choices?.length || 0)
+    console.log(`Response usage:`, data.usage || 'no usage data')
 
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+      console.error(`[${timestamp}] Invalid response structure:`, data)
       throw new Error('Invalid response from OpenRouter')
     }
 
     const aiMessage = data.choices[0].message.content
+    console.log(`[${timestamp}] AI response length:`, aiMessage?.length || 0)
+    console.log(`[${timestamp}] AI response preview:`, aiMessage?.substring(0, 200) + '...')
 
+    // Логируем использование токенов если доступно
+    if (data.usage) {
+      console.log(`[${timestamp}] === Token Usage ===`)
+      console.log(`Prompt tokens: ${data.usage.prompt_tokens || 'N/A'}`)
+      console.log(`Completion tokens: ${data.usage.completion_tokens || 'N/A'}`)
+      console.log(`Total tokens: ${data.usage.total_tokens || 'N/A'}`)
+    }
+
+    console.log(`[${timestamp}] === SUCCESS ===`)
     return res.status(200).json({ message: aiMessage })
 
   } catch (error) {
-    console.error('Chat API error:', error)
+    console.error(`[${new Date().toISOString()}] === CRITICAL ERROR ===`)
+    console.error('Error type:', error instanceof Error ? error.constructor.name : typeof error)
+    console.error('Error message:', error instanceof Error ? error.message : String(error))
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
     // Возвращаем дружелюбное сообщение об ошибке
-    const fallbackMessage = "Извините, произошла временная ошибка с AI-сервисом. Я ДЖАРВИС, ваш AI-помощник по веб-разработке. Попробуйте еще раз или напишите в Telegram @jarvis_ai_dev для прямой связи."
+    const fallbackMessage = `Извините, произошла временная ошибка! 😅
+
+Но не беспокойтесь - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
+
+🚀 **Что я могу:**
+• Консультации по веб-разработке
+• Планирование AI-проектов  
+• Техническая экспертиза
+• Оценка проектов
+
+📱 **Прямая связь:** @jarvis_ai_dev в Telegram
+
+Попробуйте еще раз или напишите мне напрямую!`
     
     return res.status(500).json({ 
       message: fallbackMessage,
