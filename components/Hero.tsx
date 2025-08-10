@@ -64,10 +64,19 @@ export default function Hero() {
 
           <div className="hero-visual-chatgpt">
             <div className="model-viewer-chatgpt">
-              <Model3DViewer
-                modelUrl={modelUrl}
-                className="hero-3d-model"
-              />
+              <div className="model-container-chatgpt">
+                <div className="model-placeholder-chatgpt">
+                  <div className="placeholder-icon-chatgpt">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <p className="placeholder-text-chatgpt">3D Model Ready</p>
+                  <p className="placeholder-description-chatgpt">Provide your .glb file URL to display your 3D model</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -126,7 +135,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">5</div>
                 <div className="step-content-chatgpt">
                   <h3>Сдача проекта</h3>
-                  <p>После завершения разработки и получения окончательного платежа мы передаем вам готовый проект. Предоставляем инструкции по использованию, помогаем с размещением на хостинге и даем гара��тию на исправление ошибо��.</p>
+                  <p>После завершения разработки и получения о��ончательного платежа мы передаем вам готовый проект. Предоставляем инструкции по использованию, помогаем с размещением на хостинге и даем гара��тию на исправление ошибо��.</p>
                 </div>
               </div>
 
