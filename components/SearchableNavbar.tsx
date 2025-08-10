@@ -12,7 +12,7 @@ const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
   { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
-  { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
+  { title: 'Процесс договора', description: 'Подробная информация о процессе рабо��ы с нами', url: '/', section: 'Услуги' },
   { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
   { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
@@ -563,6 +563,17 @@ export default function SearchableNavbar() {
           background: #ffffff;
           border-color: #000000;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-chatgpt.dark-theme .search-wrapper-chatgpt {
+          background: #333333;
+          border-color: #555555;
+        }
+
+        .navbar-chatgpt.dark-theme .search-wrapper-chatgpt.focused {
+          background: #444444;
+          border-color: #ffffff;
+          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
         }
 
         .search-icon-chatgpt {
