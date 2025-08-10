@@ -135,7 +135,7 @@ export default function Footer() {
               <h3 className="footer-heading-chatgpt">Поддержка</h3>
               <ul className="footer-links-chatgpt">
                 <li>
-                  <span className="footer-tech-chatgpt">Документация</span>
+                  <span className="footer-tech-chatgpt">Документац��я</span>
                 </li>
                 <li>
                   <span className="footer-tech-chatgpt">API</span>
@@ -179,6 +179,8 @@ export default function Footer() {
           background: #ffffff;
           border-top: 1px solid #e5e5e5;
           margin-top: 80px;
+          position: relative;
+          z-index: 1;
         }
 
         .footer-container-chatgpt {
