@@ -672,6 +672,19 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           filter: contrast(1.1) brightness(1.1);
         }
 
+        .jarvis-icon {
+          width: 32px;
+          height: 32px;
+          background: #10a37f;
+          color: white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+          font-size: 14px;
+        }
+
         .chat-details h3 {
           margin: 0;
           font-size: 16px;
