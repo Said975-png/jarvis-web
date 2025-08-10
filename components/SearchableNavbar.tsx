@@ -596,6 +596,7 @@ export default function SearchableNavbar() {
           color: #000000;
           placeholder-color: #999999;
           transition: color 0.3s ease;
+          box-shadow: none;
         }
 
         .search-input-chatgpt::placeholder {
