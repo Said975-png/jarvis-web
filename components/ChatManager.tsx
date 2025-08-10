@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ChatButton from './ChatButton'
-import JarvisChatEnhanced from './JarvisChatEnhanced'
+import ChatGPT from './ChatGPT'
 
 export default function ChatManager() {
   const [isChatOpen, setIsChatOpen] = useState(false)
@@ -11,7 +11,7 @@ export default function ChatManager() {
   return (
     <>
       <ChatButton onClick={openChat} />
-      <JarvisChatEnhanced isOpen={isChatOpen} onClose={closeChat} />
+      <ChatGPT isOpen={isChatOpen} onClose={closeChat} />
     </>
   )
 }
