@@ -1,7 +1,43 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Hero() {
   const [isProcessModalOpen, setIsProcessModalOpen] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const partnerships = [
+    {
+      name: 'Vivo website',
+      description: 'Современный корпоративный сайт',
+      tech: 'React • Next.js • TypeScript',
+      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+    },
+    {
+      name: 'Ghon bot web',
+      description: 'ИИ-бот платформа',
+      tech: 'Node.js • AI Integration • WebSocket',
+      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+    },
+    {
+      name: 'azio.ru',
+      description: 'E-commerce решение',
+      tech: 'React • Redux • Payment API',
+      gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+    },
+    {
+      name: 'port.web',
+      description: 'Портфолио платформа',
+      tech: 'Vue.js • Nuxt • Portfolio CMS',
+      gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
+    }
+  ]
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % partnerships.length)
+    }, 3000) // Change slide every 3 seconds
+
+    return () => clearInterval(timer)
+  }, [partnerships.length])
 
   return (
     <section className="hero-section-chatgpt">
@@ -123,7 +159,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">1</div>
                 <div className="step-content-chatgpt">
                   <h3>Создание макета</h3>
-                  <p>Сначала мы создаем детальный макет вашего проекта. Это включает в себя дизайн всех страниц, структуру сайта и техническое задание. На этом этапе вы видите как будет выглядеть конечный результат.</p>
+                  <p>Сначала мы создаем детальный макет вашего проекта. Это включает в себя дизайн всех страниц, стру��туру сайта и техническое задание. На этом этапе вы видите как будет выглядеть конечный результат.</p>
                 </div>
               </div>
 
