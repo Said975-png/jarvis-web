@@ -18,7 +18,10 @@ export default function Hero() {
             </p>
 
             <div className="hero-cta-chatgpt">
-              <button className="primary-button-chatgpt">
+              <button
+                className="primary-button-chatgpt"
+                onClick={() => setIsProcessModalOpen(true)}
+              >
                 Процесс договора
               </button>
               <button className="secondary-button-chatgpt">
