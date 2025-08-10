@@ -36,6 +36,16 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   useEffect(() => {
     if (isOpen) {
       loadChatHistory()
+      // Блокируем скролл страницы когда чат открыт
+      document.body.style.overflow = 'hidden'
+    } else {
+      // Возвращаем скролл страницы когда чат закрыт
+      document.body.style.overflow = 'unset'
+    }
+
+    // Cleanup при размонтировании
+    return () => {
+      document.body.style.overflow = 'unset'
     }
   }, [isOpen])
 
