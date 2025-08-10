@@ -107,7 +107,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
     try {
       const apiMessages = conversationHistory
-        .filter(msg => msg.text !== 'Приве��! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?')
+        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?')
         .map(msg => ({
           role: msg.isUser ? 'user' as const : 'assistant' as const,
           content: msg.text
@@ -946,76 +946,123 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .chat-header {
-          height: 60px;
+          height: 70px;
           padding: 0 24px;
-          border-bottom: 1px solid #e5e5e5;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           display: flex;
           align-items: center;
           justify-content: space-between;
-          background: #fff;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(20px);
+        }
+
+        .chatgpt-overlay.dark .chat-header {
+          background: rgba(15, 23, 42, 0.95);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .chat-info {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 16px;
         }
 
         .chat-avatar {
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
+          width: 42px;
+          height: 42px;
+          border-radius: 12px;
           overflow: hidden;
-          background: transparent;
-        }
-
-        .chat-avatar img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          background: transparent;
-          mix-blend-mode: multiply;
-          filter: contrast(1.1) brightness(1.1);
-        }
-
-        .jarvis-icon {
-          width: 32px;
-          height: 32px;
-          background: #10a37f;
-          color: white;
-          border-radius: 50%;
+          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
           display: flex;
           align-items: center;
           justify-content: center;
-          font-weight: 600;
-          font-size: 14px;
+          box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .jarvis-icon {
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .chat-details h3 {
-          margin: 0;
-          font-size: 16px;
-          font-weight: 600;
-          color: #374151;
+          margin: 0 0 4px 0;
+          font-size: 18px;
+          font-weight: 700;
+          color: #1e293b;
+          letter-spacing: -0.025em;
         }
 
-        .chat-details span {
-          font-size: 12px;
-          color: #6b7280;
+        .chatgpt-overlay.dark .chat-details h3 {
+          color: #f1f5f9;
         }
 
-        .close-btn {
-          background: none;
+        .ai-status {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 13px;
+          color: #64748b;
+          font-weight: 500;
+        }
+
+        .chatgpt-overlay.dark .ai-status {
+          color: #94a3b8;
+        }
+
+        .status-indicator {
+          width: 8px;
+          height: 8px;
+          background: #10b981;
+          border-radius: 50%;
+          animation: pulse-status 2s infinite;
+        }
+
+        @keyframes pulse-status {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+
+        .header-actions {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .action-btn {
+          width: 40px;
+          height: 40px;
+          background: rgba(0, 0, 0, 0.04);
           border: none;
-          color: #6b7280;
+          color: #64748b;
           cursor: pointer;
-          padding: 8px;
-          border-radius: 6px;
-          transition: all 0.2s;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+        }
+
+        .chatgpt-overlay.dark .action-btn {
+          background: rgba(255, 255, 255, 0.04);
+          color: #94a3b8;
+        }
+
+        .action-btn:hover {
+          background: rgba(0, 0, 0, 0.08);
+          color: #1e293b;
+          transform: scale(1.05);
+        }
+
+        .chatgpt-overlay.dark .action-btn:hover {
+          background: rgba(255, 255, 255, 0.08);
+          color: #f1f5f9;
         }
 
         .close-btn:hover {
-          background: #f3f4f6;
-          color: #374151;
+          background: rgba(239, 68, 68, 0.1) !important;
+          color: #ef4444 !important;
         }
 
         .chat-messages {
