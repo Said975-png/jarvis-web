@@ -255,7 +255,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
               </div>
               <div className="chat-details">
                 <h3>ДЖАРВИС</h3>
-                <span>AI-пом��щник по веб-разработке</span>
+                <span>AI-помощник по веб-разработке</span>
               </div>
             </div>
             <button className="close-btn" onClick={onClose}>
@@ -695,27 +695,29 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .chat-input-area {
-          padding: 24px;
+          padding: 32px 24px 24px 24px;
           background: #fff;
           border-top: 1px solid #e5e5e5;
         }
 
         .input-wrapper {
-          max-width: 100%;
+          max-width: 768px;
+          margin: 0 auto;
           position: relative;
           display: flex;
           align-items: flex-end;
-          gap: 12px;
-          background: #f9fafb;
+          gap: 8px;
+          background: #fff;
           border: 1px solid #d1d5db;
           border-radius: 12px;
-          padding: 12px 16px;
+          padding: 12px;
           transition: all 0.2s;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
 
         .input-wrapper:focus-within {
           border-color: #10a37f;
-          box-shadow: 0 0 0 1px #10a37f;
+          box-shadow: 0 0 0 1px #10a37f, 0 0 15px rgba(0, 0, 0, 0.1);
         }
 
         .chat-input {
@@ -727,19 +729,20 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           font-size: 16px;
           line-height: 1.5;
           color: #374151;
-          font-family: inherit;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           min-height: 24px;
           max-height: 200px;
+          padding: 0;
         }
 
         .chat-input::placeholder {
-          color: #9ca3af;
+          color: #8e8ea0;
         }
 
         .send-btn {
           width: 32px;
           height: 32px;
-          background: #10a37f;
+          background: #19c37d;
           border: none;
           border-radius: 6px;
           color: white;
@@ -747,12 +750,12 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: background-color 0.2s;
+          transition: all 0.2s;
           flex-shrink: 0;
         }
 
         .send-btn:hover:not(:disabled) {
-          background: #0d8f6f;
+          background: #16a56b;
         }
 
         .send-btn:disabled {
