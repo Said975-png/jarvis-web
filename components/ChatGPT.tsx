@@ -256,7 +256,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
                 </div>
                 <div className="user-details">
                   <div className="user-name">ДЖАРВИС Пользователь</div>
-                  <div className="user-plan">Базовый пл��н</div>
+                  <div className="user-plan">Базовый план</div>
                 </div>
               </div>
             </div>
@@ -361,6 +361,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           background: rgba(0, 0, 0, 0.4);
           z-index: 1000;
           backdrop-filter: blur(4px);
+          overflow: hidden;
         }
 
         .chatgpt-container {
