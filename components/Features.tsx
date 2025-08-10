@@ -114,51 +114,6 @@ export default function Features() {
           </div>
         </div>
 
-        {/* Demo Section */}
-        <div className="demo-section-chatgpt">
-          <div className="demo-container-chatgpt">
-            <div className="demo-content-chatgpt">
-              <h3 className="demo-title-chatgpt">Попробуйте ДЖАРВИС ИИ</h3>
-              <p className="demo-description-chatgpt">
-                Задайте вопрос нашему ИИ ассистенту и получите мгновенный ответ
-              </p>
-              
-              <div className="demo-input-chatgpt">
-                <input 
-                  type="text" 
-                  placeholder="Напишите ваш вопрос..."
-                  className="demo-input-field-chatgpt"
-                />
-                <button className="demo-send-button-chatgpt">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            
-            <div className="demo-preview-chatgpt">
-              <div className="demo-messages-chatgpt">
-                <div className="demo-message-chatgpt user-message">
-                  <div className="message-bubble-chatgpt">
-                    Как создать современный веб-сайт?
-                  </div>
-                </div>
-                <div className="demo-message-chatgpt ai-message">
-                  <div className="ai-avatar-demo-chatgpt">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/>
-                    </svg>
-                  </div>
-                  <div className="message-bubble-chatgpt">
-                    Я помогу вам создать современный веб-сайт используя последние технологии: React, Next.js, и ИИ интеграции. Начнем с анализа ваших потребностей.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <style jsx>{`
