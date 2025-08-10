@@ -7,13 +7,16 @@ interface ChatGPTProps {
 }
 
 export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
-  const [chatManager] = useState(() => ChatHistoryManager.getInstance())
-  const [sessions, setSessions] = useState<ChatSession[]>([])
-  const [currentSessionId, setCurrentSessionId] = useState<string>('')
-  const [messages, setMessages] = useState<Message[]>([])
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: '1',
+      text: 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?',
+      isUser: false,
+      timestamp: new Date()
+    }
+  ])
   const [inputText, setInputText] = useState('')
   const [isTyping, setIsTyping] = useState(false)
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -131,7 +134,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       return data.message
     } catch (error) {
       console.error('Error calling AI API:', error)
-      return 'Извините, у меня временные проблемы с подключением. Попробуйте ещ�� раз.'
+      return 'Извините, у меня временные проблемы с подключением. П��пробуйте ещ�� раз.'
     }
   }
 
