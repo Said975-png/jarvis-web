@@ -12,23 +12,18 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
   return (
     <>
       <div className="chat-button-container">
+        <div className="chat-button-label">
+          Чат с Джарвисом 👋
+        </div>
         <button
           className="chat-button"
           onClick={onClick}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
         >
           <div className="chat-button-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-
-          {isHovered && (
-            <div className="chat-button-tooltip">
-              Чат с ДЖАРВИС
-            </div>
-          )}
         </button>
       </div>
 
@@ -67,7 +62,7 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
           justify-content: center;
         }
 
-        .chat-button-tooltip {
+        .chat-button-label {
           position: absolute;
           bottom: 68px;
           right: 0;
@@ -77,10 +72,10 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
           border-radius: 6px;
           font-size: 14px;
           white-space: nowrap;
-          animation: fadeIn 0.3s ease;
+          font-weight: 500;
         }
 
-        .chat-button-tooltip::after {
+        .chat-button-label::after {
           content: '';
           position: absolute;
           top: 100%;
@@ -111,7 +106,7 @@ export default function ChatButton({ onClick }: ChatButtonProps) {
             height: 52px;
           }
 
-          .chat-button-tooltip {
+          .chat-button-label {
             bottom: 64px;
             font-size: 12px;
           }

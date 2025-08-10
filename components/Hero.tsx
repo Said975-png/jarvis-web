@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import LiquidSphere from './LiquidSphere'
 
 export default function Hero() {
   const [isProcessModalOpen, setIsProcessModalOpen] = useState(false)
@@ -10,7 +11,7 @@ export default function Hero() {
         <div className="hero-main-chatgpt">
           <div className="hero-content-chatgpt">
             <h1 className="hero-title-chatgpt">
-              Создаем веб-решения будущего с помощью ИИ
+              Создаем современные веб сайты с внедрением JARVIS
             </h1>
 
             <p className="hero-description-chatgpt">
@@ -60,43 +61,8 @@ export default function Hero() {
           </div>
 
           <div className="hero-visual-chatgpt">
-            <div className="chat-interface-chatgpt">
-              <div className="chat-header-chatgpt">
-                <div className="chat-title-chatgpt">JARVIS AI</div>
-                <div className="chat-status-chatgpt">
-                  <div className="status-dot-chatgpt"></div>
-                  Онлайн
-                </div>
-              </div>
-              <div className="chat-messages-chatgpt">
-                <div className="message-chatgpt user-message-chatgpt">
-                  <div className="message-bubble-chatgpt">
-                    Как оптимизировать загрузку сайта для мобильных устройств?
-                  </div>
-                </div>
-                <div className="message-chatgpt ai-message-chatgpt">
-                  <div className="ai-avatar-chatgpt">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                  </div>
-                  <div className="message-bubble-chatgpt">
-                    Отличный вопрос! Используйте lazy loading для изображений, минифицируйте CSS и JS, включите gzip сжатие и оптимизируйте изображения в формате WebP. Также важно использовать CDN и кэширование.
-                  </div>
-                </div>
-                <div className="typing-indicator-chatgpt">
-                  <div className="ai-avatar-chatgpt">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                  </div>
-                  <div className="typing-dots-chatgpt">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-              </div>
+            <div className="model-viewer-chatgpt">
+              <LiquidSphere className="hero-liquid-sphere" />
             </div>
           </div>
         </div>
@@ -123,7 +89,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">1</div>
                 <div className="step-content-chatgpt">
                   <h3>Создание макета</h3>
-                  <p>Сначала мы создаем детальный макет вашего проекта. Это включает в себя дизайн всех страниц, структуру сайта и техническое задание. На этом этапе вы видите как будет выглядеть конечный результат.</p>
+                  <p>Сначала мы создаем детальный макет вашего проекта. Это включает в себя дизайн всех страниц, структуру сайта и техническое задание. На этом этапе вы видите как будет выглядеть конечный результа��.</p>
                 </div>
               </div>
 
@@ -131,7 +97,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
                   <h3>Согласование и предоплата</h3>
-                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам приступить к разработке с полной уверенностью.</p>
+                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позвол��ет нам приступить к разработке с полной уверенностью.</p>
                 </div>
               </div>
 
@@ -139,7 +105,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">3</div>
                 <div className="step-content-chatgpt">
                   <h3>Разработка проекта</h3>
-                  <p>Приступаем к программированию и созданию вашего проекта. Макет корректируется и дорабатывается в процессе работы для достижения наилучшего результата. Мы не мен��ем макет по несколько раз без весомых оснований.</p>
+                  <p>Приступаем к программированию и созданию вашего проекта. Макет корректируется и дорабатывается в процессе работы для достижения наилучшего результата. Мы не мен��ем макет по нескольк�� раз без весомых оснований.</p>
                 </div>
               </div>
 
@@ -147,7 +113,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
                   <h3>Тестирование и доработки</h3>
-                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загрузки. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
+                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость заг��уз��и. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
 
@@ -155,7 +121,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">5</div>
                 <div className="step-content-chatgpt">
                   <h3>Сдача проекта</h3>
-                  <p>После завершения разработки и получения окончательного платежа мы передаем вам готовый проект. Предоставляем инструкции по использованию, помогаем с размещением на хостинге и даем гара��тию на исправление ошибо��.</p>
+                  <p>После завершения разработки и получения окончательного платежа мы передаем вам готовый проект. Предоставляем инструкции по использованию, помогаем с размещение�� на хостинге и даем гара��тию на исправление ошибо��.</p>
                 </div>
               </div>
 
@@ -315,44 +281,32 @@ export default function Hero() {
           background: #333333;
         }
 
-        body.dark-theme .chat-interface-chatgpt {
-          background: #111111;
-          border-color: #333333;
+        body.dark-theme .model-viewer-chatgpt {
+          background: transparent;
+          border: none;
         }
 
-        body.dark-theme .chat-header-chatgpt {
-          border-bottom: 1px solid #333333;
-        }
-
-        body.dark-theme .chat-title-chatgpt {
+        body.dark-theme .placeholder-text-chatgpt {
           color: #ffffff;
         }
 
-        body.dark-theme .chat-status-chatgpt {
+        body.dark-theme .placeholder-icon-chatgpt {
+          color: #ffffff;
+        }
+
+        body.dark-theme .loading-dots-chatgpt span {
+          background: #ffffff;
+        }
+
+        .placeholder-description-chatgpt {
+          font-size: 12px;
+          color: #999999;
+          margin: 8px 0 0 0;
+          line-height: 1.4;
+        }
+
+        body.dark-theme .placeholder-description-chatgpt {
           color: #cccccc;
-        }
-
-        body.dark-theme .user-message-chatgpt .message-bubble-chatgpt {
-          background: #ffffff;
-          color: #000000;
-        }
-
-        body.dark-theme .ai-message-chatgpt .message-bubble-chatgpt {
-          background: #333333;
-          color: #ffffff;
-        }
-
-        body.dark-theme .ai-avatar-chatgpt {
-          background: #ffffff;
-          color: #000000;
-        }
-
-        body.dark-theme .typing-dots-chatgpt {
-          background: #333333;
-        }
-
-        body.dark-theme .typing-dots-chatgpt span {
-          background: #ffffff;
         }
 
         body.dark-theme .modal-content-chatgpt {
@@ -396,135 +350,114 @@ export default function Hero() {
           align-items: center;
         }
 
-        .chat-interface-chatgpt {
-          background: #ffffff;
-          border: 1px solid #e5e5e5;
-          border-radius: 12px;
+        .model-viewer-chatgpt {
+          background: transparent;
+          border: none;
+          border-radius: 20px;
           width: 100%;
-          max-width: 400px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          max-width: 500px;
+          height: 400px;
+          box-shadow: none;
+          overflow: hidden;
+          position: relative;
         }
 
-        .chat-header-chatgpt {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 16px 20px;
-          border-bottom: 1px solid #e5e5e5;
-        }
-
-        .chat-title-chatgpt {
-          font-weight: 600;
-          color: #000000;
-        }
-
-        .chat-status-chatgpt {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          font-size: 12px;
-          color: #666666;
-        }
-
-        .status-dot-chatgpt {
-          width: 8px;
-          height: 8px;
-          background: #10b981;
-          border-radius: 50%;
-        }
-
-        .chat-messages-chatgpt {
-          padding: 20px;
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          max-height: 300px;
-        }
-
-        .message-chatgpt {
-          display: flex;
-          gap: 8px;
-          align-items: flex-start;
-        }
-
-        .user-message-chatgpt {
-          justify-content: flex-end;
-        }
-
-        .user-message-chatgpt .message-bubble-chatgpt {
-          background: #000000;
-          color: #ffffff;
-          max-width: 80%;
-        }
-
-        .ai-message-chatgpt {
-          justify-content: flex-start;
-        }
-
-        .ai-message-chatgpt .message-bubble-chatgpt {
-          background: #f5f5f5;
-          color: #000000;
-          max-width: 80%;
-        }
-
-        .ai-avatar-chatgpt {
-          width: 24px;
-          height: 24px;
-          background: #000000;
-          color: #ffffff;
-          border-radius: 50%;
+        .model-container-chatgpt {
+          width: 100%;
+          height: 100%;
+          position: relative;
           display: flex;
           align-items: center;
           justify-content: center;
-          flex-shrink: 0;
         }
 
-        .message-bubble-chatgpt {
-          padding: 12px 16px;
-          border-radius: 18px;
-          font-size: 14px;
-          line-height: 1.4;
+        .model-placeholder-chatgpt {
+          text-align: center;
+          color: #666666;
         }
 
-        .typing-indicator-chatgpt {
+        .placeholder-icon-chatgpt {
+          margin-bottom: 16px;
+          color: #cccccc;
+          opacity: 0.8;
+        }
+
+        .placeholder-text-chatgpt {
+          font-size: 16px;
+          font-weight: 500;
+          margin: 0 0 16px 0;
+          color: #999999;
+        }
+
+        .loading-dots-chatgpt {
           display: flex;
+          justify-content: center;
           gap: 8px;
-          align-items: center;
         }
 
-        .typing-dots-chatgpt {
-          display: flex;
-          gap: 4px;
-          padding: 12px 16px;
-          background: #f5f5f5;
-          border-radius: 18px;
-        }
-
-        .typing-dots-chatgpt span {
-          width: 6px;
-          height: 6px;
-          background: #999999;
+        .loading-dots-chatgpt span {
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
-          animation: typing 1.4s infinite;
+          background: #cccccc;
+          animation: loadingDots 1.4s ease-in-out infinite;
         }
 
-        .typing-dots-chatgpt span:nth-child(2) {
+        .loading-dots-chatgpt span:nth-child(1) {
+          animation-delay: 0s;
+        }
+
+        .loading-dots-chatgpt span:nth-child(2) {
           animation-delay: 0.2s;
         }
 
-        .typing-dots-chatgpt span:nth-child(3) {
+        .loading-dots-chatgpt span:nth-child(3) {
           animation-delay: 0.4s;
         }
 
-        @keyframes typing {
+        @keyframes loadingDots {
           0%, 60%, 100% {
-            transform: translateY(0);
+            transform: scale(1);
             opacity: 0.5;
           }
           30% {
-            transform: translateY(-10px);
+            transform: scale(1.2);
             opacity: 1;
           }
+        }
+
+        /* 3D Model styles when loaded */
+        .model-canvas-chatgpt {
+          width: 100%;
+          height: 100%;
+          border-radius: 20px;
+        }
+
+        .model-controls-chatgpt {
+          position: absolute;
+          bottom: 16px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 12px;
+          background: rgba(0, 0, 0, 0.7);
+          padding: 8px 16px;
+          border-radius: 20px;
+          backdrop-filter: blur(10px);
+        }
+
+        .model-control-btn-chatgpt {
+          background: none;
+          border: none;
+          color: white;
+          cursor: pointer;
+          padding: 8px;
+          border-radius: 8px;
+          transition: background 0.2s ease;
+        }
+
+        .model-control-btn-chatgpt:hover {
+          background: rgba(255, 255, 255, 0.2);
         }
 
         /* Модальное окно */
@@ -646,8 +579,18 @@ export default function Hero() {
             flex-direction: column;
           }
 
-          .chat-interface-chatgpt {
+          .model-viewer-chatgpt {
             max-width: 100%;
+            height: 320px;
+          }
+
+          .placeholder-icon-chatgpt svg {
+            width: 48px;
+            height: 48px;
+          }
+
+          .placeholder-text-chatgpt {
+            font-size: 14px;
           }
 
           .modal-content-chatgpt {
