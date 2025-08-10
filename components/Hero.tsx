@@ -282,8 +282,8 @@ export default function Hero() {
         }
 
         body.dark-theme .model-viewer-chatgpt {
-          background: #111111;
-          border-color: #333333;
+          background: transparent;
+          border: none;
         }
 
         body.dark-theme .placeholder-text-chatgpt {
@@ -351,13 +351,13 @@ export default function Hero() {
         }
 
         .model-viewer-chatgpt {
-          background: #ffffff;
-          border: 1px solid #e5e5e5;
+          background: transparent;
+          border: none;
           border-radius: 20px;
           width: 100%;
           max-width: 500px;
           height: 400px;
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+          box-shadow: none;
           overflow: hidden;
           position: relative;
         }
