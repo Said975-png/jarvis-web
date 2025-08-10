@@ -26,7 +26,7 @@ export default async function handler(
     const { messages }: ChatRequest = req.body
 
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
-      return res.status(400).json({ message: 'Некорректные сообщения', error: 'Invalid messages' })
+      return res.status(400).json({ message: 'Некоррект��ые сообщения', error: 'Invalid messages' })
     }
 
     const openRouterApiKey = process.env.OPENROUTER_API_KEY
@@ -53,7 +53,7 @@ export default async function handler(
 - Предлагаешь практические решения
 - Всегда в курсе новейших технологий
 
-Отвечай на русском языке, будь полезным и информативным. Если пользователь спрашивает о твоих услугах, упоминай тарифы:
+Отвечай на русском языке, будь полезным и инф��рмативным. Если пользователь спрашивает о твоих услугах, упоминай тарифы:
 - Basic (2,500,000 сум) - простые сайты
 - Pro (4,000,000 сум) - сложные веб-приложения с AI
 - Max (5,000,000 сум) - корпоративные решения
@@ -83,6 +83,15 @@ export default async function handler(
     if (!response.ok) {
       const errorData = await response.text()
       console.error('OpenRouter API error:', response.status, errorData)
+
+      // Handle specific error cases
+      if (response.status === 402) {
+        // Insufficient credits - return a helpful message
+        return res.status(200).json({
+          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник. Сейчас у меня временные ограничения по токенам, но я готов помочь! Попробуйте задать более короткий вопрос или напишите мне напрямую в Telegram @jarvis_ai_dev для полного доступа к моим возможностям.'
+        })
+      }
+
       throw new Error(`OpenRouter API error: ${response.status}`)
     }
 
