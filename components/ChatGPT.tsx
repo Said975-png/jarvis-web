@@ -12,7 +12,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире в��б-разработки. Чем могу помочь?',
+      text: 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?',
       isUser: false,
       timestamp: new Date()
     }
@@ -123,9 +123,6 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       
       const finalMessages = [...updatedMessages, aiResponse]
       setMessages(finalMessages)
-      
-      chatManager.updateSession(currentSessionId, finalMessages)
-      setSessions(chatManager.getAllSessions())
     } catch (error) {
       console.error('Error generating AI response:', error)
       
@@ -287,7 +284,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
               </button>
             </div>
             <div className="input-footer">
-              <p>ChatGPT может совершать ошибки. Про��еряйте важную информацию.</p>
+              <p>ChatGPT может совершать ошибки. Проверяйте важную информацию.</p>
             </div>
           </div>
         </div>
