@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { useCart } from '../contexts/CartContext'
 import { useOrders } from '../contexts/OrderContext'
+import { useTheme } from '../contexts/ThemeContext'
 import AuthForms from './AuthForms'
 import ProfileModal from './ProfileModal'
 import Checkout from './Checkout'
@@ -11,22 +12,22 @@ import { useRouter } from 'next/router'
 const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
-  { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
+  { title: 'Созда��м веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
   { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
   { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
-  { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптим��зация конверсии', url: '/', section: 'Возможности' },
+  { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
   { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Современный дизайн', description: 'Создание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
   { title: 'Высокая производительность', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
   { title: 'ИИ интеграция', description: 'Интеграция искусственного интеллекта в ваши проекты', url: '/', section: 'Функции' },
-  { title: 'Техподдержка', description: 'Профессиональная ��ехническая поддержка 24/7', url: '/', section: 'Услуги' },
+  { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24/7', url: '/', section: 'Услуги' },
   { title: 'SEO оптимизация', description: 'Оптимизация сайта для поисковых систем', url: '/', section: 'Услуги' },
   { title: 'Адаптивная верстка', description: 'Создание сайтов, работающих на всех устройствах', url: '/', section: 'Услуги' },
-  { title: 'Корзина', description: 'Просмотр добавленных товаров и оформление заказа', url: '/', section: 'Покупки' },
+  { title: 'Корзина', description: 'Просмотр добавл��нных товаров и оформление заказа', url: '/', section: 'Покупки' },
   { title: 'Профиль', description: 'Личный кабинет пользователя', url: '/', section: 'Аккаунт' },
   { title: 'Войти', description: 'Авторизация в системе', url: '/', section: 'Аккаунт' },
   { title: 'Регистрация', description: 'Создание нового аккаунта', url: '/', section: 'Аккаунт' }
@@ -410,7 +411,7 @@ export default function SearchableNavbar() {
                           <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
                         </svg>
-                        Личный кабинет
+                        Личный каб��нет
                       </button>
                       <div className="dropdown-divider-chatgpt"></div>
                       <button
