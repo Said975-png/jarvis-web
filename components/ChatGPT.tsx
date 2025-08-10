@@ -553,9 +553,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           display: flex;
           gap: 16px;
           margin-bottom: 24px;
-          max-width: 768px;
-          margin-left: auto;
-          margin-right: auto;
+          max-width: 100%;
+          width: 100%;
         }
 
         .message-avatar {
