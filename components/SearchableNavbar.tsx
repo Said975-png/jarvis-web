@@ -49,7 +49,7 @@ export default function SearchableNavbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDarkTheme, setIsDarkTheme] = useState(false)
 
-  // Пои��к по контенту
+  // Поиск по контенту
   const handleSearch = (query: string) => {
     setSearchValue(query)
     
@@ -1127,6 +1127,14 @@ export default function SearchableNavbar() {
 
         .user-button-chatgpt:hover {
           background: #f5f5f5;
+        }
+
+        .navbar-chatgpt.dark-theme .user-button-chatgpt {
+          color: #ffffff;
+        }
+
+        .navbar-chatgpt.dark-theme .user-button-chatgpt:hover {
+          background: #333333;
         }
 
         .user-avatar-chatgpt {
