@@ -8,6 +8,7 @@ interface ChatGPTProps {
 }
 
 export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
+  const { isDarkTheme } = useTheme()
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -47,7 +48,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       // Блокируем скролл страницы когда чат открыт
       document.body.style.overflow = 'hidden'
     } else {
-      // Возвращаем скролл страницы когда чат закрыт
+      // Воз��ращаем скролл страницы когда чат закрыт
       document.body.style.overflow = 'unset'
     }
 
