@@ -14,7 +14,7 @@ export default function Hero() {
             </h1>
 
             <p className="hero-description-chatgpt">
-              Революционный ИИ-ассистент, который понимает ваши потребности и превращает идеи в реальность. Будущее взаимодействия с технологиями уже здесь.
+              Революционный ИИ-ассистент, который понимает ваши потребност�� и превращает идеи в реальность. Будущее взаимодействия с технологиями уже здесь.
             </p>
 
             <div className="hero-cta-chatgpt">
@@ -60,54 +60,23 @@ export default function Hero() {
           </div>
 
           <div className="hero-visual-chatgpt">
-            <div className="partnerships-slider-chatgpt">
-              <div className="slider-header-chatgpt">
-                <h3 className="slider-title-chatgpt">Наши сотрудничества</h3>
-                <div className="slider-indicators-chatgpt">
-                  {partnerships.map((_, index) => (
-                    <button
-                      key={index}
-                      className={`indicator-dot-chatgpt ${index === currentSlide ? 'active' : ''}`}
-                      onClick={() => setCurrentSlide(index)}
-                    />
-                  ))}
+            <div className="model-viewer-chatgpt">
+              <div className="model-container-chatgpt" id="model-container">
+                <div className="model-placeholder-chatgpt">
+                  <div className="placeholder-icon-chatgpt">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <p className="placeholder-text-chatgpt">3D Model Loading...</p>
+                  <div className="loading-dots-chatgpt">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
                 </div>
-              </div>
-
-              <div className="slider-content-chatgpt">
-                <div
-                  className="slides-container-chatgpt"
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                >
-                  {partnerships.map((partnership, index) => (
-                    <div key={index} className="slide-chatgpt">
-                      <div
-                        className="project-card-chatgpt"
-                        style={{ background: partnership.gradient }}
-                      >
-                        <div className="project-info-chatgpt">
-                          <h4 className="project-name-chatgpt">{partnership.name}</h4>
-                          <p className="project-description-chatgpt">{partnership.description}</p>
-                          <div className="project-tech-chatgpt">{partnership.tech}</div>
-                        </div>
-                        <div className="project-icon-chatgpt">
-                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-                            <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                            <path d="M9 9h.01M15 9h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="slider-progress-chatgpt">
-                <div
-                  className="progress-bar-chatgpt"
-                  style={{ width: `${((currentSlide + 1) / partnerships.length) * 100}%` }}
-                />
               </div>
             </div>
           </div>
