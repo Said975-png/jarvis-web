@@ -113,7 +113,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
                   <h3>Тестирование и доработки</h3>
-                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость заг��уз��и. Исправляем выявленные ошибки и дораб��тываем детали по вашим пожеланиям.</p>
+                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость заг��уз��и. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
 
@@ -129,7 +129,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">6</div>
                 <div className="step-content-chatgpt">
                   <h3>Поддержка и развитие</h3>
-                  <p>Предлагаем техническую поддержку проекта, обновления и добавление новых функций. Помогаем масштабировать ваш бизнес с помощью дополните��ьных ИИ решений и интеграций.</p>
+                  <p>Предлагаем техническую поддержку проекта, обновления и добавление новых функций. Помогаем масштабировать ваш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
                 </div>
               </div>
 
@@ -351,14 +351,14 @@ export default function Hero() {
         }
 
         .model-viewer-chatgpt {
-          background: transparent;
-          border: none;
-          border-radius: 0;
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          border-radius: 20px;
           width: 100%;
           max-width: 500px;
           height: 400px;
-          box-shadow: none;
-          overflow: visible;
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+          overflow: hidden;
           position: relative;
         }
 
