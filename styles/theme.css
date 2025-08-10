@@ -434,3 +434,111 @@ body.dark-theme .back-to-top-chatgpt:hover {
   border-color: #ffffff !important;
   color: #ffffff !important;
 }
+
+/* Chat Components */
+body.dark-theme .chat-overlay-chatgpt {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+body.dark-theme .chat-container-chatgpt {
+  background-color: #111111 !important;
+  border: 1px solid #333333 !important;
+}
+
+body.dark-theme .chat-header-chatgpt {
+  background-color: #222222 !important;
+  border-bottom: 1px solid #333333 !important;
+}
+
+body.dark-theme .chat-sidebar-chatgpt {
+  background-color: #1a1a1a !important;
+  border-right: 1px solid #333333 !important;
+}
+
+body.dark-theme .chat-main-chatgpt {
+  background-color: #111111 !important;
+}
+
+body.dark-theme .chat-input-container-chatgpt {
+  background-color: #222222 !important;
+  border-top: 1px solid #333333 !important;
+}
+
+body.dark-theme .chat-input-chatgpt {
+  background-color: #333333 !important;
+  border: 1px solid #555555 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .chat-input-chatgpt:focus {
+  border-color: #ffffff !important;
+}
+
+body.dark-theme .chat-input-chatgpt::placeholder {
+  color: #888888 !important;
+}
+
+body.dark-theme .chat-send-button-chatgpt {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.dark-theme .chat-send-button-chatgpt:hover {
+  background-color: #f0f0f0 !important;
+}
+
+body.dark-theme .chat-message-chatgpt {
+  color: #ffffff !important;
+}
+
+body.dark-theme .chat-message-user-chatgpt {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .chat-message-assistant-chatgpt {
+  background-color: #222222 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .chat-button-chatgpt {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #333333 !important;
+}
+
+body.dark-theme .chat-button-chatgpt:hover {
+  background-color: #f0f0f0 !important;
+}
+
+/* Chat typing indicator */
+body.dark-theme .typing-indicator-dots-chatgpt span {
+  background-color: #cccccc !important;
+}
+
+/* Session list */
+body.dark-theme .session-item-chatgpt {
+  background-color: transparent !important;
+  color: #cccccc !important;
+  border: 1px solid #333333 !important;
+}
+
+body.dark-theme .session-item-chatgpt:hover {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .session-item-chatgpt.active {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Chat close button */
+body.dark-theme .chat-close-button-chatgpt {
+  color: #cccccc !important;
+}
+
+body.dark-theme .chat-close-button-chatgpt:hover {
+  color: #ffffff !important;
+  background-color: #333333 !important;
+}
