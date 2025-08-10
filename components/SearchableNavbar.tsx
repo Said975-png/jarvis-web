@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
-  { title: 'Созда��м веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
+  { title: 'Созда��м веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мо��ью искусственного интеллекта', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
   { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов �� помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
@@ -241,9 +241,10 @@ export default function SearchableNavbar() {
             {/* Theme Toggle */}
             <div className="theme-toggle-container-chatgpt">
               <button
-                className="theme-toggle-button-chatgpt"
-                onClick={toggleTheme}
-                aria-label="Переключить тему"
+                className="theme-toggle-button-chatgpt disabled"
+                onClick={() => {}}
+                aria-label="Функция в разработке"
+                title="Функция смены темы находится в разработке"
               >
                 {isDarkTheme ? (
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="theme-icon-chatgpt">
