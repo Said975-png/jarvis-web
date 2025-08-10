@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import Model3DViewer from './Model3DViewer'
 
 export default function Hero() {
   const [isProcessModalOpen, setIsProcessModalOpen] = useState(false)
+  // You can set your .glb model URL here when you provide it
+  const modelUrl = undefined // Replace with your .glb file URL
 
   return (
     <section className="hero-section-chatgpt">
@@ -25,7 +28,7 @@ export default function Hero() {
                 Процесс договора
               </button>
               <button className="secondary-button-chatgpt">
-                Узнать больше
+                Узн��ть больше
               </button>
             </div>
 
@@ -112,7 +115,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
                   <h3>Согласование и предоплата</h3>
-                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам приступить к разработке с полной уверенностью.</p>
+                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам приступ��ть к разработке с полной уверенностью.</p>
                 </div>
               </div>
 
@@ -128,7 +131,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
                   <h3>Тестирование и доработки</h3>
-                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загрузки. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
+                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость загрузки. Исправля��м выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
 
@@ -144,7 +147,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">6</div>
                 <div className="step-content-chatgpt">
                   <h3>Поддержка и развитие</h3>
-                  <p>Предлагаем техническую поддержку проекта, обновления и добавление новых функций. Помогаем масштабировать ваш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
+                  <p>Предлагаем техническую поддержку проекта, обновления и добавление новых функций. Помогаем масштабировать ва�� бизнес с помощью дополнительных ИИ решений и интеграций.</p>
                 </div>
               </div>
 
