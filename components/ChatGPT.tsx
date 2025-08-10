@@ -664,18 +664,20 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           display: flex;
           align-items: center;
           color: #6b7280;
+          padding: 8px 0;
         }
 
         .typing-dots {
           display: flex;
           gap: 4px;
+          align-items: center;
         }
 
         .typing-dots span {
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background: #6b7280;
+          background: #9ca3af;
           animation: typing 1.4s ease-in-out infinite;
         }
 
@@ -684,12 +686,12 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
 
         @keyframes typing {
-          0%, 60%, 100% { 
+          0%, 60%, 100% {
             transform: translateY(0);
             opacity: 0.4;
           }
-          30% { 
-            transform: translateY(-8px);
+          30% {
+            transform: translateY(-6px);
             opacity: 1;
           }
         }
