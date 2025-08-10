@@ -9,24 +9,24 @@ import { useRouter } from 'next/router'
 
 // Данные для поиска
 const searchData = [
-  { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
+  { title: 'Главна��', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управлени�� заказами', url: '/admin', section: 'Страницы' },
   { title: 'Создаем веб-решения будущего с помощью ИИ', description: 'Мы объединяем креативность дизайна с мощью искусственного интеллекта', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
   { title: 'ИИ дизайн', description: 'Автоматическое создание современных интерфейсов с помощью машинного обучения', url: '/', section: 'Возможности' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
-  { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
+  { title: 'Автоматизация', description: 'Автомати��еские процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
   { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
   { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
-  { title: 'Max план', description: 'Премиум решение - максимум возможностей дл�� крупного бизнеса', url: '/', section: 'Тарифы' },
+  { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Современный дизайн', description: 'Создание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
   { title: 'Высокая производительность', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
   { title: 'ИИ интеграция', description: 'Интеграция искусственного интеллекта в ваши проекты', url: '/', section: 'Функции' },
   { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24/7', url: '/', section: 'Услуги' },
   { title: 'SEO оптимизация', description: 'Оптимизация сайта для поисковых систем', url: '/', section: 'Услуги' },
   { title: 'Адаптивная верстка', description: 'Создание сайтов, работающих на всех устройствах', url: '/', section: 'Услуги' },
-  { title: 'Корзина', description: 'Просмотр добавленных товаров и оформление за��аза', url: '/', section: 'Покупки' },
+  { title: 'Корзина', description: 'Просмотр добавленных товаров и оформление заказа', url: '/', section: 'Покупки' },
   { title: 'Профиль', description: 'Личный кабинет пользователя', url: '/', section: 'Аккаунт' },
   { title: 'Войти', description: 'Авторизация в системе', url: '/', section: 'Аккаунт' },
   { title: 'Регистрация', description: 'Создание нового аккаунта', url: '/', section: 'Аккаунт' }
@@ -84,7 +84,7 @@ export default function SearchableNavbar() {
         
         // Определяем целевой элемент на основе секции
         switch (item.section) {
-          case 'Загол��вки':
+          case 'Заголовки':
             targetElement = document.querySelector('.hero-section-chatgpt')
             break
           case 'Возможности':
@@ -237,6 +237,26 @@ export default function SearchableNavbar() {
           </div>
 
           <div className="nav-links-wrapper-chatgpt">
+            {/* Theme Toggle */}
+            <div className="theme-toggle-container-chatgpt">
+              <button
+                className="theme-toggle-button-chatgpt"
+                onClick={() => setIsDarkTheme(!isDarkTheme)}
+                aria-label="Переключить тему"
+              >
+                {isDarkTheme ? (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="theme-icon-chatgpt">
+                    <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                  </svg>
+                ) : (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="theme-icon-chatgpt">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )}
+              </button>
+            </div>
+
             {/* Shopping Cart */}
             <div className="cart-container-chatgpt">
               <button
@@ -390,7 +410,7 @@ export default function SearchableNavbar() {
                           <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
                         </svg>
-                        ��ичный кабинет
+                        Личный кабинет
                       </button>
                       <div className="dropdown-divider-chatgpt"></div>
                       <button
