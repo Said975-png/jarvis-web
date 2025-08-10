@@ -6,6 +6,7 @@ import Features from '../components/Features'
 import Benefits from '../components/Benefits'
 import ChatManager from '../components/ChatManager'
 import Footer from '../components/Footer'
+import ShineEffect from '../components/ShineEffect'
 
 export default function Home() {
   return (
