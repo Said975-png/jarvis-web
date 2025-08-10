@@ -33,6 +33,7 @@ export default function Home() {
         <Benefits />
       </main>
 
+      <Footer />
       <ChatManager />
     </>
   )
