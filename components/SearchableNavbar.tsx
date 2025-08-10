@@ -606,6 +606,16 @@ export default function SearchableNavbar() {
 
         .navbar-chatgpt.dark-theme .search-input-chatgpt {
           color: #ffffff;
+          background: transparent;
+          border: none;
+          outline: none;
+          box-shadow: none;
+        }
+
+        .navbar-chatgpt.dark-theme .search-input-chatgpt:focus {
+          border: none;
+          outline: none;
+          box-shadow: none;
         }
 
         .navbar-chatgpt.dark-theme .search-input-chatgpt::placeholder {
