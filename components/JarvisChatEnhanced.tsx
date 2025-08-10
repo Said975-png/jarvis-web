@@ -87,7 +87,7 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
   const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
     try {
       const apiMessages = conversationHistory
-        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ваш AI-помощник в мире веб-разработки. Чем могу помочь?')
+        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ваш AI-помощник в ми��е веб-разработки. Чем могу помочь?')
         .map(msg => ({
           role: msg.isUser ? 'user' as const : 'assistant' as const,
           content: msg.text
@@ -391,69 +391,88 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
 
         /* Sidebar Styles */
         .jarvis-sidebar {
-          width: 280px;
-          background: #f8f9fa;
-          border-right: 1px solid #e5e5e5;
+          width: 260px;
+          background: #171717;
+          border-right: 1px solid #2d2d2d;
           display: flex;
           flex-direction: column;
           transition: width 0.3s ease;
+          height: 100vh;
         }
 
         .jarvis-sidebar.collapsed {
-          width: 60px;
+          width: 48px;
         }
 
         .sidebar-header {
-          padding: 16px;
-          border-bottom: 1px solid #e5e5e5;
+          padding: 12px;
           display: flex;
           align-items: center;
           gap: 8px;
+          border-bottom: 1px solid #2d2d2d;
         }
 
         .new-chat-btn {
           flex: 1;
-          padding: 12px;
-          background: #000000;
+          height: 44px;
+          padding: 0 12px;
+          background: transparent;
           color: #ffffff;
-          border: none;
-          border-radius: 8px;
+          border: 1px solid #404040;
+          border-radius: 6px;
           font-size: 14px;
+          font-weight: 500;
           cursor: pointer;
           display: flex;
           align-items: center;
-          gap: 8px;
           justify-content: center;
+          gap: 8px;
           transition: all 0.2s ease;
+          min-width: 0;
         }
 
         .new-chat-btn:hover {
-          background: #333333;
+          background: #2d2d2d;
+          border-color: #525252;
+        }
+
+        .jarvis-sidebar.collapsed .new-chat-btn {
+          padding: 0;
+          width: 32px;
+          justify-content: center;
         }
 
         .sidebar-toggle {
-          padding: 8px;
-          background: none;
+          width: 32px;
+          height: 32px;
+          background: transparent;
           border: none;
           cursor: pointer;
           border-radius: 6px;
-          color: #666666;
+          color: #a1a1aa;
           transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
         }
 
         .sidebar-toggle:hover {
-          background: #e5e5e5;
-          color: #000000;
+          background: #2d2d2d;
+          color: #ffffff;
         }
 
         .chat-history {
           flex: 1;
           overflow-y: auto;
-          padding: 8px;
+          padding: 8px 12px;
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
         }
 
         .chat-history::-webkit-scrollbar {
-          width: 6px;
+          width: 4px;
         }
 
         .chat-history::-webkit-scrollbar-track {
@@ -461,56 +480,70 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
         }
 
         .chat-history::-webkit-scrollbar-thumb {
-          background: #d1d5db;
-          border-radius: 3px;
+          background: #404040;
+          border-radius: 2px;
+        }
+
+        .chat-history::-webkit-scrollbar-thumb:hover {
+          background: #525252;
         }
 
         .chat-item {
           padding: 12px;
-          margin-bottom: 4px;
           border-radius: 8px;
           cursor: pointer;
-          transition: all 0.2s ease;
+          transition: all 0.15s ease;
+          position: relative;
+          background: transparent;
+          min-height: 44px;
           display: flex;
           flex-direction: column;
-          gap: 4px;
-          position: relative;
+          justify-content: center;
         }
 
         .chat-item:hover {
-          background: #e5e5e5;
+          background: #2d2d2d;
         }
 
         .chat-item.active {
-          background: #000000;
-          color: #ffffff;
+          background: #2d2d2d;
         }
 
         .chat-title {
           font-size: 14px;
-          font-weight: 500;
+          font-weight: 400;
+          color: #e5e5e5;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+          line-height: 1.4;
+          padding-right: 24px;
         }
 
         .chat-date {
           font-size: 12px;
-          opacity: 0.7;
+          color: #a1a1aa;
+          margin-top: 2px;
+          line-height: 1.2;
         }
 
         .delete-chat-btn {
           position: absolute;
-          top: 8px;
+          top: 50%;
           right: 8px;
-          background: none;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 20px;
+          background: transparent;
           border: none;
           cursor: pointer;
           opacity: 0;
-          padding: 4px;
           border-radius: 4px;
-          color: currentColor;
-          transition: all 0.2s ease;
+          color: #a1a1aa;
+          transition: all 0.15s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .chat-item:hover .delete-chat-btn {
@@ -518,7 +551,19 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
         }
 
         .delete-chat-btn:hover {
-          background: rgba(255, 255, 255, 0.2);
+          background: #404040;
+          color: #ffffff;
+        }
+
+        .jarvis-sidebar.collapsed .chat-item {
+          padding: 8px;
+          min-height: 32px;
+        }
+
+        .jarvis-sidebar.collapsed .chat-title,
+        .jarvis-sidebar.collapsed .chat-date,
+        .jarvis-sidebar.collapsed .delete-chat-btn {
+          display: none;
         }
 
         /* Main Chat Styles */
