@@ -363,43 +363,36 @@ export default function Hero() {
           background: #333333;
         }
 
-        body.dark-theme .chat-interface-chatgpt {
+        body.dark-theme .partnerships-slider-chatgpt {
           background: #111111;
           border-color: #333333;
         }
 
-        body.dark-theme .chat-header-chatgpt {
-          border-bottom: 1px solid #333333;
-        }
-
-        body.dark-theme .chat-title-chatgpt {
+        body.dark-theme .slider-title-chatgpt {
           color: #ffffff;
         }
 
-        body.dark-theme .chat-status-chatgpt {
-          color: #cccccc;
-        }
-
-        body.dark-theme .user-message-chatgpt .message-bubble-chatgpt {
-          background: #ffffff;
-          color: #000000;
-        }
-
-        body.dark-theme .ai-message-chatgpt .message-bubble-chatgpt {
-          background: #333333;
+        body.dark-theme .project-name-chatgpt {
           color: #ffffff;
         }
 
-        body.dark-theme .ai-avatar-chatgpt {
+        body.dark-theme .project-description-chatgpt {
+          color: rgba(255, 255, 255, 0.9);
+        }
+
+        body.dark-theme .project-tech-chatgpt {
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        body.dark-theme .indicator-dot-chatgpt {
+          background: #555555;
+        }
+
+        body.dark-theme .indicator-dot-chatgpt.active {
           background: #ffffff;
-          color: #000000;
         }
 
-        body.dark-theme .typing-dots-chatgpt {
-          background: #333333;
-        }
-
-        body.dark-theme .typing-dots-chatgpt span {
+        body.dark-theme .progress-bar-chatgpt {
           background: #ffffff;
         }
 
