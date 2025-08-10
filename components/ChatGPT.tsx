@@ -259,7 +259,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+          background: #ffffff;
           z-index: 1000;
           display: flex;
           align-items: center;
@@ -270,7 +270,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .giga-chat-container {
           width: 100%;
           height: 100vh;
-          background: rgba(15, 20, 25, 0.95);
+          background: #ffffff;
           border-radius: 0;
           border: none;
           backdrop-filter: blur(20px);
@@ -281,8 +281,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .giga-chat-header {
-          background: rgba(255, 255, 255, 0.02);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          background: #ffffff;
+          border-bottom: 1px solid #e5e7eb;
           padding: 20px 24px;
         }
 
@@ -312,17 +312,17 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .giga-logo-text {
           font-size: 18px;
           font-weight: 700;
-          color: #ffffff;
+          color: #1f2937;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         .giga-close-btn {
-          background: rgba(255, 255, 255, 0.1);
+          background: #f3f4f6;
           border: none;
           border-radius: 8px;
           width: 40px;
           height: 40px;
-          color: #ffffff;
+          color: #374151;
           cursor: pointer;
           display: flex;
           align-items: center;
@@ -331,7 +331,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .giga-close-btn:hover {
-          background: rgba(255, 255, 255, 0.15);
+          background: #e5e7eb;
           transform: scale(1.05);
         }
 
@@ -360,12 +360,12 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .giga-chat-messages::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.2);
+          background: #d1d5db;
           border-radius: 3px;
         }
 
         .giga-chat-messages::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 255, 255, 0.3);
+          background: #9ca3af;
         }
 
         .giga-message {
@@ -425,24 +425,28 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .giga-message-bubble {
-          background: rgba(255, 255, 255, 0.08);
+          background: #f3f4f6;
           border-radius: 16px;
           padding: 16px 20px;
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          border: 1px solid #e5e7eb;
           backdrop-filter: blur(20px);
           max-width: 100%;
         }
 
         .giga-message-user .giga-message-bubble {
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: 1px solid rgba(102, 126, 234, 0.2);
         }
 
         .giga-message-text {
-          color: #ffffff;
+          color: #1f2937;
           line-height: 1.6;
           font-size: 15px;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .giga-message-user .giga-message-text {
+          color: #ffffff;
         }
 
         .giga-message-text p {
@@ -491,8 +495,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
         .giga-chat-input-area {
           padding: 20px 24px 24px 24px;
-          background: rgba(255, 255, 255, 0.02);
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          background: #ffffff;
+          border-top: 1px solid #e5e7eb;
         }
 
         .giga-input-container {
@@ -504,8 +508,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           display: flex;
           align-items: flex-end;
           gap: 12px;
-          background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.15);
+          background: #f9fafb;
+          border: 1px solid #d1d5db;
           border-radius: 16px;
           padding: 16px 20px;
           backdrop-filter: blur(20px);
@@ -525,7 +529,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           outline: none;
           font-size: 15px;
           line-height: 1.5;
-          color: #ffffff;
+          color: #1f2937;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           min-height: 24px;
           max-height: 120px;
@@ -533,7 +537,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .giga-chat-input::placeholder {
-          color: rgba(255, 255, 255, 0.5);
+          color: #6b7280;
         }
 
         .giga-send-btn {
@@ -558,8 +562,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .giga-send-btn:disabled {
-          background: rgba(255, 255, 255, 0.1);
-          color: rgba(255, 255, 255, 0.3);
+          background: #e5e7eb;
+          color: #9ca3af;
           cursor: not-allowed;
           transform: none;
           box-shadow: none;
