@@ -72,10 +72,7 @@
   }
 }
 
-@keyframes globalGridShift {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(60px, 60px); }
-}
+/* Grid animation removed */
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
