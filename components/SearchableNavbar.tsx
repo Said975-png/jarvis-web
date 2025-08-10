@@ -866,6 +866,12 @@ export default function SearchableNavbar() {
           margin-top: 8px;
         }
 
+        .navbar-chatgpt.dark-theme .cart-dropdown-chatgpt {
+          background: #222222;
+          border: 1px solid #444444;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
         .cart-header-chatgpt {
           display: flex;
           justify-content: space-between;
