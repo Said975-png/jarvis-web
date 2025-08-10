@@ -17,7 +17,7 @@ const searchData = [
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
   { title: 'Автоматизация', description: 'Автоматические процессы разработки и развертывания для ускорения работы', url: '/', section: 'Возможности' },
   { title: 'Аналитика', description: 'Глубокий анализ пользовательск��го поведения и оптимизация конверсии', url: '/', section: 'Возможности' },
-  { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
+  { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и ста��тапов', url: '/', section: 'Тарифы' },
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Современный дизайн', description: 'Создание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
@@ -77,7 +77,7 @@ export default function SearchableNavbar() {
       router.push('/admin')
     }
     
-    // Для элементов на главной странице - прокрутка к секции
+    // Для элементов на главной стр��нице - прокрутка к секции
     if (item.url === '/' && router.pathname === '/') {
       setTimeout(() => {
         let targetElement: Element | null = null
@@ -1160,6 +1160,12 @@ export default function SearchableNavbar() {
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
           min-width: 200px;
           z-index: 1100;
+        }
+
+        .navbar-chatgpt.dark-theme .user-dropdown-chatgpt {
+          background: #222222;
+          border: 1px solid #444444;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .dropdown-item-chatgpt {
