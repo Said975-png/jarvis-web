@@ -4,7 +4,7 @@ const features = [
   {
     id: 'ai-design',
     title: 'ИИ дизайн',
-    description: 'Ав��оматическое создание современных интерфейсов с помощью машинного обучения',
+    description: 'Ав��оматическое создание современных интерфейс��в с помощью машинного обучения',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2"/>
@@ -100,7 +100,7 @@ export default function Features() {
               <div className="stat-label-chatgpt">Удовлетворенность клиентов</div>
             </div>
             <div className="stat-item-chatgpt">
-              <div className="stat-number-chatgpt">15K+</div>
+              <div className="stat-number-chatgpt">430+</div>
               <div className="stat-label-chatgpt">Активных пользователей</div>
             </div>
             <div className="stat-item-chatgpt">
