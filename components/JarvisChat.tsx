@@ -152,12 +152,13 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
         <div className="jarvis-chat-header">
           <div className="jarvis-chat-title">
             <div className="jarvis-avatar">
-              <div className="jarvis-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F86ccad5be3604b288119b4c361741253%2F60b029911e0b4e74939cea888d93edb9?format=webp&width=800"
+                alt="JARVIS"
+                width="32"
+                height="32"
+                style={{borderRadius: '50%', objectFit: 'cover'}}
+              />
             </div>
             <div className="title-info">
               <h3>ДЖАРВИС</h3>
@@ -183,12 +184,13 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
             >
               {!message.isUser && (
                 <div className="message-avatar">
-                  <div className="ai-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F86ccad5be3604b288119b4c361741253%2F60b029911e0b4e74939cea888d93edb9?format=webp&width=800"
+                    alt="JARVIS"
+                    width="28"
+                    height="28"
+                    style={{borderRadius: '50%', objectFit: 'cover'}}
+                  />
                 </div>
               )}
               <div className="message-content">
@@ -207,12 +209,13 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
           {isTyping && (
             <div className="message ai-message">
               <div className="message-avatar">
-                <div className="ai-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F86ccad5be3604b288119b4c361741253%2F60b029911e0b4e74939cea888d93edb9?format=webp&width=800"
+                  alt="JARVIS"
+                  width="28"
+                  height="28"
+                  style={{borderRadius: '50%', objectFit: 'cover'}}
+                />
               </div>
               <div className="message-content">
                 <div className="message-bubble typing-indicator">
@@ -300,12 +303,11 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
         .jarvis-avatar {
           width: 32px;
           height: 32px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: white;
+          overflow: hidden;
         }
 
         .jarvis-icon {
@@ -382,17 +384,8 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
           height: 28px;
           flex-shrink: 0;
           margin-top: 2px;
-        }
-
-        .ai-icon {
-          width: 28px;
-          height: 28px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
+          overflow: hidden;
         }
 
         .message-content {
