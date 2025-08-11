@@ -20,7 +20,7 @@ interface UserLimit {
   resetTime: number
 }
 
-// Хранилище лимитов в памяти (в production лучше исполь��овать Redis)
+// Хранилище лимитов в памяти (в production лучше ис��оль��овать Redis)
 const userLimits = new Map<string, UserLimit>()
 const REQUESTS_LIMIT = 100
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
@@ -283,7 +283,7 @@ AI & ML:
 Какой AI функционал вас интересует?`
       }
       // Portfolio/examples
-      else if (lastMessage.includes('портфолио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('проекты')) {
+      else if (lastMessage.includes('портфолио') || lastMessage.includes('п��имеры') || lastMessage.includes('работы') || lastMessage.includes('проекты')) {
         response = `💼 Примеры моих работ:
 
 🏪 E-commerce платформы:
@@ -442,7 +442,7 @@ AI & ML:
       } else if (response.status === 401) {
         console.log(`[${timestamp}] Authentication error`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🤖\n\nСейчас у меня проблемы с подключением к внешнему AI-сервису, но я могу помочь вам другими способами:\n\n• Консультации по веб-разработке\n• Планирование проектов\n• Технические рекомендации\n• Выбор технологий\n\nЗадавайте во��росы - я постараюсь дать полезные советы!'
+          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🤖\n\nСейчас у меня проблемы с подключением к внешнему AI-сервису, но я могу помочь вам другими способами:\n\n• Консультации по веб-разработке\n• Планирование проектов\n• Технические рекомендации\n• Выбор техн��логий\n\nЗадавайте во��росы - я постараюсь дать полезные советы!'
         })
       } else if (response.status === 429) {
         console.log(`[${timestamp}] Rate limit exceeded`)
@@ -472,7 +472,7 @@ AI & ML:
     console.log(`[${timestamp}] AI response length:`, aiMessage?.length || 0)
     console.log(`[${timestamp}] AI response preview (cleaned):`, aiMessage?.substring(0, 200) + '...')
 
-    // Логируем использование токенов если досту��но
+    // Логируем использование токенов если доступно
     if (data.usage) {
       console.log(`[${timestamp}] === Token Usage ===`)
       console.log(`Prompt tokens: ${data.usage.prompt_tokens || 'N/A'}`)
