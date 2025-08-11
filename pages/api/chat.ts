@@ -20,7 +20,7 @@ interface UserLimit {
   resetTime: number
 }
 
-// Хранилище лимитов в памяти (в production лучше использовать Redis)
+// Хранилище лимитов в памяти (в production лучше использов��ть Redis)
 const userLimits = new Map<string, UserLimit>()
 const REQUESTS_LIMIT = 100
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
@@ -132,7 +132,7 @@ export default async function handler(
   if (!limitCheck.allowed) {
     console.log(`[${timestamp}] RATE LIMIT EXCEEDED for IP: ${clientIP}`)
     return res.status(200).json({
-      message: `🚫 Лимит запросов исч��рпан!
+      message: `🚫 Лимит запросов исчерпан!
 
 Вы использовали все 100 бесплатных вопросов к ДЖАРВИС.
 
@@ -308,7 +308,7 @@ AI & ML:
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
-      else if (lastMessage.includes('как т��бя с��здали') || lastMessage.includes('��з чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
+      else if (lastMessage.includes('как т����бя с��здали') || lastMessage.includes('��з чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
         response = `Это секретная информация 🔒`
       }
       // Default response for other questions
@@ -330,7 +330,7 @@ AI & ML:
 
       // Добавляем информацию об оставшихся запросах
       const remainingInfo = limitCheck.remaining > 0
-        ? `\n\n📊 Осталось бесплатных вопросов: ${limitCheck.remaining}`
+        ? `\n\n���� Осталось бесплатных вопросов: ${limitCheck.remaining}`
         : `\n\n⚠️ Это ваш последний бесплатный вопрос! Следующий будет платным.`
 
       console.log(`[${timestamp}] Fallback response length:`, response.length)
@@ -352,12 +352,12 @@ AI & ML:
 • Современные фреймворки и инструменты
 
 💡 СТИЛЬ ОБЩЕНИЯ:
-- Отвечай подробно и по существу
+- Отвечай подробно и п�� существу
 - Объясняй "почему" и "как", а не только "что"
 - Приводи конкретные примеры кода когда нужно
 - Предлагай несколько вариантов решения
 - Учитывай современные best practices
-- ��удь дружелюбным но профессиональным
+- Будь дружелюбным но профессиональным
 - НЕ ИСПОЛЬЗУЙ MARKDOWN: никаких *, **, #, ###, \`, \`\`\`
 - Пиши обычным текстом без форматирования
 - Используй только эмодзи и обычные символы для структуры
@@ -447,7 +447,7 @@ AI & ML:
       } else if (response.status === 429) {
         console.log(`[${timestamp}] Rate limit exceeded`)
         return res.status(200).json({
-          message: 'Я получаю ��лишком много запросов одн��временно! 😅\n\nДайте мне секун��очку отдохнуть и попробуйте еще раз. Или напишите напрямую  - там я всегда доступен!'
+          message: 'Я получаю ��лишком много запросов одновременно! 😅\n\nДайте мне секун��очку отдохнуть и попробуйте еще раз. Или напишите напрямую  - там я всегда доступен!'
         })
       }
 
@@ -496,8 +496,8 @@ AI & ML:
     console.error('Error message:', error instanceof Error ? error.message : String(error))
     console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
-    // Воз��ращаем дружелюбное сообщение об ошибке
-    const fallbackMessage = `Извините, произошла временная ошиб��а! 😅
+    // Возвращаем дружелюбное сообщение ��б ошибке
+    const fallbackMessage = `Извините, произошла временная ошибка! 😅
 
 Но не беспокойтесь - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
 
