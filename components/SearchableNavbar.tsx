@@ -21,8 +21,8 @@ const searchData = [
   { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
-  { title: 'Современный дизайн', description: 'Соз��ание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
-  { title: 'Высокая производительност��', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
+  { title: 'Современный дизайн', description: 'Соз��ание красивых и функциональных интерф��йсов', url: '/', section: 'Функции' },
+  { title: 'Высокая производительность', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
   { title: 'ИИ интеграция', description: 'Интеграция искусственного интеллекта в ваши проекты', url: '/', section: 'Функции' },
   { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24/7', url: '/', section: 'Услуги' },
   { title: 'SEO оптимизация', description: 'Оптимизация сайта для поисковых систем', url: '/', section: 'Услуги' },
@@ -30,7 +30,7 @@ const searchData = [
   { title: 'Корзина', description: 'Просмотр добавленных товаров и оформление заказа', url: '/', section: 'Покупки' },
   { title: 'Профиль', description: 'Личный кабинет пользователя', url: '/', section: 'Аккаунт' },
   { title: 'Войти', description: 'Авторизация в системе', url: '/', section: 'Аккаунт' },
-  { title: 'Реги��трация', description: 'Создание нового аккаунта', url: '/', section: 'Аккаунт' }
+  { title: 'Регистрация', description: 'Создание нового аккаунта', url: '/', section: 'Аккаунт' }
 ]
 
 export default function SearchableNavbar() {
@@ -329,7 +329,7 @@ export default function SearchableNavbar() {
                                   +
                                 </button>
                               </div>
-                              <span className="cart-item-price-chatgpt">{parseInt(item.price).toLocaleString()} рублей</span>
+                              <span className="cart-item-price-chatgpt">{parseInt(item.price).toLocaleString()} сумм</span>
                             </div>
                             <button
                               className="cart-item-remove-chatgpt"
