@@ -9,20 +9,20 @@ export default function MockupPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className="mockup-container">
+      <div className={styles.mockupContainer}>
         {/* Перевернутый ноутбук */}
-        <div className="laptop-mockup">
+        <div className={styles.laptopMockup}>
           {/* Экран ноутбука */}
-          <div className="laptop-screen">
-            <div className="screen-frame">
-              <div className="screen-bezel">
+          <div className={styles.laptopScreen}>
+            <div className={styles.screenFrame}>
+              <div className={styles.screenBezel}>
                 {/* Камера */}
-                <div className="camera"></div>
+                <div className={styles.camera}></div>
                 
                 {/* Контент сайта в экране */}
                 <iframe
                   src="https://e6782ded15924ae6ac15a4317ec41fb3-751065517e0f460887f9a06b2.fly.dev/"
-                  className="website-content"
+                  className={styles.websiteContent}
                   title="JARVIS Website"
                 ></iframe>
               </div>
@@ -30,65 +30,65 @@ export default function MockupPage() {
           </div>
 
           {/* Клавиатура и основание ноутбука */}
-          <div className="laptop-base">
-            <div className="keyboard-area">
+          <div className={styles.laptopBase}>
+            <div className={styles.keyboardArea}>
               {/* Клавиатура */}
-              <div className="keyboard">
+              <div className={styles.keyboard}>
                 {/* Ряды клавиш */}
-                <div className="key-row">
+                <div className={styles.keyRow}>
                   {[...Array(13)].map((_, i) => (
-                    <div key={i} className="key"></div>
+                    <div key={i} className={styles.key}></div>
                   ))}
                 </div>
-                <div className="key-row">
+                <div className={styles.keyRow}>
                   {[...Array(12)].map((_, i) => (
-                    <div key={i} className="key"></div>
+                    <div key={i} className={styles.key}></div>
                   ))}
                 </div>
-                <div className="key-row">
+                <div className={styles.keyRow}>
                   {[...Array(11)].map((_, i) => (
-                    <div key={i} className="key"></div>
+                    <div key={i} className={styles.key}></div>
                   ))}
                 </div>
-                <div className="key-row">
-                  <div className="key shift-key"></div>
+                <div className={styles.keyRow}>
+                  <div className={`${styles.key} ${styles.shiftKey}`}></div>
                   {[...Array(8)].map((_, i) => (
-                    <div key={i} className="key"></div>
+                    <div key={i} className={styles.key}></div>
                   ))}
-                  <div className="key shift-key"></div>
+                  <div className={`${styles.key} ${styles.shiftKey}`}></div>
                 </div>
-                <div className="key-row space-row">
-                  <div className="key ctrl-key"></div>
-                  <div className="key alt-key"></div>
-                  <div className="key space-key"></div>
-                  <div className="key alt-key"></div>
-                  <div className="key ctrl-key"></div>
+                <div className={`${styles.keyRow} ${styles.spaceRow}`}>
+                  <div className={`${styles.key} ${styles.ctrlKey}`}></div>
+                  <div className={`${styles.key} ${styles.altKey}`}></div>
+                  <div className={`${styles.key} ${styles.spaceKey}`}></div>
+                  <div className={`${styles.key} ${styles.altKey}`}></div>
+                  <div className={`${styles.key} ${styles.ctrlKey}`}></div>
                 </div>
               </div>
 
               {/* Тачпад */}
-              <div className="trackpad">
-                <div className="trackpad-surface"></div>
+              <div className={styles.trackpad}>
+                <div className={styles.trackpadSurface}></div>
               </div>
             </div>
 
             {/* Логотип бренда */}
-            <div className="brand-logo">
+            <div className={styles.brandLogo}>
               <img 
                 src="https://cdn.builder.io/api/v1/image/assets%2Fb9756cc334164143a08add8073145880%2Ff677b712e9264dbf9c624260059e0bc2?format=webp&width=800"
                 alt="JARVIS Logo"
-                className="logo-image"
+                className={styles.logoImage}
               />
-              <span className="brand-text">JARVIS</span>
+              <span className={styles.brandText}>JARVIS</span>
             </div>
           </div>
         </div>
 
         {/* Тень ноутбука */}
-        <div className="laptop-shadow"></div>
+        <div className={styles.laptopShadow}></div>
 
         {/* Кнопка скачивания */}
-        <button className="download-btn" onClick={() => window.print()}>
+        <button className={styles.downloadBtn} onClick={() => window.print()}>
           📸 Скачать макет
         </button>
       </div>
