@@ -329,7 +329,7 @@ export default function SearchableNavbar() {
                                   +
                                 </button>
                               </div>
-                              <span className="cart-item-price-chatgpt">₽{parseInt(item.price).toLocaleString()}</span>
+                              <span className="cart-item-price-chatgpt">{parseInt(item.price).toLocaleString()} рублей</span>
                             </div>
                             <button
                               className="cart-item-remove-chatgpt"
