@@ -20,7 +20,7 @@ interface UserLimit {
   resetTime: number
 }
 
-// Хранилище лимитов в памяти (в production лучше испо��ьзовать Redis)
+// Хранилищ�� лимитов в памяти (в production лучше испо��ьзовать Redis)
 const userLimits = new Map<string, UserLimit>()
 const REQUESTS_LIMIT = 100
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
@@ -328,9 +328,9 @@ AI & ML:
 💬 Задавайте любые вопросы прямо здесь!`
       }
 
-      // Добавляем информацию об оставшихся запросах
+      // Добавляем информацию об оставши��ся запросах
       const remainingInfo = limitCheck.remaining > 0
-        ? `\n\n���� Осталось бесплатных вопросов: ${limitCheck.remaining}`
+        ? `\n\n📊 Осталось бесплатных вопросов: ${limitCheck.remaining}`
         : `\n\n⚠️ Это ваш последний бесплатный вопрос! Следующий будет платным.`
 
       console.log(`[${timestamp}] Fallback response length:`, response.length)
@@ -349,7 +349,7 @@ AI & ML:
 • DevOps и облачные технологии
 • Базы данных и оптимизация
 • Бизнес-анализ и консультирование
-• Современные фреймворки и инструменты
+• Современные фреймворки и и��струменты
 
 💡 СТИЛЬ ОБЩЕНИЯ:
 - Отвечай подробно и п�� суще��тву
@@ -442,7 +442,7 @@ AI & ML:
       } else if (response.status === 401) {
         console.log(`[${timestamp}] Authentication error`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🤖\n\nСейчас у меня проблемы с подключением к внешнему AI-сервису, но я могу помочь вам другими способами:\n\n• Консультации по веб-разработке\n• Планирование проектов\n• Технические ре��омендации\n• Выбор технологий\n\nЗадавайте вопросы - я постараюсь дать полезные советы!'
+          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🤖\n\nСейчас у меня проблемы с подключением к внешнему AI-сервису, но я могу помочь вам другими способами:\n\n• Консультации по веб-разработке\n��� Планирование проектов\n• Технические ре��омендации\n• Выбор технологий\n\nЗадавайте вопросы - я постараюсь дать полезные советы!'
         })
       } else if (response.status === 429) {
         console.log(`[${timestamp}] Rate limit exceeded`)
@@ -466,7 +466,7 @@ AI & ML:
 
     let aiMessage = data.choices[0].message.content
 
-    // Очищаем от Markdown форматирования
+    // Очищ��ем от Markdown форматирования
     aiMessage = cleanMarkdown(aiMessage)
 
     console.log(`[${timestamp}] AI response length:`, aiMessage?.length || 0)
