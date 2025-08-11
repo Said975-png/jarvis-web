@@ -15,7 +15,7 @@ export default function Benefits() {
 
             <p className="benefits-description-chatgpt">
               Один умный ассистент выполняет работу десятков сотрудников. ДЖАРВИС 
-              ведет естественные диалоги с клиентами, предлагает товары, консультирует 
+              ведет естественные диалоги с клиентами, предлагает тов��ры, консультирует 
               и находит лучшие предложения 24/7 без перерывов и выходных.
             </p>
 
@@ -93,12 +93,6 @@ export default function Benefits() {
                 onClick={() => setActiveTab('conversation')}
               >
                 Диалог с клиентом
-              </button>
-              <button 
-                className={`tab-button-chatgpt ${activeTab === 'calculator' ? 'active' : ''}`}
-                onClick={() => setActiveTab('calculator')}
-              >
-                Калькулятор экономии
               </button>
             </div>
 
@@ -198,35 +192,6 @@ export default function Benefits() {
               </div>
             )}
 
-            {activeTab === 'calculator' && (
-              <div className="savings-calculator-chatgpt">
-                <div className="calculator-header-chatgpt">
-                  <div className="calculator-icon-chatgpt">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-                      <path d="M9 9h6v6H9z" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                  </div>
-                  <span>Калькулятор экономии</span>
-                </div>
-                <div className="calculator-content-chatgpt">
-                  <div className="calculation-row-chatgpt">
-                    <span className="calc-label-chatgpt">Зарплата 20 сотрудников:</span>
-                    <span className="calc-value-chatgpt negative">$20,000/мес</span>
-                  </div>
-                  <div className="calculation-row-chatgpt">
-                    <span className="calc-label-chatgpt">ДЖАРВИС ИИ:</span>
-                    <span className="calc-value-chatgpt positive">$2,000/мес</span>
-                  </div>
-                  <div className="calculation-divider-chatgpt"></div>
-                  <div className="calculation-row-chatgpt total">
-                    <span className="calc-label-chatgpt">Экономия в год:</span>
-                    <span className="calc-value-chatgpt savings">$216,000</span>
-                  </div>
-                  <div className="savings-percent-chatgpt">90% экономии</div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
