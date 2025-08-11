@@ -24,7 +24,7 @@ export default function Hero() {
                 className="primary-button-chatgpt"
                 onClick={() => setIsProcessModalOpen(true)}
               >
-                Процесс договора
+                Процесс до��овора
               </button>
               <button
                 className="secondary-button-chatgpt"
@@ -101,7 +101,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
                   <h3>Согласование и предоплата</h3>
-                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам приступить к разработке с полной уве��енностью.</p>
+                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позволяет нам приступить к разработке с полной уверенностью.</p>
                 </div>
               </div>
 
