@@ -165,7 +165,7 @@ export default function AdminPanel() {
     return (
       <div className="admin-loading">
         <div className="loading-spinner"></div>
-        <p>Загрузка заказов...</p>
+        <p>Загрузка заказов</p>
       </div>
     )
   }
