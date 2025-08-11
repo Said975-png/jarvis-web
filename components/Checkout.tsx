@@ -114,7 +114,7 @@ export default function Checkout({ onClose, onSuccess }: CheckoutProps) {
                   value={formData.description}
                   onChange={(e) => handleInputChange('description', e.target.value)}
                   required
-                  placeholder="Опишите, како�� сайт вы хотите. Укажите функциональность, стиль, особые требования"
+                  placeholder="Опишите, какой сайт вы хотите. Укажите функциональность, стиль, особые требования"
                   rows={5}
                 />
               </div>
