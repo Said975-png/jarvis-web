@@ -1,4 +1,4 @@
-.mockup-container {
+.mockupContainer {
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
@@ -9,13 +9,13 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-.laptop-mockup {
+.laptopMockup {
   position: relative;
   transform: perspective(1000px) rotateX(180deg) rotateY(180deg);
   transform-style: preserve-3d;
 }
 
-.laptop-screen {
+.laptopScreen {
   position: relative;
   width: 500px;
   height: 320px;
@@ -29,7 +29,7 @@
   transform: translateZ(4px);
 }
 
-.screen-frame {
+.screenFrame {
   width: 100%;
   height: 100%;
   background: #000;
@@ -38,7 +38,7 @@
   overflow: hidden;
 }
 
-.screen-bezel {
+.screenBezel {
   width: 100%;
   height: 100%;
   background: #111;
@@ -59,7 +59,7 @@
   z-index: 10;
 }
 
-.website-content {
+.websiteContent {
   width: 100%;
   height: 100%;
   border: none;
@@ -68,7 +68,7 @@
   transform: rotateX(180deg) rotateY(180deg);
 }
 
-.laptop-base {
+.laptopBase {
   position: relative;
   width: 500px;
   height: 340px;
@@ -82,7 +82,7 @@
   transform: translateZ(0px);
 }
 
-.keyboard-area {
+.keyboardArea {
   padding: 30px 40px;
   height: 100%;
   display: flex;
@@ -101,13 +101,13 @@
   box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.key-row {
+.keyRow {
   display: flex;
   gap: 3px;
   justify-content: center;
 }
 
-.space-row {
+.spaceRow {
   margin-top: 2px;
 }
 
@@ -122,15 +122,15 @@
   border: 1px solid #ccc;
 }
 
-.shift-key {
+.shiftKey {
   width: 32px;
 }
 
-.space-key {
+.spaceKey {
   width: 120px;
 }
 
-.ctrl-key, .alt-key {
+.ctrlKey, .altKey {
   width: 24px;
 }
 
@@ -143,14 +143,14 @@
   box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.trackpad-surface {
+.trackpadSurface {
   width: 100%;
   height: 100%;
   background: linear-gradient(145deg, #f8f8f8, #efefef);
   border-radius: 6px;
 }
 
-.brand-logo {
+.brandLogo {
   position: absolute;
   bottom: 15px;
   right: 30px;
@@ -160,20 +160,20 @@
   opacity: 0.6;
 }
 
-.logo-image {
+.logoImage {
   width: 20px;
   height: 20px;
   border-radius: 50%;
 }
 
-.brand-text {
+.brandText {
   font-size: 12px;
   font-weight: 600;
   color: #666;
   letter-spacing: 1px;
 }
 
-.laptop-shadow {
+.laptopShadow {
   position: absolute;
   bottom: -40px;
   left: 50%;
@@ -186,7 +186,7 @@
   z-index: -1;
 }
 
-.download-btn {
+.downloadBtn {
   position: fixed;
   top: 30px;
   right: 30px;
@@ -203,22 +203,22 @@
   z-index: 1000;
 }
 
-.download-btn:hover {
+.downloadBtn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-.download-btn:active {
+.downloadBtn:active {
   transform: translateY(0);
 }
 
 /* Для печати/скриншота убираем кнопку */
 @media print {
-  .download-btn {
+  .downloadBtn {
     display: none;
   }
   
-  .mockup-container {
+  .mockupContainer {
     padding: 0;
     min-height: auto;
     height: 100vh;
@@ -227,17 +227,17 @@
 
 /* Адаптивность */
 @media (max-width: 768px) {
-  .laptop-mockup {
+  .laptopMockup {
     transform: perspective(800px) rotateX(180deg) rotateY(180deg) scale(0.7);
   }
   
-  .mockup-container {
+  .mockupContainer {
     padding: 20px 10px;
   }
 }
 
 @media (max-width: 480px) {
-  .laptop-mockup {
+  .laptopMockup {
     transform: perspective(600px) rotateX(180deg) rotateY(180deg) scale(0.5);
   }
 }
