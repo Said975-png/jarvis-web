@@ -68,7 +68,7 @@ export default function AdminPanel() {
       setOrders(Array.isArray(ordersData) ? ordersData : [])
 
       if (isRefresh) {
-        alert('Данные обно��лены!')
+        alert('Данные обновлены!')
       }
     } catch (error) {
       console.error('Error loading orders:', error)
