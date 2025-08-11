@@ -7,7 +7,7 @@ const pricingPlans = [
     name: 'Basic',
     subtitle: 'Стартовое решение',
     price: '2500000',
-    period: 'сумм в месяц',
+    period: 'рублей',
     description: 'Идеально для небольших проектов и стартапов',
     popular: false,
     features: [
@@ -23,7 +23,7 @@ const pricingPlans = [
     name: 'Pro',
     subtitle: 'Лучший выбор',
     price: '4000000',
-    period: 'сумм в месяц',
+    period: 'рублей',
     description: 'Лучший выбор для растущего бизнеса',
     popular: true,
     features: [
@@ -39,7 +39,7 @@ const pricingPlans = [
     name: 'Max',
     subtitle: 'Премиум решение',
     price: '5000000',
-    period: 'сумм в месяц',
+    period: 'рублей',
     description: 'Максимум возможностей для крупного бизнеса',
     popular: false,
     features: [
