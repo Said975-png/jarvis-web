@@ -124,7 +124,7 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
       
       const fallbackResponses = [
         'Извините, у меня временные проблемы с подключением к AI-серверу. Попробуйте еще раз через несколько секунд.',
-        'Сейчас испытываю технические трудности, но я ДЖАРВИС и готов помочь! Попробуйте переформулировать вопрос.',
+        'Сейчас исп��тываю технические трудности, но я ДЖАРВИС и готов помочь! Попробуйте переформулировать вопрос.',
         'Произошла ошибка связи, но не волнуйтесь - я здесь. Напишите мне в Telegram  для прямой связи.',
       ]
       
@@ -264,7 +264,7 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
             <div className="jarvis-chat-title">
               <div className="jarvis-avatar">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2Ff21efa9d331c44c6b55bad01cab8169b%2F342e3ad8cb1542ae9b5155023da06c0d?format=webp&width=800"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F86ccad5be3604b288119b4c361741253%2F60b029911e0b4e74939cea888d93edb9?format=webp&width=800"
                   alt="JARVIS"
                   width="20"
                   height="20"
@@ -295,7 +295,7 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
                 {!message.isUser && (
                   <div className="message-avatar">
                     <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2Ff21efa9d331c44c6b55bad01cab8169b%2F342e3ad8cb1542ae9b5155023da06c0d?format=webp&width=800"
+                      src="https://cdn.builder.io/api/v1/image/assets%2F86ccad5be3604b288119b4c361741253%2F60b029911e0b4e74939cea888d93edb9?format=webp&width=800"
                       alt="JARVIS"
                       width="20"
                       height="20"
@@ -319,7 +319,7 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
               <div className="message ai-message">
                 <div className="message-avatar">
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2Ff21efa9d331c44c6b55bad01cab8169b%2F342e3ad8cb1542ae9b5155023da06c0d?format=webp&width=800"
+                    src="https://cdn.builder.io/api/v1/image/assets%2F86ccad5be3604b288119b4c361741253%2F60b029911e0b4e74939cea888d93edb9?format=webp&width=800"
                     alt="JARVIS"
                     width="16"
                     height="16"
