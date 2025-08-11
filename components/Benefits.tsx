@@ -15,8 +15,8 @@ export default function Benefits() {
 
             <p className="benefits-description-chatgpt">
               Один умный ассистент выполняет работу десятков сотрудников. ДЖАРВИС 
-              ведет естественные диалоги с клиентами, предлагает тов��ры, консультирует 
-              и находит лучшие предложения 24/7 без перерывов и выходных.
+              ведет естественные диалоги с клиентами, предлагает товары, консультирует 
+              и находит лучшие предложения 24 часа в сутки без перерывов и выходных.
             </p>
 
             <div className="benefits-list-chatgpt">
@@ -76,7 +76,7 @@ export default function Benefits() {
                 <div className="stat-label-chatgpt">заменяет 20+ сотрудников</div>
               </div>
               <div className="stat-chatgpt">
-                <div className="stat-number-chatgpt">24/7</div>
+                <div className="stat-number-chatgpt">24 часа</div>
                 <div className="stat-label-chatgpt">без перерывов</div>
               </div>
               <div className="stat-chatgpt">
@@ -185,7 +185,7 @@ export default function Benefits() {
                         <span></span>
                         <span></span>
                       </div>
-                      <span className="typing-text-chatgpt">JARVIS печатает...</span>
+                      <span className="typing-text-chatgpt">JARVIS печатает</span>
                     </div>
                   </div>
                 </div>

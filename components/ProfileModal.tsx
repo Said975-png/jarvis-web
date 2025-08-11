@@ -93,7 +93,7 @@ export default function ProfileModal({ user, onClose, onLogout }: ProfileModalPr
                   <div className="stat-label">Подтвержденных</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-number">24/7</div>
+                  <div className="stat-number">24 часа</div>
                   <div className="stat-label">Поддержка</div>
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function ProfileModal({ user, onClose, onLogout }: ProfileModalPr
                         </svg>
                       </div>
                       <h5>Заказов пока нет</h5>
-                      <p>Оформите ваш первый заказ, выбрав подходящий ��ариф</p>
+                      <p>Оформите ваш первый заказ, выбрав подходящий тариф</p>
                     </div>
                   ) : (
                     <div className="orders-list">
@@ -186,7 +186,7 @@ export default function ProfileModal({ user, onClose, onLogout }: ProfileModalPr
                           <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="currentColor" strokeWidth="2"/>
                         </svg>
                       </div>
-                      <span>Общие наст��ойки</span>
+                      <span>Общие настройки</span>
                     </div>
                     <div className="setting-item">
                       <div className="setting-icon">

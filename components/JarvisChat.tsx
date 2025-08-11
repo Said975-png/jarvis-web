@@ -236,7 +236,7 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Напишите сообщение ДЖАРВИСУ..."
+              placeholder="Напишите сообщение ДЖАРВИСУ"
               className="jarvis-textarea"
               rows={1}
               disabled={isTyping}

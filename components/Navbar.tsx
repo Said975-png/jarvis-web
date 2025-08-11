@@ -54,7 +54,7 @@ export default function Navbar() {
               </svg>
               <input
                 type="text"
-                placeholder="Поиск..."
+                placeholder="Поиск"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
                 onFocus={() => setSearchFocused(true)}

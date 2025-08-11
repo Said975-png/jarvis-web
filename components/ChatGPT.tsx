@@ -236,7 +236,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Напишите сообщение ДЖАРВИСУ..."
+              placeholder="Напишите сообщение ДЖАРВИСУ"
               className="chatgpt-input"
               rows={1}
               disabled={isTyping}

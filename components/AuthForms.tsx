@@ -164,7 +164,7 @@ export default function AuthForms({ onClose, onLogin }: AuthFormsProps) {
                     <animate attributeName="stroke-dashoffset" dur="2s" values="60;0;60" repeatCount="indefinite"/>
                   </circle>
                 </svg>
-                {isLogin ? 'Вход...' : 'Создание аккаунта...'}
+                {isLogin ? 'Вход' : 'Создание аккаунта'}
               </>
             ) : isLogin ? (
               'Войти'

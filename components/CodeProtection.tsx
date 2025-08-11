@@ -9,9 +9,19 @@ export default function CodeProtection() {
 
   useEffect(() => {
     if (!isClient) return
-    // Отключаем правую кнопку мыши
-    const disableRightClick = (e: MouseEvent) => {
+
+    // Множественная защита от правой кнопки мыши
+    const disableRightClick = (e: Event) => {
       e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+      return false
+    }
+
+    // Защита от контекстного меню
+    const disableContextMenu = (e: Event) => {
+      e.preventDefault()
+      e.stopPropagation()
       return false
     }
 
@@ -20,126 +30,162 @@ export default function CodeProtection() {
       // F12
       if (e.keyCode === 123) {
         e.preventDefault()
+        e.stopPropagation()
         return false
       }
       
-      // Ctrl+Shift+I
-      if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+      // Ctrl+Shift+I (DevTools)
+      if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.key === 'I')) {
         e.preventDefault()
+        e.stopPropagation()
         return false
       }
       
-      // Ctrl+Shift+C
-      if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+      // Ctrl+Shift+C (Elements)
+      if (e.ctrlKey && e.shiftKey && (e.keyCode === 67 || e.key === 'C')) {
         e.preventDefault()
+        e.stopPropagation()
         return false
       }
       
-      // Ctrl+Shift+J
-      if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+      // Ctrl+Shift+J (Console)
+      if (e.ctrlKey && e.shiftKey && (e.keyCode === 74 || e.key === 'J')) {
         e.preventDefault()
+        e.stopPropagation()
         return false
       }
       
-      // Ctrl+U (просмотр исходного кода)
-      if (e.ctrlKey && e.keyCode === 85) {
+      // Ctrl+U (View Source)
+      if (e.ctrlKey && (e.keyCode === 85 || e.key === 'u' || e.key === 'U')) {
         e.preventDefault()
+        e.stopPropagation()
         return false
       }
       
-      // Ctrl+S (сохранение страницы)
-      if (e.ctrlKey && e.keyCode === 83) {
+      // Ctrl+S (Save page)
+      if (e.ctrlKey && (e.keyCode === 83 || e.key === 's' || e.key === 'S')) {
         e.preventDefault()
+        e.stopPropagation()
         return false
       }
       
-      // Ctrl+A (выделить все)
-      if (e.ctrlKey && e.keyCode === 65) {
+      // Ctrl+A (Select all)
+      if (e.ctrlKey && (e.keyCode === 65 || e.key === 'a' || e.key === 'A')) {
         e.preventDefault()
+        e.stopPropagation()
         return false
       }
       
-      // Ctrl+P (печать)
-      if (e.ctrlKey && e.keyCode === 80) {
+      // Ctrl+P (Print)
+      if (e.ctrlKey && (e.keyCode === 80 || e.key === 'p' || e.key === 'P')) {
         e.preventDefault()
+        e.stopPropagation()
+        return false
+      }
+
+      // Ctrl+Shift+K (Console in Firefox)
+      if (e.ctrlKey && e.shiftKey && (e.keyCode === 75 || e.key === 'K')) {
+        e.preventDefault()
+        e.stopPropagation()
+        return false
+      }
+
+      // F5 and Ctrl+R (Refresh)
+      if (e.keyCode === 116 || (e.ctrlKey && (e.keyCode === 82 || e.key === 'r' || e.key === 'R'))) {
+        e.preventDefault()
+        e.stopPropagation()
         return false
       }
     }
 
-    // Отключаем ��ыделение текста
+    // Отключаем выделение текста
     const disableTextSelection = () => {
       document.body.style.userSelect = 'none'
       document.body.style.webkitUserSelect = 'none'
       document.body.style.mozUserSelect = 'none'
       document.body.style.msUserSelect = 'none'
+      document.body.style.webkitTouchCallout = 'none'
     }
 
-    // Обнаружение открытия DevTools
-    const detectDevTools = () => {
-      const threshold = 160
-      let devtools = {
-        open: false,
-        orientation: null as string | null
-      }
-      
-      const setDevtools = (state: boolean, orientation: string | null) => {
-        devtools.open = state
-        devtools.orientation = orientation
-        if (state) {
-          // Перенаправляем на другую страницу или показываем сообщение
-          alert('Доступ запрещен!')
-          window.location.href = 'about:blank'
-        }
-      }
-
-      setInterval(() => {
-        if (window.outerHeight - window.innerHeight > threshold || 
-            window.outerWidth - window.innerWidth > threshold) {
-          if (!devtools.open) {
-            setDevtools(true, 'vertical')
-          }
-        } else {
-          if (devtools.open) {
-            setDevtools(false, null)
-          }
-        }
-      }, 500)
-    }
-
-    // Защита от к��пирования
+    // Защита от копирования
     const disableCopy = (e: Event) => {
       e.preventDefault()
+      e.stopPropagation()
       return false
     }
 
     // Защита от перетаскивания
-    const disableDrag = (e: DragEvent) => {
+    const disableDrag = (e: Event) => {
       e.preventDefault()
+      e.stopPropagation()
       return false
     }
 
     // Отключаем функции печати
     const disablePrint = () => {
-      window.print = () => {}
+      window.print = () => {
+        return false
+      }
     }
 
-    // Применяем все защитные меры
-    document.addEventListener('contextmenu', disableRightClick)
-    document.addEventListener('keydown', disableKeyboardShortcuts)
-    document.addEventListener('selectstart', disableCopy)
-    document.addEventListener('copy', disableCopy)
-    document.addEventListener('cut', disableCopy)
-    document.addEventListener('paste', disableCopy)
-    document.addEventListener('dragstart', disableDrag)
-    
-    disableTextSelection()
-    detectDevTools()
-    disablePrint()
+    // Блокируем открытие DevTools
+    const blockDevTools = () => {
+      // Проверяем размер окна
+      const checkDevTools = () => {
+        const threshold = 160
+        if (window.outerHeight - window.innerHeight > threshold || 
+            window.outerWidth - window.innerWidth > threshold) {
+          alert('Доступ к инструментам разработчика запрещен!')
+          window.location.href = 'about:blank'
+        }
+      }
+      
+      setInterval(checkDevTools, 1000)
+    }
 
-    // Отключаем drag and drop
-    document.ondragstart = () => false
-    document.onselectstart = () => false
-    document.oncontextmenu = () => false
+    // Множественное применение защитных мер
+    const applyProtection = () => {
+      // Отключаем контекстное меню через разные методы
+      document.addEventListener('contextmenu', disableRightClick, true)
+      document.addEventListener('contextmenu', disableContextMenu, true)
+      document.oncontextmenu = disableRightClick
+      window.oncontextmenu = disableRightClick
+      
+      // Отключаем клавиатурные сокращения
+      document.addEventListener('keydown', disableKeyboardShortcuts, true)
+      window.addEventListener('keydown', disableKeyboardShortcuts, true)
+      
+      // Отключаем копирование/вставку/вырезание
+      document.addEventListener('copy', disableCopy, true)
+      document.addEventListener('paste', disableCopy, true)
+      document.addEventListener('cut', disableCopy, true)
+      document.addEventListener('selectstart', disableCopy, true)
+      
+      // Отключаем перетаскивание
+      document.addEventListener('dragstart', disableDrag, true)
+      document.addEventListener('drop', disableDrag, true)
+      document.addEventListener('dragover', disableDrag, true)
+      
+      // Отключаем выделение
+      document.onselectstart = () => false
+      document.ondragstart = () => false
+      document.ondrop = () => false
+      
+      // Применяем стили для отключения выделения
+      disableTextSelection()
+      
+      // Отключаем печать
+      disablePrint()
+      
+      // Запускаем детекцию DevTools
+      blockDevTools()
+    }
+
+    // Применяем защиту сразу и с задержкой для надёжности
+    applyProtection()
+    setTimeout(applyProtection, 100)
+    setTimeout(applyProtection, 500)
+    setTimeout(applyProtection, 1000)
 
     // Блокируем сохранение страницы
     window.addEventListener('beforeunload', (e) => {
@@ -147,22 +193,43 @@ export default function CodeProtection() {
       e.returnValue = ''
     })
 
-    // Очистка при размонтирова��ии
+    // Перехватываем все возможные события мыши
+    const blockAllMouseEvents = (e: Event) => {
+      if ((e as MouseEvent).button === 2) { // Правая кнопка
+        e.preventDefault()
+        e.stopPropagation()
+        e.stopImmediatePropagation()
+        return false
+      }
+    }
+
+    document.addEventListener('mousedown', blockAllMouseEvents, true)
+    document.addEventListener('mouseup', blockAllMouseEvents, true)
+    document.addEventListener('click', blockAllMouseEvents, true)
+
+    // Очистка при размонтировании
     return () => {
-      document.removeEventListener('contextmenu', disableRightClick)
-      document.removeEventListener('keydown', disableKeyboardShortcuts)
-      document.removeEventListener('selectstart', disableCopy)
-      document.removeEventListener('copy', disableCopy)
-      document.removeEventListener('cut', disableCopy)
-      document.removeEventListener('paste', disableCopy)
-      document.removeEventListener('dragstart', disableDrag)
+      document.removeEventListener('contextmenu', disableRightClick, true)
+      document.removeEventListener('contextmenu', disableContextMenu, true)
+      document.removeEventListener('keydown', disableKeyboardShortcuts, true)
+      window.removeEventListener('keydown', disableKeyboardShortcuts, true)
+      document.removeEventListener('copy', disableCopy, true)
+      document.removeEventListener('paste', disableCopy, true)
+      document.removeEventListener('cut', disableCopy, true)
+      document.removeEventListener('selectstart', disableCopy, true)
+      document.removeEventListener('dragstart', disableDrag, true)
+      document.removeEventListener('drop', disableDrag, true)
+      document.removeEventListener('dragover', disableDrag, true)
+      document.removeEventListener('mousedown', blockAllMouseEvents, true)
+      document.removeEventListener('mouseup', blockAllMouseEvents, true)
+      document.removeEventListener('click', blockAllMouseEvents, true)
       
       document.body.style.userSelect = ''
       document.body.style.webkitUserSelect = ''
       document.body.style.mozUserSelect = ''
       document.body.style.msUserSelect = ''
     }
-  }, [])
+  }, [isClient])
 
   if (!isClient) {
     return null
@@ -178,6 +245,9 @@ export default function CodeProtection() {
           user-select: none !important;
           -webkit-touch-callout: none !important;
           -webkit-tap-highlight-color: transparent !important;
+          -webkit-user-drag: none !important;
+          -moz-user-drag: none !important;
+          user-drag: none !important;
         }
         
         body {
@@ -185,22 +255,50 @@ export default function CodeProtection() {
           -moz-user-select: none !important;
           -ms-user-select: none !important;
           user-select: none !important;
+          -webkit-touch-callout: none !important;
         }
         
-        img {
+        img, video, iframe, embed, object {
           -webkit-user-drag: none !important;
           -moz-user-drag: none !important;
           user-drag: none !important;
           pointer-events: none !important;
         }
         
-        /* Отключаем выделение для всех элементов */
+        /* Полное отключение выделения */
         ::selection {
           background: transparent !important;
         }
         
         ::-moz-selection {
           background: transparent !important;
+        }
+
+        /* Отключаем контекстное меню через CSS */
+        * {
+          -webkit-context-menu: none !important;
+          -moz-context-menu: none !important;
+          context-menu: none !important;
+        }
+        
+        /* Блокируем все типы выделения */
+        * {
+          -webkit-user-select: none !important;
+          -khtml-user-select: none !important;
+          -moz-user-select: none !important;
+          -ms-user-select: none !important;
+          user-select: none !important;
+          -webkit-touch-callout: none !important;
+          -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        }
+        
+        /* Отключаем перетаскивание для всех элементов */
+        * {
+          -webkit-user-drag: none !important;
+          -khtml-user-drag: none !important;
+          -moz-user-drag: none !important;
+          -o-user-drag: none !important;
+          user-drag: none !important;
         }
       `}</style>
     </>
