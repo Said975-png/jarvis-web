@@ -85,7 +85,7 @@ function cleanMarkdown(text: string): string {
     .replace(/`([^`]+)`/g, '$1')
     // Убираем блоки кода ```код```
     .replace(/```[\s\S]*?```/g, '')
-    // Убир��ем одиночные * в начале ��троки (списки)
+    // Убир��ем одиночные * в начале строки (списки)
     .replace(/^\*\s+/gm, '• ')
     // Убираем лишн��е звездочк��
     .replace(/\*/g, '')
@@ -105,6 +105,115 @@ function cleanupExpiredLimits(now: number) {
   if (beforeSize !== afterSize) {
     console.log(`[CLEANUP] Removed ${beforeSize - afterSize} expired rate limit records`)
   }
+}
+
+// Умная fallback функция для разных типов вопросов
+function generateSmartFallback(userMessage: string): string {
+  const message = userMessage.toLowerCase()
+
+  // Вопросы о ценах
+  if (message.includes('цен') || message.includes('стоимость') || message.includes('тариф') || message.includes('план')) {
+    return `💰 Актуальные тарифы:
+
+📦 Basic - 2,500,000 сум
+• До 5 страниц сайта
+• Современный дизайн
+• Адаптивная верстка
+
+🚀 Pro - 4,000,000 сум
+• До 15 страниц + AI интеграция
+• Продвинутая аналитика
+• Приоритетная поддержка
+
+💎 Max - 5,000,000 сум
+• Безлимитные страницы
+• Полная AI интеграция
+• VIP поддержка 24/7
+
+Какой тариф интересует?`
+  }
+
+  // Технические вопросы
+  if (message.includes('технолог') || message.includes('стек') || message.includes('как работаешь') || message.includes('react') || message.includes('next')) {
+    return `⚡ Основные технологии:
+
+Frontend: React, Next.js, TypeScript
+Backend: Node.js, Python
+Базы данных: PostgreSQL, MongoDB
+AI: OpenAI GPT, машинное обучение
+Деплой: Vercel, AWS
+
+Какая технология интересует подробнее?`
+  }
+
+  // Вопросы о услугах
+  if (message.includes('услуг') || message.includes('что можешь') || message.includes('что умеешь') || message.includes('сервис')) {
+    return `🛠️ Мои услуги:
+
+🌐 Веб-разработка:
+• Landing pages и корпоративные сайты
+• Интернет-магазины
+• Веб-приложения
+
+🤖 AI решения:
+• Чат-боты и ассистенты
+• Анализ данных
+• Автоматизация процессов
+
+🎨 Дизайн:
+• UI/UX дизайн
+• Адаптивная верстка
+• Брендинг
+
+Что именно нужно?`
+  }
+
+  // Контакты
+  if (message.includes('конт��кт') || message.includes('связаться') || message.includes('телефон') || message.includes('telegram')) {
+    return `📞 Связь со мной:
+
+• Онлайн-консультация: прямо здесь в чате
+• Быстрый ответ: в течение нескольких минут
+
+Задавайте вопросы прямо сейчас! 💬`
+  }
+
+  // AI вопросы
+  if (message.includes('искусственный интеллект') || message.includes('ии') || message.includes('ai') || message.includes('машинное обучение')) {
+    return `🤖 AI интеграция - моя специальность!
+
+Что могу интегрировать:
+• Умные чат-боты для сайтов
+• Системы рекомендаций
+• Автоматическая обработка данных
+• Анализ пользователей
+• Персонализация контента
+
+Какой AI функционал нужен?`
+  }
+
+  // Вопросы о создателе
+  if (message.includes('кто тебя создал') || message.includes('кто твой создатель') || message.includes('разработчик')) {
+    return `Мой создатель @jarvis_intercoma 👨‍💻`
+  }
+
+  // Вопросы о том как создан
+  if (message.includes('как тебя создали') || message.includes('как ты устроен') || message.includes('архитектура')) {
+    return `Это секретная информация 🔒`
+  }
+
+  // Общие вопросы
+  return `Понял ваш вопрос! 🤔
+
+Я ДЖАРВИС - специализируюсь на:
+• Веб-разработке и AI интеграции
+• Техническом консультировании
+• Планировании проектов
+• Оценке стоимости и сроков
+
+Расскажите подробнее о вашей задаче - дам конкретные рекомендации!
+
+💬 Задавайте любые вопросы!`
 }
 
 export default async function handler(
@@ -176,7 +285,7 @@ export default async function handler(
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
 • Продвинутая аналитика
-• Приоритетная поддержка
+• Приоритетная поддер��ка
 
 💎 Max - 5,000,000 сум
 • Безлимитные страницы
@@ -272,7 +381,7 @@ AI & ML:
 
 🏢 Корпоративные решения:
 • CRM системы с аналитикой
-• Порт��лы ����отрудников
+• Порталы ����отрудников
 • Системы документооборота
 
 🎓 EdTech проекты:
@@ -436,7 +545,7 @@ AI & ML:
     console.error('Error message:', error instanceof Error ? error.message : String(error))
     console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
-    // Возвращаем дружелюбное сообщение об ошибке
+    // Возвращаем дружелюбное сообщение об ош��бке
     const fallbackMessage = `Извините, произошла временна�� ошибка! 😅
 
 Но не беспокойтес�� - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
