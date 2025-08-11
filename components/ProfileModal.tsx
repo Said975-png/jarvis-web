@@ -129,7 +129,7 @@ export default function ProfileModal({ user, onClose, onLogout }: ProfileModalPr
                         </svg>
                       </div>
                       <h5>Заказов пока нет</h5>
-                      <p>Оформите ваш первый заказ, выбрав подходящий тариф</p>
+                      <p>Оформите ваш первый заказ, выбрав подходящий ��ариф</p>
                     </div>
                   ) : (
                     <div className="orders-list">
@@ -159,7 +159,7 @@ export default function ProfileModal({ user, onClose, onLogout }: ProfileModalPr
                           </div>
                           
                           <div className="order-total">
-                            <strong>₽{order.totalPrice.toLocaleString()}</strong>
+                            <strong>{order.totalPrice.toLocaleString()} сумм</strong>
                           </div>
                           
                           {order.formData.description && (

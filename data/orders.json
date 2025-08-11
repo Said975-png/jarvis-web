@@ -26,8 +26,70 @@
       "referenceUrl": ""
     },
     "totalPrice": 4000000,
-    "status": "pending",
+    "status": "rejected",
     "createdAt": "2025-08-09T23:04:22.642Z",
-    "updatedAt": "2025-08-09T23:04:22.642Z"
+    "updatedAt": "2025-08-11T05:52:42.924Z"
+  },
+  {
+    "id": "order_1754869364078_x045gfvmg",
+    "userId": "1b8ceb20-8a83-42f1-b9ab-f20b36385bf0",
+    "items": [
+      {
+        "id": "pro",
+        "name": "Pro",
+        "subtitle": "Лучший выбор",
+        "price": "4000000",
+        "period": "сумм",
+        "features": [
+          "Все из Basic",
+          "До 15 страниц сайта",
+          "ИИ ассистент интеграция",
+          "Продвинутая аналитика",
+          "Приоритетная поддержка"
+        ],
+        "quantity": 1
+      }
+    ],
+    "formData": {
+      "fullName": "said",
+      "phone": "+9989129391737",
+      "description": "шшш",
+      "referenceUrl": ""
+    },
+    "totalPrice": 4000000,
+    "status": "rejected",
+    "createdAt": "2025-08-10T23:42:44.078Z",
+    "updatedAt": "2025-08-11T05:52:47.738Z"
+  },
+  {
+    "id": "order_1754869451776_bu8uoqmd7",
+    "userId": "1b8ceb20-8a83-42f1-b9ab-f20b36385bf0",
+    "items": [
+      {
+        "id": "max",
+        "name": "Max",
+        "subtitle": "Премиум решение",
+        "price": "5000000",
+        "period": "сумм",
+        "features": [
+          "Все из Pro",
+          "Безлимитные страницы",
+          "ДЖАРВИС ИИ полная версия",
+          "Индивидуальные решения",
+          "VIP поддержка 24/7"
+        ],
+        "quantity": 1
+      }
+    ],
+    "formData": {
+      "fullName": "лолвадлво лаоплавоп лватплвао",
+      "phone": "+9989129391737",
+      "description": "ввв",
+      "referenceUrl": ""
+    },
+    "totalPrice": 5000000,
+    "status": "confirmed",
+    "createdAt": "2025-08-10T23:44:11.776Z",
+    "updatedAt": "2025-08-11T05:53:55.706Z"
   }
 ]

@@ -3,6 +3,7 @@ import LiquidSphere from './LiquidSphere'
 
 export default function Hero() {
   const [isProcessModalOpen, setIsProcessModalOpen] = useState(false)
+  const [isJarvisModalOpen, setIsJarvisModalOpen] = useState(false)
 
   return (
     <section className="hero-section-chatgpt">
@@ -25,7 +26,10 @@ export default function Hero() {
               >
                 Процесс договора
               </button>
-              <button className="secondary-button-chatgpt">
+              <button
+                className="secondary-button-chatgpt"
+                onClick={() => setIsJarvisModalOpen(true)}
+              >
                 Узнать больше
               </button>
             </div>
@@ -97,7 +101,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
                   <h3>Согласование и предоплата</h3>
-                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позвол��ет нам приступить к разработке с полной уверенностью.</p>
+                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стои��ости проекта. Это позвол��ет нам приступить к разработке с полной уверенностью.</p>
                 </div>
               </div>
 
@@ -113,7 +117,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
                   <h3>Тестирование и доработки</h3>
-                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость заг��уз��и. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
+                  <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройств��х, оптимизируем скорость заг��уз��и. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
 
@@ -129,7 +133,77 @@ export default function Hero() {
                 <div className="step-number-chatgpt">6</div>
                 <div className="step-content-chatgpt">
                   <h3>Поддержка и развитие</h3>
-                  <p>Предлагаем техническую поддержку проекта, обновления и добавление новых функций. Помогаем масштабировать ваш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
+                  <p>Предлагаем техническую поддержку проекта, обновления и до��авление новых функций. Помогаем масштабировать ваш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Модальное окно возможностей ДЖАРВИС */}
+      {isJarvisModalOpen && (
+        <div className="modal-overlay-chatgpt" onClick={() => setIsJarvisModalOpen(false)}>
+          <div className="modal-content-chatgpt" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header-chatgpt">
+              <h2>ДЖАРВИС - Революционный ИИ для вашего бизнеса</h2>
+              <button
+                className="modal-close-chatgpt"
+                onClick={() => setIsJarvisModalOpen(false)}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
+            </div>
+
+            <div className="modal-body-chatgpt">
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">🧠</div>
+                <div className="step-content-chatgpt">
+                  <h3>Умный помощник продаж</h3>
+                  <p>ДЖАРВИС ана��изирует поведение каждого клиента в реальном времени и предлагает именно те товары, которые им нужны. Он понимает предпочтения покупателей лучше, чем они сами, изучая их историю покупок и поисковые запросы.</p>
+                </div>
+              </div>
+
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">💬</div>
+                <div className="step-content-chatgpt">
+                  <h3>Общение как с живым консультантом</h3>
+                  <p>Наш ИИ общается с клиентами естественно и дружелюбно, отвечает на любые вопросы о товарах, помогает с выбором размера, цвета, характеристик. Клиенты даже не замечают, что говорят с роботом - настолько живое и понятное общение.</p>
+                </div>
+              </div>
+
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">🎯</div>
+                <div className="step-content-chatgpt">
+                  <h3>Персональные рекомендации</h3>
+                  <p>ДЖАРВИС создает уникальный профиль каждого покупателя и предлагает товары, которые идеально подходят именно ему. Система учитывает сезон, праздники, предыдущие покупки и даже настроение клиента по его сообщениям.</p>
+                </div>
+              </div>
+
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">📈</div>
+                <div className="step-content-chatgpt">
+                  <h3>Увеличение продаж в 3 раза</h3>
+                  <p>Магазины с ДЖАРВИС показывают фантастические результаты - продажи вырастают в среднем на 300 процентов. Клиенты покупают больше, возвращаются чаще и рекомендуют магазин друзьям. Средний чек увеличивается в 2-4 раза.</p>
+                </div>
+              </div>
+
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">⚡</div>
+                <div className="step-content-chatgpt">
+                  <h3>Мгновенная поддержка 24/7</h3>
+                  <p>ДЖАРВИС никогда не спит, не устает и не берет выходные. Он отвечает клиентам мгновенно в любое время дня и ночи, обрабатывает сотни обращений одновременно и никогда не теряет терпение даже с самыми сложными покупателями.</p>
+                </div>
+              </div>
+
+              <div className="process-step-chatgpt">
+                <div className="step-number-chatgpt">🚀</div>
+                <div className="step-content-chatgpt">
+                  <h3>Простая интеграция и быстрый запуск</h3>
+                  <p>Подключение ДЖАРВИС к вашему магазину занимает всего несколько дней. Никаких сложных настроек - система сама изучает ваш ассортимент, цены и особенности бизнеса. Через неделю вы уже видите первые р��зультаты роста продаж.</p>
                 </div>
               </div>
 

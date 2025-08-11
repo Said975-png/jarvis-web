@@ -32,7 +32,7 @@ export default function Checkout({ onClose, onSuccess }: CheckoutProps) {
       onClose()
     } catch (error) {
       console.error('Error creating order:', error)
-      alert('Произошла ошибка при оформлении заказа. Попробуйте еще раз.')
+      alert('Произошла ошибк�� при оформлении заказа. Попробуйте еще раз.')
     } finally {
       setIsSubmitting(false)
     }
@@ -65,12 +65,12 @@ export default function Checkout({ onClose, onSuccess }: CheckoutProps) {
                     <span className="item-name">{item.name}</span>
                     <span className="item-quantity">× {item.quantity}</span>
                   </div>
-                  <span className="item-price">₽{parseInt(item.price).toLocaleString()}</span>
+                  <span className="item-price">{parseInt(item.price).toLocaleString()} сумм</span>
                 </div>
               ))}
             </div>
             <div className="order-total">
-              <span>Итого: ₽{getTotalPrice().toLocaleString()}</span>
+              <span>Итого: {getTotalPrice().toLocaleString()} сумм</span>
             </div>
           </div>
 
@@ -99,7 +99,7 @@ export default function Checkout({ onClose, onSuccess }: CheckoutProps) {
                   value={formData.phone}
                   onChange={(e) => handleInputChange('phone', e.target.value)}
                   required
-                  placeholder="+7 (XXX) XXX-XX-XX"
+                  placeholder="+998 (XX) XXX-XX-XX"
                 />
               </div>
             </div>
