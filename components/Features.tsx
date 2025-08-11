@@ -93,7 +93,7 @@ export default function Features() {
               <div className="stat-label-chatgpt">Активных пользователей</div>
             </div>
             <div className="stat-item-chatgpt">
-              <div className="stat-number-chatgpt">24/7</div>
+              <div className="stat-number-chatgpt">24 часа</div>
               <div className="stat-label-chatgpt">Техподдержка</div>
             </div>
             <div className="stat-item-chatgpt">
