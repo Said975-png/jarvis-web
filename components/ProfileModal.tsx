@@ -93,7 +93,7 @@ export default function ProfileModal({ user, onClose, onLogout }: ProfileModalPr
                   <div className="stat-label">Подтвержденных</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-number">24/7</div>
+                  <div className="stat-number">24 часа</div>
                   <div className="stat-label">Поддержка</div>
                 </div>
               </div>
