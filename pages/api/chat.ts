@@ -87,7 +87,7 @@ function cleanMarkdown(text: string): string {
     .replace(/```[\s\S]*?```/g, '')
     // Убираем одиночные * в начале строки (списки)
     .replace(/^\*\s+/gm, '• ')
-    // Убираем лишние звездочки
+    // Убираем лишн��е звездочки
     .replace(/\*/g, '')
     // Убираем лишние решетки
     .replace(/#/g, '')
@@ -96,11 +96,11 @@ function cleanMarkdown(text: string): string {
 // Функция для очистки устаревших записей
 function cleanupExpiredLimits(now: number) {
   const beforeSize = userLimits.size
-  for (const [ip, limit] of userLimits.entries()) {
+  userLimits.forEach((limit, ip) => {
     if (now > limit.resetTime) {
       userLimits.delete(ip)
     }
-  }
+  })
   const afterSize = userLimits.size
   if (beforeSize !== afterSize) {
     console.log(`[CLEANUP] Removed ${beforeSize - afterSize} expired rate limit records`)
@@ -240,7 +240,7 @@ export default async function handler(
       }
       // Technology questions
       else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как работаешь')) {
-        response = `⚡ Технологии, которые я использую:
+        response = `⚡ Технологии, ко��орые я использую:
 
 Frontend:
 • React, Next.js, Vue.js
@@ -278,7 +278,7 @@ AI & ML:
 Примеры проектов:
 • E-commerce с AI рекомендациями
 • Образовательные платформы с ИИ
-• CRM системы с умной аналитикой
+• CRM системы с ��мной аналитикой
 
 Какой AI функционал вас интересует?`
       }
@@ -325,7 +325,7 @@ AI & ML:
 
 Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
 
-💬 Задавайте любые вопросы прямо здесь!`
+💬 Задав��йте любые вопросы прямо здесь!`
       }
 
       // Добавляем информацию об оставшихся запросах
@@ -442,7 +442,7 @@ AI & ML:
       } else if (response.status === 401) {
         console.log(`[${timestamp}] Authentication error`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🤖\n\nСейчас у меня проблемы с подключением к внешнему AI-сервису, но я могу помочь вам другими способами:\n\n• Консультации по веб-разработке\n• Планирование проектов\n• Технические рекомендации\n• Выбор технологий\n\nЗадавайте вопросы - я постараюсь дать полезные советы!'
+          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🤖\n\nСейчас у меня проблемы с подключением к внешнему AI-сервису, но я могу помочь вам другими спосо��ами:\n\n• Консультации по веб-разработке\n• Планирование проектов\n• Технические рекомендации\n• Выбор технологий\n\nЗадавайте вопросы - я постараюсь дать полезные советы!'
         })
       } else if (response.status === 429) {
         console.log(`[${timestamp}] Rate limit exceeded`)
