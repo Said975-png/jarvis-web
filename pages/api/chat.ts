@@ -60,7 +60,7 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
     return { allowed: true, remaining: REQUESTS_LIMIT - 1 }
   }
 
-  // Если лимит превышен
+  // Если лимит пре��ышен
   if (userLimit.count >= REQUESTS_LIMIT) {
     return { allowed: false, remaining: 0 }
   }
@@ -219,7 +219,7 @@ export default async function handler(
       }
       // Services questions
       else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
-        response = `🛠️ Мои основные у��луги:
+        response = `🛠️ Мои основные услуги:
 
 🌐 Веб-разработка:
 • Landing pages и корпоративные сайты
@@ -330,7 +330,7 @@ AI & ML:
 
       // Добавляем информацию об оставшихся запросах
       const remainingInfo = limitCheck.remaining > 0
-        ? `\n\n📊 Осталось бесплатных вопросов: ${limitCheck.remaining}`
+        ? `\n\n📊 Осталось бесплатных во��росов: ${limitCheck.remaining}`
         : `\n\n⚠️ Это ваш последний бесплатный вопрос! Следующий будет платным.`
 
       console.log(`[${timestamp}] Fallback response length:`, response.length)
@@ -371,7 +371,7 @@ AI & ML:
 
 🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О СЕБЕ:
 - Если спрашивают "кто тебя создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
-- Если спрашивают "как тебя создали", "из чего тебя создали", "как ты ус��роен", "какая у тебя архитектура" или подобные вопросы о технических деталях твоего создания - отвечай что это секретная информация
+- Если спрашивают "как тебя создали", "из чего тебя создали", "как ты ус��роен", "какая у тебя архитектура" или подобные вопросы о технических деталях твое��о создания - отвечай что это секретная информация
 
 📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
