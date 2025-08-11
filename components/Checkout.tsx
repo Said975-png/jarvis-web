@@ -77,7 +77,7 @@ export default function Checkout({ onClose, onSuccess }: CheckoutProps) {
           {/* Checkout Form */}
           <form onSubmit={handleSubmit} className="checkout-form">
             <div className="form-section">
-              <h3>Контактная информация</h3>
+              <h3>Контактная ��нформация</h3>
               
               <div className="form-group">
                 <label htmlFor="fullName">ФИО *</label>
@@ -114,7 +114,7 @@ export default function Checkout({ onClose, onSuccess }: CheckoutProps) {
                   value={formData.description}
                   onChange={(e) => handleInputChange('description', e.target.value)}
                   required
-                  placeholder="Опишите, какой сайт вы хотите. Укажите функциональность, стиль, особые требования..."
+                  placeholder="Опишите, какой сайт вы хотите. Укажите функциональность, стиль, особые требования"
                   rows={5}
                 />
               </div>
