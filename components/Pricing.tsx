@@ -24,7 +24,7 @@ const pricingPlans = [
     subtitle: 'Лучший выбор',
     price: '4000000',
     period: 'сумм',
-    description: 'Лучший выбор для растущего бизнеса',
+    description: 'Лучший выб��р для растущего бизнеса',
     popular: true,
     features: [
       'Все из Basic',
@@ -386,7 +386,7 @@ export default function Pricing() {
           }
 
           .popular-card {
-            min-height: 580px;
+            min-height: 620px;
           }
 
           .popular-badge-chatgpt {
