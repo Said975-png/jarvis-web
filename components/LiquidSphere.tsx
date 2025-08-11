@@ -132,7 +132,7 @@ export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
           <div className="loading-orb">
             <div className="orb-inner"></div>
           </div>
-          <p>Создание жидкой сферы...</p>
+          <p>Создание жидкой сферы</p>
         </div>
       )}
 
