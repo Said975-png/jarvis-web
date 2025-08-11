@@ -100,11 +100,12 @@ export default function CodeProtection() {
 
     // Отключаем выделение текста
     const disableTextSelection = () => {
-      document.body.style.userSelect = 'none'
-      document.body.style.webkitUserSelect = 'none'
-      document.body.style.mozUserSelect = 'none'
-      document.body.style.msUserSelect = 'none'
-      document.body.style.webkitTouchCallout = 'none'
+      const bodyStyle = document.body.style as any
+      bodyStyle.userSelect = 'none'
+      bodyStyle.webkitUserSelect = 'none'
+      bodyStyle.mozUserSelect = 'none'
+      bodyStyle.msUserSelect = 'none'
+      bodyStyle.webkitTouchCallout = 'none'
     }
 
     // Защита от копирования
