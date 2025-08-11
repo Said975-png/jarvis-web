@@ -485,12 +485,14 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           background: transparent;
           resize: none;
           outline: none;
-          font-size: 15px;
+          font-size: 16px;
           line-height: 1.5;
           max-height: 120px;
           min-height: 24px;
           color: #0d1117;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+          transform: translateZ(0);
+          -webkit-appearance: none;
         }
 
         .chatgpt-input::placeholder {
