@@ -37,7 +37,7 @@ const pricingPlans = [
   {
     id: 'max',
     name: 'Max',
-    subtitle: 'Премиум решение',
+    subtitle: '��ремиум решение',
     price: '5000000',
     period: 'сумм',
     description: 'Максимум возможностей для крупного бизнеса',
@@ -405,7 +405,7 @@ export default function Pricing() {
           }
 
           .plan-features-chatgpt {
-            margin-bottom: 28px;
+            margin-bottom: 16px;
           }
 
           .plan-button-chatgpt {
