@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import '../styles/mockup.css'
+import styles from '../styles/mockup.module.css'
 
 export default function MockupPage() {
   return (
@@ -19,7 +19,7 @@ export default function MockupPage() {
                 {/* Камера */}
                 <div className="camera"></div>
                 
-                {/* Кон��ент сайта в экране */}
+                {/* Контент сайта в экране */}
                 <iframe
                   src="https://e6782ded15924ae6ac15a4317ec41fb3-751065517e0f460887f9a06b2.fly.dev/"
                   className="website-content"
