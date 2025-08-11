@@ -26,7 +26,10 @@ export default function Hero() {
               >
                 Процесс договора
               </button>
-              <button className="secondary-button-chatgpt">
+              <button
+                className="secondary-button-chatgpt"
+                onClick={() => setIsJarvisModalOpen(true)}
+              >
                 Узнать больше
               </button>
             </div>
@@ -98,7 +101,7 @@ export default function Hero() {
                 <div className="step-number-chatgpt">2</div>
                 <div className="step-content-chatgpt">
                   <h3>Согласование и предоплата</h3>
-                  <p>Если макет и техническое ��ешение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позвол��ет нам приступить к разработке с полной уверенностью.</p>
+                  <p>Если макет и техническое решение вас устраивает, мы заключаем договор и получаем предоплату 50 процентов от стоимости проекта. Это позвол��ет нам приступить к разработке с полной уверенностью.</p>
                 </div>
               </div>
 
@@ -113,7 +116,7 @@ export default function Hero() {
               <div className="process-step-chatgpt">
                 <div className="step-number-chatgpt">4</div>
                 <div className="step-content-chatgpt">
-                  <h3>Тестирование и доработки</h3>
+                  <h3>Тестирование и до��аботки</h3>
                   <p>Проводим полное тестирование функционала, проверяем адаптивность на всех устройствах, оптимизируем скорость заг��уз��и. Исправляем выявленные ошибки и дорабатываем детали по вашим пожеланиям.</p>
                 </div>
               </div>
@@ -129,7 +132,7 @@ export default function Hero() {
               <div className="process-step-chatgpt">
                 <div className="step-number-chatgpt">6</div>
                 <div className="step-content-chatgpt">
-                  <h3>Поддерж��а и развитие</h3>
+                  <h3>Поддержка и развитие</h3>
                   <p>Предлагаем техническую поддержку проекта, обновления и добавление новых функций. Помогаем масштабировать ваш бизнес с помощью дополнительных ИИ решений и интеграций.</p>
                 </div>
               </div>
