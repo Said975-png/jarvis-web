@@ -303,12 +303,11 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
         .jarvis-avatar {
           width: 32px;
           height: 32px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: white;
+          overflow: hidden;
         }
 
         .jarvis-icon {
