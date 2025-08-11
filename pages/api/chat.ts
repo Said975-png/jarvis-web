@@ -44,7 +44,7 @@ function getClientIP(req: NextApiRequest): string {
 function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number } {
   const now = Date.now()
 
-  // Периодическая ��чистка старых записей (каждые 100 запросов)
+  // Периодическая ��чис��ка старых записей (каждые 100 запросов)
   if (Math.random() < 0.01) {
     cleanupExpiredLimits(now)
   }
@@ -272,7 +272,7 @@ AI & ML:
 • Умные чат-боты для сайтов
 • Системы рекомендаций
 • Автоматическая обработка данных
-• Анализ пользовательского поведения
+• Анализ пользоват��льского поведения
 • Персонализация контента
 
 Примеры проектов:
@@ -345,7 +345,7 @@ AI & ML:
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
 • AI и машинное обучение
-• UI/UX дизайн и архитектура
+• UI/UX дизайн и архитек��ура
 • DevOps и облачные технологии
 • Базы данных и оптимизация
 • Бизнес-анализ и консультирование
@@ -464,9 +464,13 @@ AI & ML:
       throw new Error('Invalid response from OpenRouter')
     }
 
-    const aiMessage = data.choices[0].message.content
+    let aiMessage = data.choices[0].message.content
+
+    // Очищаем от Markdown форматирования
+    aiMessage = cleanMarkdown(aiMessage)
+
     console.log(`[${timestamp}] AI response length:`, aiMessage?.length || 0)
-    console.log(`[${timestamp}] AI response preview:`, aiMessage?.substring(0, 200) + '...')
+    console.log(`[${timestamp}] AI response preview (cleaned):`, aiMessage?.substring(0, 200) + '...')
 
     // Логируем использование токенов если доступно
     if (data.usage) {
