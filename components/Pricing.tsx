@@ -405,11 +405,11 @@ export default function Pricing() {
           }
 
           .plan-features-chatgpt {
-            margin-bottom: 24px;
+            margin-bottom: 16px;
           }
 
-          .plan-features-chatgpt {
-            margin-bottom: 2px;
+          .popular-card .plan-features-chatgpt {
+            margin-bottom: 12px;
           }
 
           .plan-button-chatgpt {
