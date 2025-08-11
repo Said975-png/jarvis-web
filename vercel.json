@@ -8,6 +8,7 @@
   ],
   "env": {
     "OPENROUTER_API_KEY": "@openrouter_api_key",
+    "JWT_SECRET": "@jwt_secret",
     "NEXT_PUBLIC_APP_URL": "https://jarvis-ai.uz"
   },
   "functions": {
