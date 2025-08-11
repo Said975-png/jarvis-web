@@ -86,7 +86,7 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
       const fallbackResponses = [
         'Извините, у меня временные проблемы с подключением к AI-серверу. Попробуйте еще раз через несколько секунд.',
         'Сейчас испытываю технические трудности, но я ДЖАРВИС и готов помочь! Попробуйте переформулировать вопрос.',
-        'Произошла ошибка связи, но не волнуйтесь - я здесь. Напишите мне в Telegram  для прямой связи.',
+        'Произошла оши��ка связи, но не волнуйтесь - я здесь. Напишите мне в Telegram  для прямой связи.',
       ]
 
       return fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)]
@@ -236,7 +236,7 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Напишите сообщение ДЖАРВИСУ..."
+              placeholder="Напишите сообщение ДЖАРВИСУ"
               className="jarvis-textarea"
               rows={1}
               disabled={isTyping}
