@@ -21,7 +21,7 @@ const searchData = [
   { title: 'Basic план', description: 'Стартовое решение - идеально для небольших проектов и стартапов', url: '/', section: 'Тарифы' },
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
-  { title: 'Современный дизайн', description: 'Соз��ание красивых и функциональных интерф��йсов', url: '/', section: 'Функции' },
+  { title: 'Современный дизайн', description: 'Соз��ание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
   { title: 'Высокая производительность', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
   { title: 'ИИ интеграция', description: 'Интеграция искусственного интеллекта в ваши проекты', url: '/', section: 'Функции' },
   { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24/7', url: '/', section: 'Услуги' },
@@ -29,7 +29,7 @@ const searchData = [
   { title: 'Адаптивная верстка', description: 'Создание сайтов, работающих на всех устройствах', url: '/', section: 'Услуги' },
   { title: 'Корзина', description: 'Просмотр добавленных товаров и оформление заказа', url: '/', section: 'Покупки' },
   { title: 'Профиль', description: 'Личный кабинет пользователя', url: '/', section: 'Аккаунт' },
-  { title: 'Войти', description: 'Авторизация в системе', url: '/', section: 'Аккаунт' },
+  { title: 'Войти', description: 'Авторизация в системе', url: '/', section: '��ккаунт' },
   { title: 'Регистрация', description: 'Создание нового аккаунта', url: '/', section: 'Аккаунт' }
 ]
 
@@ -344,7 +344,7 @@ export default function SearchableNavbar() {
                       </div>
                       <div className="cart-footer-chatgpt">
                         <div className="cart-total-chatgpt">
-                          <span>Итого: {getTotalPrice().toLocaleString()} рублей</span>
+                          <span>Итого: {getTotalPrice().toLocaleString()} сумм</span>
                         </div>
                         <button
                           className="cart-checkout-chatgpt"
