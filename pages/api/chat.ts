@@ -22,7 +22,7 @@ interface UserLimit {
 
 // Хранилище лимитов в памяти (в production лучше использовать Redis)
 const userLimits = new Map<string, UserLimit>()
-const REQUESTS_LIMIT = 10
+const REQUESTS_LIMIT = 100
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
 
 // Функция дл�� получения IP адреса
@@ -176,7 +176,7 @@ export default async function handler(
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
 • Продвинутая аналитика
-• Приори��етная поддержка
+• Приори��етная поддер��ка
 
 💎 **Max** - 5,000,000 сум
 • Безлимитные страницы
@@ -236,7 +236,7 @@ export default async function handler(
 • TensorFlow, PyTorch
 • Natural Language Processing
 
-**Инфраструктура:**
+**Инф��аструктура:**
 • Vercel, Netlify
 • AWS, Docker
 • CI/CD автоматизация
@@ -309,7 +309,7 @@ export default async function handler(
 
       // Добавляем информацию о�� оставшихся запросах
       const remainingInfo = limitCheck.remaining > 0
-        ? `\n\n📊 *Осталось бесплатных вопросов: ${limitCheck.remaining}*`
+        ? `\n\n📊 *Осталось бесплатн��х вопросов: ${limitCheck.remaining}*`
         : `\n\n⚠️ *Это ваш последний бесплатный вопрос! Следующий будет платным.*`
 
       console.log(`[${timestamp}] Fallback response length:`, response.length)
@@ -332,9 +332,9 @@ export default async function handler(
 
 💡 СТИЛЬ ОБЩЕНИЯ:
 - Отвечай подробно и по существу
-- Объясняй "почему" и "как", а не только "что"
+- Объя��няй "почему" и "как", а не только "что"
 - Приводи конкретные примеры кода когда нужно
-- Предлагай несколько вариантов решения
+- Предлагай несколько вариа��тов решения
 - Учитывай современные best practices
 - Будь дружелюбным но профессиональным
 
@@ -476,7 +476,7 @@ export default async function handler(
 🚀 **Что я могу:**
 • Консультации по веб-разработке
 • Планирование AI-проектов  
-• Техническая экспертиза
+• ��ехническая экспертиза
 • Оценка проектов
 
 📱 **Онлайн-поддержка:** Прямо здесь в чате
