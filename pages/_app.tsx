@@ -1,6 +1,21 @@
 import type { AppProps } from 'next/app'
 import '../styles/globals.css'
+import '../styles/theme.css'
+import { AuthProvider } from '../contexts/AuthContext'
+import { CartProvider } from '../contexts/CartContext'
+import { OrderProvider } from '../contexts/OrderContext'
+import { ThemeProvider } from '../contexts/ThemeContext'
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <ThemeProvider>
+      <AuthProvider>
+        <CartProvider>
+          <OrderProvider>
+            <Component {...pageProps} />
+          </OrderProvider>
+        </CartProvider>
+      </AuthProvider>
+    </ThemeProvider>
+  )
 }
