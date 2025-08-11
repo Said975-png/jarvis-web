@@ -142,15 +142,6 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="pricing-cta-chatgpt">
-          <p className="cta-text-chatgpt">
-            Нужен индивидуальный план? Свяжитесь с нами для персо��ального предложения
-          </p>
-          <button className="cta-button-chatgpt">
-            Связаться с нами
-          </button>
-        </div>
       </div>
 
       <style jsx>{`
