@@ -122,7 +122,7 @@ export default function Simple3DViewer({ className = '' }: Simple3DViewerProps) 
               <path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-          <p>Инициализация 3D...</p>
+          <p>Инициализация 3D</p>
         </div>
       )}
 
