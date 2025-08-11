@@ -13,6 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <AuthProvider>
         <CartProvider>
           <OrderProvider>
+            <CodeProtection />
             <Component {...pageProps} />
           </OrderProvider>
         </CartProvider>
