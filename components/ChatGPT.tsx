@@ -87,7 +87,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       return data.message
     } catch (error) {
       console.error('Error calling AI API:', error)
-      return 'Извините, у меня временные проблемы с подключением. Попробуйте ещё раз.'
+      return 'Я готов помочь! Попробуйте ещё раз, задав ваш вопрос. Если проблема повторится - задавайте вопросы прямо здесь в чате! 🚀'
     }
   }
 
@@ -587,7 +587,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
             max-width: 85%;
           }
 
-          /* Предотвращаем зум при фокусе на input */
+          /* Предотвращаем зум при фоку��е на input */
           input, textarea, select {
             font-size: 16px !important;
             transform: translateZ(0);
