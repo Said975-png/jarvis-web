@@ -24,7 +24,7 @@ const pricingPlans = [
     subtitle: 'Лучший выбор',
     price: '4000000',
     period: 'сумм',
-    description: 'Лучший выбор для растущего бизнеса',
+    description: 'Лучший выб��р для растущего бизнеса',
     popular: true,
     features: [
       'Все из Basic',
@@ -278,7 +278,6 @@ export default function Pricing() {
 
         .plan-features-chatgpt {
           margin-bottom: 32px;
-          flex-grow: 1;
         }
 
         .feature-item-chatgpt {
@@ -380,13 +379,14 @@ export default function Pricing() {
           }
 
           .pricing-card-chatgpt {
-            padding: 24px 20px 32px 20px;
+            padding: 24px 20px 50px 20px;
             margin: 0 4px 16px 4px;
             min-height: 500px;
           }
 
           .popular-card {
-            min-height: 540px;
+            min-height: 680px !important;
+            padding-bottom: 40px !important;
           }
 
           .popular-badge-chatgpt {
@@ -405,11 +405,11 @@ export default function Pricing() {
           }
 
           .plan-features-chatgpt {
-            margin-bottom: 24px;
+            margin-bottom: 16px;
           }
 
-          .plan-features-chatgpt {
-            margin-bottom: 2px;
+          .popular-card .plan-features-chatgpt {
+            margin-bottom: 12px;
           }
 
           .plan-button-chatgpt {

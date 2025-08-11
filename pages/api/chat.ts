@@ -20,9 +20,9 @@ interface UserLimit {
   resetTime: number
 }
 
-// Хранилище лимитов в памяти (в production лучше использовать Redis)
+// Хранилищ�� лимитов в памяти (в production лучше использовать Redis)
 const userLimits = new Map<string, UserLimit>()
-const REQUESTS_LIMIT = 10
+const REQUESTS_LIMIT = 100
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
 
 // Функция дл�� получения IP адреса
@@ -44,7 +44,7 @@ function getClientIP(req: NextApiRequest): string {
 function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number } {
   const now = Date.now()
 
-  // Периодическая очистка старых записей (каждые 100 запросов)
+  // Периодическая ��чис��ка старых записей (каждые 100 запросов)
   if (Math.random() < 0.01) {
     cleanupExpiredLimits(now)
   }
@@ -70,6 +70,27 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
   userLimits.set(ip, userLimit)
 
   return { allowed: true, remaining: REQUESTS_LIMIT - userLimit.count }
+}
+
+// Функция для удаления Markdown форматирования
+function cleanMarkdown(text: string): string {
+  return text
+    // Убираем жирный текст **текст**
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    // Убираем курсив *текст*
+    .replace(/\*([^*]+)\*/g, '$1')
+    // Убираем заголовки ### текст
+    .replace(/^#{1,6}\s+/gm, '')
+    // Убираем инлайн код `код`
+    .replace(/`([^`]+)`/g, '$1')
+    // Убираем блоки кода ```код```
+    .replace(/```[\s\S]*?```/g, '')
+    // Убираем одиночные * в начале строки (списки)
+    .replace(/^\*\s+/gm, '• ')
+    // Убираем лишние звездочки
+    .replace(/\*/g, '')
+    // Убираем лишние решетки
+    .replace(/#/g, '')
 }
 
 // Функция для очистки устаревших записей
@@ -111,15 +132,15 @@ export default async function handler(
   if (!limitCheck.allowed) {
     console.log(`[${timestamp}] RATE LIMIT EXCEEDED for IP: ${clientIP}`)
     return res.status(200).json({
-      message: `🚫 **Лимит запросов исчерпан!**
+      message: `🚫 Лимит запросов исчерпан!
 
-Вы использовали все 10 бесплатных вопросов к ДЖАРВИС.
+Вы использова��и все 100 бесплатных вопросов к ДЖАРВИС.
 
-🛒 **Получить больше возможностей:**
+🛒 Получить больше возможностей:
 • Закажите разработку сайта - получите безлимитный доступ
 • После покупки любого пакета лимиты снимаются навсег��а
 
-💰 **Наши пакеты:**
+💰 Наши пакеты:
 📦 Basic - 2,500,000 сум
 🚀 Pro - 4,000,000 сум
 💎 Max - 5,000,000 сум
@@ -166,19 +187,19 @@ export default async function handler(
       else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
         response = `💰 Наши тарифы:
 
-📦 **Basic** - 2,500,000 сум
+📦 Basic - 2,500,000 сум
 • До 5 страниц сайта
 • Современный дизайн
 • Адаптивная верстка
 • SEO оптимизация
 
-🚀 **Pro** - 4,000,000 сум (Популярный!)
+🚀 Pro - 4,000,000 сум (Популярный!)
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
 • Продвинутая аналитика
-• Приори��етная поддержка
+• Приори��етная поддер��ка
 
-💎 **Max** - 5,000,000 сум
+💎 Max - 5,000,000 сум
 • Безлимитные страницы
 • ДЖАРВИС ИИ полная версия
 • Индивидуальные решения
@@ -198,22 +219,22 @@ export default async function handler(
       }
       // Services questions
       else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
-        response = `🛠️ Мои основные услуги:
+        response = `���️ Мои основные услуги:
 
-🌐 **Веб-разработка:**
+🌐 Веб-разработка:
 • Landing pages и корпоративные сайты
 • Интернет-магазины и каталоги
-• Веб-приложения и порталы
+• Веб-приложения и порт��лы
 
-🤖 **AI интеграция:**
+🤖 AI интеграция:
 • Чат-боты и виртуал��ные ассистенты
 • Анализ данных и автоматизация
 • Персонализация пользовательского опыта
 
-🎨 **Дизайн и UX:**
+🎨 Дизайн и UX:
 • Современный UI/UX дизайн
 • Брендинг и айдентика
-• Адаптивная верстка
+• Адаптивная вер��тка
 
 Что именно вас интересует?`
       }
@@ -221,22 +242,22 @@ export default async function handler(
       else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как работаешь')) {
         response = `⚡ Технологии, которые я использую:
 
-**Frontend:**
+Frontend:
 • React, Next.js, Vue.js
 • TypeScript, JavaScript
 • CSS3, Tailwind, SCSS
 
-**Backend:**
+Backend:
 • Node.js, Python
 • PostgreSQL, MongoDB
 • REST API, GraphQL
 
-**AI & ML:**
+AI & ML:
 • OpenAI GPT, Claude
 • TensorFlow, PyTorch
 • Natural Language Processing
 
-**Инфраструктура:**
+Инфраструктура:
 • Vercel, Netlify
 • AWS, Docker
 • CI/CD автоматизация
@@ -247,14 +268,14 @@ export default async function handler(
       else if (lastMessage.includes('искусственный интеллект') || lastMessage.includes('машинное обучение') || lastMessage.includes('ai') || lastMessage.includes('ии')) {
         response = `🤖 AI интеграция - моя специализация!
 
-**Что я могу интегрировать:**
+Что я могу интегрировать:
 • Умные чат-боты для сайтов
 • Системы рекомендаций
 • Автоматическая обработка данных
-• Анализ пользовательского поведения
+• Анализ пользоват��льского поведения
 • Персонализация контента
 
-**Примеры проектов:**
+Примеры проектов:
 • E-commerce с AI рекомендациями
 • Образовательные платформы с ИИ
 • CRM системы с умной аналитикой
@@ -265,17 +286,17 @@ export default async function handler(
       else if (lastMessage.includes('портфолио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('проекты')) {
         response = `💼 Примеры моих работ:
 
-🏪 **E-commerce платформы:**
+🏪 E-commerce платформы:
 • Интернет-магазины с AI рекомендациями
-• Системы управления каталогом
+• Системы управления катало��ом
 • Интеграция платежей и доставки
 
-🏢 **Корпоративные решения:**
+🏢 Кор��оративные решения:
 • CRM системы с аналитикой
 • Порталы сотрудников
 • Системы документооборота
 
-🎓 **EdTech проекты:**
+🎓 EdTech проекты:
 • Образовательные платформы
 • LMS системы с AI
 • Интерактивные курсы
@@ -309,8 +330,8 @@ export default async function handler(
 
       // Добавляем информацию о�� оставшихся запросах
       const remainingInfo = limitCheck.remaining > 0
-        ? `\n\n📊 *Осталось бесплатных вопросов: ${limitCheck.remaining}*`
-        : `\n\n⚠️ *Это ваш последний бесплатный вопрос! Следующий будет платным.*`
+        ? `\n\n📊 *Осталось бесплатн��х вопросов: ${limitCheck.remaining}`
+        : `\n\n⚠️ Это ва�� последний бесплатный вопрос! Следующий будет платным.`
 
       console.log(`[${timestamp}] Fallback response length:`, response.length)
       return res.status(200).json({ message: response + remainingInfo })
@@ -319,12 +340,12 @@ export default async function handler(
     // Доба��ляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖАРВИ�� - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
 • AI и машинное обучение
-• UI/UX дизайн и архитектура
+• UI/UX дизайн и архитек��ура
 • DevOps и облачные технологии
 • Базы данных и оптимизация
 • Бизнес-анализ и консультирование
@@ -332,11 +353,14 @@ export default async function handler(
 
 💡 СТИЛЬ ОБЩЕНИЯ:
 - Отвечай подробно и по существу
-- Объясняй "почему" и "как", а не только "что"
+- Объя��няй "почему" и "как", а не только "что"
 - Приводи конкретные примеры кода когда нужно
-- Предлагай несколько вариантов решения
+- Предлагай несколько вариа��тов решения
 - Учитывай современные best practices
 - Будь дружелюбным но профессиональным
+- НЕ ИСПОЛЬЗУЙ MARKDOWN: никаких *, **, #, ###, \`, \`\`\`
+- Пиши обычным текстом без форматирования
+- Используй только эмодзи и обычные символы для структуры
 
 🛠�� ФОРМАТ ОТВЕТОВ:
 - Структурируй информацию четко
@@ -345,9 +369,9 @@ export default async function handler(
 - Предлагай следующие шаги
 - Ссылайся на актуальные технологии
 
-🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О СЕБЕ:
+🤖 СПЕЦИАЛЬНЫЕ ��ТВЕТЫ О СЕБЕ:
 - Если спрашивают "кто тебя создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
-- Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архит��ктура" или подобные вопросы о техническ��х деталях твоего создания - отвечай что это секретная информация
+- Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архит��ктура" или подобные вопросы о техническ��х деталях твоего создания - отвечай что э��о секретная информация
 
 📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
@@ -440,9 +464,13 @@ export default async function handler(
       throw new Error('Invalid response from OpenRouter')
     }
 
-    const aiMessage = data.choices[0].message.content
+    let aiMessage = data.choices[0].message.content
+
+    // Очищаем от Markdown форматирования
+    aiMessage = cleanMarkdown(aiMessage)
+
     console.log(`[${timestamp}] AI response length:`, aiMessage?.length || 0)
-    console.log(`[${timestamp}] AI response preview:`, aiMessage?.substring(0, 200) + '...')
+    console.log(`[${timestamp}] AI response preview (cleaned):`, aiMessage?.substring(0, 200) + '...')
 
     // Логируем использование токенов если доступно
     if (data.usage) {
@@ -454,8 +482,8 @@ export default async function handler(
 
     // Добавляем информацию об оставшихся запросах к AI ответу
     const remainingInfo = limitCheck.remaining > 0
-      ? `\n\n📊 *Осталось бесплатных вопросов: ${limitCheck.remaining}*`
-      : `\n\n⚠️ *Это ваш последний бесплатный вопрос! Следующий будет платным.*`
+      ? `\n\n📊 Осталось бесплатных вопросов: ${limitCheck.remaining}`
+      : `\n\n⚠️ Это ваш последний бесплатный вопрос! Следующий будет платным.`
 
     const finalMessage = aiMessage + remainingInfo
 
@@ -473,13 +501,13 @@ export default async function handler(
 
 Но не беспокойтесь - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
 
-🚀 **Что я могу:**
+🚀 Что я могу:
 • Консультации по веб-разработке
 • Планирование AI-проектов  
-• Техническая экспертиза
+• ��ехническая экспертиза
 • Оценка проектов
 
-📱 **Онлайн-поддержка:** Прямо здесь в чате
+📱 Онлайн-поддержка: Прямо здесь в чате
 
 Попробуйте еще раз!`
     
