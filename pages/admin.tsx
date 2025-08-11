@@ -706,3 +706,9 @@ export default function AdminPanel() {
     </>
   )
 }
+
+export async function getServerSideProps() {
+  return {
+    props: {}
+  }
+}
