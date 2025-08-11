@@ -40,7 +40,7 @@ const pricingPlans = [
     subtitle: 'Премиум решение',
     price: '5000000',
     period: 'сумм',
-    description: 'Максимум возможностей для круп��ого бизнеса',
+    description: 'Максимум возможностей для крупного бизнеса',
     popular: false,
     features: [
       'Все из Pro',
@@ -380,10 +380,10 @@ export default function Pricing() {
           }
 
           .pricing-card-chatgpt {
-            padding: 24px 20px 36px 20px;
+            padding: 24px 20px 32px 20px;
             margin: 0 4px;
-            min-height: auto;
-            overflow: visible;
+            display: flex;
+            flex-direction: column;
           }
 
           .popular-badge-chatgpt {
