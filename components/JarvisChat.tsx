@@ -384,17 +384,8 @@ export default function JarvisChat({ isOpen, onClose }: JarvisChatProps) {
           height: 28px;
           flex-shrink: 0;
           margin-top: 2px;
-        }
-
-        .ai-icon {
-          width: 28px;
-          height: 28px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
+          overflow: hidden;
         }
 
         .message-content {
