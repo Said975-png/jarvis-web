@@ -28,6 +28,35 @@
   context-menu: none !important;
 }
 
+/* Предотвращение зума на мобильных устройствах */
+@media screen and (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    touch-action: manipulation;
+  }
+
+  input, textarea, select {
+    font-size: 16px !important;
+    transform: translateZ(0);
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
+
+  /* Предотвращаем зум при двойном тапе */
+  * {
+    touch-action: manipulation;
+  }
+}
+
 *::-webkit-scrollbar {
   display: none;
 }
