@@ -7,7 +7,7 @@ const pricingPlans = [
     name: 'Basic',
     subtitle: 'Стартовое решение',
     price: '2500000',
-    period: 'рублей',
+    period: 'сумм',
     description: 'Идеально для небольших проектов и стартапов',
     popular: false,
     features: [
@@ -23,7 +23,7 @@ const pricingPlans = [
     name: 'Pro',
     subtitle: 'Лучший выбор',
     price: '4000000',
-    period: 'рублей',
+    period: 'сумм',
     description: 'Лучший выбор для растущего бизнеса',
     popular: true,
     features: [
@@ -39,7 +39,7 @@ const pricingPlans = [
     name: 'Max',
     subtitle: 'Премиум решение',
     price: '5000000',
-    period: 'рублей',
+    period: 'сумм',
     description: 'Максимум возможностей для крупного бизнеса',
     popular: false,
     features: [
@@ -145,7 +145,7 @@ export default function Pricing() {
         {/* Bottom CTA */}
         <div className="pricing-cta-chatgpt">
           <p className="cta-text-chatgpt">
-            Нужен индивидуальный план? Свяжитесь с нами для персонального предложения
+            Нужен индивидуальный план? Свяжитесь с нами для персо��ального предложения
           </p>
           <button className="cta-button-chatgpt">
             Связаться с нами
