@@ -23,7 +23,7 @@ interface UserLimit {
 // Хранилище лимитов в памяти (в production лучше использовать Redis)
 const userLimits = new Map<string, UserLimit>()
 const REQUESTS_LIMIT = 100
-const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
+const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в милли��екундах
 
 // Функция дл�� получения IP адреса
 function getClientIP(req: NextApiRequest): string {
@@ -65,7 +65,7 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
     return { allowed: false, remaining: 0 }
   }
 
-  // Увеличиваем счетчик
+  // Ув��личиваем счетчик
   userLimit.count++
   userLimits.set(ip, userLimit)
 
@@ -104,7 +104,7 @@ export default async function handler(
     return res.status(405).json({ message: 'Метод не поддерживается', error: 'Method not allowed' })
   }
 
-  // Проверяем лимит запросов
+  // Проверяем ��имит запросов
   const limitCheck = checkAndUpdateLimit(clientIP)
   console.log(`[${timestamp}] Rate limit check - IP: ${clientIP}, Allowed: ${limitCheck.allowed}, Remaining: ${limitCheck.remaining}`)
 
@@ -157,7 +157,7 @@ export default async function handler(
 Я помогу вам с:
 • Созданием современных веб-сайтов
 • Разработкой веб-приложений с AI
-• UI/UX дизайном и интерфейсами
+• UI/UX дизайном и ��нтерфейсами
 • Интеграцией AI в ваши проекты
 
 Что вас интересует?`
@@ -184,11 +184,11 @@ export default async function handler(
 • Индивидуальные решения
 • VIP поддержка 24/7
 
-К��кой план вас интересует?`
+Какой план вас интересует?`
       }
       // Contact information
       else if (lastMessage.includes('контакт') || lastMessage.includes('связаться') || lastMessage.includes('telegram') || lastMessage.includes('телефон')) {
-        response = `📞 Свяжитесь со мной:
+        response = `📞 Свяжитес�� со мной:
 
 • Онл��йн-консультация: прямо здесь в чате
 
@@ -218,7 +218,7 @@ export default async function handler(
 Что именно вас интересует?`
       }
       // Technology questions
-      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как работаешь')) {
+      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как работа��шь')) {
         response = `⚡ Технологии, которые я использую:
 
 Frontend:
@@ -256,7 +256,7 @@ AI & ML:
 
 Примеры проектов:
 • E-commerce с AI рекомендациями
-• Образовательные платформы с ИИ
+• Образовател��ные платформы с ИИ
 • CRM системы с умной аналитикой
 
 Какой AI функционал вас интересует?`
@@ -283,7 +283,7 @@ AI & ML:
 Хотите увидеть демо или обсудить ваш проект?`
       }
       // Creator questions
-      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разраб��тал тебя') || lastMessage.includes('кто твой разрабо��чик') || lastMessage.includes('кто твой автор')) {
+      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разраб���тал тебя') || lastMessage.includes('кто твой разрабо��чик') || lastMessage.includes('кто твой автор')) {
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
@@ -302,14 +302,14 @@ AI & ML:
 • Выбором подходящих технологий
 • Оценкой стоимости и сроков
 
-Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
+Расскажите подробнее о вашей зада��е, и я дам конкретные рекомендации!
 
 💬 Задавайте любые вопросы прямо здесь!`
       }
 
       // Добавляем информацию о�� оставшихся запросах
       const remainingInfo = limitCheck.remaining > 0
-        ? `\n\n📊 *Осталось бесплатн��х вопросов: ${limitCheck.remaining}*`
+        ? `\n\n📊 *Осталось бесплатн��х вопросов: ${limitCheck.remaining}`
         : `\n\n⚠️ *Это ваш последний бесплатный вопрос! Следующий будет платным.*`
 
       console.log(`[${timestamp}] Fallback response length:`, response.length)
@@ -319,12 +319,12 @@ AI & ML:
     // Доба��ляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИ�� - продвинутый AI-помощник и эксперт по веб-разработке. Ты облад��ешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖАРВИ�� - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
 • AI и машинное обучение
-• UI/UX дизайн и архитектура
+• UI/UX дизайн и архи��ектура
 • DevOps и облачные технологии
 • Базы данных и оптимизация
 • Бизнес-анализ и консультирование
@@ -346,7 +346,7 @@ AI & ML:
 - Ссылайся на актуальные технологии
 
 🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О СЕБЕ:
-- Если спрашивают "кто тебя создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
+- Если спрашивают "кто тебя создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мо�� создатель @jarvis_intercoma"
 - Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архит��ктура" или подобные вопросы о техническ��х деталях твоего создания - отвечай что это секретная информация
 
 📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
@@ -454,7 +454,7 @@ AI & ML:
 
     // Добавляем информацию об оставшихся запросах к AI ответу
     const remainingInfo = limitCheck.remaining > 0
-      ? `\n\n📊 Осталось бесплатных вопросов: ${limitCheck.remaining}*`
+      ? `\n\n📊 Осталось бесплатных вопросов: ${limitCheck.remaining}`
       : `\n\n⚠️ *Это ваш последний бесплатный вопрос! Следующий будет платным.*`
 
     const finalMessage = aiMessage + remainingInfo
