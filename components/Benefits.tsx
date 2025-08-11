@@ -185,7 +185,7 @@ export default function Benefits() {
                         <span></span>
                         <span></span>
                       </div>
-                      <span className="typing-text-chatgpt">JARVIS печатает...</span>
+                      <span className="typing-text-chatgpt">JARVIS печатает</span>
                     </div>
                   </div>
                 </div>
