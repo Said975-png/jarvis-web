@@ -32,7 +32,7 @@ export default function Checkout({ onClose, onSuccess }: CheckoutProps) {
       onClose()
     } catch (error) {
       console.error('Error creating order:', error)
-      alert('Произошла ошибк�� при оформлении заказа. Попробуйте еще раз.')
+      alert('Произошла ошибка при оформлении заказа. Попробуйте еще раз.')
     } finally {
       setIsSubmitting(false)
     }
@@ -77,7 +77,7 @@ export default function Checkout({ onClose, onSuccess }: CheckoutProps) {
           {/* Checkout Form */}
           <form onSubmit={handleSubmit} className="checkout-form">
             <div className="form-section">
-              <h3>Контактная ��нформация</h3>
+              <h3>Контактная информация</h3>
               
               <div className="form-group">
                 <label htmlFor="fullName">ФИО *</label>
