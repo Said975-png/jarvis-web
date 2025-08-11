@@ -20,7 +20,7 @@ interface UserLimit {
   resetTime: number
 }
 
-// Хранилище лимитов в памяти (в production лучше использовать Redis)
+// Хранилище лимитов в памяти (в production лучше ��спользовать Redis)
 const userLimits = new Map<string, UserLimit>()
 const REQUESTS_LIMIT = 100
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
@@ -184,7 +184,7 @@ export default async function handler(
 Что вас интересует?`
       }
       // Pricing questions
-      else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
+      else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тар��ф') || lastMessage.includes('план')) {
         response = `💰 На��и тарифы:
 
 📦 Basic - 2,500,000 сум
@@ -218,7 +218,7 @@ export default async function handler(
 Чем ��огу помочь?`
       }
       // Services questions
-      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
+      else if (lastMessage.includes('усл��г') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
         response = `🛠️ Мои основные услуги:
 
 🌐 Веб-разработка:
@@ -328,7 +328,7 @@ AI & ML:
 💬 Задавайте любые вопросы прямо здесь!`
       }
 
-      // До��авляем информацию об оставшихся запросах
+      // Добавляем информацию об оставшихся запросах
       const remainingInfo = limitCheck.remaining > 0
         ? `\n\n��� Осталось бесплатных воп��осов: ${limitCheck.remaining}`
         : `\n\n⚠️ Это ваш последний бесплатный вопрос! Следующий будет платным.`
@@ -354,7 +354,7 @@ AI & ML:
 💡 СТИЛЬ ОБЩЕНИЯ:
 - Отвечай подробно и по существу
 - Объясняй "почему" и "как", а не только "что"
-- Приводи конкретные примеры кода когда нужно
+- Приводи конкретные примеры к��да когда нужно
 - Предлагай несколько вариантов решения
 - Учитывай современные best practices
 - Будь дружелюбным но профессиональным
