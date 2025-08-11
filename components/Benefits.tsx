@@ -53,7 +53,7 @@ export default function Benefits() {
                 </div>
                 <div>
                   <h4>Живое общение</h4>
-                  <p>Общается как человек</p>
+                  <p>Общае��ся как человек</p>
                 </div>
               </div>
               <div className="benefit-item-chatgpt">
@@ -76,7 +76,7 @@ export default function Benefits() {
                 <div className="stat-label-chatgpt">заменяет 20+ сотрудников</div>
               </div>
               <div className="stat-chatgpt">
-                <div className="stat-number-chatgpt">24/7</div>
+                <div className="stat-number-chatgpt">24 часа</div>
                 <div className="stat-label-chatgpt">без перерывов</div>
               </div>
               <div className="stat-chatgpt">
