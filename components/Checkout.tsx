@@ -114,7 +114,7 @@ export default function Checkout({ onClose, onSuccess }: CheckoutProps) {
                   value={formData.description}
                   onChange={(e) => handleInputChange('description', e.target.value)}
                   required
-                  placeholder="Опишите, какой сайт вы хотите. Укажите функциональность, стиль, особые требования"
+                  placeholder="Опишите, како�� сайт вы хотите. Укажите функциональность, стиль, особые требования"
                   rows={5}
                 />
               </div>
@@ -136,7 +136,7 @@ export default function Checkout({ onClose, onSuccess }: CheckoutProps) {
                 Отмена
               </button>
               <button type="submit" className="submit-btn" disabled={isSubmitting}>
-                {isSubmitting ? 'Оформляем...' : 'Оформить заказ'}
+                {isSubmitting ? 'Оформляем' : 'Оформить заказ'}
               </button>
             </div>
           </form>
