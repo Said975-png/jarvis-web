@@ -85,7 +85,7 @@ function cleanMarkdown(text: string): string {
     .replace(/`([^`]+)`/g, '$1')
     // Убираем блоки кода ```код```
     .replace(/```[\s\S]*?```/g, '')
-    // Убир��ем одиночные * в начале строки (списки)
+    // Убир��ем одиночные * в начале ��троки (списки)
     .replace(/^\*\s+/gm, '• ')
     // Убираем лишн��е звездочк��
     .replace(/\*/g, '')
@@ -272,7 +272,7 @@ AI & ML:
 
 🏢 Корпоративные решения:
 • CRM системы с аналитикой
-• Порталы ����отрудников
+• Порт��лы ����отрудников
 • Системы документооборота
 
 🎓 EdTech проекты:
@@ -380,21 +380,21 @@ AI & ML:
         }))
       }, null, 2))
 
-      // Handle specific error cases
+      // Handle specific error cases with smart fallback
       if (response.status === 402) {
-        console.log(`[${timestamp}] Insufficient credits - returning fallback`)
+        console.log(`[${timestamp}] Insufficient credits - using smart fallback`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀\n\nЯ готов помочь вам с:\n• Разработкой современных веб-сайтов\n• Интеграцией AI в ваши проекты\n• Техническими консультациями\n• Планированием проектов\n\nЗадавайте любые вопросы!'
+          message: generateSmartFallback(messages[messages.length - 1]?.content || '')
         })
       } else if (response.status === 401) {
         console.log(`[${timestamp}] Authentication error`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разра��отке! 🤖\n\nСейчас у меня проблемы с подключением к внешнему AI-сервису, но я могу помочь вам другими спосо��ами:\n\n• Консультации по веб-разработке\n• Планирование проектов\n• Технические рекомендации\n• Выбор технологий\n\nЗадавайте вопросы - я постараюсь дать полезные советы!'
+          message: generateSmartFallback(messages[messages.length - 1]?.content || '')
         })
       } else if (response.status === 429) {
         console.log(`[${timestamp}] Rate limit exceeded`)
         return res.status(200).json({
-          message: 'Я получаю слишком много запросов одновременно! 😅\n\nДайте мне секундочку отдохнуть и попробуйте еще раз. Или напишите напрямую - там я всегда доступен!'
+          message: 'Слишком много запросов! 😅 Попробуйте через несколько секунд.'
         })
       }
 
