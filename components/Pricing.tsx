@@ -386,7 +386,7 @@ export default function Pricing() {
           }
 
           .popular-card {
-            min-height: 540px;
+            min-height: 580px;
           }
 
           .popular-badge-chatgpt {
