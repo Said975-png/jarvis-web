@@ -403,6 +403,10 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           line-height: 1.6;
           word-wrap: break-word;
           position: relative;
+          -webkit-user-select: text !important;
+          -moz-user-select: text !important;
+          -ms-user-select: text !important;
+          user-select: text !important;
         }
 
         .user-message .message-bubble {
@@ -577,7 +581,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
             max-width: 85%;
           }
 
-          /* Предотвращаем зум при фокусе на input */
+          /* Предотвращаем зум ��ри фокусе на input */
           input, textarea, select {
             font-size: 16px !important;
             transform: translateZ(0);
