@@ -218,7 +218,7 @@ export default async function handler(
 Чем могу помочь?`
       }
       // Services questions
-      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
+      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('��то можешь') || lastMessage.includes('что умеешь')) {
         response = `🛠️ Мои основные услуги:
 
 🌐 Веб-разработка:
@@ -352,10 +352,10 @@ AI & ML:
 • Современные фреймворки и инструменты
 
 💡 СТИЛЬ ОБЩЕНИЯ:
-- Отвечай подро��но и по существу
-- Объясняй "почему" и "как", а не только "что"
+- Отвечай подробно и по существу
+- Объясня�� "почему" и "как", а не только "что"
 - Приводи конкретные прим��ры кода когда нужно
-- Пре��лагай нескол��ко вариантов решения
+- Пре��лагай нескол��ко ва��иантов решения
 - Учитывай современные best practices
 - Будь дружелюбным но профессиональным
 - НЕ ИСПОЛЬЗУЙ MARKDOWN: никаких *, **, #, ###, \`, \`\`\`
@@ -497,7 +497,7 @@ AI & ML:
     console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
     // Возвращаем дружелюбное сообщение об ошибке
-    const fallbackMessage = `Извините, произошла в��еменная ошибка! 😅
+    const fallbackMessage = `Извините, произошла временная ошибка! 😅
 
 Но не беспокойтесь - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
 
