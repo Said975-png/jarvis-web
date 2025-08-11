@@ -60,7 +60,7 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
     return { allowed: true, remaining: REQUESTS_LIMIT - 1 }
   }
 
-  // Если лимит превышен
+  // Е��ли лимит превышен
   if (userLimit.count >= REQUESTS_LIMIT) {
     return { allowed: false, remaining: 0 }
   }
@@ -218,7 +218,7 @@ export default async function handler(
 Чем могу помочь?`
       }
       // Services questions
-      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('��то можешь') || lastMessage.includes('что умеешь')) {
+      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
         response = `🛠️ Мои основные услуги:
 
 🌐 Веб-разработка:
@@ -308,7 +308,7 @@ AI & ML:
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
-      else if (lastMessage.includes('как т��бя с��здали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
+      else if (lastMessage.includes('как т����бя с��здали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
         response = `Это секретная информация 🔒`
       }
       // Default response for other questions
@@ -330,7 +330,7 @@ AI & ML:
 
       // До��авляем информацию об оставшихся запросах
       const remainingInfo = limitCheck.remaining > 0
-        ? `\n\n��� Осталось бесплатных вопросов: ${limitCheck.remaining}`
+        ? `\n\n����� Осталось бесплатных вопросов: ${limitCheck.remaining}`
         : `\n\n⚠️ Это ваш последний бесплатный вопрос! Следующий будет платным.`
 
       console.log(`[${timestamp}] Fallback response length:`, response.length)
@@ -352,10 +352,10 @@ AI & ML:
 • Современные фреймворки и инструменты
 
 💡 СТИЛЬ ОБЩЕНИЯ:
-- Отвечай подробно и по существу
-- Объясня�� "почему" и "как", а не только "что"
-- Приводи конкретные прим��ры кода когда нужно
-- Пре��лагай нескол��ко ва��иантов решения
+- Отвечай подробно �� по существу
+- Объясняй "почему" и "как", а не только "что"
+- Приводи конкретные примеры кода когда нужно
+- Пре����агай нескол��ко вариантов решения
 - Учитывай современные best practices
 - Будь дружелюбным но профессиональным
 - НЕ ИСПОЛЬЗУЙ MARKDOWN: никаких *, **, #, ###, \`, \`\`\`
@@ -371,7 +371,7 @@ AI & ML:
 
 🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О СЕБЕ:
 - Если спрашивают "кто тебя создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
-- Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя ар��ит��кт��ра" или подоб���ые вопросы о техническ��х деталях твоего создания - отвечай что э��о секретная инфор��ация
+- Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя ар��ит��кт��ра" или подоб�����ые вопросы о техническ��х деталях твоего создания - отвечай что э��о секретная инфор��ация
 
 📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
@@ -496,7 +496,7 @@ AI & ML:
     console.error('Error message:', error instanceof Error ? error.message : String(error))
     console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
-    // Возвращаем дружелюбное сообщение об ошибке
+    // Возвращаем дружелюбное сообщение об ��шибке
     const fallbackMessage = `Извините, произошла временная ошибка! 😅
 
 Но не беспокойтесь - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
