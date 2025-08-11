@@ -533,12 +533,15 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         @media (max-width: 768px) {
           .chatgpt-overlay {
             padding: 0;
+            touch-action: manipulation;
           }
 
           .chatgpt-container {
             height: 100vh;
             max-width: 100%;
             border-radius: 0;
+            position: fixed;
+            overflow: hidden;
           }
 
           .chatgpt-header {
@@ -547,14 +550,37 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
           .chatgpt-messages {
             padding: 20px 16px;
+            height: calc(100vh - 140px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
           }
 
           .chatgpt-input-area {
             padding: 16px 20px;
+            position: relative;
+            background: #f7f7f8;
+          }
+
+          .input-container {
+            position: relative;
+          }
+
+          .chatgpt-input {
+            font-size: 16px !important;
+            transform: translateZ(0);
+            -webkit-appearance: none;
+            -webkit-user-select: text;
+            touch-action: manipulation;
           }
 
           .message {
             max-width: 85%;
+          }
+
+          /* Предотвращаем зум при фокусе на input */
+          input, textarea, select {
+            font-size: 16px !important;
+            transform: translateZ(0);
           }
         }
       `}</style>
