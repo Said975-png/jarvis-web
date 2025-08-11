@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import '../styles/mockup.css'
 
 export default function MockupPage() {
   return (
