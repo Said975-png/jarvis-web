@@ -405,7 +405,7 @@ export default function Pricing() {
           }
 
           .plan-features-chatgpt {
-            margin-bottom: 8px;
+            margin-bottom: 2px;
           }
 
           .plan-button-chatgpt {
