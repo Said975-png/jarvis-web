@@ -403,6 +403,10 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           line-height: 1.6;
           word-wrap: break-word;
           position: relative;
+          -webkit-user-select: text !important;
+          -moz-user-select: text !important;
+          -ms-user-select: text !important;
+          user-select: text !important;
         }
 
         .user-message .message-bubble {
@@ -485,12 +489,20 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           background: transparent;
           resize: none;
           outline: none;
-          font-size: 15px;
+          font-size: 16px;
           line-height: 1.5;
           max-height: 120px;
           min-height: 24px;
           color: #0d1117;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+          transform: translateZ(0);
+          -webkit-appearance: none;
+          -webkit-user-select: text !important;
+          -moz-user-select: text !important;
+          -ms-user-select: text !important;
+          user-select: text !important;
+          -webkit-tap-highlight-color: transparent;
+          -webkit-touch-callout: default;
         }
 
         .chatgpt-input::placeholder {
@@ -531,12 +543,15 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         @media (max-width: 768px) {
           .chatgpt-overlay {
             padding: 0;
+            touch-action: manipulation;
           }
 
           .chatgpt-container {
             height: 100vh;
             max-width: 100%;
             border-radius: 0;
+            position: fixed;
+            overflow: hidden;
           }
 
           .chatgpt-header {
@@ -545,14 +560,37 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
           .chatgpt-messages {
             padding: 20px 16px;
+            height: calc(100vh - 140px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
           }
 
           .chatgpt-input-area {
             padding: 16px 20px;
+            position: relative;
+            background: #f7f7f8;
+          }
+
+          .input-container {
+            position: relative;
+          }
+
+          .chatgpt-input {
+            font-size: 16px !important;
+            transform: translateZ(0);
+            -webkit-appearance: none;
+            -webkit-user-select: text;
+            touch-action: manipulation;
           }
 
           .message {
             max-width: 85%;
+          }
+
+          /* Предотвращаем зум при фокусе на input */
+          input, textarea, select {
+            font-size: 16px !important;
+            transform: translateZ(0);
           }
         }
       `}</style>
