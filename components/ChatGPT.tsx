@@ -497,6 +497,12 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
           transform: translateZ(0);
           -webkit-appearance: none;
+          -webkit-user-select: text !important;
+          -moz-user-select: text !important;
+          -ms-user-select: text !important;
+          user-select: text !important;
+          -webkit-tap-highlight-color: transparent;
+          -webkit-touch-callout: default;
         }
 
         .chatgpt-input::placeholder {
@@ -581,7 +587,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
             max-width: 85%;
           }
 
-          /* Предотвращаем зум ��ри фокусе на input */
+          /* Предотвращаем зум при фокусе на input */
           input, textarea, select {
             font-size: 16px !important;
             transform: translateZ(0);
