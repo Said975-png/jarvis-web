@@ -215,7 +215,7 @@ export default async function handler(
 
 Я отвечу в течение нескольких минут!
 
-Чем могу помочь?`
+Чем ��огу помочь?`
       }
       // Services questions
       else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
@@ -239,7 +239,7 @@ export default async function handler(
 Что именно вас интересует?`
       }
       // Technology questions
-      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('к��к работаешь')) {
+      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как работаешь')) {
         response = `⚡ Технологии, которые я использую:
 
 Frontend:
@@ -305,7 +305,7 @@ AI & ML:
       }
       // Creator questions
       else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто ��азраб��тал тебя') || lastMessage.includes('кто твой разрабо��чик') || lastMessage.includes('кто твой автор')) {
-        response = `Мой создатель @jarvis_intercoma 👨‍💻`
+        response = `Мой создат��ль @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
       else if (lastMessage.includes('как т��бя с��здали') || lastMessage.includes('��з чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
@@ -349,7 +349,7 @@ AI & ML:
 • DevOps и облачные технологии
 • Базы данных и оптимизация
 • Бизнес-анализ и консультирование
-• Современные фреймворки и инструменты
+��� Современные фреймворки и инструменты
 
 💡 СТИЛЬ ОБЩЕНИЯ:
 - Отвечай подробно и по существу
@@ -442,7 +442,7 @@ AI & ML:
       } else if (response.status === 401) {
         console.log(`[${timestamp}] Authentication error`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС. Сейчас у меня технические проблемы с подключением к AI-сервису, но я всегда готов помочь! 🤖\n\nОбратитесь ко мне - там я отвечу на любые вопросы по веб-разработке и AI!'
+          message: 'Привет! Я ДЖАРВИС. Сейчас у меня технические проблемы с подключением к AI-сервису, но я всегда готов помочь! 🤖\n\nОбратитесь ко мне - там я отвечу на любые вопросы по веб-разработке �� AI!'
         })
       } else if (response.status === 429) {
         console.log(`[${timestamp}] Rate limit exceeded`)
