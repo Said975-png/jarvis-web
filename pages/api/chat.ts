@@ -60,7 +60,7 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
     return { allowed: true, remaining: REQUESTS_LIMIT - 1 }
   }
 
-  // Если лимит превышен
+  // ��сли лимит превышен
   if (userLimit.count >= REQUESTS_LIMIT) {
     return { allowed: false, remaining: 0 }
   }
@@ -218,7 +218,7 @@ export default async function handler(
 Чем могу помочь?`
       }
       // Services questions
-      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
+      else if (lastMessage.includes('услуг') || lastMessage.includes('��ервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
         response = `🛠️ Мои основные услуги:
 
 🌐 Веб-разработка:
@@ -308,7 +308,7 @@ AI & ML:
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
-      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
+      else if (lastMessage.includes('как тебя с��здали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
         response = `Это секретная информация 🔒`
       }
       // Default response for other questions
@@ -354,8 +354,8 @@ AI & ML:
 💡 СТИЛЬ ОБЩЕНИЯ:
 - Отвечай подробно и по существу
 - Объясняй "почему" и "как", а не только "что"
-- Приводи конкретные п��име��ы кода когда нужно
-- Предлагай несколько вариантов решения
+- Приводи конкретные примеры кода когда нужно
+- Предлагай нескол��ко вариантов решения
 - Учитывай современные best practices
 - Будь дружелюб��ым но профессиональным
 - НЕ ИСПОЛЬЗУЙ MARKDOWN: никаких *, **, #, ###, \`, \`\`\`
