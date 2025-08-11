@@ -379,7 +379,8 @@ export default function Pricing() {
           }
 
           .pricing-card-chatgpt {
-            padding: 24px;
+            padding: 24px 20px 28px 20px;
+            margin: 0 4px;
           }
 
           .popular-badge-chatgpt {
@@ -399,6 +400,13 @@ export default function Pricing() {
 
           .plan-features-chatgpt {
             margin-bottom: 24px;
+          }
+
+          .plan-button-chatgpt {
+            padding: 16px 20px;
+            font-size: 15px;
+            width: 100%;
+            box-sizing: border-box;
           }
 
           .pricing-cta-chatgpt {
