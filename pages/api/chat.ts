@@ -14,7 +14,7 @@ interface ChatResponse {
   error?: string
 }
 
-// Система лимито�� запросов
+// Система лимитов запросов
 interface UserLimit {
   count: number
   resetTime: number
@@ -181,7 +181,7 @@ export default async function handler(
 • UI/UX дизайном и интерфейсами
 • Интеграцией AI в ваши проекты
 
-Что вас интересуе��?`
+Что вас интересует?`
       }
       // Pricing questions
       else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
@@ -197,7 +197,7 @@ export default async function handler(
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
 • Продвинутая аналитика
-• Приори��етная поддер��ка
+• Приоритетная поддержка
 
 💎 Max - 5,000,000 сум
 • Безлимитные страницы
@@ -211,30 +211,30 @@ export default async function handler(
       else if (lastMessage.includes('контакт') || lastMessage.includes('связаться') || lastMessage.includes('telegram') || lastMessage.includes('телефон')) {
         response = `📞 Свяжитесь со мной:
 
-• Онл��йн-консультация: прямо здесь в чате
+• Онлайн-консультация: прямо здесь в чате
 
-Я отвеч�� в течение нескольких минут!
+Я отвечу в течение нескольких минут!
 
 Чем могу помочь?`
       }
       // Services questions
-      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
-        response = `���️ Мои основные услуги:
+      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что ��ожешь') || lastMessage.includes('что умеешь')) {
+        response = `🛠️ Мои основные услуги:
 
 🌐 Веб-разработка:
 • Landing pages и корпоративные сайты
 • Интернет-магазины и каталоги
-• Веб-приложения и порт��лы
+• Веб-приложения и порталы
 
 🤖 AI интеграция:
-• Чат-боты и виртуал��ные ассистенты
+• Чат-боты и виртуальные ассистенты
 • Анализ данных и автоматизация
 • Персонализация пользовательского опыта
 
 🎨 Дизайн и UX:
 • Современный UI/UX дизайн
 • Брендинг и айдентика
-• Адаптивная вер��тка
+• Адаптивная верстка
 
 Что именно вас интересует?`
       }
@@ -283,7 +283,7 @@ AI & ML:
 Какой AI функционал вас интересует?`
       }
       // Portfolio/examples
-      else if (lastMessage.includes('портфолио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('проекты')) {
+      else if (lastMessage.includes('портфолио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('пр��екты')) {
         response = `💼 Примеры моих работ:
 
 🏪 E-commerce платформы:
@@ -330,7 +330,7 @@ AI & ML:
 
       // Добавляем информацию о�� оставшихся запросах
       const remainingInfo = limitCheck.remaining > 0
-        ? `\n\n📊 *Осталось бесплатн��х вопросов: ${limitCheck.remaining}`
+        ? `\n\n📊 *Осталось бесплатн��х ��опросов: ${limitCheck.remaining}`
         : `\n\n⚠️ Это ва�� последний бесплатный вопрос! Следующий будет платным.`
 
       console.log(`[${timestamp}] Fallback response length:`, response.length)
