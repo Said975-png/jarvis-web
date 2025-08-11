@@ -181,7 +181,7 @@ export default function CodeProtection() {
       blockDevTools()
     }
 
-    // Применяем ��ащиту сразу и с задержкой для надёжности
+    // Применяем защиту сразу и с задержкой для надёжности
     applyProtection()
     setTimeout(applyProtection, 100)
     setTimeout(applyProtection, 500)
