@@ -22,7 +22,7 @@ interface UserLimit {
 
 // Хранилище лимитов в памяти (в production лучше использовать Redis)
 const userLimits = new Map<string, UserLimit>()
-const REQUESTS_LIMIT = 100
+const REQUESTS_LIMIT = 999999
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
 
 // Функция для получения IP адреса
@@ -51,7 +51,7 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
 
   const userLimit = userLimits.get(ip)
 
-  // Если пользователь не найден или время сброса прошло
+  // Если пользователь не найден или вр��мя сброса прошло
   if (!userLimit || now > userLimit.resetTime) {
     userLimits.set(ip, {
       count: 1,
@@ -87,7 +87,7 @@ function cleanMarkdown(text: string): string {
     .replace(/```[\s\S]*?```/g, '')
     // Убираем одиночные * в начале строки (списки)
     .replace(/^\*\s+/gm, '• ')
-    // Убираем лишн��е звездочки
+    // Убираем лишн��е звездочк��
     .replace(/\*/g, '')
     // Убираем лишние решетки
     .replace(/#/g, '')
@@ -125,29 +125,8 @@ export default async function handler(
     return res.status(405).json({ message: 'Метод не поддерживается', error: 'Method not allowed' })
   }
 
-  // Проверяем лимит запросов
-  const limitCheck = checkAndUpdateLimit(clientIP)
-  console.log(`[${timestamp}] Rate limit check - IP: ${clientIP}, Allowed: ${limitCheck.allowed}, Remaining: ${limitCheck.remaining}`)
-
-  if (!limitCheck.allowed) {
-    console.log(`[${timestamp}] RATE LIMIT EXCEEDED for IP: ${clientIP}`)
-    return res.status(200).json({
-      message: `🚫 Лимит запросов исчерпан!
-
-Вы использовали все 100 бесплатных вопросов к ДЖАРВИС.
-
-🛒 Получить больше возможностей:
-• Закажите разработку сайта - получите безлимитный доступ
-• После покупки любого пакета лимиты снима��тся навсегда
-
-💰 Наши пакеты:
-📦 Basic - 2,500,000 сум
-🚀 Pro - 4,000,000 сум
-💎 Max - 5,000,000 сум
-
-🎁 При заказе сайта ДЖАРВИС станет вашим персональным AI-помощником без ограничений!`
-    })
-  }
+  // Лимиты отключены - ДЖАРВИС работает без ограничений
+  console.log(`[${timestamp}] ДЖАРВИС доступен без ограничений для IP: ${clientIP}`)
 
   try {
     const { messages }: ChatRequest = req.body
@@ -179,7 +158,7 @@ export default async function handler(
 • Созданием современных веб-сайтов
 • Разработкой веб-приложений с AI
 • UI/UX дизайном и интерфейсами
-• Интеграцией AI в ваши проекты
+• Интеграцией AI в ваши ��роекты
 
 Что вас интересует?`
       }
@@ -278,7 +257,7 @@ AI & ML:
 Примеры проектов:
 • E-commerce с AI рекомендациями
 • Образовательные платформы с ИИ
-• CRM системы с ��мной аналитикой
+• CRM системы с ��мной а��алитикой
 
 Какой AI функционал вас интересует?`
       }
@@ -304,7 +283,7 @@ AI & ML:
 Хотите увидеть демо или обсудить ваш проект?`
       }
       // Creator questions
-      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разработчик') || lastMessage.includes('кто твой автор')) {
+      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разработчи��') || lastMessage.includes('кто твой автор')) {
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
@@ -325,7 +304,7 @@ AI & ML:
 
 Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
 
-💬 Задав��йте любые вопросы прямо здесь!`
+💬 Задав��йте ��юбые вопросы прямо здесь!`
       }
 
       // Добавляем информацию об оставшихся запросах
@@ -347,7 +326,7 @@ AI & ML:
 • AI и машинное обучение
 • UI/UX дизайн и архитектура
 • DevOps и облачные технологии
-• Базы данных и оптимизация
+• Базы данных и оптимиз��ция
 • Бизнес-анализ и консультирование
 • Современные фреймворки и инструменты
 
