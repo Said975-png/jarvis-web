@@ -22,7 +22,7 @@ interface UserLimit {
 
 // Хранилище лимитов в памяти (в production лучше использовать Redis)
 const userLimits = new Map<string, UserLimit>()
-const REQUESTS_LIMIT = 100
+const REQUESTS_LIMIT = 999999
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
 
 // Функция для получения IP адреса
@@ -51,7 +51,7 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
 
   const userLimit = userLimits.get(ip)
 
-  // Если пользователь не найден или время сброса прошло
+  // Если пользователь не найден или вр��мя сброса прошло
   if (!userLimit || now > userLimit.resetTime) {
     userLimits.set(ip, {
       count: 1,
@@ -87,7 +87,7 @@ function cleanMarkdown(text: string): string {
     .replace(/```[\s\S]*?```/g, '')
     // Убираем одиночные * в начале строки (списки)
     .replace(/^\*\s+/gm, '• ')
-    // Убираем лишн��е звездочки
+    // Убираем лишн��е звездочк��
     .replace(/\*/g, '')
     // Убираем лишние решетки
     .replace(/#/g, '')
@@ -179,7 +179,7 @@ export default async function handler(
 • Созданием современных веб-сайтов
 • Разработкой веб-приложений с AI
 • UI/UX дизайном и интерфейсами
-• Интеграцией AI в ваши проекты
+• Интеграцией AI в ваши ��роекты
 
 Что вас интересует?`
       }
@@ -278,7 +278,7 @@ AI & ML:
 Примеры проектов:
 • E-commerce с AI рекомендациями
 • Образовательные платформы с ИИ
-• CRM системы с ��мной аналитикой
+• CRM системы с ��мной а��алитикой
 
 Какой AI функционал вас интересует?`
       }
@@ -304,7 +304,7 @@ AI & ML:
 Хотите увидеть демо или обсудить ваш проект?`
       }
       // Creator questions
-      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разработчик') || lastMessage.includes('кто твой автор')) {
+      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разработчи��') || lastMessage.includes('кто твой автор')) {
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
@@ -325,7 +325,7 @@ AI & ML:
 
 Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
 
-💬 Задав��йте любые вопросы прямо здесь!`
+💬 Задав��йте ��юбые вопросы прямо здесь!`
       }
 
       // Добавляем информацию об оставшихся запросах
@@ -347,7 +347,7 @@ AI & ML:
 • AI и машинное обучение
 • UI/UX дизайн и архитектура
 • DevOps и облачные технологии
-• Базы данных и оптимизация
+• Базы данных и оптимиз��ция
 • Бизнес-анализ и консультирование
 • Современные фреймворки и инструменты
 
