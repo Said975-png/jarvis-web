@@ -278,7 +278,6 @@ export default function Pricing() {
 
         .plan-features-chatgpt {
           margin-bottom: 32px;
-          flex-grow: 1;
         }
 
         .feature-item-chatgpt {
