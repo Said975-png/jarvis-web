@@ -21,7 +21,7 @@ const searchData = [
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Современный дизайн', description: 'Создание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
-  { title: 'Высокая производительность', description: 'Оп��имизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
+  { title: 'Высокая производительность', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
   { title: 'ИИ интеграция', description: 'Интеграция искусственного интеллекта в ваши проекты', url: '/', section: 'Функции' },
   { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24 часа в сутки', url: '/', section: 'Услуги' },
   { title: 'SEO оптимизация', description: 'Оптимизация сайта для поисковых систем', url: '/', section: 'Услуги' },
@@ -29,7 +29,7 @@ const searchData = [
   { title: 'Корзина', description: 'Просмотр добавленных товаров и оформление заказа', url: '/', section: 'Покупки' },
   { title: 'Профиль', description: 'Личный кабинет пользователя', url: '/', section: 'Аккаунт' },
   { title: 'Войти', description: 'Авторизация в системе', url: '/', section: 'Аккаунт' },
-  { title: 'Регис��рация', description: 'Создание нового аккаунта', url: '/', section: 'Аккаунт' }
+  { title: 'Регистрация', description: 'Создание нового аккаунта', url: '/', section: 'Аккаунт' }
 ]
 
 export default function SearchableNavbar() {
@@ -243,7 +243,7 @@ export default function SearchableNavbar() {
                 className="theme-toggle-button-chatgpt disabled"
                 onClick={() => {}}
                 aria-label="Функция в разработке"
-                title="Функция смены темы находится в раз��аботке"
+                title="Функция смены темы находится в разработке"
               >
                 {isDarkTheme ? (
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="theme-icon-chatgpt">
