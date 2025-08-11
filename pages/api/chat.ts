@@ -184,7 +184,7 @@ export default async function handler(
 • Индивидуальные решения
 • VIP поддержка 24/7
 
-Какой план вас интересует?`
+К��кой план вас интересует?`
       }
       // Contact information
       else if (lastMessage.includes('контакт') || lastMessage.includes('связаться') || lastMessage.includes('telegram') || lastMessage.includes('телефон')) {
@@ -319,7 +319,7 @@ AI & ML:
     // Доба��ляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИ�� - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖАРВИ�� - продвинутый AI-помощник и эксперт по веб-разработке. Ты облад��ешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
@@ -454,7 +454,7 @@ AI & ML:
 
     // Добавляем информацию об оставшихся запросах к AI ответу
     const remainingInfo = limitCheck.remaining > 0
-      ? `\n\n📊 *Осталось бесплатных вопросов: ${limitCheck.remaining}*`
+      ? `\n\n📊 Осталось бесплатных вопросов: ${limitCheck.remaining}*`
       : `\n\n⚠️ *Это ваш последний бесплатный вопрос! Следующий будет платным.*`
 
     const finalMessage = aiMessage + remainingInfo
