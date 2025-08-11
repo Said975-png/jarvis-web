@@ -1,11 +1,4 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
   "env": {
     "OPENROUTER_API_KEY": "@openrouter_api_key",
     "JWT_SECRET": "@jwt_secret",
