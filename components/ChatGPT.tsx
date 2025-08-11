@@ -272,14 +272,13 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
         .chatgpt-container {
           width: 100%;
-          max-width: 800px;
-          height: 85vh;
+          height: 100vh;
           background: #ffffff;
-          border-radius: 12px;
+          border-radius: 0;
           display: flex;
           flex-direction: column;
           overflow: hidden;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          box-shadow: none;
         }
 
         .chatgpt-header {
