@@ -404,24 +404,16 @@ export default function Pricing() {
             margin-bottom: 24px;
           }
 
-          .card-content-chatgpt {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            flex: 1;
-          }
-
           .plan-features-chatgpt {
-            flex: 1;
-            margin-bottom: 20px;
+            margin-bottom: 28px;
           }
 
           .plan-button-chatgpt {
-            padding: 14px 20px;
+            padding: 16px 20px;
             font-size: 15px;
             width: 100%;
             box-sizing: border-box;
-            flex-shrink: 0;
+            position: relative;
           }
 
           .pricing-cta-chatgpt {
