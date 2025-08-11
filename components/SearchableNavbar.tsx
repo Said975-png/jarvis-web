@@ -8,9 +8,9 @@ import ProfileModal from './ProfileModal'
 import Checkout from './Checkout'
 import { useRouter } from 'next/router'
 
-// Данные для по��ска
+// Данные для поиска
 const searchData = [
-  { title: 'Главная', description: 'Главн��я страница с общей информацией о компании', url: '/', section: 'Страницы' },
+  { title: 'Главная', description: 'Главн��я страница с общей инф��рмацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управления заказами', url: '/admin', section: 'Страницы' },
   { title: 'Революционный ИИ-ассистент', description: 'Революционный ИИ-ассистент, который понимает ваши потребности и превращает идеи в реальность. Будущее взаимодействия с технологиями уже здесь.', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
@@ -98,7 +98,7 @@ export default function SearchableNavbar() {
             break
           case 'Услуги':
             if (item.title === 'Процесс договора') {
-              // Открываем модальное окно процесса
+              // Откры��аем модальное окно процесса
               const processButton = document.querySelector('.primary-button-chatgpt') as HTMLButtonElement
               if (processButton) {
                 processButton.click()
@@ -201,7 +201,7 @@ export default function SearchableNavbar() {
               )}
             </div>
             
-            {/* Результаты поиска */}
+            {/* Резуль��аты поиска */}
             {showSearchResults && searchResults.length > 0 && (
               <div className="search-results-chatgpt">
                 {searchResults.map((item, index) => (
