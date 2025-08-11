@@ -142,15 +142,6 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="pricing-cta-chatgpt">
-          <p className="cta-text-chatgpt">
-            Нужен индивидуальный план? Свяжитесь с нами для персо��ального предложения
-          </p>
-          <button className="cta-button-chatgpt">
-            Связаться с нами
-          </button>
-        </div>
       </div>
 
       <style jsx>{`
@@ -236,6 +227,7 @@ export default function Pricing() {
           display: flex;
           flex-direction: column;
           height: 100%;
+          min-height: 100%;
         }
 
         .plan-header-chatgpt {
@@ -388,7 +380,13 @@ export default function Pricing() {
           }
 
           .pricing-card-chatgpt {
-            padding: 24px;
+            padding: 24px 20px 32px 20px;
+            margin: 0 4px 16px 4px;
+            min-height: 500px;
+          }
+
+          .popular-card {
+            min-height: 540px;
           }
 
           .popular-badge-chatgpt {
@@ -408,6 +406,18 @@ export default function Pricing() {
 
           .plan-features-chatgpt {
             margin-bottom: 24px;
+          }
+
+          .plan-features-chatgpt {
+            margin-bottom: 2px;
+          }
+
+          .plan-button-chatgpt {
+            padding: 16px 20px;
+            font-size: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
           }
 
           .pricing-cta-chatgpt {

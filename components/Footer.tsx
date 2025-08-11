@@ -80,14 +80,6 @@ export default function Footer() {
                     Тарифы
                   </button>
                 </li>
-                <li>
-                  <button 
-                    onClick={() => router.push('/admin')}
-                    className="footer-link-chatgpt"
-                  >
-                    Админ панель
-                  </button>
-                </li>
               </ul>
             </div>
 
