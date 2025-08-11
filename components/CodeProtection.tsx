@@ -225,10 +225,11 @@ export default function CodeProtection() {
       document.removeEventListener('mouseup', blockAllMouseEvents, true)
       document.removeEventListener('click', blockAllMouseEvents, true)
       
-      document.body.style.userSelect = ''
-      document.body.style.webkitUserSelect = ''
-      document.body.style.mozUserSelect = ''
-      document.body.style.msUserSelect = ''
+      const bodyStyle = document.body.style as any
+      bodyStyle.userSelect = ''
+      bodyStyle.webkitUserSelect = ''
+      bodyStyle.mozUserSelect = ''
+      bodyStyle.msUserSelect = ''
     }
   }, [isClient])
 
