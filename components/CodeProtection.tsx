@@ -66,7 +66,7 @@ export default function CodeProtection() {
       }
     }
 
-    // Отключаем ��ыделение текста
+    // Отключаем выделение текста
     const disableTextSelection = () => {
       document.body.style.userSelect = 'none'
       document.body.style.webkitUserSelect = 'none'
@@ -106,7 +106,7 @@ export default function CodeProtection() {
       }, 500)
     }
 
-    // Защита от к��пирования
+    // Защита от копирования
     const disableCopy = (e: Event) => {
       e.preventDefault()
       return false
@@ -147,7 +147,7 @@ export default function CodeProtection() {
       e.returnValue = ''
     })
 
-    // Очистка при размонтирова��ии
+    // Очистка при размонтировании
     return () => {
       document.removeEventListener('contextmenu', disableRightClick)
       document.removeEventListener('keydown', disableKeyboardShortcuts)
