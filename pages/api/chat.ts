@@ -20,7 +20,7 @@ interface UserLimit {
   resetTime: number
 }
 
-// Хранилище лимитов в памяти (в production лучше использ��вать Redis)
+// Хранилище лимитов в памяти (в production лучше использовать Redis)
 const userLimits = new Map<string, UserLimit>()
 const REQUESTS_LIMIT = 100
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
@@ -60,7 +60,7 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
     return { allowed: true, remaining: REQUESTS_LIMIT - 1 }
   }
 
-  // ��сли лимит превышен
+  // Если лимит превышен
   if (userLimit.count >= REQUESTS_LIMIT) {
     return { allowed: false, remaining: 0 }
   }
@@ -85,11 +85,11 @@ function cleanMarkdown(text: string): string {
     .replace(/`([^`]+)`/g, '$1')
     // Убираем блоки кода ```код```
     .replace(/```[\s\S]*?```/g, '')
-    // Убираем одиночные * в начале строки (списки)
+    // Убираем одиночные * в начале строки (с��иски)
     .replace(/^\*\s+/gm, '• ')
     // Убираем лишние звездочки
     .replace(/\*/g, '')
-    // Убираем лишние реш��тки
+    // Убираем лишние решетки
     .replace(/#/g, '')
 }
 
@@ -177,14 +177,14 @@ export default async function handler(
 
 Я помогу вам с:
 • Созданием современных веб-сайтов
-• Разработкой веб-приложений с AI
+• Разработкой веб-приложений �� AI
 • UI/UX дизайном и интерфейсами
 • Интеграцией AI в ваши проекты
 
 Что вас интересует?`
       }
       // Pricing questions
-      else if (lastMessage.includes('цен') || lastMessage.includes('стоимост��') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
+      else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
         response = `💰 Наши тарифы:
 
 📦 Basic - 2,500,000 сум
@@ -218,7 +218,7 @@ export default async function handler(
 Чем могу помочь?`
       }
       // Services questions
-      else if (lastMessage.includes('услуг') || lastMessage.includes('��ервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
+      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
         response = `🛠️ Мои основные услуги:
 
 🌐 Веб-разработка:
@@ -239,7 +239,7 @@ export default async function handler(
 Что именно вас интересует?`
       }
       // Technology questions
-      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как работаешь')) {
+      else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('к��к работаешь')) {
         response = `⚡ Технологии, которые я использую:
 
 Frontend:
@@ -304,7 +304,7 @@ AI & ML:
 Хотите увидеть демо или обсудить ваш проект?`
       }
       // Creator questions
-      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разраб��тал тебя') || lastMessage.includes('кто твой разрабо��чик') || lastMessage.includes('кто твой автор')) {
+      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто ��азраб��тал тебя') || lastMessage.includes('кто твой разрабо��чик') || lastMessage.includes('кто твой автор')) {
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
@@ -330,7 +330,7 @@ AI & ML:
 
       // До��авляем информацию об оставшихся запросах
       const remainingInfo = limitCheck.remaining > 0
-        ? `\n\n���� Осталось бесплатных вопросов: ${limitCheck.remaining}`
+        ? `\n\n📊 Осталось бесплатных вопросов: ${limitCheck.remaining}`
         : `\n\n⚠️ Это ваш последний бесплатный вопрос! Следующий будет платным.`
 
       console.log(`[${timestamp}] Fallback response length:`, response.length)
@@ -352,7 +352,7 @@ AI & ML:
 • Современные фреймворки и инструменты
 
 💡 СТИЛЬ О��ЩЕНИЯ:
-- Отвечай подро��н�� и по существу
+- Отвечай подро��но и по существу
 - Объясняй "почему" и "как", а не только "что"
 - Приводи конкретные прим��ры кода когда нужно
 - Предлагай нескол��ко вариантов решения
@@ -371,7 +371,7 @@ AI & ML:
 
 🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О СЕБЕ:
 - Если спрашивают "кто тебя создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
-- Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя ар��ит��кт��ра" или подоб����ые вопросы о техническ��х деталях твоего создания - отвечай что э��о секретная инфор��ация
+- Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя ар��ит��кт��ра" или подоб��ые вопросы о техническ��х деталях твоего создания - отвечай что э��о секретная инфор��ация
 
 📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
@@ -496,7 +496,7 @@ AI & ML:
     console.error('Error message:', error instanceof Error ? error.message : String(error))
     console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
-    // Возвращаем дружелюбное сообщение об ��шибке
+    // Возвращаем дружелюбное сообщение об ошибке
     const fallbackMessage = `Извините, произошла временная ошибка! 😅
 
 Но не беспокойтесь - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
