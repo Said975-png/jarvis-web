@@ -206,7 +206,7 @@ AI: OpenAI GPT, машинное обучение
   return `Понял ваш вопрос! 🤔
 
 Я ДЖАРВИС - специализируюсь на:
-• Веб-разработке и AI интеграции
+�� Веб-разработке и AI интеграции
 • Техническом консультировании
 • Планировании проектов
 • Оценке стоимости и сроков
@@ -261,7 +261,7 @@ export default async function handler(
 
       // Greeting responses
       if (lastMessage.includes('привет') || lastMessage.includes('здравствуй') || lastMessage.includes('добро пожаловать') || lastMessage.includes('hello') || lastMessage.includes('hi')) {
-        response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀
+        response = `Привет! Я ДЖАРВИС, ��аш AI-помощник по веб-разработке! 🚀
 
 Я п��могу вам с:
 • Создание�� современных веб-сайтов
@@ -285,7 +285,7 @@ export default async function handler(
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
 • Продвинутая аналитика
-• Приоритетная поддер��ка
+• Приоритетная поддержка
 
 💎 Max - 5,000,000 сум
 • Безлимитные страницы
@@ -322,7 +322,7 @@ export default async function handler(
 🎨 Дизайн и UX:
 • Современный UI/UX дизайн
 • Брендинг и айдентика
-• Адаптивная верстка
+• Адапт��вная верстка
 
 Что именно вас интересует?`
       }
@@ -392,7 +392,7 @@ AI & ML:
 Хотите увидеть демо или обсудить ваш проект?`
       }
       // Creator questions
-      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разработчи��') || lastMessage.includes('кто твой автор')) {
+      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто тв��й создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разработчи��') || lastMessage.includes('кто твой автор')) {
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
@@ -411,7 +411,7 @@ AI & ML:
 • Выб��ром подходящих технологий
 • Оценкой стоимости и сроков
 
-Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
+��асскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
 
 💬 Задав��йте ��юбые вопросы прямо здесь!`
       }
@@ -545,20 +545,9 @@ AI & ML:
     console.error('Error message:', error instanceof Error ? error.message : String(error))
     console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
-    // Возвращаем дружелюбное сообщение об ош��бке
-    const fallbackMessage = `Извините, произошла временна�� ошибка! 😅
-
-Но не беспокойтес�� - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
-
-🚀 Что я могу:
-• Консультации по веб-разработке
-• Планирование AI-проектов
-• Техническая экспертиза
-• Оценка проектов
-
-📱 Онлайн-поддержка: Прямо здесь в чате
-
-Попробуйте еще раз!`
+    // Используем умную fallback функцию для ошибок
+    const lastUserMessage = messages[messages.length - 1]?.content || ''
+    const fallbackMessage = generateSmartFallback(lastUserMessage)
     
     return res.status(500).json({ 
       message: fallbackMessage,
