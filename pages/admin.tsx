@@ -68,7 +68,7 @@ export default function AdminPanel() {
       setOrders(Array.isArray(ordersData) ? ordersData : [])
 
       if (isRefresh) {
-        alert('Данные обновлены!')
+        alert('Данные обно��лены!')
       }
     } catch (error) {
       console.error('Error loading orders:', error)
@@ -195,7 +195,7 @@ export default function AdminPanel() {
                   <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.39 0 4.56.94 6.16 2.46" stroke="currentColor" strokeWidth="2"/>
                   <path d="M17 8l4-4-4-4" stroke="currentColor" strokeWidth="2"/>
                 </svg>
-                {refreshing ? 'Обновляем...' : 'Обновить'}
+                {refreshing ? 'Обновляем' : 'Обновить'}
               </button>
             </div>
 
