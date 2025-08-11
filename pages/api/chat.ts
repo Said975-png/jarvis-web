@@ -14,7 +14,7 @@ interface ChatResponse {
   error?: string
 }
 
-// Система лимитов запросов
+// С��стема лимитов запросов
 interface UserLimit {
   count: number
   resetTime: number
@@ -51,7 +51,7 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
 
   const userLimit = userLimits.get(ip)
 
-  // Если пользователь не найден или время сброса прошло
+  // Если пользователь не найден или время сброса про��ло
   if (!userLimit || now > userLimit.resetTime) {
     userLimits.set(ip, {
       count: 1,
@@ -137,7 +137,7 @@ export default async function handler(
 Вы использовали все 100 бесплатных вопросов к ДЖАРВИС.
 
 🛒 Получить больше возможностей:
-• Закажите разработку сайта - получите безли��итный доступ
+• Закажите разработку сайта - получите безлимитный доступ
 • После покупки любого пакета лимиты снимаются навсегда
 
 💰 Наши пакеты:
@@ -181,7 +181,7 @@ export default async function handler(
 • UI/UX дизайном и интерфейсами
 • Интеграцией AI в ваши проекты
 
-Что вас интересует?`
+Что ��ас интересует?`
       }
       // Pricing questions
       else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
@@ -213,7 +213,7 @@ export default async function handler(
 
 • Онлайн-консультация: прямо здесь в чате
 
-Я отвечу в течение нескольких минут!
+�� отвечу в течение нескольких минут!
 
 Чем могу помочь?`
       }
@@ -304,7 +304,7 @@ AI & ML:
 Хотите увидеть демо или обсудить ваш проект?`
       }
       // Creator questions
-      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разработчик') || lastMessage.includes('кто твой автор')) {
+      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разработчик') || lastMessage.includes('кто тв��й автор')) {
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
@@ -325,7 +325,7 @@ AI & ML:
 
 Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
 
-💬 Задавайте любые вопросы прямо здесь!`
+💬 Задавайте любые вопросы прямо зд��сь!`
       }
 
       // Добавляем информацию об оставшихся запросах
