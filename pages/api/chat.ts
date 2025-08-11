@@ -85,7 +85,7 @@ function cleanMarkdown(text: string): string {
     .replace(/`([^`]+)`/g, '$1')
     // Убираем блоки кода ```код```
     .replace(/```[\s\S]*?```/g, '')
-    // Убираем одиночные * в начале строки (с��иски)
+    // Убираем одиночные * в начале строки (списки)
     .replace(/^\*\s+/gm, '• ')
     // Убираем лишние звездочки
     .replace(/\*/g, '')
@@ -218,7 +218,7 @@ export default async function handler(
 Чем могу помочь?`
       }
       // Services questions
-      else if (lastMessage.includes('услуг') || lastMessage.includes('сер��ис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
+      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
         response = `🛠️ Мои основные услуги:
 
 🌐 Веб-разработка:
@@ -308,7 +308,7 @@ AI & ML:
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
-      else if (lastMessage.includes('как т��бя ����здали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
+      else if (lastMessage.includes('как т��бя с��здали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
         response = `Это секретная информация 🔒`
       }
       // Default response for other questions
@@ -352,9 +352,9 @@ AI & ML:
 • Современные фреймворки и инструменты
 
 💡 СТИЛЬ ОБЩЕНИЯ:
-- Отвечай подробно и по ��уществу
+- Отвечай подробно и по существу
 - Объясняй "почему" и "как", а не только "что"
-- Приводи конкретные примеры кода когда нужно
+- Приводи ко��кретные примеры кода когда нужно
 - Предлагай несколько вариантов решения
 - Учитывай современные best practices
 - Будь дружелюбным но профессиональным
