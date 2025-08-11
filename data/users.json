@@ -55,5 +55,12 @@
     "name": "jarvis",
     "password": "0d81c7eb2db781264307c3db8cec9aababc6b47d733440d12713542c1c13d9e3",
     "createdAt": "2025-08-10T19:33:02.578Z"
+  },
+  {
+    "id": "1b8ceb20-8a83-42f1-b9ab-f20b36385bf0",
+    "email": "jksjdkaljd@gmail.com",
+    "name": "said",
+    "password": "0d81c7eb2db781264307c3db8cec9aababc6b47d733440d12713542c1c13d9e3",
+    "createdAt": "2025-08-11T05:50:50.050Z"
   }
 ]
