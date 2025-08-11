@@ -77,7 +77,7 @@ export default function Pricing() {
           </h2>
           
           <p className="pricing-description-chatgpt">
-            Прозрачные цены для проектов любого размера. Начните бесплатно и масштабируйтесь по мере роста.
+            Прозрачные цены для проектов любого размера. Начните бесплатно и масштаб��руйтесь по мере роста.
           </p>
         </div>
 
@@ -379,8 +379,10 @@ export default function Pricing() {
           }
 
           .pricing-card-chatgpt {
-            padding: 24px 20px 28px 20px;
+            padding: 24px 20px 36px 20px;
             margin: 0 4px;
+            min-height: auto;
+            overflow: visible;
           }
 
           .popular-badge-chatgpt {
