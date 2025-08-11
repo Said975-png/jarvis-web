@@ -25,7 +25,7 @@ const userLimits = new Map<string, UserLimit>()
 const REQUESTS_LIMIT = 100
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
 
-// Функция для получения IP адреса
+// Функция для получ��ния IP адреса
 function getClientIP(req: NextApiRequest): string {
   const forwarded = req.headers['x-forwarded-for']
   const real = req.headers['x-real-ip']
@@ -218,10 +218,10 @@ export default async function handler(
 Чем могу помочь?`
       }
       // Services questions
-      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что ��ожешь') || lastMessage.includes('что умеешь')) {
+      else if (lastMessage.includes('услуг') || lastMessage.includes('сервис') || lastMessage.includes('что можешь') || lastMessage.includes('что умеешь')) {
         response = `🛠️ Мои основные услуги:
 
-🌐 Веб-разработка:
+🌐 Веб-разработ��а:
 • Landing pages и корпоративные сайты
 • Интернет-магазины и каталоги
 • Веб-приложения и порталы
@@ -272,7 +272,7 @@ AI & ML:
 • Умные чат-боты для сайтов
 • Системы рекомендаций
 • Автоматическая обработка данных
-• Анализ пользоват��льского поведения
+• Анализ пользовательского поведения
 • Персонализация контента
 
 Примеры проектов:
@@ -283,15 +283,15 @@ AI & ML:
 Какой AI функционал вас интересует?`
       }
       // Portfolio/examples
-      else if (lastMessage.includes('портфолио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('пр��екты')) {
+      else if (lastMessage.includes('портфолио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('проекты')) {
         response = `💼 Примеры моих работ:
 
 🏪 E-commerce платформы:
 • Интернет-магазины с AI рекомендациями
-• Системы управления катало��ом
+• Системы управления каталогом
 • Интеграция платежей и доставки
 
-🏢 Кор��оративные решения:
+🏢 Корпоративные решения:
 • CRM системы с аналитикой
 • Порталы сотрудников
 • Системы документооборота
@@ -309,7 +309,7 @@ AI & ML:
       }
       // Technical creation questions
       else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
-        response = `Это секретная информация ���🔒`
+        response = `Это секретная информация 🔒`
       }
       // Default response for other questions
       else {
@@ -328,16 +328,16 @@ AI & ML:
 💬 Задавайте любые вопросы прямо здесь!`
       }
 
-      // Добавляем информацию о�� оставшихся запросах
+      // Добавляем информацию об оставшихся запросах
       const remainingInfo = limitCheck.remaining > 0
-        ? `\n\n📊 *Осталось бесплатн��х ��опросов: ${limitCheck.remaining}`
+        ? `\n\n📊 *Осталось бесплатн��х вопросов: ${limitCheck.remaining}`
         : `\n\n⚠️ Это ва�� последний бесплатный вопрос! Следующий будет платным.`
 
       console.log(`[${timestamp}] Fallback response length:`, response.length)
       return res.status(200).json({ message: response + remainingInfo })
     }
     
-    // Доба��ляем системное сообщение для ДЖАРВИС
+    // Доба��ляем систе��ное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
       content: `Ты ДЖАРВИ�� - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
@@ -373,7 +373,7 @@ AI & ML:
 - Если спрашивают "кто тебя создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
 - Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архит��ктура" или подобные вопросы о техническ��х деталях твоего создания - отвечай что э��о секретная информация
 
-📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
+📋 УСЛУГИ И ТАРИФЫ (упомина�� при запросах о работе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
 • Pro (4,000,000 сум) - веб-приложения с AI интеграцией
 • Max (5,000,000 сум) - корпоративные и enterprise решения
