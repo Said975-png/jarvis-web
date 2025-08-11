@@ -14,18 +14,18 @@ interface ChatResponse {
   error?: string
 }
 
-// Система лимитов запросов
+// Система лимито�� запросов
 interface UserLimit {
   count: number
   resetTime: number
 }
 
-// Хранилищ�� лимитов в памяти (в production лучше использовать Redis)
+// Хранилище лимитов в памяти (в production лучше использовать Redis)
 const userLimits = new Map<string, UserLimit>()
 const REQUESTS_LIMIT = 100
 const RESET_PERIOD = 24 * 60 * 60 * 1000 // 24 часа в миллисекундах
 
-// Функция дл�� получения IP адреса
+// Функция для получения IP адреса
 function getClientIP(req: NextApiRequest): string {
   const forwarded = req.headers['x-forwarded-for']
   const real = req.headers['x-real-ip']
@@ -44,7 +44,7 @@ function getClientIP(req: NextApiRequest): string {
 function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number } {
   const now = Date.now()
 
-  // Периодическая ��чис��ка старых записей (каждые 100 запросов)
+  // Периодическая очистка старых записей (каждые 100 запросов)
   if (Math.random() < 0.01) {
     cleanupExpiredLimits(now)
   }
@@ -134,11 +134,11 @@ export default async function handler(
     return res.status(200).json({
       message: `🚫 Лимит запросов исчерпан!
 
-Вы использова��и все 100 бесплатных вопросов к ДЖАРВИС.
+Вы использовали все 100 бесплатных вопросов к ДЖАРВИС.
 
 🛒 Получить больше возможностей:
 • Закажите разработку сайта - получите безлимитный доступ
-• После покупки любого пакета лимиты снимаются навсег��а
+• После покупки любого пакета лимиты снимаются навсегда
 
 💰 Наши пакеты:
 📦 Basic - 2,500,000 сум
@@ -181,7 +181,7 @@ export default async function handler(
 • UI/UX дизайном и интерфейсами
 • Интеграцией AI в ваши проекты
 
-Что вас интересует?`
+Что вас интересуе��?`
       }
       // Pricing questions
       else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
@@ -213,7 +213,7 @@ export default async function handler(
 
 • Онл��йн-консультация: прямо здесь в чате
 
-Я отвечу в течение нескольких минут!
+Я отвеч�� в течение нескольких минут!
 
 Чем могу помочь?`
       }
