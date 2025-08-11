@@ -184,7 +184,7 @@ export default async function handler(
 Что вас интересует?`
       }
       // Pricing questions
-      else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
+      else if (lastMessage.includes('цен') || lastMessage.includes('��тоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
         response = `💰 Наши тарифы:
 
 📦 Basic - 2,500,000 сум
@@ -223,7 +223,7 @@ export default async function handler(
 
 🌐 Веб-разработка:
 • Landing pages и корпоративные сайты
-• Интернет-магаз��ны и каталоги
+• Интернет-магазины и каталоги
 • Веб-приложения и порталы
 
 🤖 AI интеграция:
@@ -250,7 +250,7 @@ Frontend:
 Backend:
 • Node.js, Python
 • PostgreSQL, MongoDB
-• REST API, GraphQL
+�� REST API, GraphQL
 
 AI & ML:
 • OpenAI GPT, Claude
@@ -308,7 +308,7 @@ AI & ML:
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
-      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на че�� ты написан')) {
+      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
         response = `Это секретная информация 🔒`
       }
       // Default response for other questions
@@ -354,7 +354,7 @@ AI & ML:
 💡 СТИЛЬ ОБЩЕНИЯ:
 - Отвечай подробно и по существу
 - Объясняй "почему" и "как", а не только "что"
-- Приводи конкретные примеры кода когда нужно
+- Приводи конкретные приме��ы кода когда нужно
 - Предлагай несколько вариантов решения
 - Учитывай современные best practices
 - Будь дружелюбным но профессиональным
@@ -371,7 +371,7 @@ AI & ML:
 
 🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О СЕБЕ:
 - Если спрашивают "кто тебя создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
-- Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архит��ктура" или подобные вопросы о техническ��х деталях твоего создания - отвечай что э��о секретная информация
+- Если ��прашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архит��кт��ра" или подобные вопросы о техническ��х деталях твоего создания - отвечай что э��о секретная информация
 
 📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
@@ -380,7 +380,7 @@ AI & ML:
 
 📞 КОНТАКТЫ: Онлайн-чат на сайте
 
-Отвечай на русском языке. Будь максимально полезным и информа��ивным!`
+Отвечай на русском языке. Будь максимально полезным и информативным!`
     }
 
     const requestBody = {
@@ -442,7 +442,7 @@ AI & ML:
       } else if (response.status === 401) {
         console.log(`[${timestamp}] Authentication error`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС. Сейчас у меня технические про��лемы с п��дключением к AI-сервису, но я все��да готов помочь! 🤖\n\nОбратитесь ко мне  - там я отвечу на любые вопросы по веб-разработке и AI!'
+          message: 'Привет! Я ДЖАРВИС. Сейчас у меня технические проблемы с подключением к AI-сервису, но я всегда готов помочь! 🤖\n\nОбратитесь ко мне - там я отвечу на любые вопросы по веб-разработке и AI!'
         })
       } else if (response.status === 429) {
         console.log(`[${timestamp}] Rate limit exceeded`)
@@ -472,7 +472,7 @@ AI & ML:
     console.log(`[${timestamp}] AI response length:`, aiMessage?.length || 0)
     console.log(`[${timestamp}] AI response preview (cleaned):`, aiMessage?.substring(0, 200) + '...')
 
-    // Логируем использование токенов если доступно
+    // Логируем использование токенов если дос��упно
     if (data.usage) {
       console.log(`[${timestamp}] === Token Usage ===`)
       console.log(`Prompt tokens: ${data.usage.prompt_tokens || 'N/A'}`)
@@ -480,7 +480,7 @@ AI & ML:
       console.log(`Total tokens: ${data.usage.total_tokens || 'N/A'}`)
     }
 
-    // Добавляем информ��цию об оставшихся запросах к AI ответу
+    // Добавляем информацию об оставшихся запросах к AI ответу
     const remainingInfo = limitCheck.remaining > 0
       ? `\n\n📊 Осталось бесплатных вопросов: ${limitCheck.remaining}`
       : `\n\n⚠️ Это ваш последний бесплатный вопрос! Следующий будет платным.`
@@ -496,15 +496,15 @@ AI & ML:
     console.error('Error message:', error instanceof Error ? error.message : String(error))
     console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
-    // Возвращаем дружелюбное сообщение об ошибке
+    // Возвращаем дружелюбное сообщ��ние об ошибке
     const fallbackMessage = `Извините, произошла временная ошибка! 😅
 
 Но не беспокойтесь - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
 
 🚀 Что я могу:
 • Консультации по веб-разработке
-• Планирование AI-проектов  
-• ��ехническая экспертиза
+• Планирование AI-проектов
+• Техническая экспертиза
 • Оценка проектов
 
 📱 Онлайн-поддержка: Прямо здесь в чате
