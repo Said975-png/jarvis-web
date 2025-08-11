@@ -10,7 +10,7 @@ import { useRouter } from 'next/router'
 
 // Данные для поиска
 const searchData = [
-  { title: 'Главная', description: 'Главн��я страница с общей инф��рмацией о компании', url: '/', section: 'Страницы' },
+  { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
   { title: 'Админ панель', description: 'Панель администратора для управления заказами', url: '/admin', section: 'Страницы' },
   { title: 'Революционный ИИ-ассистент', description: 'Революционный ИИ-ассистент, который понимает ваши потребности и превращает идеи в реальность. Будущее взаимодействия с технологиями уже здесь.', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
@@ -21,7 +21,7 @@ const searchData = [
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Современный дизайн', description: 'Создание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
-  { title: 'Высокая производительность', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
+  { title: 'Высокая производительность', description: 'Оптимизаци�� скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
   { title: 'ИИ интеграция', description: 'Интеграция искусственного интеллекта в ��аши проекты', url: '/', section: 'Функции' },
   { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24 часа в сутки', url: '/', section: 'Услуги' },
   { title: 'SEO оптимизация', description: 'Оптимизация сайта для поисковых систем', url: '/', section: 'Услуги' },
@@ -98,7 +98,7 @@ export default function SearchableNavbar() {
             break
           case 'Услуги':
             if (item.title === 'Процесс договора') {
-              // Откры��аем модальное окно процесса
+              // Открываем модальное окно процесса
               const processButton = document.querySelector('.primary-button-chatgpt') as HTMLButtonElement
               if (processButton) {
                 processButton.click()
@@ -201,7 +201,7 @@ export default function SearchableNavbar() {
               )}
             </div>
             
-            {/* Резуль��аты поиска */}
+            {/* Результаты поиска */}
             {showSearchResults && searchResults.length > 0 && (
               <div className="search-results-chatgpt">
                 {searchResults.map((item, index) => (
