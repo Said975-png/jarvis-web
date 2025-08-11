@@ -22,7 +22,7 @@ const searchData = [
   { title: 'Pro план', description: 'Лучший выбор - лучший выбор для растущего бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Max план', description: 'Премиум решение - максимум возможностей для крупного бизнеса', url: '/', section: 'Тарифы' },
   { title: 'Современный дизайн', description: 'Соз��ание красивых и функциональных интерфейсов', url: '/', section: 'Функции' },
-  { title: 'Высокая производительность', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
+  { title: 'Высокая производительност��', description: 'Оптимизация скорости и производительности веб-сайтов', url: '/', section: 'Функции' },
   { title: 'ИИ интеграция', description: 'Интеграция искусственного интеллекта в ваши проекты', url: '/', section: 'Функции' },
   { title: 'Техподдержка', description: 'Профессиональная техническая поддержка 24/7', url: '/', section: 'Услуги' },
   { title: 'SEO оптимизация', description: 'Оптимизация сайта для поисковых систем', url: '/', section: 'Услуги' },
@@ -30,7 +30,7 @@ const searchData = [
   { title: 'Корзина', description: 'Просмотр добавленных товаров и оформление заказа', url: '/', section: 'Покупки' },
   { title: 'Профиль', description: 'Личный кабинет пользователя', url: '/', section: 'Аккаунт' },
   { title: 'Войти', description: 'Авторизация в системе', url: '/', section: 'Аккаунт' },
-  { title: 'Регистрация', description: 'Создание нового аккаунта', url: '/', section: 'Аккаунт' }
+  { title: 'Реги��трация', description: 'Создание нового аккаунта', url: '/', section: 'Аккаунт' }
 ]
 
 export default function SearchableNavbar() {
@@ -344,7 +344,7 @@ export default function SearchableNavbar() {
                       </div>
                       <div className="cart-footer-chatgpt">
                         <div className="cart-total-chatgpt">
-                          <span>Итого: ₽{getTotalPrice().toLocaleString()}</span>
+                          <span>Итого: {getTotalPrice().toLocaleString()} рублей</span>
                         </div>
                         <button
                           className="cart-checkout-chatgpt"
