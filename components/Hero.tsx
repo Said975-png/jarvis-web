@@ -12,7 +12,7 @@ export default function Hero() {
         <div className="hero-main-chatgpt">
           <div className="hero-content-chatgpt">
             <h1 className="hero-title-chatgpt">
-              Создае�� современные веб сайты с внедрением JARVIS
+              Создаем современные веб сайты с внедрением JARVIS
             </h1>
 
             <p className="hero-description-chatgpt">
