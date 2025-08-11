@@ -12,7 +12,7 @@ const pricingPlans = [
     popular: false,
     features: [
       'До 5 страниц сайта',
-      'Современный дизайн',
+      'Со��ременный дизайн',
       'Адаптивная верстка',
       'SEO оптимизация',
       'Техподдержка email'
@@ -24,7 +24,7 @@ const pricingPlans = [
     subtitle: 'Лучший выбор',
     price: '4000000',
     period: 'сумм',
-    description: 'Лучший выб��р для растущего бизнеса',
+    description: 'Лучший выбор для растущего бизнеса',
     popular: true,
     features: [
       'Все из Basic',
