@@ -2,17 +2,6 @@ import { useState } from 'react'
 
 const features = [
   {
-    id: 'ai-design',
-    title: 'ИИ дизайн',
-    description: 'Ав��оматическое создание современных интерфейс��в с помощью машинного обучения',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2"/>
-      </svg>
-    ),
-    stats: '50+ шаблонов'
-  },
-  {
     id: 'ai-assistant',
     title: 'ДЖАРВИС ИИ ассистент',
     description: 'Умный помощник для разработки, который понимает контекст и помогает решать задачи',
