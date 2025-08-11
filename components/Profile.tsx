@@ -78,7 +78,7 @@ export default function Profile({ user, onLogout }: ProfileProps) {
 
       {loading ? (
         <div className="loading-stats">
-          <p>Загрузка статистики...</p>
+          <p>Загрузка статистики</p>
         </div>
       ) : stats && (
         <div className="profile-stats">
