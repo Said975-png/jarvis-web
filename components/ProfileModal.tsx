@@ -8,27 +8,11 @@ interface ProfileModalProps {
 }
 
 export default function ProfileModal({ user, onClose, onLogout }: ProfileModalProps) {
-  const { getUserOrders } = useOrders()
-  const [userOrders, setUserOrders] = useState<Order[]>([])
+  const { getUserOrders, isLoading } = useOrders()
   const [activeTab, setActiveTab] = useState<'orders' | 'settings'>('orders')
 
-  useEffect(() => {
-    // Загружаем заказы при открытии модала
-    loadUserOrders()
-  }, [user])
-
-  const loadUserOrders = async () => {
-    try {
-      const response = await fetch('/api/orders')
-      if (response.ok) {
-        const allOrders = await response.json()
-        const userOrdersData = allOrders.filter((order: Order) => order.userId === user.id)
-        setUserOrders(userOrdersData)
-      }
-    } catch (error) {
-      console.error('Error loading user orders:', error)
-    }
-  }
+  // Получаем заказы пользователя из контекста
+  const userOrders = getUserOrders(user.id)
 
   const getStatusText = (status: string) => {
     switch (status) {
@@ -117,9 +101,15 @@ export default function ProfileModal({ user, onClose, onLogout }: ProfileModalPr
 
               {activeTab === 'orders' && (
                 <div className="profile-section">
-                  <h4 className="section-title">Мои заказы ({userOrders.length})</h4>
-                  
-                  {userOrders.length === 0 ? (
+                  <h4 className="section-title">
+                    Мои заказы {isLoading ? '(загрузка...)' : `(${userOrders.length})`}
+                  </h4>
+
+                  {isLoading ? (
+                    <div className="loading-state">
+                      <p>Загрузка заказов...</p>
+                    </div>
+                  ) : userOrders.length === 0 ? (
                     <div className="no-orders">
                       <div className="no-orders-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none">

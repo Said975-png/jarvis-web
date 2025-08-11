@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import { CartItem } from './CartContext'
 
 export interface OrderFormData {
@@ -21,6 +21,7 @@ export interface Order {
 
 interface OrderContextType {
   orders: Order[]
+  isLoading: boolean
   createOrder: (items: CartItem[], formData: OrderFormData, userId: string) => Promise<Order>
   updateOrderStatus: (orderId: string, status: 'confirmed' | 'rejected') => Promise<void>
   getUserOrders: (userId: string) => Order[]
@@ -31,6 +32,26 @@ const OrderContext = createContext<OrderContextType | undefined>(undefined)
 
 export function OrderProvider({ children }: { children: ReactNode }) {
   const [orders, setOrders] = useState<Order[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  // Загружаем заказы при инициализации
+  useEffect(() => {
+    const loadOrders = async () => {
+      try {
+        const response = await fetch('/api/orders')
+        if (response.ok) {
+          const loadedOrders = await response.json()
+          setOrders(loadedOrders)
+        }
+      } catch (error) {
+        console.error('Error loading orders:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    loadOrders()
+  }, [])
 
   const createOrder = async (items: CartItem[], formData: OrderFormData, userId: string): Promise<Order> => {
     const totalPrice = items.reduce((total, item) => {
@@ -115,6 +136,7 @@ export function OrderProvider({ children }: { children: ReactNode }) {
   return (
     <OrderContext.Provider value={{
       orders,
+      isLoading,
       createOrder,
       updateOrderStatus,
       getUserOrders,
