@@ -89,7 +89,7 @@ function cleanMarkdown(text: string): string {
     .replace(/^\*\s+/gm, '• ')
     // Убираем лишние звездочки
     .replace(/\*/g, '')
-    // Убираем лишние решетки
+    // Убираем лишние реш��тки
     .replace(/#/g, '')
 }
 
@@ -184,7 +184,7 @@ export default async function handler(
 Что вас интересует?`
       }
       // Pricing questions
-      else if (lastMessage.includes('цен') || lastMessage.includes('��тоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
+      else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
         response = `💰 Наши тарифы:
 
 📦 Basic - 2,500,000 сум
@@ -328,7 +328,7 @@ AI & ML:
 💬 Задавайте любые вопросы прямо здесь!`
       }
 
-      // Добавляем информацию об оставшихся запросах
+      // До��авляем информацию об оставшихся запросах
       const remainingInfo = limitCheck.remaining > 0
         ? `\n\n📊 Осталось бесплатных вопросов: ${limitCheck.remaining}`
         : `\n\n⚠️ Это ваш последний бесплатный вопрос! Следующий будет платным.`
