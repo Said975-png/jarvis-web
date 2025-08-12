@@ -95,3 +95,9 @@ export default function MockupPage() {
     </>
   )
 }
+
+export async function getServerSideProps() {
+  return {
+    props: {}
+  }
+}
