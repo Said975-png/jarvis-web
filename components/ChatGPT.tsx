@@ -41,12 +41,35 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+
+      // Предотвращение зума на мобильных устройствах
+      const viewport = document.querySelector('meta[name=viewport]')
+      if (viewport) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+      }
+
+      // Дополнительная защита от зума
+      document.documentElement.style.webkitTextSizeAdjust = '100%'
+      document.documentElement.style.textSizeAdjust = '100%'
+      document.body.style.webkitTextSizeAdjust = '100%'
+      document.body.style.textSizeAdjust = '100%'
+
     } else {
       document.body.style.overflow = 'unset'
+
+      // Восстанавливаем оригинальные настройки
+      document.documentElement.style.webkitTextSizeAdjust = ''
+      document.documentElement.style.textSizeAdjust = ''
+      document.body.style.webkitTextSizeAdjust = ''
+      document.body.style.textSizeAdjust = ''
     }
 
     return () => {
       document.body.style.overflow = 'unset'
+      document.documentElement.style.webkitTextSizeAdjust = ''
+      document.documentElement.style.textSizeAdjust = ''
+      document.body.style.webkitTextSizeAdjust = ''
+      document.body.style.textSizeAdjust = ''
     }
   }, [isOpen])
 
