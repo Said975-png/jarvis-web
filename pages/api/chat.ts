@@ -168,7 +168,7 @@ export default async function handler(
 
 📦 Basic - 2,500,000 сум
 • До 5 страниц сайта
-• Современный дизайн
+• Сов��еменный дизайн
 • Адаптивная верстка
 • SEO оптимизация
 
@@ -239,7 +239,7 @@ AI & ML:
 Инфраструктура:
 • Vercel, Netlify
 • AWS, Docker
-• CI/CD автоматизация
+• CI/CD автоматиза��ия
 
 Хотите узнать больше о конкретной технологии?`
       }
@@ -262,7 +262,7 @@ AI & ML:
 Какой AI функционал вас интересует?`
       }
       // Portfolio/examples
-      else if (lastMessage.includes('портфо��ио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('проекты')) {
+      else if (lastMessage.includes('портфолио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('проекты')) {
         response = `💼 Примеры моих работ:
 
 🏪 E-commerce платформы:
@@ -287,7 +287,7 @@ AI & ML:
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
-      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
+      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
         response = `Это секретная информация 🔒`
       }
       // Default response for other questions
@@ -331,9 +331,9 @@ AI & ML:
 - Приводи конкретные примеры кода когда нужно
 - Предлагай несколько вариантов решения
 - Учитывай современные best practices
-- Будь д��ужелюбным но профессиональным
+- Будь дружелюбным но профессиональным
 - НЕ ИСПОЛЬЗУЙ MARKDOWN: никаких *, **, #, ###, \`, \`\`\`
-- Пиши обычным тек��том без форматирования
+- Пиши обычным тек��том без формат��рования
 - Используй только эмодзи и обычные символы для структуры
 
 🛠️ ФОРМАТ ОТВЕТОВ:
@@ -358,7 +358,7 @@ AI & ML:
     }
 
     const requestBody = {
-      model: 'llama-3.1-70b-versatile',
+      model: 'llama-3.1-8b-instant',
       messages: [systemMessage, ...messages],
       temperature: 0.7,
       max_tokens: 2048,
