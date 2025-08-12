@@ -5,8 +5,7 @@ interface LiquidSphereProps {
 }
 
 export default function LiquidSphere({ className = '' }: LiquidSphereProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [isLoaded, setIsLoaded] = useState(false)
+  return <div className={className} style={{ width: 300, height: 300, background: 'radial-gradient(circle, #00ff88, #0066ff)' }} />
 
   useEffect(() => {
     const canvas = canvasRef.current
