@@ -7,11 +7,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  trailingSlash: true,
-  generateBuildId: async () => {
-    // Стабильный build ID для Vercel
-    return 'jarvis-build'
-  }
+  output: 'standalone'
 }
 
 module.exports = nextConfig
