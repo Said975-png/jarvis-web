@@ -8,6 +8,11 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  output: 'standalone',
+  trailingSlash: true,
+  experimental: {
+    esmExternals: false
+  }
 }
 
 module.exports = nextConfig
