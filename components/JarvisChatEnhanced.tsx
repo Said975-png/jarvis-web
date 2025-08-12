@@ -810,13 +810,19 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
           background: transparent;
           resize: none;
           outline: none;
-          font-size: 15px;
+          font-size: 16px;
           line-height: 1.5;
           max-height: 120px;
           min-height: 24px;
           color: #374151;
           font-family: inherit;
           font-weight: 400;
+          /* Предотвращение зума на мобильных */
+          -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+          -webkit-appearance: none;
+          transform: translateZ(0);
+          touch-action: manipulation;
         }
 
         .jarvis-textarea::placeholder {
