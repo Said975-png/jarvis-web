@@ -561,13 +561,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           }
         }
 
-        .chatgpt-file-area {
-          padding: 16px 24px 0;
-          background: #f7f7f8;
-        }
-
         .chatgpt-input-area {
-          padding: 16px 24px 24px;
+          padding: 24px;
           background: #f7f7f8;
           border-top: 1px solid #e5e5e7;
         }
@@ -735,7 +730,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
             max-width: 85%;
           }
 
-          /* Предотвращаем зум при фоку��е на input */
+          /* Предотвращаем зум при ��оку��е на input */
           input, textarea, select {
             font-size: 16px !important;
             transform: translateZ(0);
