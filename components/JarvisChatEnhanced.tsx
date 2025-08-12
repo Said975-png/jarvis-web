@@ -901,6 +901,20 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
             height: 60px;
             width: 100%;
           }
+
+          /* Предотвращение зума на мобильных */
+          .jarvis-textarea {
+            font-size: 16px !important;
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+            transform: translateZ(0);
+          }
+
+          input, textarea, select {
+            font-size: 16px !important;
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+          }
         }
       `}</style>
     </div>
