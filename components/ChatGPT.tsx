@@ -23,6 +23,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -43,7 +44,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
 
-      // Предотвра��ение зума на мобильных устройствах
+      // Предотвра��ение зума на мобильных уст��ойствах
       const viewport = document.querySelector('meta[name=viewport]')
       if (viewport) {
         viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
@@ -321,7 +322,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           align-items: center;
           justify-content: center;
           padding: 0;
-          /* Предотвращение зума на мобильных */
+          /* Предотвраще��ие зума на мобильных */
           -webkit-text-size-adjust: 100%;
           text-size-adjust: 100%;
           touch-action: manipulation;
