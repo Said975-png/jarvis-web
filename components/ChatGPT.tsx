@@ -77,7 +77,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
     try {
       const apiMessages = conversationHistory
-        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ваш AI-помощник. Чем могу помочь?')
+        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ва�� AI-помощник. Чем могу помочь?')
         .map(msg => ({
           role: msg.isUser ? 'user' as const : 'assistant' as const,
           content: msg.text
@@ -701,7 +701,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
           .chatgpt-messages {
             padding: 20px 16px;
-            height: calc(100vh - 180px);
+            height: calc(100vh - 140px);
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
           }
