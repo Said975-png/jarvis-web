@@ -616,13 +616,17 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
 
           .chatgpt-messages {
             padding: 20px 16px;
-            height: calc(100vh - 140px);
+            height: calc(100vh - 180px);
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
           }
 
+          .chatgpt-file-area {
+            padding: 12px 20px 0;
+          }
+
           .chatgpt-input-area {
-            padding: 16px 20px;
+            padding: 12px 20px 16px;
             position: relative;
             background: #f7f7f8;
           }
