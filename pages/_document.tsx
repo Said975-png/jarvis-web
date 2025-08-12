@@ -4,8 +4,6 @@ export default function Document() {
   return (
     <Html lang="ru">
       <Head>
-        {/* Viewport meta tag для предотвращения зума на мобильных */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
         {/* Скрипт защиты от просмотра кода */}
         <script src="/protection.js" />
