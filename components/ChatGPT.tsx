@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { ChatHistoryManager, ChatSession, Message } from '../lib/chatHistory'
 import { useTheme } from '../contexts/ThemeContext'
+import FileUpload from './FileUpload'
 
 interface ChatGPTProps {
   isOpen: boolean
