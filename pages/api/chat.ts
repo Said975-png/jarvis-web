@@ -51,7 +51,7 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
 
   const userLimit = userLimits.get(ip)
 
-  // Если пользователь не найден или вр��мя сброса прошло
+  // Если пользова��ель не найден или вр��мя сброса прошло
   if (!userLimit || now > userLimit.resetTime) {
     userLimits.set(ip, {
       count: 1,
@@ -87,7 +87,7 @@ function cleanMarkdown(text: string): string {
     .replace(/```[\s\S]*?```/g, '')
     // Убир��ем одиночные * в начале строки (списки)
     .replace(/^\*\s+/gm, '• ')
-    // Убираем лишн��е звездочк��
+    // У��ираем лишн��е звездочк��
     .replace(/\*/g, '')
     // Убираем лишние решетки
     .replace(/#/g, '')
@@ -123,7 +123,7 @@ function generateSmartFallback(userMessage: string): string {
 🚀 Pro - 4,000,000 сум
 • До 15 страниц + AI интеграция
 • Продвинутая аналитика
-• Приоритетная поддержка
+• Приоритет��ая поддержка
 
 💎 Max - 5,000,000 сум
 • Безлимитные страницы
@@ -206,7 +206,7 @@ AI: OpenAI GPT, машинное обучение
   return `Понял ваш вопрос! 🤔
 
 Я ДЖАРВИС - специализируюсь на:
-�� Веб-разработке и AI интеграции
+• Веб-разработке и AI интеграции
 • Техническом консультировании
 • Планировании проектов
 • Оценке стоимости и сроков
@@ -261,7 +261,7 @@ export default async function handler(
 
       // Greeting responses
       if (lastMessage.includes('привет') || lastMessage.includes('здравствуй') || lastMessage.includes('добро пожаловать') || lastMessage.includes('hello') || lastMessage.includes('hi')) {
-        response = `Привет! Я ДЖАРВИС, ��аш AI-помощник по веб-разработке! 🚀
+        response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀
 
 Я п��могу вам с:
 • Создание�� современных веб-сайтов
@@ -322,7 +322,7 @@ export default async function handler(
 🎨 Дизайн и UX:
 • Современный UI/UX дизайн
 • Брендинг и айдентика
-• Адапт��вная верстка
+• Адаптивная верстка
 
 Что именно вас интересует?`
       }
@@ -392,7 +392,7 @@ AI & ML:
 Хотите увидеть демо или обсудить ваш проект?`
       }
       // Creator questions
-      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто тв��й создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разработчи��') || lastMessage.includes('кто твой автор')) {
+      else if (lastMessage.includes('кто тебя создал') || lastMessage.includes('кто твой создатель') || lastMessage.includes('кто разработал тебя') || lastMessage.includes('кто твой разработчи��') || lastMessage.includes('кто твой автор')) {
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
@@ -411,7 +411,7 @@ AI & ML:
 • Выб��ром подходящих технологий
 • Оценкой стоимости и сроков
 
-��асскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
+Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
 
 💬 Задав��йте ��юбые вопросы прямо здесь!`
       }
@@ -440,7 +440,7 @@ AI & ML:
     }
 
     const requestBody = {
-      model: 'openai/gpt-4o-mini',
+      model: 'meta-llama/llama-3.1-8b-instruct:free',
       messages: [systemMessage, ...messages],
       temperature: 0.7,
       max_tokens: 1500,
