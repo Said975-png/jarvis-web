@@ -499,12 +499,13 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .message-bubble {
-          padding: 12px 16px;
-          border-radius: 18px;
+          padding: 16px;
+          border-radius: 16px;
           font-size: 15px;
-          line-height: 1.6;
+          line-height: 1.5;
           word-wrap: break-word;
           position: relative;
+          white-space: pre-wrap;
           -webkit-user-select: text !important;
           -moz-user-select: text !important;
           -ms-user-select: text !important;
