@@ -263,6 +263,14 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           <div ref={messagesEndRef} />
         </div>
 
+        {/* File Upload */}
+        <div className="chatgpt-file-area">
+          <FileUpload
+            onFileAnalyzed={handleFileAnalyzed}
+            disabled={isTyping}
+          />
+        </div>
+
         {/* Input */}
         <div className="chatgpt-input-area">
           <div className="input-container">
