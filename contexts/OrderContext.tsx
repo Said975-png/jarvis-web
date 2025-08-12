@@ -36,15 +36,24 @@ export function OrderProvider({ children }: { children: ReactNode }) {
 
   // Загружаем заказы при инициализации
   useEffect(() => {
+    // Проверяем что мы на клиенте
+    if (typeof window === 'undefined') {
+      setIsLoading(false)
+      return
+    }
+
     const loadOrders = async () => {
       try {
         const response = await fetch('/api/orders')
         if (response.ok) {
           const loadedOrders = await response.json()
           setOrders(loadedOrders)
+        } else {
+          console.warn('Failed to load orders, using empty state')
         }
       } catch (error) {
         console.error('Error loading orders:', error)
+        // Не показываем ошибку пользователю, просто используем пустой массив
       } finally {
         setIsLoading(false)
       }
