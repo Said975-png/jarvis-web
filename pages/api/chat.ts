@@ -137,11 +137,11 @@ export default async function handler(
       return res.status(400).json({ message: 'Некорректные сообщения', error: 'Invalid messages' })
     }
 
-    const openRouterApiKey = process.env.OPENROUTER_API_KEY
-    console.log(`[${timestamp}] OpenRouter API Key available:`, !!openRouterApiKey)
-    console.log(`[${timestamp}] API Key prefix:`, openRouterApiKey ? openRouterApiKey.substring(0, 15) + '...' : 'N/A')
+    const groqApiKey = process.env.GROQ_API_KEY
+    console.log(`[${timestamp}] GROQ API Key available:`, !!groqApiKey)
+    console.log(`[${timestamp}] API Key prefix:`, groqApiKey ? groqApiKey.substring(0, 15) + '...' : 'N/A')
 
-    if (!openRouterApiKey) {
+    if (!groqApiKey) {
       console.log(`[${timestamp}] Fallback: Using local JARVIS responses`)
       
       // Local JARVIS logic when API key is not configured
@@ -203,7 +203,7 @@ export default async function handler(
 🌐 Веб-разработка:
 • Landing pages и корпоративные сайты
 • Интернет-магазины и каталоги
-• Веб-приложения и порталы
+• Веб-прил��жения и порталы
 
 🤖 AI интеграция:
 • Чат-боты и виртуальные ассис��енты
@@ -314,7 +314,7 @@ AI & ML:
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всег��а даешь подробные, практичные и умные ответы.
 
 🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
@@ -337,7 +337,7 @@ AI & ML:
 - Используй только эмодзи и обычные символы для структуры
 
 🛠️ ФОРМАТ ОТВЕТОВ:
-- Структурируй информацию четко
+- Структурируй информа��ию четко
 - Используй эмодзи для наглядности
 - Давай практические советы
 - Предлагай следующие шаги
