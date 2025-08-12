@@ -44,7 +44,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
 
-      // Предотвра��ение зума на мобильных уст��ойствах
+      // Предотвра��ение зума на мобильных устройствах
       const viewport = document.querySelector('meta[name=viewport]')
       if (viewport) {
         viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
@@ -112,7 +112,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       return data.message
     } catch (error) {
       console.error('Error calling AI API:', error)
-      return '�� готов помочь! Попробуйте ещё раз, задав ваш вопрос. Если проблема повторится - задавайте вопросы прямо здесь в чате! 🚀'
+      return '�� готов помочь! Попробуйте ещё раз, задав ваш воп��ос. Если проблема повторится - задавайте вопросы прямо здесь в чате! 🚀'
     }
   }
 
@@ -125,6 +125,50 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
     }
 
     setMessages(prev => [...prev, fileMessage])
+  }
+
+  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    if (file.type !== 'application/pdf') {
+      alert('Пожалуйста, выберите PDF файл')
+      return
+    }
+
+    if (file.size > 10 * 1024 * 1024) { // 10MB
+      alert('Размер файла не должен превышать 10MB')
+      return
+    }
+
+    setIsTyping(true)
+
+    try {
+      const formData = new FormData()
+      formData.append('pdf', file)
+
+      const response = await fetch('/api/analyze-pdf', {
+        method: 'POST',
+        body: formData
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        handleFileAnalyzed(data.message)
+      } else {
+        throw new Error(data.error || 'Ошибка анализа PDF')
+      }
+    } catch (error) {
+      console.error('File upload error:', error)
+      handleFileAnalyzed(`Ошибка при загрузке файла: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`)
+    } finally {
+      setIsTyping(false)
+      // Очищаем input для возможности повторной загрузки
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+    }
   }
 
   const handleSendMessage = async () => {
@@ -322,7 +366,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           align-items: center;
           justify-content: center;
           padding: 0;
-          /* Предотвраще��ие зума на мобильных */
+          /* Предотвращение зума на мобильных */
           -webkit-text-size-adjust: 100%;
           text-size-adjust: 100%;
           touch-action: manipulation;
