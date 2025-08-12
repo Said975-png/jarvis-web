@@ -1,6 +1,12 @@
 import Head from 'next/head'
 import styles from '../styles/mockup.module.css'
 
+export async function getServerSideProps() {
+  return {
+    props: {},
+  }
+}
+
 export default function MockupPage() {
   return (
     <>
@@ -10,7 +16,7 @@ export default function MockupPage() {
       </Head>
 
       <div className={styles.mockupContainer}>
-        {/* Перевернутый ноутбук */}
+        {/* Пер��вернутый ноутбук */}
         <div className={styles.laptopMockup}>
           {/* Экран ноутбука */}
           <div className={styles.laptopScreen}>
