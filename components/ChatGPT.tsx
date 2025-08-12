@@ -512,16 +512,22 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .user-message .message-bubble {
-          background: #0066cc;
+          background: #2563eb;
           color: #ffffff;
+          border-radius: 16px;
           border-bottom-right-radius: 4px;
+          max-width: 80%;
+          margin-left: auto;
         }
 
         .ai-message .message-bubble {
-          background: #f1f3f4;
-          color: #0d1117;
+          background: #f7f7f8;
+          color: #374151;
+          border-radius: 16px;
           border-bottom-left-radius: 4px;
-          border: 1px solid #e5e5e7;
+          border: none;
+          max-width: 100%;
+          width: 100%;
         }
 
         .typing-indicator {
