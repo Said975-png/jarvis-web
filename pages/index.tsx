@@ -33,8 +33,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>JARVIS - AI-Powered Web Development</title>
-        <meta name="description" content="JARVIS creates stunning websites using artificial intelligence and cutting-edge technology" />
+        <title>Jarvis - умный ИИ ассистент</title>
+        <meta name="description" content="JARVIS - революционный ИИ-ассистент для создания потрясающих веб-сайтов с использованием искусственного интеллекта" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
