@@ -10,12 +10,6 @@ import Footer from '../components/Footer'
 import ShineEffect from '../components/ShineEffect'
 import LoadingAnimation from '../components/LoadingAnimation'
 
-export async function getServerSideProps() {
-  return {
-    props: {},
-  }
-}
-
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
