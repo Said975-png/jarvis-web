@@ -172,7 +172,7 @@ export default async function handler(
 • Адаптивная верстка
 • SEO оптимизация
 
-🚀 Pro - 4,000,000 сум (Популярный!)
+��� Pro - 4,000,000 сум (Популярный!)
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
 • Продвинутая аналитика
@@ -201,9 +201,9 @@ export default async function handler(
         response = `🛠️ Мои основные услуги:
 
 🌐 Веб-разработка:
-• Landing pages и корпоративные сайты
+• Landing pages и корпорати��ные сайты
 • Интернет-магазины и каталоги
-• Веб-прил��жения и порталы
+• Веб-приложения и порталы
 
 🤖 AI интеграция:
 • Чат-боты и виртуальные ассис��енты
@@ -267,7 +267,7 @@ AI & ML:
 
 🏪 E-commerce платформы:
 • Интернет-магазины с AI рекомендациями
-• Системы управления каталогом
+�� Системы управления каталогом
 • Интеграция платежей и доставки
 
 🏢 Корпоративные решения:
@@ -287,7 +287,7 @@ AI & ML:
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
-      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
+      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('к��к ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
         response = `Это секретная информация 🔒`
       }
       // Default response for other questions
@@ -314,9 +314,9 @@ AI & ML:
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всег��а даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
 
-🎯 ТВОЯ ЭКСПЕРТИЗА:
+🎯 ТВОЯ ЭКСП��РТИЗА:
 • Веб-разработка (Frontend/Backend)
 • AI и машинное обучение
 • UI/UX дизайн и архитектура
@@ -337,7 +337,7 @@ AI & ML:
 - Используй только эмодзи и обычные символы для структуры
 
 🛠️ ФОРМАТ ОТВЕТОВ:
-- Структурируй информа��ию четко
+- Структурируй информацию четко
 - Используй эмодзи для наглядности
 - Давай практические советы
 - Предлагай следующие шаги
@@ -354,20 +354,20 @@ AI & ML:
 
 📞 КОНТАКТЫ: Онлайн-чат на сайте
 
-Отвечай на русском языке. Будь максимально полезным и информативным!`
+Отвечай на русском языке. Будь максимально полезным �� информативным!`
     }
 
     const requestBody = {
-      model: 'openai/gpt-4o-mini',
+      model: 'llama-3.1-70b-versatile',
       messages: [systemMessage, ...messages],
       temperature: 0.7,
-      max_tokens: 1500,
+      max_tokens: 2048,
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0
     }
 
-    console.log(`[${timestamp}] === OpenRouter REQUEST ===`)
+    console.log(`[${timestamp}] === GROQ REQUEST ===`)
     console.log(`Model: ${requestBody.model}`)
     console.log(`Max tokens: ${requestBody.max_tokens}`)
     console.log(`Temperature: ${requestBody.temperature}`)
@@ -376,13 +376,11 @@ AI & ML:
     console.log(`User messages: ${messages.length}`)
 
     const requestStartTime = Date.now()
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${openRouterApiKey}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://jarvis-ai.uz',
-        'X-Title': 'JARVIS AI Web Development'
+        'Authorization': `Bearer ${groqApiKey}`,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(requestBody)
     })
