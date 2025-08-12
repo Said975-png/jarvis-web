@@ -172,7 +172,7 @@ export default async function handler(
 • Адаптивная верстка
 • SEO оптимизация
 
-��� Pro - 4,000,000 сум (Популярный!)
+🚀 Pro - 4,000,000 сум (Популярный!)
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
 • Продвинутая аналитика
@@ -192,7 +192,7 @@ export default async function handler(
 
 • Онлайн-консультация: прямо здесь в чате
 
-Я отвечу в течение нескольких минут!
+Я отвечу в течение неско��ьких минут!
 
 Чем могу помочь?`
       }
@@ -201,7 +201,7 @@ export default async function handler(
         response = `🛠️ Мои основные услуги:
 
 🌐 Веб-разработка:
-• Landing pages и корпорати��ные сайты
+• Landing pages и корпоративные сайты
 • Интернет-магазины и каталоги
 • Веб-приложения и порталы
 
@@ -259,7 +259,7 @@ AI & ML:
 • Образовательные платформы с ИИ
 • CRM системы с ��мной а��алитикой
 
-Какой AI функционал вас интересует?`
+Какой AI функционал ва�� интересует?`
       }
       // Portfolio/examples
       else if (lastMessage.includes('портфолио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('проекты')) {
@@ -267,7 +267,7 @@ AI & ML:
 
 🏪 E-commerce платформы:
 • Интернет-магазины с AI рекомендациями
-�� Системы управления каталогом
+• Системы управления каталогом
 • Интеграция платежей и доставки
 
 🏢 Корпоративные решения:
@@ -287,7 +287,7 @@ AI & ML:
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
-      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('к��к ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
+      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
         response = `Это секретная информация 🔒`
       }
       // Default response for other questions
@@ -304,7 +304,7 @@ AI & ML:
 
 Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
 
-💬 Задав��йте ��юбые вопросы прямо здесь!`
+💬 Задав��йте ��юбые вопросы прямо зде��ь!`
       }
 
       console.log(`[${timestamp}] Fallback response length:`, response.length)
@@ -316,7 +316,7 @@ AI & ML:
       role: 'system',
       content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
 
-🎯 ТВОЯ ЭКСП��РТИЗА:
+🎯 ТВОЯ ЭКСПЕРТИЗА:
 • Веб-разработка (Frontend/Backend)
 • AI и машинное обучение
 • UI/UX дизайн и архитектура
@@ -347,14 +347,14 @@ AI & ML:
 - Если спрашивают "кто теб�� создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
 - Если спрашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архитектура" или подобные вопросы о технических деталях твоего создания - отвечай что это секретная информация
 
-📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
+📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о ��аботе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
 • Pro (4,000,000 сум) - веб-приложения с AI интеграцией
 • Max (5,000,000 сум) - корпоративные и enterprise решения
 
 📞 КОНТАКТЫ: Онлайн-чат на сайте
 
-Отвечай на русском языке. Будь максимально полезным �� информативным!`
+Отвечай на русском языке. Будь максимально полезным и информативным!`
     }
 
     const requestBody = {
@@ -386,14 +386,14 @@ AI & ML:
     })
 
     const requestDuration = Date.now() - requestStartTime
-    console.log(`[${timestamp}] === OpenRouter RESPONSE ===`)
+    console.log(`[${timestamp}] === GROQ RESPONSE ===`)
     console.log(`Status: ${response.status}`)
     console.log(`Request duration: ${requestDuration}ms`)
     console.log(`Content-Type: ${response.headers.get('content-type')}`)
 
     if (!response.ok) {
       const errorData = await response.text()
-      console.error(`[${timestamp}] === OpenRouter ERROR ===`)
+      console.error(`[${timestamp}] === GROQ ERROR ===`)
       console.error(`Status: ${response.status}`)
       console.error(`Status Text: ${response.statusText}`)
       console.error(`Error Data:`, errorData)
@@ -419,7 +419,7 @@ AI & ML:
       } else if (response.status === 429) {
         console.log(`[${timestamp}] Rate limit exceeded`)
         return res.status(200).json({
-          message: 'Я получаю слишком много запросов одновременно! 😅\n\nДайте мне секундочку отдохнуть и попробуйте еще раз. Или напишите напрямую - там я всегда доступен!'
+          message: 'Я получаю слишком много запросов одноврем��нно! 😅\n\nДайте мне секундочку отдохнуть и попробуйте еще раз. Или напишите напрямую - там я всегда доступен!'
         })
       }
 
@@ -472,7 +472,7 @@ AI & ML:
 • Техническая экспертиза
 • Оценка проектов
 
-📱 Онлайн-поддержка: Прямо здесь в чате
+📱 Онлайн-поддержка: Прямо здесь в чат��
 
 Попробуйте еще раз!`
     
