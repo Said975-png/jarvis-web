@@ -87,7 +87,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       return data.message
     } catch (error) {
       console.error('Error calling AI API:', error)
-      return 'Я готов помочь! Попробуйте ещё раз, задав ваш вопрос. Если проблема повторится - задавайте вопросы прямо здесь в чате! 🚀'
+      return '�� готов помочь! Попробуйте ещё раз, задав ваш вопрос. Если проблема повторится - задавайте вопросы прямо здесь в чате! 🚀'
     }
   }
 
@@ -503,6 +503,10 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           user-select: text !important;
           -webkit-tap-highlight-color: transparent;
           -webkit-touch-callout: default;
+          /* Предотвращение зума на iOS */
+          -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+          zoom: 1;
         }
 
         .chatgpt-input::placeholder {
