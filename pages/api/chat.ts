@@ -203,7 +203,7 @@ export default async function handler(
 🌐 Веб-разработка:
 • Landing pages и к��рпоративные сайты
 • Интернет-магазины и каталоги
-• Веб-приложения и порталы
+�� Веб-приложения и порталы
 
 🤖 AI интеграция:
 • Чат-боты и виртуальные ассис��енты
@@ -244,7 +244,7 @@ AI & ML:
 Хотите узнать больше о конкретной техноло��ии?`
       }
       // AI questions
-      else if (lastMessage.includes('искусственный интеллект') || lastMessage.includes('машинное обучение') || lastMessage.includes('ai') || lastMessage.includes('ии')) {
+      else if (lastMessage.includes('искусст��енный интеллект') || lastMessage.includes('машинное обучение') || lastMessage.includes('ai') || lastMessage.includes('ии')) {
         response = `🤖 AI интеграция - моя специализация!
 
 Что я могу интегрировать:
@@ -268,7 +268,7 @@ AI & ML:
 🏪 E-commerce платформы:
 • Интернет-магазины с AI рекомендациями
 • Системы управления каталогом
-• Интеграция платежей и доставки
+• Интег��ация платежей и доставки
 
 🏢 Корпоративные решения:
 • CRM системы с аналитикой
@@ -287,7 +287,7 @@ AI & ML:
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
-      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
+      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('��а чем ты написан')) {
         response = `Это секретная информация 🔒`
       }
       // Default response for other questions
@@ -335,7 +335,7 @@ AI & ML:
 - Предлагай несколько вариантов решения
 - Учитывай современные best practices
 - Будь дружелюбным но профессиональным
-- НЕ ИСПОЛЬЗУЙ MARKDOWN: никаких *, **, #, ###, \`, \`\`\`
+- Н�� ИСПОЛЬЗУЙ MARKDOWN: никаких *, **, #, ###, \`, \`\`\`
 - Пиши обычным тек��том без формат��рования
 - Используй только эмодзи и обычные символы для структуры
 
@@ -448,8 +448,11 @@ AI & ML:
 
     let aiMessage = data.choices[0].message.content
 
-    // Очищаем от Markdown форматирования
+    // Очищаем от Markdown форматир��вания
     aiMessage = cleanMarkdown(aiMessage)
+
+    // Заменяем английские термины на русские
+    aiMessage = replaceEnglishTerms(aiMessage)
 
     console.log(`[${timestamp}] AI response length:`, aiMessage?.length || 0)
     console.log(`[${timestamp}] AI response preview (cleaned):`, aiMessage?.substring(0, 200) + '...')
@@ -471,7 +474,7 @@ AI & ML:
     console.error('Error message:', error instanceof Error ? error.message : String(error))
     console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
-    // Возвращаем дружелюбное сообщение об ошибке
+    // Возвращаем дружелюбное сообщени�� об ошибке
     const fallbackMessage = `Извините, произошла временна�� ошибка! 😅
 
 Но не беспокойтес�� - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
