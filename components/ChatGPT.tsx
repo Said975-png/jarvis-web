@@ -115,6 +115,17 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
     }
   }
 
+  const handleFileAnalyzed = (analysis: string) => {
+    const fileMessage: Message = {
+      id: Date.now().toString(),
+      text: analysis,
+      isUser: false,
+      timestamp: new Date()
+    }
+
+    setMessages(prev => [...prev, fileMessage])
+  }
+
   const handleSendMessage = async () => {
     if (!inputText.trim()) return
 
