@@ -1,11 +1,19 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "installCommand": "npm install",
   "framework": "nextjs",
+  "buildCommand": "npm run build",
   "functions": {
-    "pages/api/**/*.ts": {
+    "pages/api/chat.ts": {
       "maxDuration": 30
+    },
+    "pages/api/analyze-pdf.ts": {
+      "maxDuration": 60
+    },
+    "pages/api/orders.ts": {
+      "maxDuration": 15
+    },
+    "pages/api/auth/*.ts": {
+      "maxDuration": 15
     }
-  }
+  },
+  "regions": ["iad1"]
 }
