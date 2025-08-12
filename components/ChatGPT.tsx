@@ -263,17 +263,27 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* File Upload */}
-        <div className="chatgpt-file-area">
-          <FileUpload
-            onFileAnalyzed={handleFileAnalyzed}
-            disabled={isTyping}
-          />
-        </div>
-
         {/* Input */}
         <div className="chatgpt-input-area">
           <div className="input-container">
+            <input
+              type="file"
+              ref={fileInputRef}
+              accept=".pdf"
+              onChange={handleFileSelect}
+              style={{ display: 'none' }}
+            />
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              disabled={isTyping}
+              className="attachment-btn"
+              title="Загрузить PDF файл"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M21.44 11.05L12.25 1.86a2.09 2.09 0 0 0-2.96 0L.7 11.35a2.09 2.09 0 0 0-.61 1.48v8.03A2.14 2.14 0 0 0 2.23 23h8.03c.56 0 1.1-.22 1.48-.61l9.4-9.4a2.09 2.09 0 0 0 0-2.96l-.7-.98z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M11 11L7 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
             <textarea
               ref={textareaRef}
               value={inputText}
