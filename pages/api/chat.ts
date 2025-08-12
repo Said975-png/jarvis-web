@@ -51,7 +51,7 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
 
   const userLimit = userLimits.get(ip)
 
-  // Если пользова��ель не найден или вр��мя сброса прошло
+  // Если пользователь не найден или вр��мя сброса прошло
   if (!userLimit || now > userLimit.resetTime) {
     userLimits.set(ip, {
       count: 1,
@@ -87,7 +87,7 @@ function cleanMarkdown(text: string): string {
     .replace(/```[\s\S]*?```/g, '')
     // Убир��ем одиночные * в начале строки (списки)
     .replace(/^\*\s+/gm, '• ')
-    // У��ираем лишн��е звездочк��
+    // Убираем лишн��е звездочк��
     .replace(/\*/g, '')
     // Убираем лишние решетки
     .replace(/#/g, '')
@@ -123,7 +123,7 @@ function generateSmartFallback(userMessage: string): string {
 🚀 Pro - 4,000,000 сум
 • До 15 страниц + AI интеграция
 • Продвинутая аналитика
-• Приоритет��ая поддержка
+• Приоритетная поддержка
 
 💎 Max - 5,000,000 сум
 • Безлимитные страницы
@@ -385,7 +385,7 @@ AI & ML:
 • Системы документооборота
 
 🎓 EdTech проекты:
-• Образовательные платформы
+• Образовательные пл��тформы
 • LMS системы с AI
 • Интерактивные курсы
 
@@ -403,7 +403,7 @@ AI & ML:
       else {
         response = `Интересный вопрос! 🤔
 
-Я ДЖАРВИС, специализируюсь на веб-разработке и AI интеграции.
+Я ДЖАРВИС, специализируюсь на веб-разработке �� AI интеграции.
 
 Могу помочь с:
 • Техническими вопросами по разработке
@@ -429,7 +429,7 @@ AI & ML:
 - НЕ повторяй приветствие если уже общаешься с пользователем
 - Отвечай на конкретный вопрос пользователя
 - Не используй markdown форматирование
-- Отвечай на русском языке
+- Отвечай на русск��м языке
 - Если спрашивают кто тебя создал - отвечай "@jarvis_intercoma"
 - Если спрашивают как тебя создали - отвечай что это секретная информация
 
@@ -450,12 +450,13 @@ AI & ML:
     }
 
     console.log(`[${timestamp}] === OpenRouter REQUEST ===`)
-    console.log(`Model: ${requestBody.model}`)
+    console.log(`Model: ${requestBody.model} (NEW LLAMA MODEL)`)
     console.log(`Max tokens: ${requestBody.max_tokens}`)
     console.log(`Temperature: ${requestBody.temperature}`)
     console.log(`Total messages: ${requestBody.messages.length}`)
     console.log(`System message length: ${systemMessage.content.length}`)
     console.log(`User messages: ${messages.length}`)
+    console.log(`Last user message: ${messages[messages.length - 1]?.content.substring(0, 100)}...`)
 
     const requestStartTime = Date.now()
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
