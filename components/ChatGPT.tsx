@@ -160,7 +160,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       }
     } catch (error) {
       console.error('File upload error:', error)
-      handleFileAnalyzed(`Ошибка при загрузке файла: ${error instanceof Error ? error.message : 'Не��звестная ошибка'}`)
+      handleFileAnalyzed(`Ошибка при загрузке файла: ${error instanceof Error ? error.message : 'Не��звес��ная ошибка'}`)
     } finally {
       setIsTyping(false)
       // Очищаем input для возможности повторной загрузки
@@ -698,12 +698,8 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
             -webkit-overflow-scrolling: touch;
           }
 
-          .chatgpt-file-area {
-            padding: 12px 20px 0;
-          }
-
           .chatgpt-input-area {
-            padding: 12px 20px 16px;
+            padding: 16px 20px;
             position: relative;
             background: #f7f7f8;
           }
