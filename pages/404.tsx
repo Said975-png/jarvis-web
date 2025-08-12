@@ -21,7 +21,7 @@ export default function Custom404() {
           Страница не найдена
         </h2>
         <p style={{ color: '#666', textAlign: 'center', maxWidth: '400px' }}>
-          Извините, запрашиваемая стра��ица не существует или была перемещена.
+          Извините, запрашиваемая страница не существует или была перемещена.
         </p>
         <a 
           href="/" 
@@ -40,4 +40,10 @@ export default function Custom404() {
       </div>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  return {
+    props: {}
+  }
 }
