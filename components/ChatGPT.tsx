@@ -43,7 +43,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
 
-      // Предотвращение зума на мобильных устройствах
+      // Предотвра��ение зума на мобильных устройствах
       const viewport = document.querySelector('meta[name=viewport]')
       if (viewport) {
         viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
@@ -197,7 +197,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
                 <h3>ДЖАРВИС</h3>
                 <div className="status-indicator">
                   <div className="status-dot"></div>
-                  В сети
+                  В сет��
                 </div>
               </div>
             </div>
@@ -507,8 +507,13 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           }
         }
 
+        .chatgpt-file-area {
+          padding: 16px 24px 0;
+          background: #f7f7f8;
+        }
+
         .chatgpt-input-area {
-          padding: 24px;
+          padding: 16px 24px 24px;
           background: #f7f7f8;
           border-top: 1px solid #e5e5e7;
         }
