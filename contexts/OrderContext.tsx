@@ -79,58 +79,61 @@ export function OrderProvider({ children }: { children: ReactNode }) {
       updatedAt: new Date().toISOString()
     }
 
-    // Отправляем на API
-    try {
-      const response = await fetch('/api/orders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newOrder),
-      })
+    // Отправляем на API (только на клиенте)
+    if (typeof window !== 'undefined') {
+      try {
+        const response = await fetch('/api/orders', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newOrder),
+        })
 
-      if (response.ok) {
-        const savedOrder = await response.json()
-        setOrders(prev => [...prev, savedOrder])
-        return savedOrder
-      } else {
-        throw new Error('Failed to create order')
+        if (response.ok) {
+          const savedOrder = await response.json()
+          setOrders(prev => [...prev, savedOrder])
+          return savedOrder
+        } else {
+          console.warn('Failed to create order on server, saving locally')
+        }
+      } catch (error) {
+        console.error('Error creating order:', error)
+        // Fallback: сохраняем локально
       }
-    } catch (error) {
-      console.error('Error creating order:', error)
-      // Fallback: сохраняем локально
-      setOrders(prev => [...prev, newOrder])
-      return newOrder
     }
+
+    // Fallback или серверный рендеринг: сохраняем локально
+    setOrders(prev => [...prev, newOrder])
+    return newOrder
   }
 
   const updateOrderStatus = async (orderId: string, status: 'confirmed' | 'rejected'): Promise<void> => {
-    try {
-      const response = await fetch('/api/orders', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ orderId, status }),
-      })
+    // Обновляем локально сразу для отзывчивости UI
+    setOrders(prev => prev.map(order =>
+      order.id === orderId
+        ? { ...order, status, updatedAt: new Date().toISOString() }
+        : order
+    ))
 
-      if (response.ok) {
-        setOrders(prev => prev.map(order => 
-          order.id === orderId 
-            ? { ...order, status, updatedAt: new Date().toISOString() }
-            : order
-        ))
-      } else {
-        throw new Error('Failed to update order status')
+    // Пытаемся синхронизировать с сервером (только на клиенте)
+    if (typeof window !== 'undefined') {
+      try {
+        const response = await fetch('/api/orders', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ orderId, status }),
+        })
+
+        if (!response.ok) {
+          console.warn('Failed to update order status on server')
+        }
+      } catch (error) {
+        console.error('Error updating order status:', error)
+        // Локальное состояние уже обновлено, поэтому не требуется дополнительных действий
       }
-    } catch (error) {
-      console.error('Error updating order status:', error)
-      // Fallback: обновляем локально
-      setOrders(prev => prev.map(order => 
-        order.id === orderId 
-          ? { ...order, status, updatedAt: new Date().toISOString() }
-          : order
-      ))
     }
   }
 
