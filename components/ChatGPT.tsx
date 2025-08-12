@@ -462,16 +462,17 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           display: flex;
           gap: 12px;
           align-items: flex-start;
-          max-width: 70%;
+          max-width: 100%;
+          width: 100%;
         }
 
         .user-message {
-          align-self: flex-end;
+          justify-content: flex-end;
           flex-direction: row-reverse;
         }
 
         .ai-message {
-          align-self: flex-start;
+          justify-content: flex-start;
         }
 
         .message-avatar {
