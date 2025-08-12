@@ -41,3 +41,9 @@ export default function Custom500() {
     </>
   )
 }
+
+export async function getServerSideProps() {
+  return {
+    props: {}
+  }
+}
