@@ -7,8 +7,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    // Убираем allowedDevOrigins - это только для разработки
+  trailingSlash: true,
+  generateBuildId: async () => {
+    // Стабильный build ID для Vercel
+    return 'jarvis-build'
   }
 }
 
