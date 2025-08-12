@@ -650,6 +650,34 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           transform: none;
         }
 
+        .attachment-btn {
+          width: 36px;
+          height: 36px;
+          border-radius: 8px;
+          border: none;
+          background: #f1f3f4;
+          color: #666;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+
+        .attachment-btn:hover:not(:disabled) {
+          background: #e8eaed;
+          color: #0066cc;
+          transform: translateY(-1px);
+        }
+
+        .attachment-btn:disabled {
+          background: #f1f3f4;
+          color: #bbb;
+          cursor: not-allowed;
+          transform: none;
+        }
+
         @media (max-width: 768px) {
           .chatgpt-overlay {
             padding: 0;
