@@ -585,6 +585,12 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
             -webkit-appearance: none;
             -webkit-user-select: text;
             touch-action: manipulation;
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+            zoom: 1 !important;
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000;
           }
 
           .message {
@@ -595,6 +601,15 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           input, textarea, select {
             font-size: 16px !important;
             transform: translateZ(0);
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+            zoom: 1 !important;
+          }
+
+          /* Предотвращение зума на всем контейнере чата */
+          .chatgpt-container * {
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
           }
         }
       `}</style>
