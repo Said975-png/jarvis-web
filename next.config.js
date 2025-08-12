@@ -11,6 +11,8 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
   },
+  trailingSlash: true,
+  output: 'standalone',
 }
 
 module.exports = nextConfig
