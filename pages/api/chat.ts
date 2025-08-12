@@ -107,7 +107,7 @@ function cleanupExpiredLimits(now: number) {
   }
 }
 
-// Умная fallback функция для разных типов вопрос��в
+// Умная fallback функция для разных типов вопросов
 function generateSmartFallback(userMessage: string): string {
   const message = userMessage.toLowerCase()
 
@@ -179,7 +179,7 @@ AI: OpenAI GPT, машинное обучение
   }
 
   // AI вопросы
-  if (message.includes('искусст��енный интеллект') || message.includes('ии') || message.includes('ai') || message.includes('машинное обучение')) {
+  if (message.includes('искусственный интеллект') || message.includes('ии') || message.includes('ai') || message.includes('машинное обучение')) {
     return `🤖 AI интеграция - моя специальность!
 
 Что могу интегрировать:
@@ -206,7 +206,7 @@ AI: OpenAI GPT, машинное обучение
   return `Понял ваш вопрос! 🤔
 
 Я ДЖАРВИС - специализируюсь на:
-• Веб-разработке и AI интегр��ции
+• Веб-разработке и AI интеграции
 • Техническом консультировании
 • Планировании проектов
 • Оценке стоимости и сроков
@@ -231,7 +231,7 @@ export default async function handler(
 
   if (req.method !== 'POST') {
     console.log(`[${timestamp}] ERROR: Method not allowed`)
-    return res.status(405).json({ message: 'Метод не поддерживается', error: 'Method not allowed' })
+    return res.status(405).json({ message: 'Метод не поддержи��ается', error: 'Method not allowed' })
   }
 
   // Лимиты отключены - ДЖАРВИС работает без ограничений
@@ -261,7 +261,7 @@ export default async function handler(
 
       // Greeting responses
       if (lastMessage.includes('привет') || lastMessage.includes('здравствуй') || lastMessage.includes('добро пожаловать') || lastMessage.includes('hello') || lastMessage.includes('hi')) {
-        response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разра��отке! 🚀
+        response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀
 
 Я п��могу вам с:
 • Создание�� современных веб-сайтов
@@ -285,7 +285,7 @@ export default async function handler(
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
 • Продвинутая аналитика
-• Приоритетная поддержка
+• Приор��тетная поддержка
 
 💎 Max - 5,000,000 сум
 • Безлимитные страницы
@@ -324,7 +324,7 @@ export default async function handler(
 • Брендинг и айдентика
 • Адаптивная верстка
 
-Что именно ��ас интересует?`
+Что именно вас интересует?`
       }
       // Technology questions
       else if (lastMessage.includes('технолог') || lastMessage.includes('стек') || lastMessage.includes('как работаешь')) {
@@ -360,12 +360,12 @@ AI & ML:
 • Умные чат-боты для сайтов
 • Системы рекомендаций
 • Автоматическая обработка данных
-• Анализ поль��овательского повед��ния
+• Анализ пользовательского повед��ния
 • Персонализация контента
 
 Примеры проектов:
 • E-commerce с AI рекомендациями
-• Образова��ельные платформы с ИИ
+• Образовательные платформы с ИИ
 • CRM системы с ��мной а��алитикой
 
 Какой AI функционал вас интересует?`
@@ -386,7 +386,7 @@ AI & ML:
 
 🎓 EdTech проекты:
 • Образовательные платформы
-• LMS системы с AI
+�� LMS системы с AI
 • Интерактивные курсы
 
 Хотите увидеть демо или обсудить ваш проект?`
@@ -411,7 +411,7 @@ AI & ML:
 • Выб��ром подходящих технологий
 • Оценкой стоимости и сроков
 
-Расскажите подробнее о ваш��й задаче, и я дам конкретные рекомендации!
+Расскажите подробнее о вашей задаче, и я дам конкретные рекомендации!
 
 💬 Задав��йте ��юбые вопросы прямо здесь!`
       }
@@ -458,7 +458,8 @@ AI & ML:
     }
 
     console.log(`[${timestamp}] === OpenRouter REQUEST ===`)
-    console.log(`Model: ${requestBody.model} (NEW LLAMA MODEL)`)
+    console.log(`Model: ${requestBody.model} (FREE MODEL)`)
+    console.log(`Available fallback models: ${freeModels.slice(1).join(', ')}`)
     console.log(`Max tokens: ${requestBody.max_tokens}`)
     console.log(`Temperature: ${requestBody.temperature}`)
     console.log(`Total messages: ${requestBody.messages.length}`)
