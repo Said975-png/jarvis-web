@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { ChatHistoryManager, ChatSession, Message } from '../lib/chatHistory'
 import { useTheme } from '../contexts/ThemeContext'
-import FileUpload from './FileUpload'
 
 interface ChatGPTProps {
   isOpen: boolean
@@ -112,7 +111,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       return data.message
     } catch (error) {
       console.error('Error calling AI API:', error)
-      return '�� готов помочь! Попробуйте ещё раз, задав ваш воп��ос. Если проблема повторится - задавайте вопросы прямо здесь в чате! 🚀'
+      return '�� готов помочь! Попробуйте ещё раз, задав ваш вопрос. Если проблема повторится - задавайте вопросы прямо здесь в чате! 🚀'
     }
   }
 
@@ -161,7 +160,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       }
     } catch (error) {
       console.error('File upload error:', error)
-      handleFileAnalyzed(`Ошибка при загрузке файла: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`)
+      handleFileAnalyzed(`Ошибка при загрузке файла: ${error instanceof Error ? error.message : 'Не��звестная ошибка'}`)
     } finally {
       setIsTyping(false)
       // Очищаем input для возможности повторной загрузки
