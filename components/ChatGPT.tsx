@@ -268,6 +268,10 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           align-items: center;
           justify-content: center;
           padding: 0;
+          /* Предотвращение зума на мобильных */
+          -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+          touch-action: manipulation;
         }
 
         .chatgpt-container {
