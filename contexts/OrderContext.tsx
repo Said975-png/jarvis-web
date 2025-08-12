@@ -59,31 +59,7 @@ export function OrderProvider({ children }: { children: ReactNode }) {
       updatedAt: new Date().toISOString()
     }
 
-    // Отправляем на API (только на клиенте)
-    if (typeof window !== 'undefined') {
-      try {
-        const response = await fetch('/api/orders', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newOrder),
-        })
-
-        if (response.ok) {
-          const savedOrder = await response.json()
-          setOrders(prev => [...prev, savedOrder])
-          return savedOrder
-        } else {
-          console.warn('Failed to create order on server, saving locally')
-        }
-      } catch (error) {
-        console.error('Error creating order:', error)
-        // Fallback: сохраняем локально
-      }
-    }
-
-    // Fallback или серверный рендеринг: сохраняем локально
+    // Сохраняем только локально (временно отключаем API)
     setOrders(prev => [...prev, newOrder])
     return newOrder
   }
