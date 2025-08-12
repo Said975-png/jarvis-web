@@ -1,11 +1,11 @@
 {
-  "env": {
-    "NEXT_PUBLIC_APP_URL": "https://jarvis-ai.uz"
-  },
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "framework": "nextjs",
   "functions": {
     "pages/api/**/*.ts": {
       "maxDuration": 30
     }
-  },
-  "regions": ["iad1"]
+  }
 }
