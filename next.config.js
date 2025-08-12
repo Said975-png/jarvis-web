@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
+  reactStrictMode: true,
   swcMinify: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -8,11 +8,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    forceSwcTransforms: true,
-  },
-  trailingSlash: true,
-  output: 'standalone',
 }
 
 module.exports = nextConfig
