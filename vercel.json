@@ -1,11 +1,8 @@
 {
-  "env": {
-    "NEXT_PUBLIC_APP_URL": "https://jarvis-ai.uz"
-  },
+  "buildCommand": "npm run build",
   "functions": {
     "pages/api/**/*.ts": {
       "maxDuration": 30
     }
-  },
-  "regions": ["iad1"]
+  }
 }

@@ -9,6 +9,7 @@ import ChatManager from '../components/ChatManager'
 import Footer from '../components/Footer'
 import ShineEffect from '../components/ShineEffect'
 import LoadingAnimation from '../components/LoadingAnimation'
+import OpenRouterTester from '../components/OpenRouterTester'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -56,6 +57,7 @@ export default function Home() {
         <Pricing />
         <Features />
         <Benefits />
+        <OpenRouterTester />
       </main>
 
       <Footer />

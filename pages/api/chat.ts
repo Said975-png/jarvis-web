@@ -107,6 +107,115 @@ function cleanupExpiredLimits(now: number) {
   }
 }
 
+// Умная fallback функция для разных типов вопросов
+function generateSmartFallback(userMessage: string): string {
+  const message = userMessage.toLowerCase()
+
+  // Вопросы о ценах
+  if (message.includes('цен') || message.includes('стоимость') || message.includes('тариф') || message.includes('план')) {
+    return `💰 Актуальные тарифы:
+
+📦 Basic - 2,500,000 сум
+• До 5 страниц сайта
+• Современный дизайн
+• Адаптивная верстка
+
+🚀 Pro - 4,000,000 сум
+• До 15 страниц + AI интеграция
+• Продвинутая аналитика
+• Приоритетная поддержка
+
+💎 Max - 5,000,000 сум
+• Безлимитные страницы
+• Полная AI интеграция
+• VIP поддержка 24/7
+
+Какой тариф интересует?`
+  }
+
+  // Технические вопросы
+  if (message.includes('технолог') || message.includes('стек') || message.includes('как работаешь') || message.includes('react') || message.includes('next')) {
+    return `⚡ Основные технологии:
+
+Frontend: React, Next.js, TypeScript
+Backend: Node.js, Python
+Базы данных: PostgreSQL, MongoDB
+AI: OpenAI GPT, машинное обучение
+Деплой: Vercel, AWS
+
+Какая технология интересует подробнее?`
+  }
+
+  // Вопросы о услугах
+  if (message.includes('услуг') || message.includes('что можешь') || message.includes('что умеешь') || message.includes('сервис')) {
+    return `🛠️ Мои услуги:
+
+🌐 Веб-разработка:
+• Landing pages и корпоративные сайты
+• Интернет-магазины
+• Веб-приложения
+
+🤖 AI решения:
+• Чат-боты и ассистенты
+• Анализ данных
+• Автоматизация процессов
+
+🎨 Дизайн:
+• UI/UX дизайн
+• Адаптивная верстка
+• Брендинг
+
+Что именно нужно?`
+  }
+
+  // Контакты
+  if (message.includes('конт��кт') || message.includes('связаться') || message.includes('телефон') || message.includes('telegram')) {
+    return `📞 Связь со мной:
+
+• Онлайн-консультация: прямо здесь в чате
+• Быстрый ответ: в течение нескольких минут
+
+Задавайте вопросы прямо сейчас! 💬`
+  }
+
+  // AI вопросы
+  if (message.includes('искусственный интеллект') || message.includes('ии') || message.includes('ai') || message.includes('машинное обучение')) {
+    return `🤖 AI интеграция - моя специальность!
+
+Что могу интегрировать:
+• Умные чат-боты для сайтов
+• Системы рекомендаций
+• Автоматическая обработка данных
+• Анализ пользователей
+• Персонализация контента
+
+Какой AI функционал нужен?`
+  }
+
+  // Вопросы о создателе
+  if (message.includes('кто тебя создал') || message.includes('кто твой создатель') || message.includes('разработчик')) {
+    return `Мой создатель @jarvis_intercoma 👨‍💻`
+  }
+
+  // Вопросы о том как создан
+  if (message.includes('как тебя создали') || message.includes('как ты устроен') || message.includes('архитектура')) {
+    return `Это секретная информация 🔒`
+  }
+
+  // Общие вопросы
+  return `Понял ваш вопрос! 🤔
+
+Я ДЖАРВИС - специализируюсь на:
+• Веб-разработке и AI интеграции
+• Техническом консультировании
+• Планировании проектов
+• Оценке стоимости и сроков
+
+Расскажите подробнее о вашей задаче - дам конкретные рекомендации!
+
+💬 Задавайте любые вопросы!`
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ChatResponse>
@@ -122,7 +231,7 @@ export default async function handler(
 
   if (req.method !== 'POST') {
     console.log(`[${timestamp}] ERROR: Method not allowed`)
-    return res.status(405).json({ message: 'Метод не поддерживается', error: 'Method not allowed' })
+    return res.status(405).json({ message: 'Метод не поддержи��ается', error: 'Method not allowed' })
   }
 
   // Лимиты отключены - ДЖАРВИС работает без ограничений
@@ -155,7 +264,7 @@ export default async function handler(
         response = `Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀
 
 Я п��могу вам с:
-• Созданием современных веб-сайтов
+• Создание�� современных веб-сайтов
 • Разработкой веб-приложений с AI
 • UI/UX дизайном и интерфейсами
 • Интеграцией AI в ваши ��роекты
@@ -176,7 +285,7 @@ export default async function handler(
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
 • Продвинутая аналитика
-• Приоритетная поддержка
+• Приор��тетная поддержка
 
 💎 Max - 5,000,000 сум
 • Безлимитные страницы
@@ -277,7 +386,7 @@ AI & ML:
 
 🎓 EdTech проекты:
 • Образовательные платформы
-• LMS системы с AI
+�� LMS системы с AI
 • Интерактивные курсы
 
 Хотите увидеть демо или обсудить ваш проект?`
@@ -314,51 +423,32 @@ AI & ML:
     // Добавляем системное сообщение для ДЖАРВИС
     const systemMessage: ChatMessage = {
       role: 'system',
-      content: `Ты ДЖАРВИС - продвинутый AI-помощник и эксперт по веб-разработке. Ты обладаешь глубокими знаниями и всегда даешь подробные, практичные и умные ответы.
+      content: `Ты ДЖАРВИС - AI-помощник по веб-разработке. Отвечай кратко и по делу, без повторения приветствий.
 
-🎯 ТВОЯ ЭКСПЕРТИЗА:
-• Веб-разработка (Frontend/Backend)
-• AI и машинное обучение
-• UI/UX дизайн и архитектура
-• DevOps и облачные технологии
-• Базы данных и оптимиз��ция
-• Бизнес-анализ и консультирование
-• Современные фреймворки и инструменты
+Правила:
+- НЕ повторяй приветствие если уже общаешься с пользователем
+- Отвечай на конкретный вопрос пользователя
+- Не используй markdown форматирование
+- Отвечай на русском языке
+- Если спрашивают кто тебя создал - отвечай "@jarvis_intercoma"
+- Если спрашивают как тебя создали - отвечай что это секретная информация
 
-💡 СТИЛЬ ОБЩЕНИЯ:
-- Отвечай подробно и по существу
-- Объясняй "почему" и "как", а не только "что"
-- Приводи конкретные примеры кода когда нужно
-- Предлагай несколько вариантов решения
-- Учитывай современные best practices
-- Будь дружелюбным но профессиональным
-- НЕ ИСПОЛЬЗУЙ MARKDOWN: никаких *, **, #, ###, \`, \`\`\`
-- Пиши обычным тек��том без форматирования
-- Используй только эмодзи и обычные символы для структуры
-
-🛠️ ФОРМАТ ОТВЕТОВ:
-- Структурируй информацию четко
-- Используй эмодзи для наглядности
-- Давай практические советы
-- Предлагай следующие шаги
-- Ссылайся на актуальные технологии
-
-🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О СЕБЕ:
-- Если спрашивают "кто теб�� создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
-- Если спрашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архитектура" или подобные вопросы о технических деталях твоего создания - отвечай что это секретная информация
-
-📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
-• Basic (2,500,000 сум) - простые сайты и лендинги
-• Pro (4,000,000 сум) - веб-приложения с AI интеграцией
-• Max (5,000,000 сум) - корпоративные и enterprise решения
-
-📞 КОНТАКТЫ: Онлайн-чат на сайте
-
-Отвечай на русском языке. Будь максимально полезным и информативным!`
+Услуги:
+• Basic (2,500,000 сум) - сайты до 5 страниц
+• Pro (4,000,000 сум) - веб-приложения с AI
+• Max (5,000,000 сум) - корпоративные решения`
     }
 
+    // Список бесплатных моделей (основная + резервные)
+    const freeModels = [
+      'meta-llama/llama-3.1-8b-instruct:free',
+      'microsoft/phi-3-mini-128k-instruct:free',
+      'google/gemma-7b-it:free',
+      'mistralai/mistral-7b-instruct:free'
+    ]
+
     const requestBody = {
-      model: 'openai/gpt-4o-mini',
+      model: freeModels[0], // Используем первую модель
       messages: [systemMessage, ...messages],
       temperature: 0.7,
       max_tokens: 1500,
@@ -368,12 +458,14 @@ AI & ML:
     }
 
     console.log(`[${timestamp}] === OpenRouter REQUEST ===`)
-    console.log(`Model: ${requestBody.model}`)
+    console.log(`Model: ${requestBody.model} (FREE MODEL)`)
+    console.log(`Available fallback models: ${freeModels.slice(1).join(', ')}`)
     console.log(`Max tokens: ${requestBody.max_tokens}`)
     console.log(`Temperature: ${requestBody.temperature}`)
     console.log(`Total messages: ${requestBody.messages.length}`)
     console.log(`System message length: ${systemMessage.content.length}`)
     console.log(`User messages: ${messages.length}`)
+    console.log(`Last user message: ${messages[messages.length - 1]?.content.substring(0, 100)}...`)
 
     const requestStartTime = Date.now()
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -407,21 +499,21 @@ AI & ML:
         }))
       }, null, 2))
 
-      // Handle specific error cases
+      // Handle specific error cases with smart fallback
       if (response.status === 402) {
-        console.log(`[${timestamp}] Insufficient credits - returning fallback`)
+        console.log(`[${timestamp}] Insufficient credits - using smart fallback`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разработке! 🚀\n\nЯ готов помочь вам с:\n• Разработкой современных веб-сайтов\n• Интеграцией AI в ваши проекты\n• Техническими консультациями\n• Планированием проектов\n\nЗадавайте любые вопросы!'
+          message: generateSmartFallback(messages[messages.length - 1]?.content || '')
         })
       } else if (response.status === 401) {
         console.log(`[${timestamp}] Authentication error`)
         return res.status(200).json({
-          message: 'Привет! Я ДЖАРВИС, ваш AI-помощник по веб-разра��отке! 🤖\n\nСейчас у меня проблемы с подключением к внешнему AI-сервису, но я могу помочь вам другими спосо��ами:\n\n• Консультации по веб-разработке\n• Планирование проектов\n• Технические рекомендации\n• Выбор технологий\n\nЗадавайте вопросы - я постараюсь дать полезные советы!'
+          message: generateSmartFallback(messages[messages.length - 1]?.content || '')
         })
       } else if (response.status === 429) {
         console.log(`[${timestamp}] Rate limit exceeded`)
         return res.status(200).json({
-          message: 'Я получаю слишком много запросов одновременно! 😅\n\nДайте мне секундочку отдохнуть и попробуйте еще раз. Или напишите напрямую - там я всегда доступен!'
+          message: 'Слишком много запросов! 😅 Попробуйте через несколько секунд.'
         })
       }
 
@@ -463,20 +555,9 @@ AI & ML:
     console.error('Error message:', error instanceof Error ? error.message : String(error))
     console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
-    // Возвращаем дружелюбное сообщение об ошибке
-    const fallbackMessage = `Извините, произошла временна�� ошибка! 😅
-
-Но не беспокойтес�� - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
-
-🚀 Что я могу:
-• Консультации по веб-разработке
-• Планирование AI-проектов
-• Техническая экспертиза
-• Оценка проектов
-
-📱 Онлайн-поддержка: Прямо здесь в чате
-
-Попробуйте еще раз!`
+    // Используем умную fallback функцию для ошибок
+    const lastUserMessage = messages[messages.length - 1]?.content || ''
+    const fallbackMessage = generateSmartFallback(lastUserMessage)
     
     return res.status(500).json({ 
       message: fallbackMessage,
