@@ -65,32 +65,12 @@ export function OrderProvider({ children }: { children: ReactNode }) {
   }
 
   const updateOrderStatus = async (orderId: string, status: 'confirmed' | 'rejected'): Promise<void> => {
-    // Обновляем локально сразу для отзывчивости UI
+    // Обновляем только локально (временно отключаем API)
     setOrders(prev => prev.map(order =>
       order.id === orderId
         ? { ...order, status, updatedAt: new Date().toISOString() }
         : order
     ))
-
-    // Пытаемся синхронизировать с сервером (только на клиенте)
-    if (typeof window !== 'undefined') {
-      try {
-        const response = await fetch('/api/orders', {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ orderId, status }),
-        })
-
-        if (!response.ok) {
-          console.warn('Failed to update order status on server')
-        }
-      } catch (error) {
-        console.error('Error updating order status:', error)
-        // Локальное состояние уже обновлено, поэтому не требуется дополнительных действий
-      }
-    }
   }
 
   const getUserOrders = (userId: string): Order[] => {
