@@ -36,21 +36,10 @@ export function OrderProvider({ children }: { children: ReactNode }) {
 
   // Загружаем заказы при инициализации
   useEffect(() => {
-    const loadOrders = async () => {
-      try {
-        const response = await fetch('/api/orders')
-        if (response.ok) {
-          const loadedOrders = await response.json()
-          setOrders(loadedOrders)
-        }
-      } catch (error) {
-        console.error('Error loading orders:', error)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    loadOrders()
+    // Временно отключаем загрузку с API для устранения ошибок
+    setIsLoading(false)
+    // Инициализируем пустым массивом
+    setOrders([])
   }, [])
 
   const createOrder = async (items: CartItem[], formData: OrderFormData, userId: string): Promise<Order> => {
@@ -70,59 +59,18 @@ export function OrderProvider({ children }: { children: ReactNode }) {
       updatedAt: new Date().toISOString()
     }
 
-    // Отправляем на API
-    try {
-      const response = await fetch('/api/orders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newOrder),
-      })
-
-      if (response.ok) {
-        const savedOrder = await response.json()
-        setOrders(prev => [...prev, savedOrder])
-        return savedOrder
-      } else {
-        throw new Error('Failed to create order')
-      }
-    } catch (error) {
-      console.error('Error creating order:', error)
-      // Fallback: сохраняем локально
-      setOrders(prev => [...prev, newOrder])
-      return newOrder
-    }
+    // Сохраняем только локально (временно отключаем API)
+    setOrders(prev => [...prev, newOrder])
+    return newOrder
   }
 
   const updateOrderStatus = async (orderId: string, status: 'confirmed' | 'rejected'): Promise<void> => {
-    try {
-      const response = await fetch('/api/orders', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ orderId, status }),
-      })
-
-      if (response.ok) {
-        setOrders(prev => prev.map(order => 
-          order.id === orderId 
-            ? { ...order, status, updatedAt: new Date().toISOString() }
-            : order
-        ))
-      } else {
-        throw new Error('Failed to update order status')
-      }
-    } catch (error) {
-      console.error('Error updating order status:', error)
-      // Fallback: обновляем локально
-      setOrders(prev => prev.map(order => 
-        order.id === orderId 
-          ? { ...order, status, updatedAt: new Date().toISOString() }
-          : order
-      ))
-    }
+    // Обновляем только локально (временно отключаем API)
+    setOrders(prev => prev.map(order =>
+      order.id === orderId
+        ? { ...order, status, updatedAt: new Date().toISOString() }
+        : order
+    ))
   }
 
   const getUserOrders = (userId: string): Order[] => {

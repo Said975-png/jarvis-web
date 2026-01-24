@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 // Данные для поиска
 const searchData = [
   { title: 'Главная', description: 'Главная страница с общей информацией о компании', url: '/', section: 'Страницы' },
-  { title: 'Админ панель', description: 'Панель администратора для управления заказами', url: '/admin', section: 'Страницы' },
+  { title: 'Админ панель', description: 'Панель администратора для упра��ления заказами', url: '/admin', section: 'Страницы' },
   { title: 'Революционный ИИ-ассистент', description: 'Революционный ИИ-ассистент, который понимает ваши потребности и превращает идеи в реальность. Будущее взаимодействия с технологиями уже здесь.', url: '/', section: 'Заголовки' },
   { title: 'Процесс договора', description: 'Подробная информация о процессе работы с нами', url: '/', section: 'Услуги' },
   { title: 'ДЖАРВИС ИИ ассистент', description: 'Умный помощник для разработки, который понимает контекст', url: '/', section: 'Возможности' },
@@ -161,7 +161,7 @@ export default function SearchableNavbar() {
           <div className="logo-chatgpt">
             <div className="logo-icon-chatgpt">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2Fb3f5046887d8470c82b60bfa8668fc6d%2F344c594fabe14ed7b0083952ee013ca1?format=webp&width=800"
+                src="https://cdn.builder.io/api/v1/image/assets%2F321030175d41423db42a978adc722c81%2F37b07a37d18e47b9a7c20f69c11e21f0?format=webp&width=800"
                 alt="JARVIS Logo"
                 width="32"
                 height="32"

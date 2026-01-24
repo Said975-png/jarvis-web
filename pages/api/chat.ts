@@ -14,6 +14,135 @@ interface ChatResponse {
   error?: string
 }
 
+// Функция для замены английских терминов на русские
+function replaceEnglishTerms(text: string): string {
+  const replacements: { [key: string]: string } = {
+    // Основные веб-термины
+    'web': 'веб',
+    'Web': 'Веб',
+    'website': 'веб-сайт',
+    'Website': 'Веб-сайт',
+    'frontend': 'фронтенд',
+    'Frontend': 'Фронтенд',
+    'front-end': 'фронт-енд',
+    'Front-end': 'Фронт-енд',
+    'backend': 'бэкенд',
+    'Backend': 'Бэкенд',
+    'back-end': 'бэк-енд',
+    'Back-end': 'Бэк-енд',
+    'fullstack': 'фулстек',
+    'Fullstack': 'Фулстек',
+    'full-stack': 'фул-стек',
+    'Full-stack': 'Фул-стек',
+
+    // API и технологии
+    'API': 'АПИ',
+    'api': 'апи',
+    'REST': 'РЕСТ',
+    'GraphQL': 'ГрафКЛ',
+    'JSON': 'ДЖСОН',
+    'HTML': 'ХТМЛ',
+    'CSS': 'ЦСС',
+    'JavaScript': 'ДжаваСкрипт',
+    'TypeScript': 'ТайпСкрипт',
+
+    // Фреймворки
+    'React': 'Реакт',
+    'Vue': 'Вью',
+    'Angular': 'Ангуляр',
+    'Next.js': 'Некст.джс',
+    'Nuxt': 'Накст',
+
+    // Базы данных
+    'database': 'база данных',
+    'Database': 'База данных',
+    'SQL': 'СКЛ',
+    'MySQL': 'МайСКЛ',
+    'PostgreSQL': 'ПостгреСКЛ',
+    'MongoDB': 'МонгоДБ',
+
+    // Общие те��мины
+    'code': 'код',
+    'Code': 'Код',
+    'coding': 'кодирование',
+    'Coding': 'Кодирование',
+    'programming': 'программирование',
+    'Programming': 'Программирование',
+    'developer': 'разработчик',
+    'Developer': 'Разработчик',
+    'development': 'разработка',
+    'Development': 'Разработка',
+    'framework': 'фреймворк',
+    'Framework': 'Фреймворк',
+    'library': 'библиотека',
+    'Library': 'Библиотека',
+    'server': 'сервер',
+    'Server': 'Сервер',
+    'client': 'клиент',
+    'Client': 'Клиент',
+    'responsive': 'адаптивный',
+    'Responsive': 'Адаптивный',
+    'mobile': 'мобильный',
+    'Mobile': 'Мобильный',
+    'desktop': 'десктоп',
+    'Desktop': 'Десктоп',
+    'user': 'пользов��тель',
+    'User': 'Пользователь',
+    'interface': 'интерфейс',
+    'Interface': 'Интерфейс',
+    'design': 'дизайн',
+    'Design': 'Дизайн',
+    'layout': 'макет',
+    'Layout': 'Макет',
+    'component': 'компонент',
+    'Component': 'Компонент',
+    'function': 'функция',
+    'Function': 'Функция',
+    'method': 'метод',
+    'Method': 'Метод',
+    'class': 'класс',
+    'Class': 'Класс',
+    'object': 'объект',
+    'Object': 'Объект',
+    'array': 'массив',
+    'Array': 'Массив',
+    'string': 'строка',
+    'String': 'Строка',
+    'number': 'число',
+    'Number': 'Число',
+    'boolean': 'булево',
+    'Boolean': 'Булево',
+    'variable': 'переменная',
+    'Variable': 'Переменная',
+    'property': 'свойство',
+    'Property': 'Свойство',
+    'value': 'значение',
+    'Value': 'Значение',
+    'error': 'ошибка',
+    'Error': 'Ошибка',
+    'bug': 'баг',
+    'Bug': 'Баг',
+    'feature': 'функция',
+    'Feature': 'Функция',
+    'update': 'обновление',
+    'Update': 'Обновление',
+    'version': 'версия',
+    'Version': 'Версия',
+    'release': 'релиз',
+    'Release': 'Релиз'
+  }
+
+  let result = text
+
+  // Применяем замены только для цельных слов
+  for (const [english, russian] of Object.entries(replacements)) {
+    const regex = new RegExp(`\\b${english}\\b`, 'g')
+    result = result.replace(regex, russian)
+  }
+
+  return result
+}
+
 // Система лимитов запросов
 interface UserLimit {
   count: number
@@ -51,7 +180,7 @@ function checkAndUpdateLimit(ip: string): { allowed: boolean; remaining: number 
 
   const userLimit = userLimits.get(ip)
 
-  // Если пользователь не найден или вр��мя сброса прошло
+  // Если пользователь не найден или вр���мя сброса прошло
   if (!userLimit || now > userLimit.resetTime) {
     userLimits.set(ip, {
       count: 1,
@@ -79,7 +208,7 @@ function cleanMarkdown(text: string): string {
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     // Убираем курсив *текст*
     .replace(/\*([^*]+)\*/g, '$1')
-    // Убираем заголовки ### текст
+    // Убираем заголовки ### ��екст
     .replace(/^#{1,6}\s+/gm, '')
     // Убираем инлайн код `код`
     .replace(/`([^`]+)`/g, '$1')
@@ -87,7 +216,7 @@ function cleanMarkdown(text: string): string {
     .replace(/```[\s\S]*?```/g, '')
     // Убир��ем одиночные * в начале строки (списки)
     .replace(/^\*\s+/gm, '• ')
-    // Убираем лишн��е звездочк��
+    // Убираем лишн��е звез��очк��
     .replace(/\*/g, '')
     // Убираем лишние решетки
     .replace(/#/g, '')
@@ -125,7 +254,7 @@ export default async function handler(
     return res.status(405).json({ message: 'Метод не поддерживается', error: 'Method not allowed' })
   }
 
-  // Лимиты отключены - ДЖАРВИС работает без ограничений
+  // Лимиты отключены - ДЖАРВИС работает без о��раничений
   console.log(`[${timestamp}] ДЖАРВИС доступен без ограничений для IP: ${clientIP}`)
 
   try {
@@ -137,11 +266,11 @@ export default async function handler(
       return res.status(400).json({ message: 'Некорректные сообщения', error: 'Invalid messages' })
     }
 
-    const openRouterApiKey = process.env.OPENROUTER_API_KEY
-    console.log(`[${timestamp}] OpenRouter API Key available:`, !!openRouterApiKey)
-    console.log(`[${timestamp}] API Key prefix:`, openRouterApiKey ? openRouterApiKey.substring(0, 15) + '...' : 'N/A')
+    const groqApiKey = process.env.GROQ_API_KEY
+    console.log(`[${timestamp}] GROQ API Key available:`, !!groqApiKey)
+    console.log(`[${timestamp}] API Key prefix:`, groqApiKey ? groqApiKey.substring(0, 15) + '...' : 'N/A')
 
-    if (!openRouterApiKey) {
+    if (!groqApiKey) {
       console.log(`[${timestamp}] Fallback: Using local JARVIS responses`)
       
       // Local JARVIS logic when API key is not configured
@@ -163,12 +292,12 @@ export default async function handler(
 Что вас интересует?`
       }
       // Pricing questions
-      else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('тариф') || lastMessage.includes('план')) {
+      else if (lastMessage.includes('цен') || lastMessage.includes('стоимость') || lastMessage.includes('т��риф') || lastMessage.includes('план')) {
         response = `💰 Наши тарифы:
 
 📦 Basic - 2,500,000 сум
 • До 5 страниц сайта
-• Современный дизайн
+• Сов��еменный дизайн
 • Адаптивная верстка
 • SEO оптимизация
 
@@ -176,12 +305,12 @@ export default async function handler(
 • Все из Basic + до 15 страниц
 • ИИ ассистент интеграция
 • Продвинутая аналитика
-• Приоритетная поддержка
+• Приоритетн��я поддержка
 
 💎 Max - 5,000,000 сум
 • Безлимитные страницы
 • ДЖАРВИС ИИ полная версия
-• Индивидуальные решения
+• Инд��видуальные решения
 • VIP поддержка 24/7
 
 Какой план вас интересует?`
@@ -201,9 +330,9 @@ export default async function handler(
         response = `🛠️ Мои основные услуги:
 
 🌐 Веб-разработка:
-• Landing pages и корпоративные сайты
+• Landing pages и к��рпоративные сайты
 • Интернет-магазины и каталоги
-• Веб-приложения и порталы
+�� Веб-приложения и порталы
 
 🤖 AI интеграция:
 • Чат-боты и виртуальные ассис��енты
@@ -239,15 +368,15 @@ AI & ML:
 Инфраструктура:
 • Vercel, Netlify
 • AWS, Docker
-• CI/CD автоматизация
+• CI/CD автоматиза��ия
 
-Хотите узнать больше о конкретной технологии?`
+Хотите узнать больше о конкретной техноло��ии?`
       }
       // AI questions
-      else if (lastMessage.includes('искусственный интеллект') || lastMessage.includes('машинное обучение') || lastMessage.includes('ai') || lastMessage.includes('ии')) {
+      else if (lastMessage.includes('искусст��енный интеллект') || lastMessage.includes('машинное обучение') || lastMessage.includes('ai') || lastMessage.includes('ии')) {
         response = `🤖 AI интеграция - моя специализация!
 
-Что я могу интегрировать:
+Что я могу интегрирова��ь:
 • Умные чат-боты для сайтов
 • Системы рекомендаций
 • Автоматическая обработка данных
@@ -262,13 +391,13 @@ AI & ML:
 Какой AI функционал вас интересует?`
       }
       // Portfolio/examples
-      else if (lastMessage.includes('портфолио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('проекты')) {
+      else if (lastMessage.includes('п��ртфолио') || lastMessage.includes('примеры') || lastMessage.includes('работы') || lastMessage.includes('проекты')) {
         response = `💼 Примеры моих работ:
 
 🏪 E-commerce платформы:
 • Интернет-магазины с AI рекомендациями
 • Системы управления каталогом
-• Интеграция платежей и доставки
+• Интег��ация платежей и доставки
 
 🏢 Корпоративные решения:
 • CRM системы с аналитикой
@@ -287,7 +416,7 @@ AI & ML:
         response = `Мой создатель @jarvis_intercoma 👨‍💻`
       }
       // Technical creation questions
-      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устроен') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('на чем ты написан')) {
+      else if (lastMessage.includes('как тебя создали') || lastMessage.includes('из чего тебя создали') || lastMessage.includes('как ты устро��н') || lastMessage.includes('какая у тебя архитектура') || lastMessage.includes('как ты работаешь внутри') || lastMessage.includes('��а чем ты написан')) {
         response = `Это секретная информация 🔒`
       }
       // Default response for other questions
@@ -321,22 +450,25 @@ AI & ML:
 • AI и машинное обучение
 • UI/UX дизайн и архитектура
 • DevOps и облачные технологии
-• Базы данных и оптимиз��ция
+• Базы данных и оптимизация
 • Бизнес-анализ и консультирование
 • Современные фреймворки и инструменты
 
 💡 СТИЛЬ ОБЩЕНИЯ:
-- Отвечай подробно и по существу
+- ВСЕГДА отвечай ТОЛЬКО на русском языке! Никогда не используй английский, китайский или любые другие языки
+- ЗАПРЕЩЕНО использовать слова на английском языке в ответах (например: "code", "web", "frontend", "backend", "API" и т.д.)
+- Используй русские аналоги: "код", "веб", "фронтенд", "бэкенд", "АПИ"
+- Отвечай подробно и ��о существу
 - Объясняй "почему" и "как", а не только "что"
 - Приводи конкретные примеры кода когда нужно
 - Предлагай несколько вариантов решения
 - Учитывай современные best practices
 - Будь дружелюбным но профессиональным
-- НЕ ИСПОЛЬЗУЙ MARKDOWN: никаких *, **, #, ###, \`, \`\`\`
-- Пиши обычным тек��том без форматирования
+- Н�� ИСПОЛЬЗУЙ MARKDOWN: никаких *, **, #, ###, \`, \`\`\`
+- Пиши обычным тек��том без формат��рования
 - Используй только эмодзи и обычные символы для структуры
 
-🛠️ ФОРМАТ ОТВЕТОВ:
+🛠️ ��ОРМАТ ОТВЕТОВ:
 - Структурируй информацию четко
 - Используй эмодзи для наглядности
 - Давай практические советы
@@ -345,7 +477,7 @@ AI & ML:
 
 🤖 СПЕЦИАЛЬНЫЕ ОТВЕТЫ О СЕБЕ:
 - Если спрашивают "кто теб�� создал", "кто твой создатель", "кто разработал тебя" или подобные вопросы - отвечай: "Мой создатель @jarvis_intercoma"
-- Если спрашивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архитектура" или подобные вопросы о технических деталях твоего создания - отвечай что это секретная информация
+- Если спр��шивают "как тебя создали", "из чего тебя создали", "как ты устроен", "какая у тебя архитектура" или подобные вопросы о технических деталях твоего создания - отвечай что э��о секретная информация
 
 📋 УСЛУГИ И ТАРИФЫ (упоминай при запросах о работе):
 • Basic (2,500,000 сум) - простые сайты и лендинги
@@ -354,20 +486,27 @@ AI & ML:
 
 📞 КОНТАКТЫ: Онлайн-чат на сайте
 
-Отвечай на русском языке. Будь максимально полезным и информативным!`
+❗ КРИТИЧЕСКИ ВАЖНО:
+- Отвечай ТОЛЬКО на русском языке
+- Никогда не переходи на английский или другие языки
+- Если пользователь пишет на другом языке - отвечай на русском
+- Все технические термины переводи на русский
+- Проверяй каждое слово перед отправкой ответа
+
+Будь максимально полезным и информативным!`
     }
 
     const requestBody = {
-      model: 'openai/gpt-4o-mini',
+      model: 'llama-3.1-8b-instant',
       messages: [systemMessage, ...messages],
-      temperature: 0.7,
-      max_tokens: 1500,
-      top_p: 1,
-      frequency_penalty: 0,
-      presence_penalty: 0
+      temperature: 0.3,
+      max_tokens: 2048,
+      top_p: 0.9,
+      frequency_penalty: 0.1,
+      presence_penalty: 0.1
     }
 
-    console.log(`[${timestamp}] === OpenRouter REQUEST ===`)
+    console.log(`[${timestamp}] === GROQ REQUEST ===`)
     console.log(`Model: ${requestBody.model}`)
     console.log(`Max tokens: ${requestBody.max_tokens}`)
     console.log(`Temperature: ${requestBody.temperature}`)
@@ -376,26 +515,24 @@ AI & ML:
     console.log(`User messages: ${messages.length}`)
 
     const requestStartTime = Date.now()
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${openRouterApiKey}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://jarvis-ai.uz',
-        'X-Title': 'JARVIS AI Web Development'
+        'Authorization': `Bearer ${groqApiKey}`,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(requestBody)
     })
 
     const requestDuration = Date.now() - requestStartTime
-    console.log(`[${timestamp}] === OpenRouter RESPONSE ===`)
+    console.log(`[${timestamp}] === GROQ RESPONSE ===`)
     console.log(`Status: ${response.status}`)
     console.log(`Request duration: ${requestDuration}ms`)
     console.log(`Content-Type: ${response.headers.get('content-type')}`)
 
     if (!response.ok) {
       const errorData = await response.text()
-      console.error(`[${timestamp}] === OpenRouter ERROR ===`)
+      console.error(`[${timestamp}] === GROQ ERROR ===`)
       console.error(`Status: ${response.status}`)
       console.error(`Status Text: ${response.statusText}`)
       console.error(`Error Data:`, errorData)
@@ -425,7 +562,7 @@ AI & ML:
         })
       }
 
-      throw new Error(`OpenRouter API error: ${response.status} - ${errorData}`)
+      throw new Error(`GROQ API error: ${response.status} - ${errorData}`)
     }
 
     const data = await response.json()
@@ -435,13 +572,16 @@ AI & ML:
 
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
       console.error(`[${timestamp}] Invalid response structure:`, data)
-      throw new Error('Invalid response from OpenRouter')
+      throw new Error('Invalid response from GROQ')
     }
 
     let aiMessage = data.choices[0].message.content
 
-    // Очищаем от Markdown форматирования
+    // Очищаем от Markdown форматир��вания
     aiMessage = cleanMarkdown(aiMessage)
+
+    // Заменяем английские термины на русские
+    aiMessage = replaceEnglishTerms(aiMessage)
 
     console.log(`[${timestamp}] AI response length:`, aiMessage?.length || 0)
     console.log(`[${timestamp}] AI response preview (cleaned):`, aiMessage?.substring(0, 200) + '...')
@@ -464,9 +604,9 @@ AI & ML:
     console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
     
     // Возвращаем дружелюбное сообщение об ошибке
-    const fallbackMessage = `Извините, произошла временна�� ошибка! 😅
+    const fallbackMessage = `Извините, произошла временная ошибка! 😅
 
-Но не беспокойтес�� - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
+Но не беспокойтесь - я ДЖАРВИС, ваш AI-помощник по веб-разработке, и я всегда готов помочь!
 
 🚀 Что я могу:
 • Консультации по веб-разработке

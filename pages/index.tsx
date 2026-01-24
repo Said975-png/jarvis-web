@@ -33,10 +33,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>JARVIS - AI-Powered Web Development</title>
-        <meta name="description" content="JARVIS creates stunning websites using artificial intelligence and cutting-edge technology" />
+        <title>Jarvis - умный ИИ ассистент</title>
+        <meta name="description" content="JARVIS - революционный ИИ-ассистент для создания потрясающих веб-сайтов с использованием искусственного интеллекта" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://cdn.builder.io/api/v1/image/assets%2F321030175d41423db42a978adc722c81%2F37b07a37d18e47b9a7c20f69c11e21f0?format=webp&width=32" />
       </Head>
 
       {/* Глобальный фон с клеточками */}
@@ -62,4 +62,10 @@ export default function Home() {
       <ChatManager />
     </>
   )
+}
+
+export async function getServerSideProps() {
+  return {
+    props: {}
+  }
 }

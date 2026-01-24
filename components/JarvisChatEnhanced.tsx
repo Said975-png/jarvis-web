@@ -810,13 +810,19 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
           background: transparent;
           resize: none;
           outline: none;
-          font-size: 15px;
+          font-size: 16px;
           line-height: 1.5;
           max-height: 120px;
           min-height: 24px;
           color: #374151;
           font-family: inherit;
           font-weight: 400;
+          /* Предотвращение зума на мобильных */
+          -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+          -webkit-appearance: none;
+          transform: translateZ(0);
+          touch-action: manipulation;
         }
 
         .jarvis-textarea::placeholder {
@@ -894,6 +900,20 @@ export default function JarvisChatEnhanced({ isOpen, onClose }: JarvisChatProps)
           .jarvis-sidebar.collapsed {
             height: 60px;
             width: 100%;
+          }
+
+          /* Предотвращение зума на мобильных */
+          .jarvis-textarea {
+            font-size: 16px !important;
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+            transform: translateZ(0);
+          }
+
+          input, textarea, select {
+            font-size: 16px !important;
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
           }
         }
       `}</style>

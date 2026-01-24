@@ -1,11 +1,7 @@
 {
-  "env": {
-    "NEXT_PUBLIC_APP_URL": "https://jarvis-ai.uz"
-  },
   "functions": {
     "pages/api/**/*.ts": {
       "maxDuration": 30
     }
-  },
-  "regions": ["iad1"]
+  }
 }

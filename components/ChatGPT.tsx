@@ -22,6 +22,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -41,19 +42,42 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+
+      // Предотвра��ение зума на мобильных устройствах
+      const viewport = document.querySelector('meta[name=viewport]')
+      if (viewport) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+      }
+
+      // Дополнительная защита от зума
+      document.documentElement.style.webkitTextSizeAdjust = '100%'
+      document.documentElement.style.textSizeAdjust = '100%'
+      document.body.style.webkitTextSizeAdjust = '100%'
+      document.body.style.textSizeAdjust = '100%'
+
     } else {
       document.body.style.overflow = 'unset'
+
+      // Восстанавливаем оригинальные настройки
+      document.documentElement.style.webkitTextSizeAdjust = ''
+      document.documentElement.style.textSizeAdjust = ''
+      document.body.style.webkitTextSizeAdjust = ''
+      document.body.style.textSizeAdjust = ''
     }
 
     return () => {
       document.body.style.overflow = 'unset'
+      document.documentElement.style.webkitTextSizeAdjust = ''
+      document.documentElement.style.textSizeAdjust = ''
+      document.body.style.webkitTextSizeAdjust = ''
+      document.body.style.textSizeAdjust = ''
     }
   }, [isOpen])
 
   const generateJarvisResponse = async (userMessage: string, conversationHistory: Message[]): Promise<string> => {
     try {
       const apiMessages = conversationHistory
-        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ваш AI-помощник. Чем могу помочь?')
+        .filter(msg => msg.text !== 'Привет! Я ДЖАРВИС, ва�� AI-помощник. Чем могу помочь?')
         .map(msg => ({
           role: msg.isUser ? 'user' as const : 'assistant' as const,
           content: msg.text
@@ -87,7 +111,62 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
       return data.message
     } catch (error) {
       console.error('Error calling AI API:', error)
-      return 'Я готов помочь! Попробуйте ещё раз, задав ваш вопрос. Если проблема повторится - задавайте вопросы прямо здесь в чате! 🚀'
+      return '�� готов помочь! Попробуйте ещё раз, задав ваш вопрос. Если проблема повторится - задавайте вопросы прямо здесь в чате! 🚀'
+    }
+  }
+
+  const handleFileAnalyzed = (analysis: string) => {
+    const fileMessage: Message = {
+      id: Date.now().toString(),
+      text: analysis,
+      isUser: false,
+      timestamp: new Date()
+    }
+
+    setMessages(prev => [...prev, fileMessage])
+  }
+
+  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    if (file.type !== 'application/pdf') {
+      alert('Пожалуйста, выберите PDF файл')
+      return
+    }
+
+    if (file.size > 10 * 1024 * 1024) { // 10MB
+      alert('Размер файла не должен превышать 10MB')
+      return
+    }
+
+    setIsTyping(true)
+
+    try {
+      const formData = new FormData()
+      formData.append('pdf', file)
+
+      const response = await fetch('/api/analyze-pdf', {
+        method: 'POST',
+        body: formData
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        handleFileAnalyzed(data.message)
+      } else {
+        throw new Error(data.error || 'Ошибка анализа PDF')
+      }
+    } catch (error) {
+      console.error('File upload error:', error)
+      handleFileAnalyzed(`Ошибка при загрузке файла: ${error instanceof Error ? error.message : 'Не��звес��ная ошибка'}`)
+    } finally {
+      setIsTyping(false)
+      // Очищаем input для возможности повторной загрузки
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
     }
   }
 
@@ -162,7 +241,7 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
                 <h3>ДЖАРВИС</h3>
                 <div className="status-indicator">
                   <div className="status-dot"></div>
-                  В сети
+                  В сет��
                 </div>
               </div>
             </div>
@@ -231,6 +310,24 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         {/* Input */}
         <div className="chatgpt-input-area">
           <div className="input-container">
+            <input
+              type="file"
+              ref={fileInputRef}
+              accept=".pdf"
+              onChange={handleFileSelect}
+              style={{ display: 'none' }}
+            />
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              disabled={isTyping}
+              className="attachment-btn"
+              title="Загрузить PDF файл"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M21.44 11.05L12.25 1.86a2.09 2.09 0 0 0-2.96 0L.7 11.35a2.09 2.09 0 0 0-.61 1.48v8.03A2.14 2.14 0 0 0 2.23 23h8.03c.56 0 1.1-.22 1.48-.61l9.4-9.4a2.09 2.09 0 0 0 0-2.96l-.7-.98z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M11 11L7 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
             <textarea
               ref={textareaRef}
               value={inputText}
@@ -268,6 +365,10 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           align-items: center;
           justify-content: center;
           padding: 0;
+          /* Предотвращение зума на мобильных */
+          -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+          touch-action: manipulation;
         }
 
         .chatgpt-container {
@@ -361,16 +462,17 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           display: flex;
           gap: 12px;
           align-items: flex-start;
-          max-width: 70%;
+          max-width: 100%;
+          width: 100%;
         }
 
         .user-message {
-          align-self: flex-end;
+          justify-content: flex-end;
           flex-direction: row-reverse;
         }
 
         .ai-message {
-          align-self: flex-start;
+          justify-content: flex-start;
         }
 
         .message-avatar {
@@ -397,12 +499,13 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .message-bubble {
-          padding: 12px 16px;
-          border-radius: 18px;
+          padding: 16px;
+          border-radius: 16px;
           font-size: 15px;
-          line-height: 1.6;
+          line-height: 1.5;
           word-wrap: break-word;
           position: relative;
+          white-space: pre-wrap;
           -webkit-user-select: text !important;
           -moz-user-select: text !important;
           -ms-user-select: text !important;
@@ -410,16 +513,22 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         }
 
         .user-message .message-bubble {
-          background: #0066cc;
+          background: #2563eb;
           color: #ffffff;
+          border-radius: 16px;
           border-bottom-right-radius: 4px;
+          max-width: 80%;
+          margin-left: auto;
         }
 
         .ai-message .message-bubble {
-          background: #f1f3f4;
-          color: #0d1117;
+          background: #f7f7f8;
+          color: #374151;
+          border-radius: 16px;
           border-bottom-left-radius: 4px;
-          border: 1px solid #e5e5e7;
+          border: none;
+          max-width: 100%;
+          width: 100%;
         }
 
         .typing-indicator {
@@ -503,6 +612,10 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
           user-select: text !important;
           -webkit-tap-highlight-color: transparent;
           -webkit-touch-callout: default;
+          /* Предотвращение зума на iOS */
+          -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+          zoom: 1;
         }
 
         .chatgpt-input::placeholder {
@@ -536,6 +649,34 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
         .send-btn:disabled {
           background: #d0d7de;
           color: #8e8ea0;
+          cursor: not-allowed;
+          transform: none;
+        }
+
+        .attachment-btn {
+          width: 36px;
+          height: 36px;
+          border-radius: 8px;
+          border: none;
+          background: #f1f3f4;
+          color: #666;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+
+        .attachment-btn:hover:not(:disabled) {
+          background: #e8eaed;
+          color: #0066cc;
+          transform: translateY(-1px);
+        }
+
+        .attachment-btn:disabled {
+          background: #f1f3f4;
+          color: #bbb;
           cursor: not-allowed;
           transform: none;
         }
@@ -581,16 +722,31 @@ export default function ChatGPT({ isOpen, onClose }: ChatGPTProps) {
             -webkit-appearance: none;
             -webkit-user-select: text;
             touch-action: manipulation;
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+            zoom: 1 !important;
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000;
           }
 
           .message {
             max-width: 85%;
           }
 
-          /* Предотвращаем зум при фоку��е на input */
+          /* Предотвращаем зум при ��оку��е на input */
           input, textarea, select {
             font-size: 16px !important;
             transform: translateZ(0);
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+            zoom: 1 !important;
+          }
+
+          /* Предотвращение зума на всем контейнере чата */
+          .chatgpt-container * {
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
           }
         }
       `}</style>
